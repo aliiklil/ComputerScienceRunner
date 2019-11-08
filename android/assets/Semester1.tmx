@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <layer name="Background" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKHj+4dekCm4aqqqqqqqqqqqqqqqqqqqqr5/Rj8fQQ==
+  </data>
+ </layer>
+ <layer name="NotWalkable" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt2TkKACAMBED9/6dtRVELLwgzsLUWC4aYEgAAAAAAAJHkJhBN23FdB+Ak7wsRjOalWa91HwCgd2MHZe4CoOa/A+Cv1S51JyfPe3VnkToFANsA6Q==
+  </data>
+ </layer>
+</map>
