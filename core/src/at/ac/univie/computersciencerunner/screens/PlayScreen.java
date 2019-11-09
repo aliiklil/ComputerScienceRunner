@@ -74,6 +74,7 @@ public class PlayScreen implements Screen {
 
             shape.setAsBox(rect.getWidth() / 2 / ComputerScienceRunner.PPM, rect.getHeight() / 2 / ComputerScienceRunner.PPM);
             fixtureDef.shape = shape;
+            fixtureDef.friction = 0;
             body.createFixture(fixtureDef);
         }
 

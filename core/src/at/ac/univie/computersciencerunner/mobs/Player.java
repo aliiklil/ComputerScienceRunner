@@ -44,6 +44,10 @@ public class Player {
 
     public Body body;
 
+    private boolean doubleJumpUsed; //True if player already has double-jumped
+
+    private boolean jumping; //True from the time player presses jump button, until player is on a ground again
+
     public Player(World world) {
 
         createStandLeftAnimation();
@@ -69,6 +73,7 @@ public class Player {
         PolygonShape rectangle = new PolygonShape();
         rectangle.setAsBox(8 / ComputerScienceRunner.PPM, 20 / ComputerScienceRunner.PPM);
         fixtureDef.shape = rectangle;
+        fixtureDef.friction = 0;
         body.createFixture(fixtureDef);
 
         CircleShape circle = new CircleShape();
@@ -76,7 +81,9 @@ public class Player {
         circle.setRadius(8 / ComputerScienceRunner.PPM);
         circle.setPosition(new Vector2(0, -16 / ComputerScienceRunner.PPM));
         fixtureDef.shape = circle;
+        fixtureDef.friction = 0;
         body.createFixture(fixtureDef);
+
 
     }
 
@@ -118,7 +125,7 @@ public class Player {
 
     public void createJumpLeftAnimation() {
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 1; i++) {
             frames.add(new TextureRegion(texture, i * 64, 256, 64, 64));
         }
         jumpLeftAnimation = new Animation(0.1f, frames);
@@ -127,7 +134,7 @@ public class Player {
 
     public void createJumpRightAnimation() {
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 1; i++) {
             frames.add(new TextureRegion(texture, i * 64, 320, 64, 64));
         }
         jumpRightAnimation = new Animation(0.1f, frames);
@@ -158,23 +165,109 @@ public class Player {
     public void handleInput(float dt) {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            body.applyLinearImpulse(new Vector2(0, 5f), body.getWorldCenter(), true);
+            if(body.getLinearVelocity().y == 0) {
+                body.applyLinearImpulse(new Vector2(0, 5f), body.getWorldCenter(), true);
+
+                if(currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
+                    currentAnimation = jumpLeftAnimation;
+                }
+
+                if(currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
+                    currentAnimation = jumpRightAnimation;
+                }
+                jumping = true;
+            } else if (body.getLinearVelocity().y != 0 && !doubleJumpUsed) {
+                body.applyLinearImpulse(new Vector2(0, 5f), body.getWorldCenter(), true);
+                doubleJumpUsed = true;
+                jumping = true;
+                if(currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
+                    currentAnimation = jumpLeftAnimation;
+                }
+
+                if(currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
+                    currentAnimation = jumpRightAnimation;
+                }
+
+            }
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x >= -2) {
+        //System.out.println(body.getLinearVelocity().y);
+
+        if(body.getLinearVelocity().y == 0) {
+            doubleJumpUsed = false; //Player is on the ground, so we set the boolean to false again
+
+            if(body.getLinearVelocity().x == 0) {
+                if (currentAnimation == jumpLeftAnimation) {
+                    currentAnimation = standLeftAnimation;
+                }
+
+                if (currentAnimation == jumpRightAnimation) {
+                    currentAnimation = standRightAnimation;
+                }
+            } else {
+                if (currentAnimation == jumpLeftAnimation) {
+                    currentAnimation = runLeftAnimation;
+                }
+
+                if (currentAnimation == jumpRightAnimation) {
+                    currentAnimation = runRightAnimation;
+                }
+            }
+
+        }
+
+        if(jumping) {
+            if(body.getLinearVelocity().x > 0) {
+                currentAnimation = jumpRightAnimation;
+            } else if (body.getLinearVelocity().x < 0) {
+                currentAnimation = jumpLeftAnimation;
+            }
+        }
+
+        if(body.getLinearVelocity().y == 0) {
+            jumping = false;
+        }
+
+        if(!jumping && body.getLinearVelocity().y < 0) {
+
+            if(body.getLinearVelocity().x > 0) {
+                currentAnimation = runRightAnimation;
+            }
+
+            if(body.getLinearVelocity().x < 0) {
+                currentAnimation = runLeftAnimation;
+            }
+
+            if(body.getLinearVelocity().x == 0) {
+                if (currentAnimation == runRightAnimation) {
+                    currentAnimation = standRightAnimation;
+                }
+
+                if (currentAnimation == runLeftAnimation) {
+                    currentAnimation = standLeftAnimation;
+                }
+            }
+
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -2) {
             body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
-            if(currentAnimation != runLeftAnimation) {
+            if(currentAnimation != runLeftAnimation && body.getLinearVelocity().y == 0) {
                 stateTime = 0; //Starts animation from beginning again, not from where it left before
             }
-            currentAnimation = runLeftAnimation;
+            if(body.getLinearVelocity().y == 0) {
+                currentAnimation = runLeftAnimation;
+            }
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x <= 2) {
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && !Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 2) {
             body.applyLinearImpulse(new Vector2(0.5f, 0), body.getWorldCenter(), true);
-            if(currentAnimation != runRightAnimation) {
+            if(currentAnimation != runRightAnimation && body.getLinearVelocity().y == 0) {
                 stateTime = 0;
             }
-            currentAnimation = runRightAnimation;
+            if(body.getLinearVelocity().y == 0) {
+                currentAnimation = runRightAnimation;
+            }
         }
 
 
@@ -184,6 +277,19 @@ public class Player {
 
         if(!Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= 0f) {
             body.setLinearVelocity(0f, body.getLinearVelocity().y);
+        }
+
+        if((Gdx.input.isKeyPressed(Input.Keys.LEFT) && Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
+            body.setLinearVelocity(0f, body.getLinearVelocity().y);
+
+            if(currentAnimation == runRightAnimation) {
+                currentAnimation = standRightAnimation;
+            }
+
+            if(currentAnimation == runLeftAnimation) {
+                currentAnimation = standLeftAnimation;
+            }
+
         }
 
 
