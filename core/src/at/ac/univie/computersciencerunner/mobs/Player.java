@@ -161,22 +161,32 @@ public class Player {
             body.applyLinearImpulse(new Vector2(0, 5f), body.getWorldCenter(), true);
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 2) {
-            body.applyLinearImpulse(new Vector2(-0.1f, 0), body.getWorldCenter(), true);
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x >= -2) {
+            body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
             if(currentAnimation != runLeftAnimation) {
-
                 stateTime = 0; //Starts animation from beginning again, not from where it left before
             }
             currentAnimation = runLeftAnimation;
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -2) {
-            body.applyLinearImpulse(new Vector2(0.1f, 0), body.getWorldCenter(), true);
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x <= 2) {
+            body.applyLinearImpulse(new Vector2(0.5f, 0), body.getWorldCenter(), true);
             if(currentAnimation != runRightAnimation) {
                 stateTime = 0;
             }
             currentAnimation = runRightAnimation;
         }
+
+
+        if(!Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 0f) {
+            body.setLinearVelocity(0f, body.getLinearVelocity().y);
+        }
+
+        if(!Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= 0f) {
+            body.setLinearVelocity(0f, body.getLinearVelocity().y);
+        }
+
+
 
         if(!Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if(currentAnimation == runLeftAnimation) {
