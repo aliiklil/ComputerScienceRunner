@@ -12,6 +12,8 @@ public class ComputerScienceRunner extends Game {
 	public static final int WIDTH = 400;
 	public static final int HEIGHT = 208;
 
+	public static final float PPM = 100; //pixels per meter
+
 	public static PlayScreen playScreen;
 
 	@Override

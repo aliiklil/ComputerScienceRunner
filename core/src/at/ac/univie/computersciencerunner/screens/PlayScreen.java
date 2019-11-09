@@ -4,19 +4,31 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 import at.ac.univie.computersciencerunner.hud.Hud;
+import at.ac.univie.computersciencerunner.mapObjects.Brick;
+import at.ac.univie.computersciencerunner.mapObjects.Coin;
 import at.ac.univie.computersciencerunner.mobs.Player;
 
 public class PlayScreen implements Screen {
 
-    public OrthographicCamera orthographicCamera;
+    public OrthographicCamera camera;
     private Viewport viewPort;
     private Hud hud;
 
@@ -26,24 +38,67 @@ public class PlayScreen implements Screen {
 
     private Player player;
 
+    private World world;
+    private Box2DDebugRenderer b2dr;
+
     public PlayScreen() {
 
-        orthographicCamera = new OrthographicCamera();
-        viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, orthographicCamera);
+        camera = new OrthographicCamera();
+        viewPort = new FitViewport(ComputerScienceRunner.WIDTH / ComputerScienceRunner.PPM, ComputerScienceRunner.HEIGHT / ComputerScienceRunner.PPM, camera);
         hud = new Hud(ComputerScienceRunner.batch);
 
         tmxMapLoader = new TmxMapLoader();
         tiledMap = tmxMapLoader.load("Semester1.tmx");
-        orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+        orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap, 1 / ComputerScienceRunner.PPM);
 
-        orthographicCamera.position.set(viewPort.getWorldWidth() / 2, viewPort.getWorldHeight() / 2, 0);
+        camera.position.set(viewPort.getWorldWidth() / 2, viewPort.getWorldHeight() / 2, 0);
 
-        player = new Player();
+        world = new World(new Vector2(0, -9.81f), true);
+        b2dr = new Box2DDebugRenderer();
+
+        player = new Player(world);
+
+        BodyDef bodyDef = new BodyDef();
+        PolygonShape shape = new PolygonShape();
+        FixtureDef fixtureDef = new FixtureDef();
+        Body body;
+
+        //Ground
+        for(MapObject object : tiledMap.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            bodyDef.type = BodyDef.BodyType.StaticBody;
+            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / ComputerScienceRunner.PPM, (rect.getY() + rect.getHeight() / 2) / ComputerScienceRunner.PPM);
+
+            body = world.createBody(bodyDef);
+
+            shape.setAsBox(rect.getWidth() / 2 / ComputerScienceRunner.PPM, rect.getHeight() / 2 / ComputerScienceRunner.PPM);
+            fixtureDef.shape = shape;
+            body.createFixture(fixtureDef);
+        }
+
+        //Bricks
+        for(MapObject object : tiledMap.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            new Brick(world, tiledMap, rect);
+        }
+
+        //Coins
+        for(MapObject object : tiledMap.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            new Coin(world, tiledMap, rect);
+        }
+
     }
 
     public void update(float dt) {
-        orthographicCamera.update();
-        orthogonalTiledMapRenderer.setView(orthographicCamera);
+
+        world.step(1/60f, 6, 5);
+
+        camera.position.x = player.body.getPosition().x;
+
+        camera.update();
+        orthogonalTiledMapRenderer.setView(camera);
 
         player.update(dt);
     }
@@ -57,11 +112,13 @@ public class PlayScreen implements Screen {
 
         orthogonalTiledMapRenderer.render();
 
+        b2dr.render(world, camera.combined);
+
         ComputerScienceRunner.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
         ComputerScienceRunner.batch.begin();
-        player.draw(ComputerScienceRunner.batch);
+        player.draw();
         ComputerScienceRunner.batch.end();
     }
 
@@ -83,10 +140,18 @@ public class PlayScreen implements Screen {
     public void hide() { }
 
     @Override
-    public void dispose() { }
+    public void dispose() {
 
-    public OrthographicCamera getOrthographicCamera() {
-        return orthographicCamera;
+        tiledMap.dispose();
+        orthogonalTiledMapRenderer.dispose();
+        b2dr.dispose();
+        world.dispose();
+        hud.dispose();
+
+    }
+
+    public OrthographicCamera getCamera() {
+        return camera;
     }
 
 }

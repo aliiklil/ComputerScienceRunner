@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="39">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="200" height="20">
   <data encoding="base64" compression="zlib">
    eJztwwEJAAAMBKHj+4dekCm4aqqqqqqqqqqqqqqqqqqqqr5/Rj8fQQ==
   </data>
  </layer>
- <layer name="NotWalkable" width="200" height="20">
+ <layer name="Graphics" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2TkKACAMBED9/6dtRVELLwgzsLUWC4aYEgAAAAAAAJHkJhBN23FdB+Ak7wsRjOalWa91HwCgd2MHZe4CoOa/A+Cv1S51JyfPe3VnkToFANsA6Q==
+   eJzt2MsKgCAQBdDE/v+b27gYIgMrTfAcuAsfo+JK3DYAAAAAAAAAAFhXCgFgXamS1hoAxsun9l76chjbS2JNDnNjLfDOkzeSNxUA8Ifaf9DozHq+1jPc6XlPvff4as3z+lfjM+UAWzsA5w==
   </data>
  </layer>
+ <objectgroup name="Ground">
+  <object id="3" x="0" y="608" width="1088" height="32"/>
+  <object id="5" x="1280" y="608" width="1024" height="32"/>
+  <object id="6" x="2336" y="608" width="352" height="32"/>
+  <object id="10" x="2912" y="608" width="544" height="32"/>
+  <object id="12" x="3712" y="608" width="544" height="32"/>
+  <object id="14" x="4416" y="608" width="512" height="32"/>
+  <object id="16" x="4992" y="608" width="32" height="32"/>
+  <object id="17" x="5120" y="608" width="64" height="32"/>
+  <object id="19" x="5248" y="608" width="1152" height="32"/>
+  <object id="20" x="1344" y="512" width="160" height="32"/>
+  <object id="22" x="1408" y="416" width="192" height="32"/>
+  <object id="23" x="1792" y="352" width="96" height="32"/>
+  <object id="24" x="1824" y="416" width="160" height="32"/>
+  <object id="25" x="1760" y="512" width="128" height="32"/>
+ </objectgroup>
+ <objectgroup name="Bricks">
+  <object id="26" x="576" y="480" width="32" height="32"/>
+  <object id="27" x="640" y="480" width="32" height="32"/>
+  <object id="28" x="608" y="480" width="32" height="32"/>
+  <object id="29" x="416" y="480" width="32" height="32"/>
+  <object id="30" x="864" y="480" width="32" height="32"/>
+  <object id="31" x="832" y="480" width="32" height="32"/>
+  <object id="32" x="928" y="480" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Coins">
+  <object id="33" x="1024" y="480" width="32" height="32"/>
+  <object id="34" x="896" y="480" width="32" height="32"/>
+  <object id="36" x="736" y="480" width="32" height="32"/>
+  <object id="37" x="704" y="480" width="32" height="32"/>
+  <object id="38" x="544" y="480" width="32" height="32"/>
+ </objectgroup>
 </map>

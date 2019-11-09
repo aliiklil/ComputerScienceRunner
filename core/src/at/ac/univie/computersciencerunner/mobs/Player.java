@@ -4,14 +4,24 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
-public class Player extends Sprite {
+public class Player {
+
+    private int spriteWidth = 64;
+    private int spriteHeight = 64;
 
     private Texture texture = new Texture(Gdx.files.internal("player.png"));
 
@@ -32,7 +42,9 @@ public class Player extends Sprite {
 
     private TextureRegion currentFrame;
 
-    public Player() {
+    public Body body;
+
+    public Player(World world) {
 
         createStandLeftAnimation();
         createStandRightAnimation();
@@ -46,6 +58,25 @@ public class Player extends Sprite {
         createDeathAnimation();
 
         currentAnimation = standRightAnimation;
+
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.position.set(32 / ComputerScienceRunner.PPM, 32 / ComputerScienceRunner.PPM);
+
+        body = world.createBody(bodyDef);
+        FixtureDef fixtureDef = new FixtureDef();
+
+        PolygonShape rectangle = new PolygonShape();
+        rectangle.setAsBox(8 / ComputerScienceRunner.PPM, 20 / ComputerScienceRunner.PPM);
+        fixtureDef.shape = rectangle;
+        body.createFixture(fixtureDef);
+
+        CircleShape circle = new CircleShape();
+
+        circle.setRadius(8 / ComputerScienceRunner.PPM);
+        circle.setPosition(new Vector2(0, -16 / ComputerScienceRunner.PPM));
+        fixtureDef.shape = circle;
+        body.createFixture(fixtureDef);
 
     }
 
@@ -126,16 +157,21 @@ public class Player extends Sprite {
 
     public void handleInput(float dt) {
 
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            ComputerScienceRunner.playScreen.getOrthographicCamera().position.x -= 1;
+        if(Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+            body.applyLinearImpulse(new Vector2(0, 5f), body.getWorldCenter(), true);
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 2) {
+            body.applyLinearImpulse(new Vector2(-0.1f, 0), body.getWorldCenter(), true);
             if(currentAnimation != runLeftAnimation) {
+
                 stateTime = 0; //Starts animation from beginning again, not from where it left before
             }
             currentAnimation = runLeftAnimation;
         }
 
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            ComputerScienceRunner.playScreen.getOrthographicCamera().position.x += 1;
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -2) {
+            body.applyLinearImpulse(new Vector2(0.1f, 0), body.getWorldCenter(), true);
             if(currentAnimation != runRightAnimation) {
                 stateTime = 0;
             }
@@ -155,10 +191,8 @@ public class Player extends Sprite {
 
     }
 
-    public void draw(SpriteBatch spriteBatch) {
-
-        spriteBatch.draw(currentFrame, 50, 28);
-
+    public void draw() {
+        ComputerScienceRunner.batch.draw(currentFrame, ComputerScienceRunner.WIDTH / 2 - spriteWidth / 2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
     }
 
 }
