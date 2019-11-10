@@ -58,4 +58,13 @@ public class Hud implements Disposable {
     public void dispose() {
         stage.dispose();
     }
+
+    public int getEctsCount() {
+        return ectsCount;
+    }
+
+    public void setEctsCount(int ectsCount) {
+        this.ectsCount = ectsCount;
+        ectsValue.setText(String.valueOf(ectsCount));
+    }
 }

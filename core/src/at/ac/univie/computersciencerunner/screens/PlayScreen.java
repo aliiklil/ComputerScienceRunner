@@ -176,4 +176,7 @@ public class PlayScreen implements Screen {
         return player;
     }
 
+    public Hud getHud() {
+        return hud;
+    }
 }
