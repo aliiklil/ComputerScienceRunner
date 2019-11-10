@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
+import at.ac.univie.computersciencerunner.WorldContactListener;
 import at.ac.univie.computersciencerunner.hud.Hud;
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
 import at.ac.univie.computersciencerunner.mapObjects.Coin;
@@ -54,6 +55,7 @@ public class PlayScreen implements Screen {
         camera.position.set(viewPort.getWorldWidth() / 2, viewPort.getWorldHeight() / 2, 0);
 
         world = new World(new Vector2(0, -9.81f), true);
+        world.setContactListener(new WorldContactListener());
         b2dr = new Box2DDebugRenderer();
 
         player = new Player(world);
@@ -153,6 +155,10 @@ public class PlayScreen implements Screen {
 
     public OrthographicCamera getCamera() {
         return camera;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
 }
