@@ -14,6 +14,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
@@ -26,7 +28,7 @@ import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 import at.ac.univie.computersciencerunner.WorldContactListener;
 import at.ac.univie.computersciencerunner.hud.Hud;
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
-import at.ac.univie.computersciencerunner.mapObjects.Coin;
+import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mobs.Player;
 
 public class PlayScreen implements Screen {
@@ -44,7 +46,7 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
 
-    private ArrayList<Coin> coinList = new ArrayList<Coin>();
+    private ArrayList<ECTS> ECTSList = new ArrayList<ECTS>();
 
     public PlayScreen() {
 
@@ -81,7 +83,11 @@ public class PlayScreen implements Screen {
             shape.setAsBox(rect.getWidth() / 2 / ComputerScienceRunner.PPM, rect.getHeight() / 2 / ComputerScienceRunner.PPM);
             fixtureDef.shape = shape;
             fixtureDef.friction = 0;
-            body.createFixture(fixtureDef);
+            Fixture fixture = body.createFixture(fixtureDef);
+
+            Filter filter = new Filter();
+            filter.categoryBits = ComputerScienceRunner.GROUND_BIT;
+            fixture.setFilterData(filter);
         }
 
         //Bricks
@@ -90,10 +96,10 @@ public class PlayScreen implements Screen {
             new Brick(world, tiledMap, rect);
         }
 
-        //Coins
+        //ECTS
         for(MapObject object : tiledMap.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            coinList.add(new Coin(world, tiledMap, rect));
+            ECTSList.add(new ECTS(world, tiledMap, rect));
         }
 
     }
@@ -108,6 +114,11 @@ public class PlayScreen implements Screen {
         orthogonalTiledMapRenderer.setView(camera);
 
         player.update(dt);
+
+        for(ECTS ects : ECTSList) {
+            ects.update(dt);
+        }
+
     }
 
     @Override

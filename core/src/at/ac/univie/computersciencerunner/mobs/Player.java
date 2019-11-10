@@ -96,6 +96,9 @@ public class Player {
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
+        fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT;
+
         body.createFixture(fixtureDef).setUserData("feet");
 
     }

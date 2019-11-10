@@ -14,6 +14,11 @@ public class ComputerScienceRunner extends Game {
 
 	public static final float PPM = 100; //pixels per meter
 
+	public static final short PLAYER_BIT = 1;
+	public static final short GROUND_BIT = 2;
+	public static final short ECTS_BIT = 4;
+	public static final short BRICK_BIT = 8;
+
 	public static PlayScreen playScreen;
 
 	@Override
