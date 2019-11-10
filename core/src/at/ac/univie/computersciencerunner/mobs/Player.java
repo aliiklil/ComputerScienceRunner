@@ -50,6 +50,8 @@ public class Player {
     private boolean jumping; //True if player pressed jump button until he is grounded again, Not true if player falls down from somewhere
     private boolean grounded; //True, if the bottom of the player is currently touching something (ground, bricks etc.)
 
+    private long ungroundedTimestamp; //Timestamp when grounded goes from true to false, needed because player should still be able to jump even when he walked off a cliff
+
     public Player(World world) {
 
         createStandLeftAnimation();
@@ -177,7 +179,8 @@ public class Player {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             if(grounded) {
-                body.applyLinearImpulse(new Vector2(0, 5f), body.getWorldCenter(), true);
+                body.setLinearVelocity(body.getLinearVelocity().x, 0);
+                body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true);
                 grounded = false;
                 jumping = true;
                 if(currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
@@ -188,8 +191,9 @@ public class Player {
                     currentAnimation = jumpRightAnimation;
                 }
             } else if (!grounded && !doubleJumpUsed) {
-                body.applyLinearImpulse(new Vector2(0, 5f), body.getWorldCenter(), true);
-                if(jumping) { //Because when player falls down a cliff, he should still be able to double jump
+                body.setLinearVelocity(body.getLinearVelocity().x, 0);
+                body.applyLinearImpulse(new Vector2(0, 4f), body.getWorldCenter(), true);
+                if(jumping) {
                     doubleJumpUsed = true;
                 }
                 jumping = true;
@@ -300,6 +304,7 @@ public class Player {
 
     public void setGrounded(boolean grounded) {
         this.grounded = grounded;
+        ungroundedTimestamp = System.currentTimeMillis();
     }
 
 }
