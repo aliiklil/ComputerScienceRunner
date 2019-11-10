@@ -92,7 +92,7 @@ public class Player {
 
         fixtureDef.shape = feet;
         fixtureDef.friction = 0;
-        fixtureDef.isSensor = true; //It doesn't collide, just is a sensor, to check if mario hits coin brick
+        fixtureDef.isSensor = true;
 
         body.createFixture(fixtureDef).setUserData("feet");
 
@@ -189,7 +189,9 @@ public class Player {
                 }
             } else if (!grounded && !doubleJumpUsed) {
                 body.applyLinearImpulse(new Vector2(0, 5f), body.getWorldCenter(), true);
-                doubleJumpUsed = true;
+                if(jumping) { //Because when player falls down a cliff, he should still be able to double jump
+                    doubleJumpUsed = true;
+                }
                 jumping = true;
                 if(currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
                     currentAnimation = jumpLeftAnimation;
