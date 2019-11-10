@@ -36,7 +36,10 @@ public abstract class InteractiveTileObject {
         shape.setAsBox(bounds.getWidth() / 2 / ComputerScienceRunner.PPM, bounds.getHeight() / 2 / ComputerScienceRunner.PPM);
         fdef.shape = shape;
         fdef.friction = 0;
+        if (this instanceof Coin) {
+            fdef.isSensor = true;
+        }
         body.createFixture(fdef);
-
     }
+
 }

@@ -20,6 +20,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.util.ArrayList;
+
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 import at.ac.univie.computersciencerunner.WorldContactListener;
 import at.ac.univie.computersciencerunner.hud.Hud;
@@ -41,6 +43,8 @@ public class PlayScreen implements Screen {
 
     private World world;
     private Box2DDebugRenderer b2dr;
+
+    private ArrayList<Coin> coinList = new ArrayList<Coin>();
 
     public PlayScreen() {
 
@@ -89,7 +93,7 @@ public class PlayScreen implements Screen {
         //Coins
         for(MapObject object : tiledMap.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            new Coin(world, tiledMap, rect);
+            coinList.add(new Coin(world, tiledMap, rect));
         }
 
     }
