@@ -29,7 +29,7 @@ import at.ac.univie.computersciencerunner.WorldContactListener;
 import at.ac.univie.computersciencerunner.hud.Hud;
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
 import at.ac.univie.computersciencerunner.mapObjects.ECTS;
-import at.ac.univie.computersciencerunner.mapObjects.ItemBrick;
+import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mobs.Player;
 
 public class PlayScreen implements Screen {
@@ -49,7 +49,7 @@ public class PlayScreen implements Screen {
 
     private ArrayList<ECTS> ectsList = new ArrayList<ECTS>();
     private ArrayList<Brick> brickList = new ArrayList<Brick>();
-    private ArrayList<ItemBrick> itemBrickList = new ArrayList<ItemBrick>();
+    private ArrayList<ECTSBrick> ectsBrickList = new ArrayList<ECTSBrick>();
 
     public PlayScreen() {
 
@@ -108,7 +108,7 @@ public class PlayScreen implements Screen {
         //ItemBricks
         for(MapObject object : tiledMap.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            itemBrickList.add(new ItemBrick(world, tiledMap, rect));
+            ectsBrickList.add(new ECTSBrick(world, tiledMap, rect));
         }
 
     }
@@ -132,8 +132,8 @@ public class PlayScreen implements Screen {
             brick.update(dt);
         }
 
-        for(ItemBrick itemBrick : itemBrickList) {
-            itemBrick.update(dt);
+        for(ECTSBrick ECTSBrick : ectsBrickList) {
+            ECTSBrick.update(dt);
         }
 
     }
@@ -195,5 +195,17 @@ public class PlayScreen implements Screen {
 
     public Hud getHud() {
         return hud;
+    }
+
+    public TiledMap getTiledMap() {
+        return tiledMap;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public ArrayList<ECTS> getEctsList() {
+        return ectsList;
     }
 }

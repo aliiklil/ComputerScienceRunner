@@ -51,7 +51,7 @@ public abstract class InteractiveObject {
         if (this instanceof Brick) {
             filter.categoryBits = ComputerScienceRunner.BRICK_BIT;
         }
-        if (this instanceof ItemBrick) {
+        if (this instanceof ECTSBrick) {
             filter.categoryBits = ComputerScienceRunner.ITEM_BRICK_BIT;
         }
         fixture.setUserData(this);
