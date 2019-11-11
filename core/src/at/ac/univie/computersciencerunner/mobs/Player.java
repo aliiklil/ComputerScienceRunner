@@ -52,7 +52,11 @@ public class Player {
 
     private long ungroundedTimestamp; //Timestamp when grounded goes from true to false, needed because player should still be able to jump even when he walked off a cliff
 
+    private int hearts; //How many hearts the player has. If he has 0 hearts, player is dead. Variable can be 0, 1, 2, 3
+
     public Player(World world) {
+
+        hearts = 0;
 
         createStandLeftAnimation();
         createStandRightAnimation();
@@ -333,6 +337,7 @@ public class Player {
 
     public void draw() {
         ComputerScienceRunner.batch.draw(currentFrame, ComputerScienceRunner.WIDTH / 2 - spriteWidth / 2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
+        System.out.println(hearts);
     }
 
     public void setGrounded(boolean grounded) {
@@ -340,4 +345,12 @@ public class Player {
         ungroundedTimestamp = System.currentTimeMillis();
     }
 
+    public int getHearts() {
+        return hearts;
+    }
+
+    public void setHearts(int hearts) {
+        this.hearts = hearts;
+        ComputerScienceRunner.playScreen.getHud().setHeartsCount(hearts);
+    }
 }

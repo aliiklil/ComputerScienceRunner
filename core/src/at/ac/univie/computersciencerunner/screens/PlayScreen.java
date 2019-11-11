@@ -62,7 +62,6 @@ public class PlayScreen implements Screen {
 
         camera = new OrthographicCamera();
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH / ComputerScienceRunner.PPM, ComputerScienceRunner.HEIGHT / ComputerScienceRunner.PPM, camera);
-        hud = new Hud(ComputerScienceRunner.batch);
 
         tmxMapLoader = new TmxMapLoader();
         tiledMap = tmxMapLoader.load("Semester1.tmx");
@@ -75,6 +74,7 @@ public class PlayScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         player = new Player(world);
+        hud = new Hud(ComputerScienceRunner.batch);
 
         BodyDef bodyDef = new BodyDef();
         PolygonShape shape = new PolygonShape();
@@ -234,5 +234,9 @@ public class PlayScreen implements Screen {
 
     public ArrayList<ECTS> getEctsList() {
         return ectsList;
+    }
+
+    public ArrayList<Heart> getHeartList() {
+        return heartList;
     }
 }

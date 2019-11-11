@@ -35,7 +35,7 @@ public class HeartBrick extends InteractiveObject {
             layer.getCell((int) (body.getPosition().x * ComputerScienceRunner.PPM / 32), (int) (body.getPosition().y * ComputerScienceRunner.PPM / 32) + 1).setTile(tileSet.getTile(HEART_ID));
 
             Rectangle rect = new Rectangle((int) (body.getPosition().x * ComputerScienceRunner.PPM) - 16, (int) (body.getPosition().y * ComputerScienceRunner.PPM)  + 16, 32, 32);
-            ComputerScienceRunner.playScreen.getEctsList().add(new ECTS(ComputerScienceRunner.playScreen.getWorld(), ComputerScienceRunner.playScreen.getTiledMap(), rect));
+            ComputerScienceRunner.playScreen.getHeartList().add(new Heart(ComputerScienceRunner.playScreen.getWorld(), ComputerScienceRunner.playScreen.getTiledMap(), rect));
 
         }
     }
