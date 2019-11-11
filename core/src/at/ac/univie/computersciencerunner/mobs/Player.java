@@ -56,7 +56,7 @@ public class Player {
 
     public Player(World world) {
 
-        hearts = 0;
+        hearts = 3;
 
         createStandLeftAnimation();
         createStandRightAnimation();

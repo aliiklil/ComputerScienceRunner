@@ -26,7 +26,6 @@ public class Hud implements Disposable {
     private int ectsCount;
     private int semesterCount;
 
-    private Label ectsLabel;
     private Label semesterLabel;
 
     private Label ectsValue;
@@ -39,6 +38,10 @@ public class Hud implements Disposable {
 
     private Image currentsHeartsImage;
 
+
+    private Texture ects = new Texture(Gdx.files.internal("ects_hud.png"));
+    private Image ectsImage;
+
     public Hud(SpriteBatch spriteBatch) {
         ectsCount = 0;
 
@@ -50,17 +53,18 @@ public class Hud implements Disposable {
 
         table.setFillParent(true);
 
-        currentsHeartsImage = new Image(hearts0);
+        currentsHeartsImage = new Image(hearts3);
 
         table.add(currentsHeartsImage).expandX().padTop(10);
 
-        ectsLabel = new Label("ECTS", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         semesterLabel = new Label("Semester", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
+        ectsImage = new Image(ects);
         ectsValue = new Label(String.valueOf(ectsCount), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         semesterValue = new Label(String.valueOf(semesterCount), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
-        table.add(ectsLabel).expandX().padTop(10);
+
+        table.add(ectsImage).expandX().padTop(10);
         table.add(semesterLabel).expandX().padTop(10);
         table.row();
 
