@@ -78,7 +78,13 @@ public class Player {
         rectangle.setAsBox(8 / ComputerScienceRunner.PPM, 20 / ComputerScienceRunner.PPM);
         fixtureDef.shape = rectangle;
         fixtureDef.friction = 0;
+
+        fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ITEM_BRICK_BIT;
+
         body.createFixture(fixtureDef).setUserData("head");
+
+
 
 
         CircleShape circle = new CircleShape();
@@ -86,7 +92,31 @@ public class Player {
         circle.setPosition(new Vector2(0, -16 / ComputerScienceRunner.PPM));
         fixtureDef.shape = circle;
         fixtureDef.friction = 0;
+
+        fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ITEM_BRICK_BIT;
+
         body.createFixture(fixtureDef);
+
+
+
+
+
+        EdgeShape head = new EdgeShape();
+        head.set(new Vector2(-8 / ComputerScienceRunner.PPM, 22 / ComputerScienceRunner.PPM), new Vector2(8 / ComputerScienceRunner.PPM, 22 / ComputerScienceRunner.PPM));
+
+        fixtureDef.shape = head;
+        fixtureDef.friction = 0;
+        fixtureDef.isSensor = true;
+
+        fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_HEAD_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT;
+
+        body.createFixture(fixtureDef).setUserData("head");
+
+
+
+
 
 
         EdgeShape feet = new EdgeShape();
@@ -96,7 +126,7 @@ public class Player {
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
-        fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
+        fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_FEET_BIT;
         fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT;
 
         body.createFixture(fixtureDef).setUserData("feet");

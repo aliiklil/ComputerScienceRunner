@@ -7,7 +7,7 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
-public class ECTS extends InteractiveTileObject {
+public class ECTS extends InteractiveObject {
 
     protected boolean toDestroy;
     protected boolean destroyed;

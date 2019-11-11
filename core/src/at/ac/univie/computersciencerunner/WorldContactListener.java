@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 
+import at.ac.univie.computersciencerunner.mapObjects.Brick;
 import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 
 public class WorldContactListener implements ContactListener {
@@ -31,6 +32,15 @@ public class WorldContactListener implements ContactListener {
                 ((ECTS)fixA.getUserData()).setToDestroy();
             } else {
                 ((ECTS)fixB.getUserData()).setToDestroy();
+            }
+        }
+
+
+        if(orCategoryBits == ComputerScienceRunner.BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BRICK_BIT) {
+                ((Brick)fixA.getUserData()).setToDestroy();
+            } else {
+                ((Brick)fixB.getUserData()).setToDestroy();
             }
         }
 

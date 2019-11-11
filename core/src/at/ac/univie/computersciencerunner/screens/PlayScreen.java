@@ -29,6 +29,7 @@ import at.ac.univie.computersciencerunner.WorldContactListener;
 import at.ac.univie.computersciencerunner.hud.Hud;
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
 import at.ac.univie.computersciencerunner.mapObjects.ECTS;
+import at.ac.univie.computersciencerunner.mapObjects.ItemBrick;
 import at.ac.univie.computersciencerunner.mobs.Player;
 
 public class PlayScreen implements Screen {
@@ -46,7 +47,8 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
 
-    private ArrayList<ECTS> ECTSList = new ArrayList<ECTS>();
+    private ArrayList<ECTS> ectsList = new ArrayList<ECTS>();
+    private ArrayList<Brick> brickList = new ArrayList<Brick>();
 
     public PlayScreen() {
 
@@ -93,13 +95,19 @@ public class PlayScreen implements Screen {
         //Bricks
         for(MapObject object : tiledMap.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            new Brick(world, tiledMap, rect);
+            brickList.add(new Brick(world, tiledMap, rect));
         }
 
         //ECTS
         for(MapObject object : tiledMap.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            ECTSList.add(new ECTS(world, tiledMap, rect));
+            ectsList.add(new ECTS(world, tiledMap, rect));
+        }
+
+        //ItemBricks
+        for(MapObject object : tiledMap.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            new ItemBrick(world, tiledMap, rect);
         }
 
     }
@@ -115,8 +123,12 @@ public class PlayScreen implements Screen {
 
         player.update(dt);
 
-        for(ECTS ects : ECTSList) {
+        for(ECTS ects : ectsList) {
             ects.update(dt);
+        }
+
+        for(Brick brick : brickList) {
+            brick.update(dt);
         }
 
     }

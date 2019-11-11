@@ -1,0 +1,8 @@
+.)Brown bricks can be destroyed but they never drop anything
+
+.)Yellow Bricks drop ECTS, and hearts
+
+.)There should be question mark bricks (with question marks) which can explain something
+
+.)Player has three hearts, when he takes damage he loses one heart. When he has zero hearts, he needs to start again
+
