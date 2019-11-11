@@ -103,14 +103,14 @@ public class Player {
 
 
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-8 / ComputerScienceRunner.PPM, 22 / ComputerScienceRunner.PPM), new Vector2(8 / ComputerScienceRunner.PPM, 22 / ComputerScienceRunner.PPM));
+        head.set(new Vector2(-7 / ComputerScienceRunner.PPM, 20 / ComputerScienceRunner.PPM), new Vector2(7 / ComputerScienceRunner.PPM, 20 / ComputerScienceRunner.PPM));
 
         fixtureDef.shape = head;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_HEAD_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ITEM_BRICK_BIT;
 
         body.createFixture(fixtureDef).setUserData("head");
 
@@ -127,7 +127,7 @@ public class Player {
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_FEET_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ITEM_BRICK_BIT;
 
         body.createFixture(fixtureDef).setUserData("feet");
 

@@ -49,6 +49,7 @@ public class PlayScreen implements Screen {
 
     private ArrayList<ECTS> ectsList = new ArrayList<ECTS>();
     private ArrayList<Brick> brickList = new ArrayList<Brick>();
+    private ArrayList<ItemBrick> itemBrickList = new ArrayList<ItemBrick>();
 
     public PlayScreen() {
 
@@ -107,7 +108,7 @@ public class PlayScreen implements Screen {
         //ItemBricks
         for(MapObject object : tiledMap.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            new ItemBrick(world, tiledMap, rect);
+            itemBrickList.add(new ItemBrick(world, tiledMap, rect));
         }
 
     }
@@ -129,6 +130,10 @@ public class PlayScreen implements Screen {
 
         for(Brick brick : brickList) {
             brick.update(dt);
+        }
+
+        for(ItemBrick itemBrick : itemBrickList) {
+            itemBrick.update(dt);
         }
 
     }
