@@ -61,6 +61,9 @@ public abstract class InteractiveObject {
         if (this instanceof HeartBrick) {
             filter.categoryBits = ComputerScienceRunner.HEART_BRICK_BIT;
         }
+        if (this instanceof InfoBrick) {
+            filter.categoryBits = ComputerScienceRunner.INFO_BRICK_BIT;
+        }
         fixture.setUserData(this);
         fixture.setFilterData(filter);
     }

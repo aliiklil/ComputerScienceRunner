@@ -23,6 +23,7 @@ public class ComputerScienceRunner extends Game {
 	public static final short ECTS_BRICK_BIT = 64;
 	public static final short HEART_BIT = 128;
 	public static final short HEART_BRICK_BIT = 256;
+	public static final short INFO_BRICK_BIT = 512;
 
 	public static PlayScreen playScreen;
 
