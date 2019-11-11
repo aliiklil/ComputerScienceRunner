@@ -10,16 +10,16 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
-public class ECTSBrick extends InteractiveObject {
+public class HeartBrick extends InteractiveObject {
 
     protected boolean toDestroy;
     protected boolean destroyed;
 
-    private final int DESTROYED_ITEM_BRICK_ID = 8; //Id taken from Tiled, but we always need to take the id from tiled and add one to it
-    private final int ECTS_ID = 17;
+    private final int DESTROYED_ITEM_BRICK_ID = 8; //Taken from Tiled, but we always need to take the id from tiled and add one to it
+    private final int HEART_ID = 6;
     private static TiledMapTileSet tileSet;
 
-    public ECTSBrick(World world, TiledMap map, Rectangle bounds) {
+    public HeartBrick(World world, TiledMap map, Rectangle bounds) {
         super(world, map, bounds);
         tileSet = map.getTileSets().getTileSet("tileset");
         toDestroy = false;
@@ -32,7 +32,7 @@ public class ECTSBrick extends InteractiveObject {
             TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
             layer.getCell((int) (body.getPosition().x * ComputerScienceRunner.PPM / 32), (int) (body.getPosition().y * ComputerScienceRunner.PPM / 32)).setTile(tileSet.getTile(DESTROYED_ITEM_BRICK_ID));
 
-            layer.getCell((int) (body.getPosition().x * ComputerScienceRunner.PPM / 32), (int) (body.getPosition().y * ComputerScienceRunner.PPM / 32) + 1).setTile(tileSet.getTile(ECTS_ID));
+            layer.getCell((int) (body.getPosition().x * ComputerScienceRunner.PPM / 32), (int) (body.getPosition().y * ComputerScienceRunner.PPM / 32) + 1).setTile(tileSet.getTile(HEART_ID));
 
             Rectangle rect = new Rectangle((int) (body.getPosition().x * ComputerScienceRunner.PPM) - 16, (int) (body.getPosition().y * ComputerScienceRunner.PPM)  + 16, 32, 32);
             ComputerScienceRunner.playScreen.getEctsList().add(new ECTS(ComputerScienceRunner.playScreen.getWorld(), ComputerScienceRunner.playScreen.getTiledMap(), rect));

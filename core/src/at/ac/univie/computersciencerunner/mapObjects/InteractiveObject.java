@@ -45,14 +45,21 @@ public abstract class InteractiveObject {
         fixture = body.createFixture(fdef);
 
         Filter filter = new Filter();
-        if (this instanceof ECTS) {
-            filter.categoryBits = ComputerScienceRunner.ECTS_BIT;
-        }
+
         if (this instanceof Brick) {
             filter.categoryBits = ComputerScienceRunner.BRICK_BIT;
         }
+        if (this instanceof ECTS) {
+            filter.categoryBits = ComputerScienceRunner.ECTS_BIT;
+        }
         if (this instanceof ECTSBrick) {
-            filter.categoryBits = ComputerScienceRunner.ITEM_BRICK_BIT;
+            filter.categoryBits = ComputerScienceRunner.ECTS_BRICK_BIT;
+        }
+        if (this instanceof Heart) {
+            filter.categoryBits = ComputerScienceRunner.HEART_BIT;
+        }
+        if (this instanceof HeartBrick) {
+            filter.categoryBits = ComputerScienceRunner.HEART_BRICK_BIT;
         }
         fixture.setUserData(this);
         fixture.setFilterData(filter);

@@ -30,6 +30,8 @@ import at.ac.univie.computersciencerunner.hud.Hud;
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
 import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
+import at.ac.univie.computersciencerunner.mapObjects.Heart;
+import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mobs.Player;
 
 public class PlayScreen implements Screen {
@@ -47,9 +49,14 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
 
-    private ArrayList<ECTS> ectsList = new ArrayList<ECTS>();
+
     private ArrayList<Brick> brickList = new ArrayList<Brick>();
+
+    private ArrayList<ECTS> ectsList = new ArrayList<ECTS>();
     private ArrayList<ECTSBrick> ectsBrickList = new ArrayList<ECTSBrick>();
+
+    private ArrayList<HeartBrick> heartBrickList = new ArrayList<HeartBrick>();
+    private ArrayList<Heart> heartList = new ArrayList<Heart>();
 
     public PlayScreen() {
 
@@ -105,10 +112,22 @@ public class PlayScreen implements Screen {
             ectsList.add(new ECTS(world, tiledMap, rect));
         }
 
-        //ItemBricks
+        //ECTSBricks
         for(MapObject object : tiledMap.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
             ectsBrickList.add(new ECTSBrick(world, tiledMap, rect));
+        }
+
+        //Hearts
+        for(MapObject object : tiledMap.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            heartList.add(new Heart(world, tiledMap, rect));
+        }
+
+        //HeartBricks
+        for(MapObject object : tiledMap.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            heartBrickList.add(new HeartBrick(world, tiledMap, rect));
         }
 
     }
@@ -132,8 +151,16 @@ public class PlayScreen implements Screen {
             brick.update(dt);
         }
 
-        for(ECTSBrick ECTSBrick : ectsBrickList) {
-            ECTSBrick.update(dt);
+        for(ECTSBrick ectsBrick : ectsBrickList) {
+            ectsBrick.update(dt);
+        }
+
+        for(Heart heart : heartList) {
+            heart.update(dt);
+        }
+
+        for(HeartBrick heartBrick : heartBrickList) {
+            heartBrick.update(dt);
         }
 
     }
