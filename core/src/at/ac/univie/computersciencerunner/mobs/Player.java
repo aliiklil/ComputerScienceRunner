@@ -208,38 +208,93 @@ public class Player {
         } else {
             currentFrame = currentAnimation.getKeyFrame(stateTime, true);
         }
-
         handleInput(dt);
+
     }
 
     public void handleInput(float dt) {
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            if(grounded) {
-                body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true);
-                grounded = false;
-                jumping = true;
-                if(currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
-                    currentAnimation = jumpLeftAnimation;
+        if(!ComputerScienceRunner.playScreen.isPaused()) {
+
+            if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+                if (grounded) {
+                    body.setLinearVelocity(body.getLinearVelocity().x, 0);
+                    body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true);
+                    grounded = false;
+                    jumping = true;
+                    if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
+                        currentAnimation = jumpLeftAnimation;
+                    }
+
+                    if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
+                        currentAnimation = jumpRightAnimation;
+                    }
+                } else if (!grounded && !doubleJumpUsed) {
+                    body.setLinearVelocity(body.getLinearVelocity().x, 0);
+                    body.applyLinearImpulse(new Vector2(0, 4f), body.getWorldCenter(), true);
+                    if (jumping) {
+                        doubleJumpUsed = true;
+                    }
+                    jumping = true;
+                    if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
+                        currentAnimation = jumpLeftAnimation;
+                    }
+                    if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
+                        currentAnimation = jumpRightAnimation;
+                    }
+                }
+            }
+
+
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -2) {
+                body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
+                if (currentAnimation != runLeftAnimation) {
+                    stateTime = 0; //Starts animation from beginning again, not from where it left before
+                }
+                if (currentAnimation != jumpLeftAnimation) {
+                    currentAnimation = runLeftAnimation;
+                }
+            }
+
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && !Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 2) {
+                body.applyLinearImpulse(new Vector2(0.5f, 0), body.getWorldCenter(), true);
+                if (currentAnimation != runRightAnimation) {
+                    stateTime = 0;
+                }
+                if (currentAnimation != jumpRightAnimation)
+                    currentAnimation = runRightAnimation;
+            }
+
+
+            if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) && Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
+                body.setLinearVelocity(0f, body.getLinearVelocity().y);
+
+                if (currentAnimation == runRightAnimation) {
+                    currentAnimation = standRightAnimation;
                 }
 
-                if(currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
-                    currentAnimation = jumpRightAnimation;
+                if (currentAnimation == runLeftAnimation) {
+                    currentAnimation = standLeftAnimation;
                 }
-            } else if (!grounded && !doubleJumpUsed) {
-                body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                body.applyLinearImpulse(new Vector2(0, 4f), body.getWorldCenter(), true);
-                if(jumping) {
-                    doubleJumpUsed = true;
-                }
-                jumping = true;
-                if(currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
-                    currentAnimation = jumpLeftAnimation;
-                }
-                if(currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
-                    currentAnimation = jumpRightAnimation;
-                }
+
+            }
+
+        }
+
+        if ((!Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 0f) || ComputerScienceRunner.playScreen.isPaused()) {
+            body.setLinearVelocity(0f, body.getLinearVelocity().y);
+        }
+
+        if ((!Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= 0f) || ComputerScienceRunner.playScreen.isPaused()) {
+            body.setLinearVelocity(0f, body.getLinearVelocity().y);
+        }
+
+        if ((!Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT)) || ComputerScienceRunner.playScreen.isPaused()) {
+            if (currentAnimation == runLeftAnimation) {
+                currentAnimation = standLeftAnimation;
+            }
+            if (currentAnimation == runRightAnimation) {
+                currentAnimation = standRightAnimation;
             }
         }
 
@@ -280,61 +335,10 @@ public class Player {
             }
         }
 
-
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -2) {
-            body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
-            if(currentAnimation != runLeftAnimation) {
-                stateTime = 0; //Starts animation from beginning again, not from where it left before
-            }
-            if(currentAnimation != jumpLeftAnimation) {
-                currentAnimation = runLeftAnimation;
-            }
-        }
-
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && !Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 2) {
-            body.applyLinearImpulse(new Vector2(0.5f, 0), body.getWorldCenter(), true);
-            if(currentAnimation != runRightAnimation) {
-                stateTime = 0;
-            }
-            if(currentAnimation != jumpRightAnimation)
-                currentAnimation = runRightAnimation;
-        }
-
-
-        if(!Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 0f) {
-            body.setLinearVelocity(0f, body.getLinearVelocity().y);
-        }
-
-        if(!Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= 0f) {
-            body.setLinearVelocity(0f, body.getLinearVelocity().y);
-        }
-
-        if((Gdx.input.isKeyPressed(Input.Keys.LEFT) && Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
-            body.setLinearVelocity(0f, body.getLinearVelocity().y);
-
-            if(currentAnimation == runRightAnimation) {
-                currentAnimation = standRightAnimation;
-            }
-
-            if(currentAnimation == runLeftAnimation) {
-                currentAnimation = standLeftAnimation;
-            }
-
-        }
-
-
-
-        if(!Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            if(currentAnimation == runLeftAnimation) {
-                currentAnimation = standLeftAnimation;
-            }
-            if(currentAnimation == runRightAnimation) {
-                currentAnimation = standRightAnimation;
-            }
-        }
-
         if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
+            ComputerScienceRunner.playScreen.resume();
+            ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(true);
         }
 
     }

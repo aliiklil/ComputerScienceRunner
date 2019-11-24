@@ -35,6 +35,7 @@ import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 import at.ac.univie.computersciencerunner.mobs.Player;
+import at.ac.univie.computersciencerunner.CustomOrthogonalTiledMapRenderer;
 
 public class PlayScreen implements Screen {
 
@@ -46,7 +47,7 @@ public class PlayScreen implements Screen {
 
     private TmxMapLoader tmxMapLoader;
     private TiledMap tiledMap;
-    private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
+    private CustomOrthogonalTiledMapRenderer customOrthogonalTiledMapRenderer;
 
     private Player player;
 
@@ -62,6 +63,8 @@ public class PlayScreen implements Screen {
     private ArrayList<HeartBrick> heartBrickList = new ArrayList<HeartBrick>();
     private ArrayList<Heart> heartList = new ArrayList<Heart>();
 
+    private boolean paused;
+
     public PlayScreen() {
 
         camera = new OrthographicCamera();
@@ -69,7 +72,7 @@ public class PlayScreen implements Screen {
 
         tmxMapLoader = new TmxMapLoader();
         tiledMap = tmxMapLoader.load("Semester1.tmx");
-        orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap, 1 / ComputerScienceRunner.PPM);
+        customOrthogonalTiledMapRenderer = new CustomOrthogonalTiledMapRenderer(tiledMap, 1 / ComputerScienceRunner.PPM);
 
         camera.position.set(viewPort.getWorldWidth() / 2, viewPort.getWorldHeight() / 2, 0);
 
@@ -150,7 +153,7 @@ public class PlayScreen implements Screen {
         camera.position.x = player.body.getPosition().x;
 
         camera.update();
-        orthogonalTiledMapRenderer.setView(camera);
+        customOrthogonalTiledMapRenderer.setView(camera);
 
         player.update(dt);
 
@@ -183,7 +186,7 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClearColor(21.0f/255, 120.0f/255, 153.0f/255, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        orthogonalTiledMapRenderer.render();
+        customOrthogonalTiledMapRenderer.render();
 
         b2dr.render(world, camera.combined);
 
@@ -208,10 +211,18 @@ public class PlayScreen implements Screen {
     public void show() { }
 
     @Override
-    public void pause() { }
+    public void pause() {
+
+        paused = true;
+
+    }
 
     @Override
-    public void resume() { }
+    public void resume() {
+
+        paused = false;
+
+    }
 
     @Override
     public void hide() { }
@@ -220,7 +231,7 @@ public class PlayScreen implements Screen {
     public void dispose() {
 
         tiledMap.dispose();
-        orthogonalTiledMapRenderer.dispose();
+        customOrthogonalTiledMapRenderer.dispose();
         b2dr.dispose();
         world.dispose();
         hud.dispose();
@@ -255,7 +266,9 @@ public class PlayScreen implements Screen {
         return heartList;
     }
 
-    public InfoWidget getInfoWidget() {
-        return infoWidget;
-    }
+    public InfoWidget getInfoWidget() { return infoWidget; }
+
+    public boolean isPaused() { return paused; }
+
+    public CustomOrthogonalTiledMapRenderer getCustomOrthogonalTiledMapRenderer() { return customOrthogonalTiledMapRenderer; }
 }

@@ -79,11 +79,10 @@ public class WorldContactListener implements ContactListener {
         }
 
         if(orCategoryBits == ComputerScienceRunner.INFO_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.INFO_BRICK_BIT) {
                 ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(true);
-            } else {
-                ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(true);
-            }
+                ComputerScienceRunner.playScreen.pause();
+                ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(false);
+
         }
 
     }
