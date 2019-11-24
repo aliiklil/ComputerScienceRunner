@@ -11,6 +11,7 @@ import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
+import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 
 public class WorldContactListener implements ContactListener {
 
@@ -74,6 +75,14 @@ public class WorldContactListener implements ContactListener {
                 ((HeartBrick)fixA.getUserData()).setToDestroy();
             } else {
                 ((HeartBrick)fixB.getUserData()).setToDestroy();
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.INFO_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.INFO_BRICK_BIT) {
+                ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(true);
+            } else {
+                ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(true);
             }
         }
 

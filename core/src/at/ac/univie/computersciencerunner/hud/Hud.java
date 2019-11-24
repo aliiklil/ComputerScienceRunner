@@ -1,13 +1,11 @@
 package at.ac.univie.computersciencerunner.hud;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -37,7 +35,6 @@ public class Hud implements Disposable {
     private Texture hearts3 = new Texture(Gdx.files.internal("hearts3.png"));
 
     private Image currentsHeartsImage;
-
 
     private Texture ects = new Texture(Gdx.files.internal("ects_hud.png"));
     private Image ectsImage;

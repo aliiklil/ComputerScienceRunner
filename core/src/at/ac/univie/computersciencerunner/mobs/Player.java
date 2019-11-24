@@ -333,6 +333,10 @@ public class Player {
             }
         }
 
+        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+            ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
+        }
+
     }
 
     public void draw() {

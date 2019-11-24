@@ -54,6 +54,11 @@
  </objectgroup>
  <objectgroup name="InfoBricks">
   <object id="74" x="32" y="512" width="32" height="32"/>
-  <object id="75" x="128" y="512" width="32" height="32"/>
+  <object id="75" x="128" y="512" width="32" height="32">
+   <properties>
+    <property name="Info" value="Die Studierenden kennen die Grundlagen formaler Logik, die verschiedenen Arten von formalen Grammatiken und Automaten, die Zusammenhänge zwischen Grammatiken und Automaten (Chomsky-Hierarchie), und die Grundlagen der Berechenbarkeits- und Komplexitätstheorie. Ferner können sie Logik als Spezifikationssprache anwenden, und formale Sprachen mittels formaler Grammatiken und Automaten beschreiben."/>
+    <property name="Title" value="Theoretische Informatik"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

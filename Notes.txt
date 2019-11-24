@@ -1,7 +1,19 @@
-.)Brown bricks can be destroyed but they never drop anything
+.)Question mark bricks should have text explaining something
 
-.)Yellow Bricks drop ECTS, and hearts
+.)Player shouldn't be able to go out of the level on the left or right and camera shouldnt display space out of level
 
-.)There should be question mark bricks (with question marks) which can explain something
+.)Add money as a collectable item
 
-.)Player has three hearts, when he takes damage he loses one heart. When he has zero hearts, he needs to start again
+.)Add platforms which can be jumped on from below
+
+.)Add questions at the end of each level
+
+.)Add an item, which makes the player immune to damage (like mushroom in Super Mario)
+
+.)Add enemies
+
+.)Add menu
+
+.)Create all levels
+
+.)Add music

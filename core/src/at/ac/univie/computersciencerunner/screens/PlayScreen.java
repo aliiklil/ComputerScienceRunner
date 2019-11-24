@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 import at.ac.univie.computersciencerunner.WorldContactListener;
 import at.ac.univie.computersciencerunner.hud.Hud;
+import at.ac.univie.computersciencerunner.hud.InfoWidget;
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
 import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
@@ -40,6 +41,8 @@ public class PlayScreen implements Screen {
     public OrthographicCamera camera;
     private Viewport viewPort;
     private Hud hud;
+
+    private InfoWidget infoWidget;
 
     private TmxMapLoader tmxMapLoader;
     private TiledMap tiledMap;
@@ -76,6 +79,7 @@ public class PlayScreen implements Screen {
 
         player = new Player(world);
         hud = new Hud(ComputerScienceRunner.batch);
+        infoWidget  = new InfoWidget(ComputerScienceRunner.batch);
 
         BodyDef bodyDef = new BodyDef();
         PolygonShape shape = new PolygonShape();
@@ -176,7 +180,7 @@ public class PlayScreen implements Screen {
     public void render(float delta) {
         update(delta);
 
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(21.0f/255, 120.0f/255, 153.0f/255, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         orthogonalTiledMapRenderer.render();
@@ -185,6 +189,10 @@ public class PlayScreen implements Screen {
 
         ComputerScienceRunner.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+
+        if(infoWidget.isCurrentlyDisplayed()) {
+            infoWidget.stage.draw();
+        }
 
         ComputerScienceRunner.batch.begin();
         player.draw();
@@ -245,5 +253,9 @@ public class PlayScreen implements Screen {
 
     public ArrayList<Heart> getHeartList() {
         return heartList;
+    }
+
+    public InfoWidget getInfoWidget() {
+        return infoWidget;
     }
 }
