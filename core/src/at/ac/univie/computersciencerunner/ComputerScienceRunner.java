@@ -1,8 +1,16 @@
 package at.ac.univie.computersciencerunner;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
+import at.ac.univie.computersciencerunner.screens.GameOverScreen;
+import at.ac.univie.computersciencerunner.screens.LevelSelectionScreen;
+import at.ac.univie.computersciencerunner.screens.MainMenuScreen;
+import at.ac.univie.computersciencerunner.screens.OptionsScreen;
 import at.ac.univie.computersciencerunner.screens.PlayScreen;
 
 public class ComputerScienceRunner extends Game {
@@ -26,13 +34,24 @@ public class ComputerScienceRunner extends Game {
 	public static final short INFO_BRICK_BIT = 512;
 	public static final short WALL_BIT = 1024;
 
+	public static MainMenuScreen mainMenuScreen;
+	public static LevelSelectionScreen levelSelectionScreen;
+	public static OptionsScreen optionsScreen;
 	public static PlayScreen playScreen;
+	public static GameOverScreen gameOverScreen;
 
 	@Override
 	public void create () {
+
 		batch = new SpriteBatch();
+
+		mainMenuScreen = new MainMenuScreen();
+		levelSelectionScreen = new LevelSelectionScreen();
+		optionsScreen = new OptionsScreen();
 		playScreen = new PlayScreen();
-		setScreen(playScreen);
+		gameOverScreen = new GameOverScreen();
+
+		setScreen(mainMenuScreen);
 	}
 
 	@Override

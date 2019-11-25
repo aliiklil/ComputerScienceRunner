@@ -14,12 +14,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import java.awt.Font;
+
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
@@ -34,12 +34,17 @@ public class InfoWidget implements Disposable {
 
     private Image infoWidget = new Image(new Texture(Gdx.files.internal("infoWidget.png")));
 
-    private FreeTypeFontGenerator freeTypeFontGenerator;
-    private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
-    private BitmapFont font;
-
+    private static FreeTypeFontGenerator freeTypeFontGenerator;
+    private static FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
+    private static BitmapFont font;
 
     public InfoWidget(SpriteBatch spriteBatch) {
+
+        viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
+        stage = new Stage(viewPort, spriteBatch);
+
+
+
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.size = 24;
@@ -49,8 +54,7 @@ public class InfoWidget implements Disposable {
 
 
 
-        viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
-        stage = new Stage(viewPort, spriteBatch);
+
 
         Stack stack = new Stack();
 
