@@ -6,14 +6,20 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+import java.awt.Font;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
@@ -21,24 +27,62 @@ public class InfoWidget implements Disposable {
     public Stage stage;
     private Viewport viewPort;
 
-    private Label title;
-    private Label description;
+    private Label titleLabel;
+    private Label descriptionLabel;
 
     private boolean currentlyDisplayed = false;
 
     private Image infoWidget = new Image(new Texture(Gdx.files.internal("infoWidget.png")));
 
+    private FreeTypeFontGenerator freeTypeFontGenerator;
+    private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
+    private BitmapFont font;
+
+
     public InfoWidget(SpriteBatch spriteBatch) {
+        freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
+        fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameter.size = 24;
+
+        fontParameter.color = Color.WHITE;
+        font = freeTypeFontGenerator.generateFont(fontParameter);
+
+
+
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
         stage = new Stage(viewPort, spriteBatch);
 
-        Table table = new Table();
-        table.top();
+        Stack stack = new Stack();
 
+
+
+        stack.setFillParent(true);
+        stack.add(infoWidget);
+
+        stage.addActor(stack);
+
+
+
+
+
+        Table table = new Table();
         table.setFillParent(true);
 
-        table.add(infoWidget).expandX();
 
+
+        titleLabel = new Label("Title", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        table.add(titleLabel).padTop(-300);
+
+        table.row();
+
+
+        descriptionLabel = new Label("Description", new Label.LabelStyle(font, Color.WHITE));
+        descriptionLabel.setWrap(true);
+
+
+
+
+        table.add(descriptionLabel).width(700f).padTop(-100);;
         stage.addActor(table);
 
     }
@@ -54,6 +98,13 @@ public class InfoWidget implements Disposable {
 
     public void setCurrentlyDisplayed(boolean currentlyDisplayed) {
         this.currentlyDisplayed = currentlyDisplayed;
+    }
+
+    public void setTitleAndDescription(String title, String description) {
+
+        titleLabel.setText(title);
+        descriptionLabel.setText(description);
+
     }
 
 }

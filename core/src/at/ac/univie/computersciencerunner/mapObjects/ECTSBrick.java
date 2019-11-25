@@ -32,6 +32,7 @@ public class ECTSBrick extends InteractiveObject {
 
             layer.getCell((int) (body.getPosition().x * ComputerScienceRunner.PPM / 32), (int) (body.getPosition().y * ComputerScienceRunner.PPM / 32) + 1).setTile(tileSet.getTile(ECTS_ID));
 
+
             Rectangle rect = new Rectangle((int) (body.getPosition().x * ComputerScienceRunner.PPM) - 16, (int) (body.getPosition().y * ComputerScienceRunner.PPM)  + 16, 32, 32);
             ComputerScienceRunner.playScreen.getEctsList().add(new ECTS(ComputerScienceRunner.playScreen.getWorld(), ComputerScienceRunner.playScreen.getTiledMap(), rect));
 

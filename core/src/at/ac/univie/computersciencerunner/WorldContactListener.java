@@ -25,7 +25,6 @@ public class WorldContactListener implements ContactListener {
 
         if(fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(true);
-            System.out.println("TRUE");
         }
 
 
@@ -82,7 +81,11 @@ public class WorldContactListener implements ContactListener {
                 ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(true);
                 ComputerScienceRunner.playScreen.pause();
                 ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(false);
-
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.INFO_BRICK_BIT) {
+                ((InfoBrick)fixA.getUserData()).displayInfo();
+            } else {
+                ((InfoBrick)fixB.getUserData()).displayInfo();
+            }
         }
 
     }
@@ -95,7 +98,6 @@ public class WorldContactListener implements ContactListener {
 
         if(fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(false);
-            System.out.println("FALSE");
         }
 
     }

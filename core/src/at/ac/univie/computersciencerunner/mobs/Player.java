@@ -345,7 +345,6 @@ public class Player {
 
     public void draw() {
         ComputerScienceRunner.batch.draw(currentFrame, ComputerScienceRunner.WIDTH / 2 - spriteWidth / 2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
-        System.out.println(hearts);
     }
 
     public void setGrounded(boolean grounded) {
