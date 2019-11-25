@@ -2,6 +2,7 @@ package at.ac.univie.computersciencerunner;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -45,7 +46,7 @@ public class ComputerScienceRunner extends Game {
 
 		batch = new SpriteBatch();
 
-		mainMenuScreen = new MainMenuScreen();
+		mainMenuScreen = new MainMenuScreen(this);
 		levelSelectionScreen = new LevelSelectionScreen();
 		optionsScreen = new OptionsScreen();
 		playScreen = new PlayScreen();
@@ -62,6 +63,26 @@ public class ComputerScienceRunner extends Game {
 	@Override
 	public void dispose () {
 		batch.dispose();
+	}
+
+	public void setMainMenuScreen() {
+		setScreen(mainMenuScreen);
+	}
+
+	public void setLevelSelectionScreen() {
+		setScreen(levelSelectionScreen);
+	}
+
+	public void setOptionsScreen() {
+		setScreen(optionsScreen);
+	}
+
+	public void setPlayScreen() {
+		setScreen(playScreen);
+	}
+
+	public void setGameOverScreen() {
+		setScreen(gameOverScreen);
 	}
 
 }

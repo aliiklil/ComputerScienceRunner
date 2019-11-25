@@ -1,17 +1,27 @@
 package at.ac.univie.computersciencerunner.screens;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
@@ -24,7 +34,23 @@ public class MainMenuScreen implements Screen {
     private static FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
     private static BitmapFont font;
 
-    public MainMenuScreen() {
+
+
+    TextButton playButton;
+    TextButton.TextButtonStyle playButtonStyle;
+
+    TextButton optionsButton;
+    TextButton.TextButtonStyle optionsButtonStyle;
+
+    TextButton endButton;
+    TextButton.TextButtonStyle endButtonStyle;
+
+
+    final ComputerScienceRunner game;
+
+    public MainMenuScreen(ComputerScienceRunner gsame) {
+
+        this.game = gsame;
 
         viewport = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, ComputerScienceRunner.batch);
@@ -40,6 +66,13 @@ public class MainMenuScreen implements Screen {
         font = freeTypeFontGenerator.generateFont(fontParameter);
 
 
+
+
+
+
+
+        stage = new Stage();
+
         Table table = new Table();
         table.center();
         table.setFillParent(true);
@@ -48,20 +81,66 @@ public class MainMenuScreen implements Screen {
         table.add(computerScienceRunnerLabel).expandX();
         table.row();
 
-        Label playLabel  = new Label("PLAY", new Label.LabelStyle(font, new Color(1, 1, 1, 1)));
-        table.add(playLabel).expandX().padTop(100);
+
+        Gdx.input.setInputProcessor(stage);
+
+        playButtonStyle = new TextButton.TextButtonStyle();
+        playButtonStyle.font = font;
+        playButton = new TextButton("PLAY", playButtonStyle);
+
+        playButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setPlayScreen();
+                dispose();
+                return true;
+            }
+        });
+
+        table.add(playButton).expandX().padTop(50);
         table.row();
 
 
-        Label optionsLabel  = new Label("OPTIONS", new Label.LabelStyle(font, new Color(1, 1, 1, 1)));
-        table.add(optionsLabel).expandX().padTop(50);
+        optionsButtonStyle = new TextButton.TextButtonStyle();
+        optionsButtonStyle.font = font;
+        optionsButton = new TextButton("OPTIONS", optionsButtonStyle);
+
+        optionsButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setOptionsScreen();
+                dispose();
+                return true;
+            }
+        });
+
+        table.add(optionsButton).expandX().padTop(50);
         table.row();
 
-        Label endLabel  = new Label("END", new Label.LabelStyle(font, new Color(1, 1, 1, 1)));
-        table.add(endLabel).expandX().padTop(50);
-        table.row();
+
+
+        endButtonStyle = new TextButton.TextButtonStyle();
+        endButtonStyle.font = font;
+        endButton = new TextButton("END", endButtonStyle);
+
+        endButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                dispose();
+                return true;
+            }
+        });
+
+
+        table.add(endButton).expandX().padTop(50);
+
 
         stage.addActor(table);
+
+
+
+
+
 
     }
 
