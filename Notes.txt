@@ -1,5 +1,3 @@
-.)Question mark bricks should have text explaining something
-
 .)Player shouldn't be able to go out of the level on the left or right and camera shouldnt display space out of level
 
 .)Add money as a collectable item

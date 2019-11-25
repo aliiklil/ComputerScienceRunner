@@ -2,9 +2,11 @@ package at.ac.univie.computersciencerunner.mobs;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -73,7 +75,7 @@ public class Player {
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(32 / ComputerScienceRunner.PPM, 32 / ComputerScienceRunner.PPM);
+        bodyDef.position.set(64 / ComputerScienceRunner.PPM, 32 / ComputerScienceRunner.PPM);
 
         body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
@@ -84,7 +86,7 @@ public class Player {
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT;
 
         body.createFixture(fixtureDef).setUserData("head");
 
@@ -134,6 +136,8 @@ public class Player {
         fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT;
 
         body.createFixture(fixtureDef).setUserData("feet");
+
+
 
     }
 
@@ -344,7 +348,13 @@ public class Player {
     }
 
     public void draw() {
-        ComputerScienceRunner.batch.draw(currentFrame, ComputerScienceRunner.WIDTH / 2 - spriteWidth / 2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
+
+        Camera camera = ComputerScienceRunner.playScreen.getCamera();
+        if(camera.position.x == 6.4f) {
+            ComputerScienceRunner.batch.draw(currentFrame, (body.getPosition().x * ComputerScienceRunner.PPM) - 32, (body.getPosition().y * ComputerScienceRunner.PPM) - 24);
+        } else {
+            ComputerScienceRunner.batch.draw(currentFrame, ComputerScienceRunner.WIDTH / 2 - spriteWidth / 2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
+        }
     }
 
     public void setGrounded(boolean grounded) {

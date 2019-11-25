@@ -9,6 +9,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -144,13 +145,34 @@ public class PlayScreen implements Screen {
             new InfoBrick(world, tiledMap, rect);
         }
 
+        //Walls
+        for(MapObject object : tiledMap.getLayers().get(9).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            bodyDef.type = BodyDef.BodyType.StaticBody;
+            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / ComputerScienceRunner.PPM, (rect.getY() + rect.getHeight() / 2) / ComputerScienceRunner.PPM);
+
+            body = world.createBody(bodyDef);
+
+            shape.setAsBox(rect.getWidth() / 2 / ComputerScienceRunner.PPM, rect.getHeight() / 2 / ComputerScienceRunner.PPM);
+            fixtureDef.shape = shape;
+            fixtureDef.friction = 0;
+            Fixture fixture = body.createFixture(fixtureDef);
+
+            Filter filter = new Filter();
+            filter.categoryBits = ComputerScienceRunner.WALL_BIT;
+            fixture.setFilterData(filter);
+        }
+
     }
 
     public void update(float dt) {
 
         world.step(1/60f, 6, 5);
 
-        camera.position.x = player.body.getPosition().x;
+
+
+        camera.position.x = MathUtils.clamp(player.body.getPosition().x, camera.viewportWidth / 2,608 - camera.viewportWidth / 2);
 
         camera.update();
         customOrthogonalTiledMapRenderer.setView(camera);
