@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwwEJAAAMBKHj+4dekCm4aqqqqqqqqqqqqqqqqqqqqr5/Rj8fQQ==
+   eJzt1iEOACAMBMGmjv9/GAkkRVOSEeNrNteMiAQAAAAA4Guj8Pom6EofcKcPWKr/SiNw2rvQCCx6gDttQM12AAAAANDNBPDNH9s=
   </data>
  </layer>
  <layer name="Graphics" width="200" height="20">

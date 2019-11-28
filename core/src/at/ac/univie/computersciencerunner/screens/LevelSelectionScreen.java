@@ -34,17 +34,7 @@ public class LevelSelectionScreen implements Screen {
     private Skin levelSelectButtonSkin;
     private Skin buttonSkin;
 
-    private TextButton semester1Button;
-    private TextButton semester2Button;
-    private TextButton semester3Button;
-    private TextButton semester4Button;
-    private TextButton semester5Button;
-    private TextButton semester6Button;
-
-    private TextButton semester7Button;
-    private TextButton semester8Button;
-    private TextButton semester9Button;
-    private TextButton semester10Button;
+    private TextButton semesterButtons[] = new TextButton[10];
 
     private TextButton backButton;
 
@@ -88,211 +78,44 @@ public class LevelSelectionScreen implements Screen {
         table.top();
         table.setFillParent(true);
 
-
-
         Label selectSemesterLabel  = new Label("Select Semester", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         table.add(selectSemesterLabel).fillX();
         table.row();
 
-
         stage.addActor(table);
-
 
         table = new Table();
         table.top();
         table.setFillParent(true);
 
-
-
-
-
         levelSelectButtonSkin = new Skin(Gdx.files.internal("skins/level/glassy-ui.json"));
 
 
 
-        semester1Button = new TextButton("1", levelSelectButtonSkin);
-
-        semester1Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 1");
-                dispose();
-                return true;
-            }
-        });
-
         table.padTop(100);
-        table.add(semester1Button);
 
+        for(int i = 0; i < semesterButtons.length; i++) {
 
+            semesterButtons[i] = new TextButton(String.valueOf(i+1), levelSelectButtonSkin);
 
+            final int index = i;
 
-        semester2Button = new TextButton("2", levelSelectButtonSkin);
+            semesterButtons[i].addListener(new InputListener() {
+                @Override
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    game.setPlayScreen(index+1);
+                    dispose();
+                    return true;
+                }
+            });
 
-        semester2Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 2");
-                dispose();
-                return true;
+            table.add(semesterButtons[i]);
+
+            if((i-1) % 2 == 0 && i != 0) {
+                table.row();
             }
-        });
 
-
-        table.add(semester2Button);
-
-
-        table.row();
-
-        semester3Button = new TextButton("3", levelSelectButtonSkin);
-
-        semester3Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 3");
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(semester3Button);
-
-
-
-
-
-        semester4Button = new TextButton("4", levelSelectButtonSkin);
-
-        semester4Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 4");
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(semester4Button);
-
-table.row();
-
-
-
-        semester5Button = new TextButton("5", levelSelectButtonSkin);
-
-        semester5Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 5");
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(semester5Button);
-
-
-
-        semester6Button = new TextButton("6", levelSelectButtonSkin);
-
-        semester6Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 6");
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(semester6Button);
-
-
-
-        table.row();
-
-
-
-
-
-
-
-        semester7Button = new TextButton("7", levelSelectButtonSkin);
-
-        semester7Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 7");
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(semester7Button);
-
-
-
-
-        semester8Button = new TextButton("8", levelSelectButtonSkin);
-
-        semester8Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 8");
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(semester8Button);
-
-
-        table.row();
-
-        semester9Button = new TextButton("9", levelSelectButtonSkin);
-
-        semester9Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 9");
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(semester9Button);
-
-
-
-        semester10Button = new TextButton("10", levelSelectButtonSkin);
-
-        semester10Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Semester 10");
-                dispose();
-                return true;
-            }
-        });
-
-        table.add(semester10Button);
-
-
-table.row();
-
-
-
-
-
-
-
-
+        }
 
 
         buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));

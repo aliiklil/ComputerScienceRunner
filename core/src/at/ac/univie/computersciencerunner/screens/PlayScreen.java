@@ -66,13 +66,13 @@ public class PlayScreen implements Screen {
 
     private boolean paused;
 
-    public PlayScreen() {
+    public PlayScreen(int semester) {
 
         camera = new OrthographicCamera();
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH / ComputerScienceRunner.PPM, ComputerScienceRunner.HEIGHT / ComputerScienceRunner.PPM, camera);
 
         tmxMapLoader = new TmxMapLoader();
-        tiledMap = tmxMapLoader.load("Semester1.tmx");
+        tiledMap = tmxMapLoader.load("levels/Semester" + semester + ".tmx");
         customOrthogonalTiledMapRenderer = new CustomOrthogonalTiledMapRenderer(tiledMap, 1 / ComputerScienceRunner.PPM);
 
         camera.position.set(viewPort.getWorldWidth() / 2, viewPort.getWorldHeight() / 2, 0);
