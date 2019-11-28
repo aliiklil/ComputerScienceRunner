@@ -36,16 +36,16 @@ public class MainMenuScreen implements Screen {
     private TextButton optionsButton;
     private TextButton endButton;
 
-    private final ComputerScienceRunner game;
+    final ComputerScienceRunner game;
 
     private Image universityImage = new Image(new Texture(Gdx.files.internal("universityImage.png")));
 
-    public MainMenuScreen(ComputerScienceRunner gsame) {
+    public MainMenuScreen(ComputerScienceRunner computerScienceRunner) {
 
-        this.game = gsame;
+        game = computerScienceRunner;
 
         viewport = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
-        stage = new Stage(viewport, ComputerScienceRunner.batch);
+
 
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
@@ -63,7 +63,20 @@ public class MainMenuScreen implements Screen {
 
 
 
-        stage = new Stage();
+
+
+
+
+
+
+
+    }
+
+    @Override
+    public void show() {
+        stage = new Stage(viewport, ComputerScienceRunner.batch);
+
+        Gdx.input.setInputProcessor(stage);
 
         Table table = new Table();
         table.center();
@@ -73,17 +86,15 @@ public class MainMenuScreen implements Screen {
         table.add(computerScienceRunnerLabel).expandX();
         table.row();
 
+        buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
-        Gdx.input.setInputProcessor(stage);
-
-        buttonSkin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         playButton = new TextButton("PLAY", buttonSkin);
-
+        System.out.println("A");
         playButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setPlayScreen();
+                game.setLevelSelectionScreen();
                 dispose();
                 return true;
             }
@@ -92,8 +103,8 @@ public class MainMenuScreen implements Screen {
         table.add(playButton).expandX().padTop(50);
         table.row();
 
-        optionsButton = new TextButton("OPTIONS", buttonSkin);
 
+        optionsButton = new TextButton("OPTIONS", buttonSkin);
         optionsButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -109,7 +120,6 @@ public class MainMenuScreen implements Screen {
 
 
         endButton = new TextButton("END", buttonSkin);
-
         endButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -126,16 +136,6 @@ public class MainMenuScreen implements Screen {
         table.add(universityImage).right();
 
         stage.addActor(table);
-
-
-
-
-
-
-    }
-
-    @Override
-    public void show() {
 
     }
 

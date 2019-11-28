@@ -47,8 +47,8 @@ public class ComputerScienceRunner extends Game {
 		batch = new SpriteBatch();
 
 		mainMenuScreen = new MainMenuScreen(this);
-		levelSelectionScreen = new LevelSelectionScreen();
-		optionsScreen = new OptionsScreen();
+		levelSelectionScreen = new LevelSelectionScreen(this);
+		optionsScreen = new OptionsScreen(this);
 		playScreen = new PlayScreen();
 		gameOverScreen = new GameOverScreen();
 
