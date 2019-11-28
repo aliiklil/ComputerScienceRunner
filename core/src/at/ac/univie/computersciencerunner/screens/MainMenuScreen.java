@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -25,23 +26,17 @@ public class MainMenuScreen implements Screen {
     private Viewport viewport;
     private Stage stage;
 
-    private static FreeTypeFontGenerator freeTypeFontGenerator;
-    private static FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
-    private static BitmapFont font;
+    private FreeTypeFontGenerator freeTypeFontGenerator;
+    private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
+    private BitmapFont font;
 
+    private Skin buttonSkin;
 
+    private TextButton playButton;
+    private TextButton optionsButton;
+    private TextButton endButton;
 
-    TextButton playButton;
-    TextButton.TextButtonStyle playButtonStyle;
-
-    TextButton optionsButton;
-    TextButton.TextButtonStyle optionsButtonStyle;
-
-    TextButton endButton;
-    TextButton.TextButtonStyle endButtonStyle;
-
-
-    final ComputerScienceRunner game;
+    private final ComputerScienceRunner game;
 
     private Image universityImage = new Image(new Texture(Gdx.files.internal("universityImage.png")));
 
@@ -81,9 +76,9 @@ public class MainMenuScreen implements Screen {
 
         Gdx.input.setInputProcessor(stage);
 
-        playButtonStyle = new TextButton.TextButtonStyle();
-        playButtonStyle.font = font;
-        playButton = new TextButton("PLAY", playButtonStyle);
+        buttonSkin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+
+        playButton = new TextButton("PLAY", buttonSkin);
 
         playButton.addListener(new InputListener() {
             @Override
@@ -97,10 +92,7 @@ public class MainMenuScreen implements Screen {
         table.add(playButton).expandX().padTop(50);
         table.row();
 
-
-        optionsButtonStyle = new TextButton.TextButtonStyle();
-        optionsButtonStyle.font = font;
-        optionsButton = new TextButton("OPTIONS", optionsButtonStyle);
+        optionsButton = new TextButton("OPTIONS", buttonSkin);
 
         optionsButton.addListener(new InputListener() {
             @Override
@@ -116,9 +108,7 @@ public class MainMenuScreen implements Screen {
 
 
 
-        endButtonStyle = new TextButton.TextButtonStyle();
-        endButtonStyle.font = font;
-        endButton = new TextButton("END", endButtonStyle);
+        endButton = new TextButton("END", buttonSkin);
 
         endButton.addListener(new InputListener() {
             @Override
