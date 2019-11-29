@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
 import at.ac.univie.computersciencerunner.mapObjects.Coin;
+import at.ac.univie.computersciencerunner.mapObjects.CoinBrick;
 import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
@@ -94,6 +95,14 @@ public class WorldContactListener implements ContactListener {
                 ((Coin)fixA.getUserData()).setToDestroy();
             } else {
                 ((Coin)fixB.getUserData()).setToDestroy();
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.COIN_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.COIN_BRICK_BIT) {
+                ((CoinBrick)fixA.getUserData()).setToDestroy();
+            } else {
+                ((CoinBrick)fixB.getUserData()).setToDestroy();
             }
         }
 

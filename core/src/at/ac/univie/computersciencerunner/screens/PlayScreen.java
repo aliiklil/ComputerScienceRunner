@@ -31,6 +31,7 @@ import at.ac.univie.computersciencerunner.hud.Hud;
 import at.ac.univie.computersciencerunner.hud.InfoWidget;
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
 import at.ac.univie.computersciencerunner.mapObjects.Coin;
+import at.ac.univie.computersciencerunner.mapObjects.CoinBrick;
 import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
@@ -66,6 +67,7 @@ public class PlayScreen implements Screen {
     private ArrayList<Heart> heartList = new ArrayList<Heart>();
 
     private ArrayList<Coin> coinList = new ArrayList<Coin>();
+    private ArrayList<CoinBrick> coinBrickList = new ArrayList<CoinBrick>();
 
     private boolean paused;
 
@@ -181,6 +183,12 @@ public class PlayScreen implements Screen {
             coinList.add(new Coin(world, tiledMap, rect));
         }
 
+        //CoinBricks
+        for(MapObject object : tiledMap.getLayers().get(11).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            coinBrickList.add(new CoinBrick(world, tiledMap, rect));
+        }
+
     }
 
     public void update(float dt) {
@@ -220,6 +228,9 @@ public class PlayScreen implements Screen {
             coin.update(dt);
         }
 
+        for(CoinBrick coinBrick : coinBrickList) {
+            coinBrick.update(dt);
+        }
     }
 
     @Override
@@ -322,4 +333,6 @@ public class PlayScreen implements Screen {
     public CustomOrthogonalTiledMapRenderer getCustomOrthogonalTiledMapRenderer() { return customOrthogonalTiledMapRenderer; }
 
     public int getCurrentSemester() { return currentSemester; }
+
+    public ArrayList<Coin> getCoinList() { return coinList; }
 }

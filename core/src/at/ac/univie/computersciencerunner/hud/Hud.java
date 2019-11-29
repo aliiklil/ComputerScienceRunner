@@ -21,13 +21,15 @@ public class Hud implements Disposable {
     public Stage stage;
     private Viewport viewPort;
 
-    private int ectsCount;
+
     private int semesterCount;
-
     private Label semesterLabel;
-
-    private Label ectsValue;
     private Label semesterValue;
+
+    private int ectsCount;
+    private Label ectsValue;
+    private Texture ects = new Texture(Gdx.files.internal("ects_hud.png"));
+    private Image ectsImage;
 
     private Texture hearts0 = new Texture(Gdx.files.internal("hearts0.png"));
     private Texture hearts1 = new Texture(Gdx.files.internal("hearts1.png"));
@@ -36,8 +38,10 @@ public class Hud implements Disposable {
 
     private Image currentsHeartsImage;
 
-    private Texture ects = new Texture(Gdx.files.internal("ects_hud.png"));
-    private Image ectsImage;
+    private int coinCount;
+    private Label coinValue;
+    private Texture coin = new Texture(Gdx.files.internal("coin_hud.png"));
+    private Image coinImage;
 
     public Hud(SpriteBatch spriteBatch) {
         ectsCount = 0;
@@ -55,18 +59,22 @@ public class Hud implements Disposable {
         table.add(currentsHeartsImage).expandX().padTop(10);
 
         semesterLabel = new Label("Semester", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        semesterValue = new Label(String.valueOf(semesterCount), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         ectsImage = new Image(ects);
         ectsValue = new Label(String.valueOf(ectsCount), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        semesterValue = new Label(String.valueOf(semesterCount), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
+        coinImage = new Image(coin);
+        coinValue = new Label(String.valueOf(coinCount), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         table.add(ectsImage).expandX().padTop(10);
+        table.add(coinImage).expandX().padTop(10);
         table.add(semesterLabel).expandX().padTop(10);
         table.row();
 
         table.add().expandX().padTop(10);
         table.add(ectsValue).expandX().padTop(10);
+        table.add(coinValue).expandX().padTop(10);
         table.add(semesterValue).expandX().padTop(10);
 
         stage.addActor(table);
@@ -87,6 +95,15 @@ public class Hud implements Disposable {
     public void setEctsCount(int ectsCount) {
         this.ectsCount = ectsCount;
         ectsValue.setText(String.valueOf(ectsCount));
+    }
+
+    public int getCoinCount() {
+        return coinCount;
+    }
+
+    public void setCoinCount(int coinCount) {
+        this.coinCount = coinCount;
+        coinValue.setText(String.valueOf(coinCount));
     }
 
     public void setHeartsCount(int heartsCount) {

@@ -69,6 +69,10 @@ public abstract class InteractiveObject {
             fdef.isSensor = true;
         }
 
+        if (this instanceof CoinBrick) {
+            filter.categoryBits = ComputerScienceRunner.COIN_BRICK_BIT;
+        }
+
         fixture = body.createFixture(fdef);
         fixture.setUserData(this);
         fixture.setFilterData(filter);

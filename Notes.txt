@@ -21,3 +21,7 @@
 .)Create all levels
 
 .)Add music
+
+
+Important notes:
+.)If in Graphics Layer a tile is empty and one tries to access it in the code, you get NullPointerException
