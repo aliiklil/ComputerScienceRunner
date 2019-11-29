@@ -87,21 +87,24 @@
  <objectgroup name="Goal">
   <object id="93" x="5920" y="0" width="32" height="608">
    <properties>
-    <property name="Question1" value="Welche Programmiersprache lernt man in PROG?"/>
-    <property name="Question1Answer1" value="Java"/>
-    <property name="Question1Answer2" value="C++"/>
-    <property name="Question1Answer3" value="C#"/>
-    <property name="Question1Answer4" value="Python"/>
-    <property name="Question2" value="Um was geht es in Netzwerktechnologien?"/>
-    <property name="Question2Answer1" value="Wie man Spam erkennt"/>
-    <property name="Question2Answer2" value="Um Spinnennetze"/>
-    <property name="Question2Answer3" value="Um Techno"/>
-    <property name="Question2Answer4" value="Grundaufbau von Netzwerken"/>
-    <property name="Question3" value="Was lernt man in MG1?"/>
-    <property name="Question3Answer1" value="Grundlagen der Mathematik"/>
-    <property name="Question3Answer2" value="Schuhe richtig zubinden"/>
-    <property name="Question3Answer3" value="Programmieren"/>
-    <property name="Question3Answer4" value="Computerspiele"/>
+    <property name="Question0" value="Welche Programmiersprache lernt man in PROG?"/>
+    <property name="Question0Answer0" value="Java"/>
+    <property name="Question0Answer1" value="C++"/>
+    <property name="Question0Answer2" value="C#"/>
+    <property name="Question0Answer3" value="Python"/>
+    <property name="Question0RightAnswer" value="1"/>
+    <property name="Question1" value="Um was geht es in Netzwerktechnologien?"/>
+    <property name="Question1Answer0" value="Wie man Spam erkennt"/>
+    <property name="Question1Answer1" value="Um Spinnennetze"/>
+    <property name="Question1Answer2" value="Um Techno"/>
+    <property name="Question1Answer3" value="Grundaufbau von Netzwerken"/>
+    <property name="Question1RightAnswer" value="3"/>
+    <property name="Question2" value="Was lernt man in MG1?"/>
+    <property name="Question2Answer0" value="Grundlagen der Mathematik"/>
+    <property name="Question2Answer1" value="Schuhe richtig zubinden"/>
+    <property name="Question2Answer2" value="Programmieren"/>
+    <property name="Question2Answer3" value="Computerspiele"/>
+    <property name="Question2RightAnswer" value="0"/>
    </properties>
   </object>
  </objectgroup>

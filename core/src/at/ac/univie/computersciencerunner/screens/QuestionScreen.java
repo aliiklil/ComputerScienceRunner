@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
+import at.ac.univie.computersciencerunner.Question;
 
 public class QuestionScreen implements Screen {
 
@@ -33,26 +34,15 @@ public class QuestionScreen implements Screen {
 
     private Skin buttonSkin;
 
-    private String question1;
-    private String[] question1Answers =  new String[4];
-
-    private String question2;
-    private String[] question2Answers =  new String[4];
-
-    private String question3;
-    private String[] question3Answers =  new String[4];
-
+    private Question[] questions = new Question[3];
 
     Label questionLabel; //Changes depending on which question the player is currentl
 
-    private TextButton answer1Button; //Also changes depending on which question the player is currentl
-    private TextButton answer2Button;
-    private TextButton answer3Button;
-    private TextButton answer4Button;
+    private TextButton[] answerButton = new TextButton[4]; //Also changes depending on which question the player is currentl
 
     private final ComputerScienceRunner game;
 
-    private int questionCount = 0; //Can either be 0 or 1 or 2, depending on which question the player is currently
+    private int currentQuestionIndex = 0; //Can either be 0 or 1 or 2, depending on which question the player is currently
 
     public QuestionScreen(ComputerScienceRunner computerScienceRunner) {
 
@@ -78,23 +68,26 @@ public class QuestionScreen implements Screen {
         MapObject mapObject = mapObjects.get(0);
         MapProperties mapProperties = mapObject.getProperties();
 
-        question1 = (String) mapProperties.get("Question1");
-        question1Answers[0] = (String) mapProperties.get("Question1Answer1");
-        question1Answers[1] = (String) mapProperties.get("Question1Answer2");
-        question1Answers[2] = (String) mapProperties.get("Question1Answer3");
-        question1Answers[3] = (String) mapProperties.get("Question1Answer4");
+        for(int i = 0; i < questions.length; i++) { //The labels of the properties in Tiled start with Question1 and so on
 
-        question2 = (String) mapProperties.get("Question2");
-        question2Answers[0] = (String) mapProperties.get("Question2Answer1");
-        question2Answers[1] = (String) mapProperties.get("Question2Answer2");
-        question2Answers[2] = (String) mapProperties.get("Question2Answer3");
-        question2Answers[3] = (String) mapProperties.get("Question2Answer4");
+            questions[i]  = new Question();
 
-        question3 = (String) mapProperties.get("Question3");
-        question3Answers[0] = (String) mapProperties.get("Question3Answer1");
-        question3Answers[1] = (String) mapProperties.get("Question3Answer2");
-        question3Answers[2] = (String) mapProperties.get("Question3Answer3");
-        question3Answers[3] = (String) mapProperties.get("Question3Answer4");
+            questions[i].setQuestion((String) mapProperties.get("Question" + i));
+
+            String[] questionAnswers = new String[4];
+
+            questionAnswers[0] = (String) mapProperties.get("Question" + i + "Answer0");
+            questionAnswers[1] = (String) mapProperties.get("Question" + i + "Answer1");
+            questionAnswers[2] = (String) mapProperties.get("Question" + i + "Answer2");
+            questionAnswers[3] = (String) mapProperties.get("Question" + i + "Answer3");
+
+            questions[i].setAnswers(questionAnswers);
+
+            questions[i].setRightAnswerIndex(Integer.valueOf( (String) mapProperties.get("Question" + i + "RightAnswer")));
+
+
+        }
+
 
 
 
@@ -106,80 +99,37 @@ public class QuestionScreen implements Screen {
         table.center();
         table.setFillParent(true);
 
-        questionLabel  = new Label(question1, new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        questionLabel  = new Label(questions[currentQuestionIndex].getQuestion(), new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         questionLabel.setWrap(true);
         table.add(questionLabel).width(700f).colspan(2);
         table.row();
 
         buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
-        answer1Button = new TextButton(question1Answers[0], buttonSkin);
 
-        answer1Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester());
-                dispose();
-                return true;
+        for(int i = 0; i < 4; i++) {
+
+            answerButton[i] = new TextButton(questions[currentQuestionIndex].getAnswers()[i], buttonSkin);
+
+            answerButton[i].addListener(new InputListener() {
+                @Override
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    //game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester());
+                    dispose();
+                    return true;
+                }
+            });
+
+            table.add(answerButton[i]).padTop(100);
+
+            if(i == 1) {
+                table.row();
             }
-        });
 
-
-        table.add(answer1Button).padTop(100);
-
+        }
 
 
 
-        answer2Button = new TextButton(question1Answers[1], buttonSkin);
-
-        answer2Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester());
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(answer2Button).padTop(100);
-
-
-
-        table.row();
-
-
-
-        answer3Button = new TextButton(question1Answers[2], buttonSkin);
-
-        answer3Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester());
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(answer3Button).padTop(100);
-
-
-
-
-        answer4Button = new TextButton(question1Answers[3], buttonSkin);
-
-        answer4Button.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester());
-                dispose();
-                return true;
-            }
-        });
-
-
-        table.add(answer4Button).padTop(100);
 
 
 
