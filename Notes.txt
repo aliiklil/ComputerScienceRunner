@@ -1,18 +1,22 @@
+.)Add coins
+
+.)Add ending to each semester
+
+.)Add QuestionsScreen
+--)Three Questions always
+--)If player fails every questions, there is no downside
+
+.)Add SemesterCompletedScreen
+
 .)Save which levels player has completed (dont allow all levels from the start for the player)
 
 .)Give the player an option to reset his level progress
 
-.)Add money as a collectable item
-
 .)Add platforms which can be jumped on from below
-
-.)Add questions at the end of each level (always 3 questions)
-
-.)Add an item, which makes the player immune to damage (like mushroom in Super Mario)
 
 .)Add enemies
 
-.)Add menu
+.)Add an item (apple for example), which makes the player immune to damage (like mushroom in Super Mario)
 
 .)Create all levels
 
