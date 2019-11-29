@@ -24,7 +24,6 @@ public class Brick extends InteractiveObject {
             destroyed = true;
             TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
             layer.getCell((int) (body.getPosition().x * ComputerScienceRunner.PPM / 32), (int) (body.getPosition().y * ComputerScienceRunner.PPM / 32)).setTile(null);
-            ComputerScienceRunner.playScreen.getHud().setEctsCount(ComputerScienceRunner.playScreen.getHud().getEctsCount() + 1);
         }
     }
 

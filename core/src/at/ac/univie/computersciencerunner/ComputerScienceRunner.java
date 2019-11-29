@@ -49,8 +49,8 @@ public class ComputerScienceRunner extends Game {
 		mainMenuScreen = new MainMenuScreen(this);
 		levelSelectionScreen = new LevelSelectionScreen(this);
 		optionsScreen = new OptionsScreen(this);
-		playScreen = new PlayScreen(1);
-		gameOverScreen = new GameOverScreen();
+		playScreen = new PlayScreen(this, 1);
+		gameOverScreen = new GameOverScreen(this);
 
 		setScreen(mainMenuScreen);
 	}
@@ -78,7 +78,7 @@ public class ComputerScienceRunner extends Game {
 	}
 
 	public void setPlayScreen(int semester) {
-		playScreen = new PlayScreen(semester);
+		playScreen = new PlayScreen(this, semester);
 		setScreen(playScreen);
 	}
 

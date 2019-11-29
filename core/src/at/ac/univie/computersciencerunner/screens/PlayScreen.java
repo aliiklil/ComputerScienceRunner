@@ -66,7 +66,15 @@ public class PlayScreen implements Screen {
 
     private boolean paused;
 
-    public PlayScreen(int semester) {
+    private ComputerScienceRunner game;
+
+    private int currentSemester;
+
+    public PlayScreen(ComputerScienceRunner game, int semester) {
+
+        this.currentSemester = semester;
+
+        this.game = game;
 
         camera = new OrthographicCamera();
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH / ComputerScienceRunner.PPM, ComputerScienceRunner.HEIGHT / ComputerScienceRunner.PPM, camera);
@@ -81,7 +89,7 @@ public class PlayScreen implements Screen {
         world.setContactListener(new WorldContactListener());
         b2dr = new Box2DDebugRenderer();
 
-        player = new Player(world);
+        player = new Player(game, world);
         hud = new Hud(ComputerScienceRunner.batch);
         infoWidget  = new InfoWidget(ComputerScienceRunner.batch);
 
@@ -222,6 +230,12 @@ public class PlayScreen implements Screen {
         ComputerScienceRunner.batch.begin();
         player.draw();
         ComputerScienceRunner.batch.end();
+
+
+        if(player.isDead()) {
+            game.setGameOverScreen();
+            dispose();
+        }
     }
 
     @Override
@@ -293,4 +307,6 @@ public class PlayScreen implements Screen {
     public boolean isPaused() { return paused; }
 
     public CustomOrthogonalTiledMapRenderer getCustomOrthogonalTiledMapRenderer() { return customOrthogonalTiledMapRenderer; }
+
+    public int getCurrentSemester() { return currentSemester; }
 }

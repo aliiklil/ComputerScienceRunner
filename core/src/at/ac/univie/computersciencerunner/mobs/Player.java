@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.mobs;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
@@ -56,7 +57,13 @@ public class Player {
 
     private int hearts; //How many hearts the player has. If he has 0 hearts, player is dead. Variable can be 0, 1, 2, 3
 
-    public Player(World world) {
+    private boolean dead; //True if player died
+
+    private ComputerScienceRunner game;
+
+    public Player(ComputerScienceRunner computerScienceRunner, World world) {
+
+        this.game = computerScienceRunner;
 
         hearts = 3;
 
@@ -214,6 +221,10 @@ public class Player {
         }
         handleInput(dt);
 
+        if(body.getPosition().y < -10) {
+            dead = true;
+        }
+
     }
 
     public void handleInput(float dt) {
@@ -369,5 +380,9 @@ public class Player {
     public void setHearts(int hearts) {
         this.hearts = hearts;
         ComputerScienceRunner.playScreen.getHud().setHeartsCount(hearts);
+    }
+
+    public boolean isDead() {
+        return dead;
     }
 }
