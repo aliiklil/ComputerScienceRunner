@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.MathUtils;
@@ -86,7 +87,7 @@ public class PlayScreen implements Screen {
 
         tmxMapLoader = new TmxMapLoader();
         tiledMap = tmxMapLoader.load("levels/Semester" + semester + ".tmx");
-        customOrthogonalTiledMapRenderer = new CustomOrthogonalTiledMapRenderer(tiledMap, 1 / ComputerScienceRunner.PPM);
+        customOrthogonalTiledMapRenderer = new CustomOrthogonalTiledMapRenderer(tiledMap, 1 / ComputerScienceRunner.PPM, ComputerScienceRunner.batch);
 
         camera.position.set(viewPort.getWorldWidth() / 2, viewPort.getWorldHeight() / 2, 0);
 
@@ -189,6 +190,25 @@ public class PlayScreen implements Screen {
             coinBrickList.add(new CoinBrick(world, tiledMap, rect));
         }
 
+        //Goal (The two poles at the end of each semester/level)
+        for(MapObject object : tiledMap.getLayers().get(12).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            bodyDef.type = BodyDef.BodyType.StaticBody;
+            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / ComputerScienceRunner.PPM, (rect.getY() + rect.getHeight() / 2) / ComputerScienceRunner.PPM);
+
+            body = world.createBody(bodyDef);
+
+            shape.setAsBox(rect.getWidth() / 2 / ComputerScienceRunner.PPM, rect.getHeight() / 2 / ComputerScienceRunner.PPM);
+            fixtureDef.shape = shape;
+            fixtureDef.friction = 0;
+            Fixture fixture = body.createFixture(fixtureDef);
+
+            Filter filter = new Filter();
+            filter.categoryBits = ComputerScienceRunner.GOAL_BIT;
+            fixture.setFilterData(filter);
+        }
+
     }
 
     public void update(float dt) {
@@ -251,10 +271,11 @@ public class PlayScreen implements Screen {
             infoWidget.stage.draw();
         }
 
+
+
         ComputerScienceRunner.batch.begin();
         player.draw();
         ComputerScienceRunner.batch.end();
-
 
         if(player.isDead()) {
             game.setGameOverScreen();

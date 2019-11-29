@@ -106,6 +106,10 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
+        if(orCategoryBits == ComputerScienceRunner.GOAL_BIT + ComputerScienceRunner.PLAYER_BIT) {
+            
+        }
+
     }
 
     @Override

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="90">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="94">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="200" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2NEKgyAUAFArt/d9wv7/J3tZIKGwFnllnYcDlt7bTQm0OaU0AwAAAAAAAADATU2F6Fq4p3chuhaIFP0NTA1HY6LnEeBf5Y/yemsvlbFLoRa/9eVdfG48H0bxaLRH8sseyZ6KHl5f3m+d05+VcdHvBMA5rf9BvY1a39Earp7rHut5Rd4yTy3vKOu9twJ59x+7
+   eJzt2EsKwyAUAMD82kW/9Ai9/yW7SUCCQtNUTZtZDJpEn6I80HRN03QAAAAAAAAAALBTbaD2XCjrNpbnyvN4BmqvCUyuY3kqOGbtHGgTlvapvXfkVyM/4FfkzI9hFD5P9T7Stg/E+k/fhln/ITE+rPWt/Dgk6lvyyRnJmWrfSp2vHm++T93Tj5F2tdeO/+f+AWn3sbysiJH6H1TaVue3dA6517rEfuaIG8aJxd3Kfs+9ADpeIFk=
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -83,5 +83,8 @@
   <object id="87" x="192" y="480" width="32" height="32"/>
   <object id="88" x="224" y="480" width="32" height="32"/>
   <object id="89" x="320" y="480" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Goal">
+  <object id="93" x="5920" y="0" width="32" height="608"/>
  </objectgroup>
 </map>
