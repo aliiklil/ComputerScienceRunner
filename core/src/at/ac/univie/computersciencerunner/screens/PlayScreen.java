@@ -5,6 +5,8 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -92,7 +94,7 @@ public class PlayScreen implements Screen {
         camera.position.set(viewPort.getWorldWidth() / 2, viewPort.getWorldHeight() / 2, 0);
 
         world = new World(new Vector2(0, -9.81f), true);
-        world.setContactListener(new WorldContactListener());
+        world.setContactListener(new WorldContactListener(game));
         b2dr = new Box2DDebugRenderer();
 
         player = new Player(game, world);
@@ -279,6 +281,11 @@ public class PlayScreen implements Screen {
 
         if(player.isDead()) {
             game.setGameOverScreen();
+            dispose();
+        }
+
+        if(player.isReachedGoal()) {
+            game.setQuestionScreen();
             dispose();
         }
     }

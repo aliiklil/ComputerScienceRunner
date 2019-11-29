@@ -61,6 +61,8 @@ public class Player {
 
     private ComputerScienceRunner game;
 
+    private boolean reachedGoal; //True when player reaches end of semester. Needed to know when to switch from PlayScreen to QuestionScreen
+
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
@@ -234,7 +236,7 @@ public class Player {
             if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
                 if (grounded) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true);
+                    body.applyLinearImpulse(new Vector2(0, 15f), body.getWorldCenter(), true); //5.5f normally
                     grounded = false;
                     jumping = true;
                     if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
@@ -246,7 +248,7 @@ public class Player {
                     }
                 } else if (!grounded && !doubleJumpUsed) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 4f), body.getWorldCenter(), true);
+                    body.applyLinearImpulse(new Vector2(0, 10f), body.getWorldCenter(), true); //4f normally
                     if (jumping) {
                         doubleJumpUsed = true;
                     }
@@ -261,7 +263,7 @@ public class Player {
             }
 
 
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -5) {
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -15) { // 2f normally
                 body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
                 if (currentAnimation != runLeftAnimation) {
                     stateTime = 0; //Starts animation from beginning again, not from where it left before
@@ -271,7 +273,7 @@ public class Player {
                 }
             }
 
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && !Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 5) {
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && !Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 15) {// 2f normally
                 body.applyLinearImpulse(new Vector2(0.5f, 0), body.getWorldCenter(), true);
                 if (currentAnimation != runRightAnimation) {
                     stateTime = 0;
@@ -384,5 +386,13 @@ public class Player {
 
     public boolean isDead() {
         return dead;
+    }
+
+    public boolean isReachedGoal() {
+        return reachedGoal;
+    }
+
+    public void setReachedGoal(boolean reachedGoal) {
+        this.reachedGoal = reachedGoal;
     }
 }

@@ -17,6 +17,11 @@ import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 
 public class WorldContactListener implements ContactListener {
 
+    private ComputerScienceRunner game;
+
+    public WorldContactListener(ComputerScienceRunner game) {
+        this.game = game;
+    }
 
     @Override
     public void beginContact(Contact contact) {
@@ -107,7 +112,7 @@ public class WorldContactListener implements ContactListener {
         }
 
         if(orCategoryBits == ComputerScienceRunner.GOAL_BIT + ComputerScienceRunner.PLAYER_BIT) {
-            
+            ComputerScienceRunner.playScreen.getPlayer().setReachedGoal(true);
         }
 
     }
