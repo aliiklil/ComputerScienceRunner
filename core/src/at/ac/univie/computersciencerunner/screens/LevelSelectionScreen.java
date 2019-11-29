@@ -78,7 +78,7 @@ public class LevelSelectionScreen implements Screen {
         table.top();
         table.setFillParent(true);
 
-        Label selectSemesterLabel  = new Label("Select Semester", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        Label selectSemesterLabel  = new Label("Wähle Semester", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         table.add(selectSemesterLabel).fillX();
         table.row();
 
@@ -120,7 +120,7 @@ public class LevelSelectionScreen implements Screen {
 
         buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
-        backButton = new TextButton("BACK", buttonSkin);
+        backButton = new TextButton("<<", buttonSkin);
 
         backButton.addListener(new InputListener() {
             @Override

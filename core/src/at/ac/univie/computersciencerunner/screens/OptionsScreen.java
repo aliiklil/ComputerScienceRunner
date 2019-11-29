@@ -76,13 +76,13 @@ public class OptionsScreen implements Screen {
         table.top();
         table.setFillParent(true);
 
-        Label optionsLabel  = new Label("Options", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        Label optionsLabel  = new Label("Optionen", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         table.add(optionsLabel).expandX().top().padTop(20);
         table.row();
 
         buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
-        backButton = new TextButton("BACK", buttonSkin);
+        backButton = new TextButton("<<", buttonSkin);
 
         backButton.addListener(new InputListener() {
             @Override
@@ -94,7 +94,7 @@ public class OptionsScreen implements Screen {
         });
 
 
-        table.add(backButton).bottom().right().expandY().padBottom(20).padRight(20);
+        table.add(backButton).bottom().left().expandY().padBottom(20).padLeft(20);
 
         stage.addActor(table);
 

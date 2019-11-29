@@ -32,7 +32,7 @@ public class MainMenuScreen implements Screen {
 
     private Skin buttonSkin;
 
-    private TextButton playButton;
+    private TextButton startButton;
     private TextButton optionsButton;
     private TextButton endButton;
 
@@ -89,9 +89,9 @@ public class MainMenuScreen implements Screen {
         buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
 
-        playButton = new TextButton("PLAY", buttonSkin);
+        startButton = new TextButton("START", buttonSkin);
         System.out.println("A");
-        playButton.addListener(new InputListener() {
+        startButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 game.setLevelSelectionScreen();
@@ -100,11 +100,11 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        table.add(playButton).expandX().padTop(50);
+        table.add(startButton).expandX().padTop(50);
         table.row();
 
 
-        optionsButton = new TextButton("OPTIONS", buttonSkin);
+        optionsButton = new TextButton("OPTIONEN", buttonSkin);
         optionsButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -119,7 +119,7 @@ public class MainMenuScreen implements Screen {
 
 
 
-        endButton = new TextButton("END", buttonSkin);
+        endButton = new TextButton("ENDE", buttonSkin);
         endButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {

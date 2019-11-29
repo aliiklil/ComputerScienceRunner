@@ -1,3 +1,7 @@
+.)Save which levels player has completed (dont allow all levels from the start for the player)
+
+.)Give the player an option to reset his level progress
+
 .)Add money as a collectable item
 
 .)Add platforms which can be jumped on from below
