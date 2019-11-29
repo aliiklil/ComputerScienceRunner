@@ -84,11 +84,11 @@ public class GameOverScreen implements Screen {
         table.add(tryAgainButton).padTop(100);
 
         table.row();
-      
 
 
 
-        mainMenuButton = new TextButton("ZUruck", buttonSkin);  //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
+
+        mainMenuButton = new TextButton("HaUptmenu", buttonSkin);  //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
 
         mainMenuButton.addListener(new InputListener() {
             @Override

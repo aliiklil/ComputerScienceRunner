@@ -6,7 +6,7 @@
 
 .)Add platforms which can be jumped on from below
 
-.)Add questions at the end of each level
+.)Add questions at the end of each level (always 3 questions)
 
 .)Add an item, which makes the player immune to damage (like mushroom in Super Mario)
 
