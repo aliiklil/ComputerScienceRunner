@@ -30,6 +30,7 @@ import at.ac.univie.computersciencerunner.WorldContactListener;
 import at.ac.univie.computersciencerunner.hud.Hud;
 import at.ac.univie.computersciencerunner.hud.InfoWidget;
 import at.ac.univie.computersciencerunner.mapObjects.Brick;
+import at.ac.univie.computersciencerunner.mapObjects.Coin;
 import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
@@ -63,6 +64,8 @@ public class PlayScreen implements Screen {
 
     private ArrayList<HeartBrick> heartBrickList = new ArrayList<HeartBrick>();
     private ArrayList<Heart> heartList = new ArrayList<Heart>();
+
+    private ArrayList<Coin> coinList = new ArrayList<Coin>();
 
     private boolean paused;
 
@@ -172,6 +175,12 @@ public class PlayScreen implements Screen {
             fixture.setFilterData(filter);
         }
 
+        //Coins
+        for(MapObject object : tiledMap.getLayers().get(10).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            coinList.add(new Coin(world, tiledMap, rect));
+        }
+
     }
 
     public void update(float dt) {
@@ -205,6 +214,10 @@ public class PlayScreen implements Screen {
 
         for(HeartBrick heartBrick : heartBrickList) {
             heartBrick.update(dt);
+        }
+
+        for(Coin coin : coinList) {
+            coin.update(dt);
         }
 
     }

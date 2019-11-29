@@ -39,10 +39,8 @@ public abstract class InteractiveObject {
         shape.setAsBox(bounds.getWidth() / 2 / ComputerScienceRunner.PPM, bounds.getHeight() / 2 / ComputerScienceRunner.PPM);
         fdef.shape = shape;
         fdef.friction = 0;
-        if (this instanceof ECTS) {
-            fdef.isSensor = true;
-        }
-        fixture = body.createFixture(fdef);
+
+
 
         Filter filter = new Filter();
 
@@ -51,12 +49,14 @@ public abstract class InteractiveObject {
         }
         if (this instanceof ECTS) {
             filter.categoryBits = ComputerScienceRunner.ECTS_BIT;
+            fdef.isSensor = true;
         }
         if (this instanceof ECTSBrick) {
             filter.categoryBits = ComputerScienceRunner.ECTS_BRICK_BIT;
         }
         if (this instanceof Heart) {
             filter.categoryBits = ComputerScienceRunner.HEART_BIT;
+            fdef.isSensor = true;
         }
         if (this instanceof HeartBrick) {
             filter.categoryBits = ComputerScienceRunner.HEART_BRICK_BIT;
@@ -64,6 +64,12 @@ public abstract class InteractiveObject {
         if (this instanceof InfoBrick) {
             filter.categoryBits = ComputerScienceRunner.INFO_BRICK_BIT;
         }
+        if (this instanceof Coin) {
+            filter.categoryBits = ComputerScienceRunner.COIN_BIT;
+            fdef.isSensor = true;
+        }
+
+        fixture = body.createFixture(fdef);
         fixture.setUserData(this);
         fixture.setFilterData(filter);
     }
