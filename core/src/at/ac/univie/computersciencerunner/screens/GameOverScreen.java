@@ -60,16 +60,16 @@ public class GameOverScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         Table table = new Table();
-        table.top();
+        table.center();
         table.setFillParent(true);
 
         Label gameOverLabel  = new Label("Game Over", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(gameOverLabel).fillX();
+        table.add(gameOverLabel);
         table.row();
 
         buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
-        tryAgainButton = new TextButton("Try Again", buttonSkin);
+        tryAgainButton = new TextButton("Nochmal Probieren", buttonSkin);
 
         tryAgainButton.addListener(new InputListener() {
             @Override
@@ -84,10 +84,11 @@ public class GameOverScreen implements Screen {
         table.add(tryAgainButton).padTop(100);
 
         table.row();
+      
 
 
 
-        mainMenuButton = new TextButton("Main Menu", buttonSkin);
+        mainMenuButton = new TextButton("ZUruck", buttonSkin);  //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
 
         mainMenuButton.addListener(new InputListener() {
             @Override
