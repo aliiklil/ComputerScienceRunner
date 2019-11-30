@@ -14,6 +14,7 @@ import at.ac.univie.computersciencerunner.screens.MainMenuScreen;
 import at.ac.univie.computersciencerunner.screens.OptionsScreen;
 import at.ac.univie.computersciencerunner.screens.PlayScreen;
 import at.ac.univie.computersciencerunner.screens.QuestionScreen;
+import at.ac.univie.computersciencerunner.screens.SemesterCompletedScreen;
 
 public class ComputerScienceRunner extends Game {
 
@@ -45,6 +46,7 @@ public class ComputerScienceRunner extends Game {
 	public static PlayScreen playScreen;
 	public static GameOverScreen gameOverScreen;
     public static QuestionScreen questionScreen;
+    public static SemesterCompletedScreen semesterCompletedScreen;
 
 	@Override
 	public void create () {
@@ -58,6 +60,7 @@ public class ComputerScienceRunner extends Game {
 		gameOverScreen = new GameOverScreen(this);
 
         questionScreen = new QuestionScreen(this);
+        semesterCompletedScreen = new SemesterCompletedScreen(this);
 
 		setScreen(mainMenuScreen);
 	}
@@ -95,6 +98,10 @@ public class ComputerScienceRunner extends Game {
 
     public void setQuestionScreen() {
         setScreen(questionScreen);
+    }
+
+    public void setSemesterCompletedScreen() {
+        setScreen(semesterCompletedScreen);
     }
 
 }

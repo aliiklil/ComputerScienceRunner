@@ -51,9 +51,11 @@ public class QuestionScreen implements Screen {
     private int rightAnswersCount; //How many questions were answered correctly by the player
 
     private long timestampAnswerSelected; //Needed to know, after player pressed an answer, how long correct and right answer should be displayed
-    private int timeUntilNextQuestion = 3000; //Time in seconds, after player pressed an answer, until next questions should be displayed
+    private int timeUntilNextQuestion = 3000; //Time in milliseconds, after player pressed an answer, until next questions should be displayed
 
     private boolean changeQuestion; //True when next questions should come
+
+    private boolean allQuestionsDone; //True when all 3 questions are answered. Needed to know when to show SemesterCompletedScreen to player
 
     public QuestionScreen(ComputerScienceRunner computerScienceRunner) {
 
@@ -144,8 +146,10 @@ public class QuestionScreen implements Screen {
 
                     if(currentQuestionIndex < 2) {
                         currentQuestionIndex++;
+                        changeQuestion = true;
+                    } else {
+                        allQuestionsDone = true;
                     }
-                    changeQuestion = true;
                     return true;
                 }
             });
@@ -189,6 +193,11 @@ public class QuestionScreen implements Screen {
 
         }
 
+        if(allQuestionsDone && System.currentTimeMillis() - timestampAnswerSelected > timeUntilNextQuestion) {
+            game.setSemesterCompletedScreen();
+            dispose();
+        }
+
     }
 
     @Override
@@ -214,5 +223,9 @@ public class QuestionScreen implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
+    }
+
+    public int getRightAnswersCount() {
+        return rightAnswersCount;
     }
 }

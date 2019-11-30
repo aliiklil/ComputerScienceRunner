@@ -223,7 +223,7 @@ public class Player {
         }
         handleInput(dt);
 
-        if(body.getPosition().y < -10) {
+        if(body.getPosition().y < -5) {
             dead = true;
         }
 

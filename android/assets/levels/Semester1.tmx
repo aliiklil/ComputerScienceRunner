@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2EsKwyAUAMD82kW/9Ai9/yW7SUCCQtNUTZtZDJpEn6I80HRN03QAAAAAAAAAALBTbaD2XCjrNpbnyvN4BmqvCUyuY3kqOGbtHGgTlvapvXfkVyM/4FfkzI9hFD5P9T7Stg/E+k/fhln/ITE+rPWt/Dgk6lvyyRnJmWrfSp2vHm++T93Tj5F2tdeO/+f+AWn3sbysiJH6H1TaVue3dA6517rEfuaIG8aJxd3Kfs+9ADpeIFk=
+   eJzt2U0OwiAQhmHaogtbNR7B+1/ShZCQkUmslRmq7+IJ9Qc6gXwR7BhCGAEAAACgI1PiXQfQmymQD0CSuSAfwFPt94J8ADryAejIB6AjH4Buj/kYCt61wNYltbNzHfeC95wA2Tm1J8N7emdgUKzt4712aM8jH8BetMxHTMrX+VqeQ2J4fZYo++fPougflfsDW30rHwfluief7JHYU/03q/3V7c33tXP6sfI977nD7+P8AeiuqV02jKH9H2St1/rW1tB6ri3Ws8W45Ti1cXtZb+kB1NQgaQ==
   </data>
  </layer>
  <objectgroup name="Ground">
