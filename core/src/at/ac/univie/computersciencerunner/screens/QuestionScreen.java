@@ -39,7 +39,8 @@ public class QuestionScreen implements Screen {
 
     private Question[] questions = new Question[3];
 
-    Label questionLabel; //Changes depending on which question the player is currentl
+    private Label questionNumberLabel; //Can be 1, 2 or 3 signalling the player at which question he is
+    private Label questionLabel; //Changes depending on which question the player is currently
 
     private final TextButton[] answerButton = new TextButton[4]; //Also changes depending on which question the player is currentl
 
@@ -106,13 +107,20 @@ public class QuestionScreen implements Screen {
         table.center();
         table.setFillParent(true);
 
-        questionLabel  = new Label(questions[currentQuestionIndex].getQuestion(), new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        questionLabel.setWrap(true);
-        questionLabel.setAlignment(Align.center);
-        table.add(questionLabel).colspan(2);
+        questionNumberLabel = new Label("Frage " + (currentQuestionIndex+1) + " von 3", new Label.LabelStyle(font, new Color(100/255, 180f/255, 200f/255, 1)));
+        questionNumberLabel.setWrap(true);
+        questionNumberLabel.setAlignment(Align.center);
+        table.add(questionNumberLabel).colspan(2);
         table.row();
 
-table.debug();
+
+        questionLabel = new Label(questions[currentQuestionIndex].getQuestion(), new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        questionLabel.setWrap(true);
+        questionLabel.setAlignment(Align.center);
+        table.add(questionLabel).padTop(100).colspan(2);
+        table.row();
+
+
 
 
         for(int i = 0; i < 4; i++) {
@@ -172,6 +180,7 @@ table.debug();
             changeQuestion = false;
 
             questionLabel.setText(questions[currentQuestionIndex].getQuestion());
+            questionNumberLabel.setText("Frage " + (currentQuestionIndex+1) + " von 3");
 
             for(int i = 0; i < 4; i++) {
                 answerButton[i].setText(questions[currentQuestionIndex].getAnswers()[i]);
