@@ -59,7 +59,7 @@ public class Hud implements Disposable {
         table.add(currentsHeartsImage).expandX().padTop(10);
 
         semesterLabel = new Label("Semester", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        semesterValue = new Label(String.valueOf(semesterCount), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        semesterValue = new Label("", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         ectsImage = new Image(ects);
         ectsValue = new Label(String.valueOf(ectsCount), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
@@ -116,5 +116,9 @@ public class Hud implements Disposable {
        } else if (heartsCount == 3) {
            currentsHeartsImage.setDrawable(new TextureRegionDrawable(hearts3));
        }
+    }
+
+    public void setSemesterValue(int semester) {
+        semesterValue.setText(String.valueOf(semester));
     }
 }

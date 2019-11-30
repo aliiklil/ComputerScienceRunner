@@ -99,6 +99,7 @@ public class PlayScreen implements Screen {
 
         player = new Player(game, world);
         hud = new Hud(ComputerScienceRunner.batch);
+        hud.setSemesterValue(semester);
         infoWidget  = new InfoWidget(ComputerScienceRunner.batch);
 
         BodyDef bodyDef = new BodyDef();

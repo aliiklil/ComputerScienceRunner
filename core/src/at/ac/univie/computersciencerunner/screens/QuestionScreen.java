@@ -46,7 +46,7 @@ public class QuestionScreen implements Screen {
 
     private final ComputerScienceRunner game;
 
-    private int currentQuestionIndex = 0; //Can either be 0 or 1 or 2, depending on which question the player is currently
+    private int currentQuestionIndex; //Can either be 0 or 1 or 2, depending on which question the player is currently
 
     private int rightAnswersCount; //How many questions were answered correctly by the player
 
@@ -76,6 +76,10 @@ public class QuestionScreen implements Screen {
 
     @Override
     public void show() {
+
+        allQuestionsDone = false;
+        rightAnswersCount = 0;
+        currentQuestionIndex = 0;
 
         MapObjects mapObjects = ComputerScienceRunner.playScreen.getTiledMap().getLayers().get(12).getObjects();
         MapObject mapObject = mapObjects.get(0);
@@ -134,21 +138,23 @@ public class QuestionScreen implements Screen {
             answerButton[i].addListener(new InputListener() {
                 @Override
                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
-                    if(rightAnswerIndex == index) {
-                        answerButton[index].setStyle(greenSkin.get("small", TextButton.TextButtonStyle.class));
-                        rightAnswersCount++;
-                    } else {
-                        answerButton[index].setStyle(redSkin.get("small", TextButton.TextButtonStyle.class));
-                        answerButton[rightAnswerIndex].setStyle(greenSkin.get("small", TextButton.TextButtonStyle.class));
-                    }
-                    timestampAnswerSelected = System.currentTimeMillis();
+                    if(!changeQuestion && !allQuestionsDone) {
+                        int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
+                        if (rightAnswerIndex == index) {
+                            answerButton[index].setStyle(greenSkin.get("small", TextButton.TextButtonStyle.class));
+                            rightAnswersCount++;
+                        } else {
+                            answerButton[index].setStyle(redSkin.get("small", TextButton.TextButtonStyle.class));
+                            answerButton[rightAnswerIndex].setStyle(greenSkin.get("small", TextButton.TextButtonStyle.class));
+                        }
+                        timestampAnswerSelected = System.currentTimeMillis();
 
-                    if(currentQuestionIndex < 2) {
-                        currentQuestionIndex++;
-                        changeQuestion = true;
-                    } else {
-                        allQuestionsDone = true;
+                        if (currentQuestionIndex < 2) {
+                            currentQuestionIndex++;
+                            changeQuestion = true;
+                        } else {
+                            allQuestionsDone = true;
+                        }
                     }
                     return true;
                 }
