@@ -32,7 +32,9 @@ public class QuestionScreen implements Screen {
     private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
     private BitmapFont font;
 
-    private Skin buttonSkin;
+    private Skin blueSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json")); //Blue skin for answer buttons, which are not pressed
+    private Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));//Green skin for answer buttons, which are pressed, which are the correct answer
+    private Skin redSkin = new Skin(Gdx.files.internal("skins/redbutton/glassy-ui.json")); //Red skin for answer buttons, which are pressed, which a wrong answer
 
     private Question[] questions = new Question[3];
 
@@ -106,12 +108,28 @@ public class QuestionScreen implements Screen {
         table.add(questionLabel).width(700f).colspan(2);
         table.row();
 
-        buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
+
 
 
         for(int i = 0; i < 4; i++) {
 
-            answerButton[i] = new TextButton(questions[currentQuestionIndex].getAnswers()[i], buttonSkin);
+            answerButton[i] = new TextButton(questions[currentQuestionIndex].getAnswers()[i], blueSkin);
+
+            final int index = i; //Needed because in the anonymous function, its not possible to access i (because it needs to be final)
+
+            answerButton[i].addListener(new InputListener() {
+                @Override
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
+                    if(rightAnswerIndex == index) {
+                        answerButton[index].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
+                    } else {
+                        answerButton[index].setStyle(redSkin.get("default", TextButton.TextButtonStyle.class));
+                        answerButton[rightAnswerIndex].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
+                    }
+                    return true;
+                }
+            });
 
             table.add(answerButton[i]).padTop(100);
 
@@ -120,80 +138,6 @@ public class QuestionScreen implements Screen {
             }
 
         }
-
-
-
-        answerButton[0].addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
-                if(rightAnswerIndex == 0) {
-                    Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));
-                    answerButton[0].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
-                } else {
-                    Skin redSkin = new Skin(Gdx.files.internal("skins/redbutton/glassy-ui.json"));
-                    answerButton[0].setStyle(redSkin.get("default", TextButton.TextButtonStyle.class));
-
-                    Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));
-                    answerButton[rightAnswerIndex].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
-                }
-                return true;
-            }
-        });
-
-        answerButton[1].addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
-                if(questions[currentQuestionIndex].getRightAnswerIndex() == 1) {
-                    Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));
-                    answerButton[1].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
-                }  else {
-                    Skin redSkin = new Skin(Gdx.files.internal("skins/redbutton/glassy-ui.json"));
-                    answerButton[1].setStyle(redSkin.get("default", TextButton.TextButtonStyle.class));
-
-                    Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));
-                    answerButton[rightAnswerIndex].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
-                }
-                return true;
-            }
-        });
-
-        answerButton[2].addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
-                if(questions[currentQuestionIndex].getRightAnswerIndex() == 2) {
-                    Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));
-                    answerButton[2].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
-                }  else {
-                    Skin redSkin = new Skin(Gdx.files.internal("skins/redbutton/glassy-ui.json"));
-                    answerButton[2].setStyle(redSkin.get("default", TextButton.TextButtonStyle.class));
-
-                    Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));
-                    answerButton[rightAnswerIndex].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
-                }
-                return true;
-            }
-        });
-
-        answerButton[3].addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
-                if(questions[currentQuestionIndex].getRightAnswerIndex() == 3) {
-                    Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));
-                    answerButton[3].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
-                }  else {
-                    Skin redSkin = new Skin(Gdx.files.internal("skins/redbutton/glassy-ui.json"));
-                    answerButton[3].setStyle(redSkin.get("default", TextButton.TextButtonStyle.class));
-
-                    Skin greenSkin = new Skin(Gdx.files.internal("skins/greenbutton/glassy-ui.json"));
-                    answerButton[rightAnswerIndex].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
-                }
-                return true;
-            }
-        });
 
         stage.addActor(table);
 
