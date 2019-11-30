@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -107,7 +108,8 @@ public class QuestionScreen implements Screen {
 
         questionLabel  = new Label(questions[currentQuestionIndex].getQuestion(), new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         questionLabel.setWrap(true);
-        table.add(questionLabel).fillX().colspan(2);
+        questionLabel.setAlignment(Align.center);
+        table.add(questionLabel).colspan(2);
         table.row();
 
 table.debug();
@@ -115,7 +117,7 @@ table.debug();
 
         for(int i = 0; i < 4; i++) {
 
-            answerButton[i] = new TextButton(questions[currentQuestionIndex].getAnswers()[i], blueSkin);
+            answerButton[i] = new TextButton(questions[currentQuestionIndex].getAnswers()[i], blueSkin.get("small", TextButton.TextButtonStyle.class));
 
             final int index = i; //Needed because in the anonymous function, its not possible to access i (because it needs to be final)
 
@@ -124,11 +126,11 @@ table.debug();
                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                     int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
                     if(rightAnswerIndex == index) {
-                        answerButton[index].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
+                        answerButton[index].setStyle(greenSkin.get("small", TextButton.TextButtonStyle.class));
                         rightAnswersCount++;
                     } else {
-                        answerButton[index].setStyle(redSkin.get("default", TextButton.TextButtonStyle.class));
-                        answerButton[rightAnswerIndex].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
+                        answerButton[index].setStyle(redSkin.get("small", TextButton.TextButtonStyle.class));
+                        answerButton[rightAnswerIndex].setStyle(greenSkin.get("small", TextButton.TextButtonStyle.class));
                     }
                     timestampAnswerSelected = System.currentTimeMillis();
 
@@ -173,7 +175,7 @@ table.debug();
 
             for(int i = 0; i < 4; i++) {
                 answerButton[i].setText(questions[currentQuestionIndex].getAnswers()[i]);
-                answerButton[i].setStyle(blueSkin.get("default", TextButton.TextButtonStyle.class));
+                answerButton[i].setStyle(blueSkin.get("small", TextButton.TextButtonStyle.class));
             }
 
         }
