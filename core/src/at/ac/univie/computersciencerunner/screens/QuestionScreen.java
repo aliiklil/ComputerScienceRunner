@@ -44,9 +44,14 @@ public class QuestionScreen implements Screen {
 
     private final ComputerScienceRunner game;
 
-    private int currentQuestionIndex; //Can either be 0 or 1 or 2, depending on which question the player is currently
+    private int currentQuestionIndex = 0; //Can either be 0 or 1 or 2, depending on which question the player is currently
 
     private int rightAnswersCount; //How many questions were answered correctly by the player
+
+    private long timestampAnswerSelected; //Needed to know, after player pressed an answer, how long correct and right answer should be displayed
+    private int timeUntilNextQuestion = 3000; //Time in seconds, after player pressed an answer, until next questions should be displayed
+
+    private boolean changeQuestion; //True when next questions should come
 
     public QuestionScreen(ComputerScienceRunner computerScienceRunner) {
 
@@ -92,9 +97,6 @@ public class QuestionScreen implements Screen {
 
         }
 
-
-
-
         stage = new Stage(viewport, ComputerScienceRunner.batch);
 
         Gdx.input.setInputProcessor(stage);
@@ -105,10 +107,10 @@ public class QuestionScreen implements Screen {
 
         questionLabel  = new Label(questions[currentQuestionIndex].getQuestion(), new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         questionLabel.setWrap(true);
-        table.add(questionLabel).width(700f).colspan(2);
+        table.add(questionLabel).fillX().colspan(2);
         table.row();
 
-
+table.debug();
 
 
         for(int i = 0; i < 4; i++) {
@@ -123,15 +125,22 @@ public class QuestionScreen implements Screen {
                     int rightAnswerIndex = questions[currentQuestionIndex].getRightAnswerIndex();
                     if(rightAnswerIndex == index) {
                         answerButton[index].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
+                        rightAnswersCount++;
                     } else {
                         answerButton[index].setStyle(redSkin.get("default", TextButton.TextButtonStyle.class));
                         answerButton[rightAnswerIndex].setStyle(greenSkin.get("default", TextButton.TextButtonStyle.class));
                     }
+                    timestampAnswerSelected = System.currentTimeMillis();
+
+                    if(currentQuestionIndex < 2) {
+                        currentQuestionIndex++;
+                    }
+                    changeQuestion = true;
                     return true;
                 }
             });
 
-            table.add(answerButton[i]).padTop(100);
+            table.add(answerButton[i]).width(600).padTop(100);
 
             if(i == 1) {
                 table.row();
@@ -146,10 +155,28 @@ public class QuestionScreen implements Screen {
     @Override
     public void render(float delta) {
 
+        update(delta);
+
         Gdx.gl.glClearColor(21.0f/255, 80.0f/255, 80.0f/255, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.draw();
+
+    }
+
+    private void update(float delta) {
+
+        if(changeQuestion && System.currentTimeMillis() - timestampAnswerSelected > timeUntilNextQuestion) {
+            changeQuestion = false;
+
+            questionLabel.setText(questions[currentQuestionIndex].getQuestion());
+
+            for(int i = 0; i < 4; i++) {
+                answerButton[i].setText(questions[currentQuestionIndex].getAnswers()[i]);
+                answerButton[i].setStyle(blueSkin.get("default", TextButton.TextButtonStyle.class));
+            }
+
+        }
 
     }
 

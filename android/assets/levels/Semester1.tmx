@@ -90,18 +90,18 @@
     <property name="Question0" value="Welche Programmiersprache lernt man in PROG?"/>
     <property name="Question0Answer0" value="Java"/>
     <property name="Question0Answer1" value="C++"/>
-    <property name="Question0Answer2" value="C#"/>
+    <property name="Question0Answer2" value="Javascript"/>
     <property name="Question0Answer3" value="Python"/>
     <property name="Question0RightAnswer" value="1"/>
     <property name="Question1" value="Um was geht es in Netzwerktechnologien?"/>
-    <property name="Question1Answer0" value="Wie man Spam erkennt"/>
-    <property name="Question1Answer1" value="Um Spinnennetze"/>
-    <property name="Question1Answer2" value="Um Techno"/>
-    <property name="Question1Answer3" value="Grundaufbau von Netzwerken"/>
+    <property name="Question1Answer0" value="Spamerkennung"/>
+    <property name="Question1Answer1" value="Spinnennetze"/>
+    <property name="Question1Answer2" value="Techno"/>
+    <property name="Question1Answer3" value="Grundaufbau Netzwerke"/>
     <property name="Question1RightAnswer" value="3"/>
     <property name="Question2" value="Was lernt man in MG1?"/>
-    <property name="Question2Answer0" value="Grundlagen der Mathematik"/>
-    <property name="Question2Answer1" value="Schuhe richtig zubinden"/>
+    <property name="Question2Answer0" value="Maturamathe"/>
+    <property name="Question2Answer1" value="Schuhebinden"/>
     <property name="Question2Answer2" value="Programmieren"/>
     <property name="Question2Answer3" value="Computerspiele"/>
     <property name="Question2RightAnswer" value="0"/>

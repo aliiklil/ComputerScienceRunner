@@ -120,7 +120,7 @@ public class LevelSelectionScreen implements Screen {
 
         buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
-        backButton = new TextButton("ZUruck", buttonSkin); //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
+        backButton = new TextButton("Zur#ck", buttonSkin); //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
 
         backButton.addListener(new InputListener() {
             @Override
