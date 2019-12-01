@@ -44,6 +44,8 @@ public class SemesterCompletedScreen implements Screen {
     private TextButton nextSemesterButton;
     private TextButton mainMenuButton;
 
+    private Label bachelorMasterLabel; //Displays after 6 semester that bachelor is done and after 10 that master is done
+
     private final ComputerScienceRunner game;
 
     public SemesterCompletedScreen(ComputerScienceRunner computerScienceRunner) {
@@ -73,6 +75,16 @@ public class SemesterCompletedScreen implements Screen {
         Table table = new Table();
         table.center();
         table.setFillParent(true);
+
+        if(ComputerScienceRunner.playScreen.getCurrentSemester() == 6) {
+            bachelorMasterLabel = new Label("Gut gemacht! Du hast jetzt den Bachelor.", new Label.LabelStyle(font, new Color(100 / 255, 180f / 255, 200f / 255, 1)));
+            table.add(bachelorMasterLabel).colspan(2);
+            table.row();
+        } else if (ComputerScienceRunner.playScreen.getCurrentSemester() == 10) {
+            bachelorMasterLabel = new Label("Super! Du hast jetzt den Master.", new Label.LabelStyle(font, new Color(100 / 255, 180f / 255, 200f / 255, 1)));
+            table.add(bachelorMasterLabel).colspan(2);
+            table.row();
+        }
 
         semesterCompletedLabel  = new Label("Semester " + ComputerScienceRunner.playScreen.getCurrentSemester() + " abgeschlossen", new Label.LabelStyle(font, new Color(100/255, 180f/255, 200f/255, 1)));
         table.add(semesterCompletedLabel).colspan(2);
@@ -106,24 +118,23 @@ public class SemesterCompletedScreen implements Screen {
 
 
 
+        if(ComputerScienceRunner.playScreen.getCurrentSemester() < 10) {
+            nextSemesterButton = new TextButton("N@chstes Semester", blueSkin);
 
-        nextSemesterButton = new TextButton("N@chstes Semester", blueSkin);
+            nextSemesterButton.addListener(new InputListener() {
+                @Override
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester() + 1);
+                    dispose();
+                    return true;
+                }
+            });
 
-        nextSemesterButton.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester() + 1);
-                dispose();
-                return true;
-            }
-        });
+            table.add(nextSemesterButton).padTop(50).colspan(2);
 
-
-        table.add(nextSemesterButton).padTop(50).colspan(2);;
+        }
 
         table.row();
-
-
 
 
         mainMenuButton = new TextButton("Hauptmen#", blueSkin);  //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported

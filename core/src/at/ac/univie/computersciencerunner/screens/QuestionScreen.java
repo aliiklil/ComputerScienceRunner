@@ -1,6 +1,7 @@
 package at.ac.univie.computersciencerunner.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -51,7 +52,7 @@ public class QuestionScreen implements Screen {
     private int rightAnswersCount; //How many questions were answered correctly by the player
 
     private long timestampAnswerSelected; //Needed to know, after player pressed an answer, how long correct and right answer should be displayed
-    private int timeUntilNextQuestion = 3000; //Time in milliseconds, after player pressed an answer, until next questions should be displayed
+    private int timeUntilNextQuestion = 0; //Time in milliseconds, after player pressed an answer, until next questions should be displayed
 
     private boolean changeQuestion; //True when next questions should come
 
@@ -200,6 +201,12 @@ public class QuestionScreen implements Screen {
         }
 
         if(allQuestionsDone && System.currentTimeMillis() - timestampAnswerSelected > timeUntilNextQuestion) {
+
+            //Save that the player has completed this semester/level (so player can also select the next semester/level in the LevelSelectionScreen)
+            Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+            prefs.putInteger("highestCompletedSemester", ComputerScienceRunner.playScreen.getCurrentSemester());
+            prefs.flush();
+
             game.setSemesterCompletedScreen();
             dispose();
         }

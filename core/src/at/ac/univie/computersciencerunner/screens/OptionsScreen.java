@@ -1,6 +1,7 @@
 package at.ac.univie.computersciencerunner.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -30,13 +31,13 @@ public class OptionsScreen implements Screen {
     private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
     private BitmapFont font;
 
-    private Skin buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
+    private Skin blueSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
     private TextButton backButton;
 
     private final ComputerScienceRunner game;
 
-    private Image universityImage = new Image(new Texture(Gdx.files.internal("universityImage.png")));
+    private TextButton deleteProgressButton;
 
     public OptionsScreen(ComputerScienceRunner computerScienceRunner) {
 
@@ -77,12 +78,27 @@ public class OptionsScreen implements Screen {
         table.setFillParent(true);
 
         Label optionsLabel  = new Label("Optionen", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(optionsLabel).expandX().top().padTop(20);
+        table.add(optionsLabel).expandX().top().padTop(20).colspan(2);
         table.row();
 
 
+        deleteProgressButton = new TextButton("Delete Progress", blueSkin);
 
-        backButton = new TextButton("Zur#ck", buttonSkin);
+        deleteProgressButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+                prefs.putInteger("highestCompletedSemester", 0);
+                prefs.flush();
+                return true;
+            }
+        });
+
+        table.add(deleteProgressButton).left().top().padLeft(20).padTop(50);
+
+
+
+        backButton = new TextButton("Zur#ck", blueSkin);
 
         backButton.addListener(new InputListener() {
             @Override
@@ -94,7 +110,7 @@ public class OptionsScreen implements Screen {
         });
 
 
-        table.add(backButton).bottom().left().expandY().padBottom(20).padLeft(20);
+        table.add(backButton).bottom().right().expandY().expandX().padBottom(20).padRight(20);
 
         stage.addActor(table);
 

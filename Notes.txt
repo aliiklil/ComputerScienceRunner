@@ -1,11 +1,3 @@
-.)Add ending to each semester
-
-.)Add QuestionsScreen
---)Three Questions always
---)If player fails every questions, there is no downside
-
-.)Add SemesterCompletedScreen
-
 .)Save which levels player has completed (dont allow all levels from the start for the player)
 
 .)Give the player an option to reset his level progress
@@ -16,7 +8,7 @@
 
 .)Add an item (apple for example), which makes the player immune to damage (like mushroom in Super Mario)
 
-.)Create all levels
+.)Create all levels (and all questions)
 
 .)Add music
 

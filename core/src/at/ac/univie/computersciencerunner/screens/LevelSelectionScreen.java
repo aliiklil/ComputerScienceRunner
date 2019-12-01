@@ -1,6 +1,7 @@
 package at.ac.univie.computersciencerunner.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -31,8 +32,10 @@ public class LevelSelectionScreen implements Screen {
     private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
     private BitmapFont font;
 
-    private Skin levelSelectButtonSkin;
-    private Skin buttonSkin;
+    private Skin levelSelectButtonSkin = new Skin(Gdx.files.internal("skins/level/glassy-ui.json"));
+    private Skin blueSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
+
+    private Skin greySkin = new Skin(Gdx.files.internal("skins/greybutton/glassy-ui.json"));
 
     private TextButton semesterButtons[] = new TextButton[10];
 
@@ -88,23 +91,33 @@ public class LevelSelectionScreen implements Screen {
         table.top();
         table.setFillParent(true);
 
-        levelSelectButtonSkin = new Skin(Gdx.files.internal("skins/level/glassy-ui.json"));
 
 
 
         table.padTop(100);
 
+        Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+        final int highestCompletedSemester = prefs.getInteger("highestCompletedSemester", 0);
+
         for(int i = 0; i < semesterButtons.length; i++) {
 
-            semesterButtons[i] = new TextButton(String.valueOf(i+1), levelSelectButtonSkin);
+            if(highestCompletedSemester >= i) {
+                semesterButtons[i] = new TextButton(String.valueOf(i + 1), blueSkin);
+            } else {
+                semesterButtons[i] = new TextButton(String.valueOf(i + 1), greySkin);
+            }
 
+            semesterButtons[i].setDisabled(true);
             final int index = i;
 
             semesterButtons[i].addListener(new InputListener() {
                 @Override
                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    game.setPlayScreen(index+1);
-                    dispose();
+
+                    if(highestCompletedSemester >= index) {
+                        game.setPlayScreen(index + 1);
+                        dispose();
+                    }
                     return true;
                 }
             });
@@ -118,9 +131,8 @@ public class LevelSelectionScreen implements Screen {
         }
 
 
-        buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
-        backButton = new TextButton("Zur#ck", buttonSkin); //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
+        backButton = new TextButton("Zur#ck", blueSkin); //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
 
         backButton.addListener(new InputListener() {
             @Override
