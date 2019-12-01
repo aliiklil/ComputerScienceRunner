@@ -12,6 +12,7 @@ import at.ac.univie.computersciencerunner.screens.GameOverScreen;
 import at.ac.univie.computersciencerunner.screens.LevelSelectionScreen;
 import at.ac.univie.computersciencerunner.screens.MainMenuScreen;
 import at.ac.univie.computersciencerunner.screens.OptionsScreen;
+import at.ac.univie.computersciencerunner.screens.PauseScreen;
 import at.ac.univie.computersciencerunner.screens.PlayScreen;
 import at.ac.univie.computersciencerunner.screens.QuestionScreen;
 import at.ac.univie.computersciencerunner.screens.SemesterCompletedScreen;
@@ -47,6 +48,7 @@ public class ComputerScienceRunner extends Game {
 	public static GameOverScreen gameOverScreen;
     public static QuestionScreen questionScreen;
     public static SemesterCompletedScreen semesterCompletedScreen;
+	public static PauseScreen pauseScreen;
 
 	@Override
 	public void create () {
@@ -61,6 +63,7 @@ public class ComputerScienceRunner extends Game {
 
         questionScreen = new QuestionScreen(this);
         semesterCompletedScreen = new SemesterCompletedScreen(this);
+		pauseScreen = new PauseScreen(this);
 
 		setScreen(mainMenuScreen);
 	}
@@ -87,8 +90,12 @@ public class ComputerScienceRunner extends Game {
 		setScreen(optionsScreen);
 	}
 
-	public void setPlayScreen(int semester) {
+	public void setPlayScreen(int semester) { //Only used when new level/semester is started
 		playScreen = new PlayScreen(this, semester);
+		setScreen(playScreen);
+	}
+
+	public void unpauseScreen() { //Only used when unpausing from the pause menu
 		setScreen(playScreen);
 	}
 
@@ -103,5 +110,9 @@ public class ComputerScienceRunner extends Game {
     public void setSemesterCompletedScreen() {
         setScreen(semesterCompletedScreen);
     }
+
+	public void setPauseScreen() {
+		setScreen(pauseScreen);
+	}
 
 }

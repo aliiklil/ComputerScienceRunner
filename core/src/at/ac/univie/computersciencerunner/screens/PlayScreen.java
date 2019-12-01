@@ -98,7 +98,7 @@ public class PlayScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         player = new Player(game, world);
-        hud = new Hud(ComputerScienceRunner.batch);
+        hud = new Hud(ComputerScienceRunner.batch, game);
         hud.setSemesterValue(semester);
         infoWidget  = new InfoWidget(ComputerScienceRunner.batch);
 
@@ -310,6 +310,15 @@ public class PlayScreen implements Screen {
     public void resume() {
 
         paused = false;
+
+        int coinCount = hud.getCoinCount();
+        int ectsCount = hud.getEctsCount();
+
+        hud = new Hud(ComputerScienceRunner.batch, game);
+        hud.setSemesterValue(currentSemester);
+        hud.setEctsCount(ectsCount);
+        hud.setCoinCount(coinCount);
+        hud.setHeartsCount(player.getHearts());
 
     }
 

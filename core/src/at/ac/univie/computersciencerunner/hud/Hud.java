@@ -6,10 +6,14 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -43,11 +47,24 @@ public class Hud implements Disposable {
     private Texture coin = new Texture(Gdx.files.internal("coin_hud.png"));
     private Image coinImage;
 
-    public Hud(SpriteBatch spriteBatch) {
+    private TextButton pauseButton;
+
+    private Skin blueSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
+
+    private final ComputerScienceRunner game;
+
+    public Hud(SpriteBatch spriteBatch, ComputerScienceRunner computerScienceRunner) {
+
+
+
+        this.game = computerScienceRunner;
+
         ectsCount = 0;
 
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
         stage = new Stage(viewPort, spriteBatch);
+
+        Gdx.input.setInputProcessor(stage);
 
         Table table = new Table();
         table.top();
@@ -70,12 +87,47 @@ public class Hud implements Disposable {
         table.add(ectsImage).expandX().padTop(10);
         table.add(coinImage).expandX().padTop(10);
         table.add(semesterLabel).expandX().padTop(10);
+
+
+
+
+        pauseButton = new TextButton("Pause", blueSkin.get("small", TextButton.TextButtonStyle.class));
+
+        pauseButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                ComputerScienceRunner.playScreen.pause();
+                game.setPauseScreen();
+                return true;
+            }
+        });
+
+
+        table.add(pauseButton).expandX().padTop(40);
+
+
+
         table.row();
+
+
+
+
+
+
 
         table.add().expandX().padTop(10);
         table.add(ectsValue).expandX().padTop(10);
         table.add(coinValue).expandX().padTop(10);
         table.add(semesterValue).expandX().padTop(10);
+
+
+
+
+
+
+
+
+
 
         stage.addActor(table);
 
