@@ -109,7 +109,7 @@ public class Player {
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
 
         body.createFixture(fixtureDef);
 
@@ -125,7 +125,7 @@ public class Player {
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_HEAD_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
 
         body.createFixture(fixtureDef).setUserData("head");
 
@@ -142,7 +142,7 @@ public class Player {
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_FEET_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.GOAL_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
 
         body.createFixture(fixtureDef).setUserData("feet");
 
@@ -236,7 +236,7 @@ public class Player {
             if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
                 if (grounded) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 15f), body.getWorldCenter(), true); //5.5f normally
+                    body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true); //5.5f normally
                     grounded = false;
                     jumping = true;
                     if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
@@ -248,7 +248,7 @@ public class Player {
                     }
                 } else if (!grounded && !doubleJumpUsed) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 10f), body.getWorldCenter(), true); //4f normally
+                    body.applyLinearImpulse(new Vector2(0, 4f), body.getWorldCenter(), true); //4f normally
                     if (jumping) {
                         doubleJumpUsed = true;
                     }
@@ -263,7 +263,7 @@ public class Player {
             }
 
 
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -15) { // 2f normally
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= -3f) { // 2f normally
                 body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
                 if (currentAnimation != runLeftAnimation) {
                     stateTime = 0; //Starts animation from beginning again, not from where it left before
@@ -273,7 +273,7 @@ public class Player {
                 }
             }
 
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && !Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 15) {// 2f normally
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && !Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 3f) {// 2f normally
                 body.applyLinearImpulse(new Vector2(0.5f, 0), body.getWorldCenter(), true);
                 if (currentAnimation != runRightAnimation) {
                     stateTime = 0;
@@ -394,5 +394,9 @@ public class Player {
 
     public void setReachedGoal(boolean reachedGoal) {
         this.reachedGoal = reachedGoal;
+    }
+
+    public boolean isJumping() {
+        return jumping;
     }
 }

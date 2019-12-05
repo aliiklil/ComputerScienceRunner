@@ -30,13 +30,9 @@ public class WorldContactListener implements ContactListener {
 
         int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
 
-        if(fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
+        if ((fixA.getUserData() == "feet" || fixB.getUserData() == "feet") && ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y <= 0) {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(true);
         }
-
-
-
-
 
         if(orCategoryBits == ComputerScienceRunner.BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BRICK_BIT) {
@@ -123,14 +119,28 @@ public class WorldContactListener implements ContactListener {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
 
-        if(fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
+        if (fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(false);
         }
+
 
     }
 
     @Override
-    public void preSolve(Contact contact, Manifold oldManifold) { }
+    public void preSolve(Contact contact, Manifold oldManifold) {
+
+        Fixture fixA = contact.getFixtureA();
+        Fixture fixB = contact.getFixtureB();
+
+        int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
+
+        if(orCategoryBits == ComputerScienceRunner.ONEWAY_PLATFORM_BIT + ComputerScienceRunner.PLAYER_BIT) {
+            if (ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y > 0) {
+                contact.setEnabled(false);
+            }
+        }
+
+    }
 
     @Override
     public void postSolve(Contact contact, ContactImpulse impulse) { }

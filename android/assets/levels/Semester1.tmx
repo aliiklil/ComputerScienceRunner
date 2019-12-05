@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="94">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="121">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="200" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2U0OwiAQhmHaogtbNR7B+1/ShZCQkUmslRmq7+IJ9Qc6gXwR7BhCGAEAAACgI1PiXQfQmymQD0CSuSAfwFPt94J8ADryAejIB6AjH4Buj/kYCt61wNYltbNzHfeC95wA2Tm1J8N7emdgUKzt4712aM8jH8BetMxHTMrX+VqeQ2J4fZYo++fPougflfsDW30rHwfluief7JHYU/03q/3V7c33tXP6sfI977nD7+P8AeiuqV02jKH9H2St1/rW1tB6ri3Ws8W45Ti1cXtZb+kB1NQgaQ==
+   eJzt2V0OgjAQRtEC1Qd/4xJcgroCdf97EmObNLWTiEA7NPfhBBRaJpAvHbQ1xrQAAAAAoEjnlK4D0KYz5AOIxbkgH8BHar0gH4CMfAAy8gHIas3HpXd1bgrqwTItMR9NQDrn3ns4TwU1YxoHt90WruMcKH1P/hHnwyioCePt3XaT8ZqlM9AIho7xx8Leih6rLiXyUZtw7fDoseowZz6sE372+/F7iDXf/yXG4/0xG423wvVzIR/1miofK2Ffk6E9VWpMfDzVW9Fj1SNXf3X68XvpPX2dOK/0vXtLrR0ea8jy8f4xDvmo29FtdyPmkH4Pyk1rfUNrmPte53iec8wbzpOaV8vzjr0Aj6osxw==
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -107,5 +107,10 @@
     <property name="Question2RightAnswer" value="0"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup name="OnewayPlatform">
+  <object id="118" x="2016" y="512" width="256"/>
+  <object id="119" x="2048" y="416" width="192"/>
+  <object id="120" x="2080" y="320" width="128"/>
  </objectgroup>
 </map>

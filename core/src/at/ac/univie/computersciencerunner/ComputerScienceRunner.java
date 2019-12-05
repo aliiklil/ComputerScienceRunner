@@ -1,12 +1,7 @@
 package at.ac.univie.computersciencerunner;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 import at.ac.univie.computersciencerunner.screens.GameOverScreen;
 import at.ac.univie.computersciencerunner.screens.LevelSelectionScreen;
@@ -40,6 +35,7 @@ public class ComputerScienceRunner extends Game {
     public static final short COIN_BIT = 2048;
     public static final short COIN_BRICK_BIT = 4096;
     public static final short GOAL_BIT = 8192;
+    public static final short ONEWAY_PLATFORM_BIT = 16384;
 
 	public static MainMenuScreen mainMenuScreen;
 	public static LevelSelectionScreen levelSelectionScreen;

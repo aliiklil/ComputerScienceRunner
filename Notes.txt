@@ -1,12 +1,39 @@
 .)Add platforms which can be jumped on from below
 
 .)Add enemies
+--)One enemy just goes from right to left and if he collides he changes the way. Also he doesn't fall down
+--)One enemy jumps up, and play can kill him only if he is not jumping
+--)One enemy flies from left to right (implement if enough time)
+--)One enemy throws spears at the player (implement if enough time)
+
+.)If player loses a heart, he should blink
 
 .)Add an item (apple for example), which makes the player immune to damage (like mushroom in Super Mario)
+--)When the player is immune, his color should change to green
+
+.)Add platforms which can move
+
+.)Add spikes
+
+.)Add trampolines
 
 .)Create all levels (and all questions)
+--)One level with green theme
+--)One level with ice theme
+--)One level with computer science theme
+--)One level with town theme
+--)One level with autumn theme
+--)One level with dark dungeon theme
+--)One level with mountain theme
+--)One level with dark forest theme
+--)One level with cloud theme
+--)One level with lava theme
+
+.)Add sound effects
 
 .)Add music
+
+.)Test game on phone
 
 
 Important notes:
