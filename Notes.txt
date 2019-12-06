@@ -1,5 +1,3 @@
-.)Add platforms which can be jumped on from below
-
 .)Add enemies
 --)One enemy just goes from right to left and if he collides he changes the way. Also he doesn't fall down
 --)One enemy jumps up, and play can kill him only if he is not jumping

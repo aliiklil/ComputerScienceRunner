@@ -21,8 +21,8 @@ public class ComputerScienceRunner extends Game {
 
 	public static final float PPM = 100; //pixels per meter
 
-	public static final short PLAYER_HEAD_BIT = 2;
 	public static final short PLAYER_BIT = 1;
+	public static final short PLAYER_HEAD_BIT = 2;
 	public static final short PLAYER_FEET_BIT = 4;
 	public static final short GROUND_BIT = 8;
 	public static final short BRICK_BIT = 16;
@@ -36,6 +36,10 @@ public class ComputerScienceRunner extends Game {
     public static final short COIN_BRICK_BIT = 4096;
     public static final short GOAL_BIT = 8192;
     public static final short ONEWAY_PLATFORM_BIT = 16384;
+	public static final short BUG_BIT = 32765;
+	public static final short BUG_LEFT_SENSOR_BIT = 32766;
+	public static final short BUG_RIGHT_SENSOR_BIT = 32767;
+
 
 	public static MainMenuScreen mainMenuScreen;
 	public static LevelSelectionScreen levelSelectionScreen;

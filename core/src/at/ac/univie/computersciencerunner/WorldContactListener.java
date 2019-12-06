@@ -14,6 +14,7 @@ import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
+import at.ac.univie.computersciencerunner.mobs.Bug;
 
 public class WorldContactListener implements ContactListener {
 
@@ -111,6 +112,22 @@ public class WorldContactListener implements ContactListener {
             ComputerScienceRunner.playScreen.getPlayer().setReachedGoal(true);
         }
 
+        if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT) {
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
+                ((Bug)fixA.getUserData()).setLeftSensorCollides(true);
+            } else {
+                ((Bug)fixB.getUserData()).setLeftSensorCollides(true);
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT) {
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
+                ((Bug)fixA.getUserData()).setRightSensorCollides(true);
+            } else {
+                ((Bug)fixB.getUserData()).setRightSensorCollides(true);
+            }
+        }
+
     }
 
     @Override
@@ -119,10 +136,27 @@ public class WorldContactListener implements ContactListener {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
 
+        int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
+
         if (fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(false);
         }
 
+        if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT) {
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
+                ((Bug)fixA.getUserData()).setLeftSensorCollides(false);
+            } else {
+                ((Bug)fixB.getUserData()).setLeftSensorCollides(false);
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT) {
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
+                ((Bug)fixA.getUserData()).setRightSensorCollides(false);
+            } else {
+                ((Bug)fixB.getUserData()).setRightSensorCollides(false);
+            }
+        }
 
     }
 

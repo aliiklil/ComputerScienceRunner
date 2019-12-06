@@ -40,6 +40,7 @@ import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
+import at.ac.univie.computersciencerunner.mobs.Bug;
 import at.ac.univie.computersciencerunner.mobs.Player;
 import at.ac.univie.computersciencerunner.CustomOrthogonalTiledMapRenderer;
 
@@ -77,6 +78,8 @@ public class PlayScreen implements Screen {
     private ComputerScienceRunner game;
 
     private int currentSemester;
+
+    private ArrayList<Bug> bugList = new ArrayList<Bug>();
 
     public PlayScreen(ComputerScienceRunner game, int semester) {
 
@@ -231,6 +234,12 @@ public class PlayScreen implements Screen {
             fixture.setFilterData(filter);
         }
 
+
+
+        Bug bug = new Bug(game, world, 128,64);
+
+        bugList.add(bug);
+
     }
 
     public void update(float dt) {
@@ -273,6 +282,11 @@ public class PlayScreen implements Screen {
         for(CoinBrick coinBrick : coinBrickList) {
             coinBrick.update(dt);
         }
+
+        for(Bug bug : bugList) {
+            bug.update(dt);
+        }
+
     }
 
     @Override
@@ -297,6 +311,9 @@ public class PlayScreen implements Screen {
 
         ComputerScienceRunner.batch.begin();
         player.draw();
+        for(Bug bug : bugList) {
+            bug.draw();
+        }
         ComputerScienceRunner.batch.end();
 
         if(player.isDead()) {
@@ -308,6 +325,7 @@ public class PlayScreen implements Screen {
             game.setQuestionScreen();
             dispose();
         }
+
     }
 
     @Override
