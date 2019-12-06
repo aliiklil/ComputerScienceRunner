@@ -40,6 +40,9 @@ public class Player {
 
     private Animation<TextureRegion> deathAnimation;
 
+    private Animation<TextureRegion> blankAnimation; //Shows nothing, this is needed for blinking when the player loses a heart
+    private Animation<TextureRegion> beforeBlankAnimation; //Save which animation was before
+
     private Animation<TextureRegion> currentAnimation;
 
     private float stateTime;
@@ -53,8 +56,6 @@ public class Player {
     private boolean jumping; //True if player pressed jump button until he is grounded again, Not true if player falls down from somewhere
     private boolean grounded; //True, if the bottom of the player is currently touching something (ground, bricks etc.)
 
-    private long ungroundedTimestamp; //Timestamp when grounded goes from true to false, needed because player should still be able to jump even when he walked off a cliff
-
     private int hearts; //How many hearts the player has. If he has 0 hearts, player is dead. Variable can be 0, 1, 2, 3
 
     private boolean dead; //True if player died
@@ -62,6 +63,10 @@ public class Player {
     private ComputerScienceRunner game;
 
     private boolean reachedGoal; //True when player reaches end of semester. Needed to know when to switch from PlayScreen to QuestionScreen
+
+    private boolean blinking; //True when player just lost a heart because of touching a monster, he will blink
+    private long blinkingStartTimestamp;
+    private int blinkingDuration = 2000; //In milliseconds
 
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
@@ -77,6 +82,8 @@ public class Player {
 
         createJumpLeftAnimation();
         createJumpRightAnimation();
+
+        createBlankAnimation();
 
         createDeathAnimation();
 
@@ -95,7 +102,7 @@ public class Player {
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
 
         body.createFixture(fixtureDef).setUserData("head");
 
@@ -195,6 +202,15 @@ public class Player {
         frames.clear();
     }
 
+    public void createBlankAnimation() {
+        Array<TextureRegion> frames = new Array<TextureRegion>();
+        for(int i = 0; i < 1; i++) {
+            frames.add(new TextureRegion(texture, 0, 448, 64, 64));
+        }
+        blankAnimation = new Animation(0.1f, frames);
+        frames.clear();
+    }
+
     public void update(float dt) {
         stateTime = stateTime + dt;
 
@@ -203,12 +219,34 @@ public class Player {
         } else {
             currentFrame = currentAnimation.getKeyFrame(stateTime, true);
         }
+
         handleInput(dt);
 
         if(body.getPosition().y < -5) {
             dead = true;
         }
 
+
+        if(blinking) {
+            if (System.currentTimeMillis() - blinkingStartTimestamp < blinkingDuration) {
+                if ((System.currentTimeMillis() - blinkingStartTimestamp) % 400 > 200) {
+                    currentFrame = blankAnimation.getKeyFrame(stateTime, false);
+                } else {
+                    if (currentAnimation == jumpLeftAnimation || currentAnimation == jumpRightAnimation || currentAnimation == deathAnimation) {
+                        currentFrame = currentAnimation.getKeyFrame(stateTime, false);
+                    } else {
+                        currentFrame = currentAnimation.getKeyFrame(stateTime, true);
+                    }
+                }
+            } else {
+                blinking = false;
+                if (currentAnimation == standLeftAnimation) { //Player is pushed a bit away, in case he still touches with the enemy, so a new contact is happening
+                    body.applyLinearImpulse(new Vector2(-0.01f, 0f), body.getWorldCenter(), true);
+                } else if (currentAnimation == standRightAnimation) {
+                    body.applyLinearImpulse(new Vector2(0.01f, 0f), body.getWorldCenter(), true);
+                }
+            }
+        }
     }
 
     public void handleInput(float dt) {
@@ -340,6 +378,8 @@ public class Player {
             ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(true);
         }
 
+
+
     }
 
     public void draw() {
@@ -350,11 +390,11 @@ public class Player {
         Vector3 screenCoordinates = camera.project(worldCoordinates);
 
         ComputerScienceRunner.batch.draw(currentFrame, screenCoordinates.x - 32, screenCoordinates.y - 24);
+
     }
 
     public void setGrounded(boolean grounded) {
         this.grounded = grounded;
-        ungroundedTimestamp = System.currentTimeMillis();
     }
 
     public int getHearts() {
@@ -381,4 +421,18 @@ public class Player {
     public boolean isJumping() {
         return jumping;
     }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
+    }
+
+    public boolean isBlinking() {
+        return blinking;
+    }
+
+    public void setBlinking(boolean blinking) {
+        this.blinking = blinking;
+        blinkingStartTimestamp = System.currentTimeMillis();
+    }
+
 }

@@ -16,6 +16,7 @@ import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 import at.ac.univie.computersciencerunner.mobs.Bug;
+import at.ac.univie.computersciencerunner.mobs.Player;
 
 public class WorldContactListener implements ContactListener {
 
@@ -128,6 +129,18 @@ public class WorldContactListener implements ContactListener {
                 ((Bug)fixA.getUserData()).hitOnHead();
             } else {
                 ((Bug)fixB.getUserData()).hitOnHead();
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_LEFT_SENSOR_BIT || orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
+            Player player = ComputerScienceRunner.playScreen.getPlayer();
+
+            if(!player.isBlinking()) {
+                player.setHearts(player.getHearts() - 1);
+                player.setBlinking(true);
+                if (player.getHearts() == 0) {
+                    player.setDead(true);
+                }
             }
         }
     }

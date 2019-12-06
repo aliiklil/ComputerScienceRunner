@@ -1,14 +1,13 @@
-.)Add enemies
---)One enemy just goes from right to left and if he collides he changes the way. Also he doesn't fall down
---)One enemy jumps up, and play can kill him only if he is not jumping
---)One enemy flies from left to right (implement if enough time)
---)One enemy throws spears at the player (implement if enough time)
+.)Add animation when player dies
 
-.)If player loses a heart, he should blink
+.)Read enemy position from map
+
+.)Add enemies
+--)One enemy jumps up, and play can kill him only if he is not jumping
 
 .)Add an item (apple for example), which makes the player immune to damage (like mushroom in Super Mario)
 --)When the player is immune, his color should change to green
-
+ 
 .)Add platforms which can move
 
 .)Add spikes

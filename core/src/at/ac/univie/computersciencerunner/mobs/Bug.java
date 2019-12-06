@@ -77,6 +77,11 @@ public class Bug {
         FixtureDef fixtureDef = new FixtureDef();
 
 
+
+
+
+
+
         CircleShape circle = new CircleShape();
         circle.setRadius(8 / ComputerScienceRunner.PPM);
         circle.setPosition(new Vector2(0, -16 / ComputerScienceRunner.PPM));
@@ -107,26 +112,26 @@ public class Bug {
 
 
         leftSensor = new PolygonShape();
-        leftSensor.setAsBox(4 / ComputerScienceRunner.PPM, 4 / ComputerScienceRunner.PPM, new Vector2(-16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
+        leftSensor.setAsBox(4 / ComputerScienceRunner.PPM, 16 / ComputerScienceRunner.PPM, new Vector2(-16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = leftSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_LEFT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 
 
 
         rightSensor = new PolygonShape();
-        rightSensor.setAsBox(4 / ComputerScienceRunner.PPM, 4 / ComputerScienceRunner.PPM, new Vector2(16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
+        rightSensor.setAsBox(4 / ComputerScienceRunner.PPM, 16 / ComputerScienceRunner.PPM, new Vector2(16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = rightSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 
