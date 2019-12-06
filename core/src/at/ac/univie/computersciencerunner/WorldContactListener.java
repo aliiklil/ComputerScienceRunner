@@ -181,7 +181,7 @@ public class WorldContactListener implements ContactListener {
 
         int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
 
-        if(orCategoryBits == ComputerScienceRunner.ONEWAY_PLATFORM_BIT + ComputerScienceRunner.PLAYER_BIT) {
+        if(orCategoryBits == ComputerScienceRunner.ONEWAY_PLATFORM_BIT + ComputerScienceRunner.PLAYER_FEET_BIT) {
             if (ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y > 0) {
                 contact.setEnabled(false);
             }

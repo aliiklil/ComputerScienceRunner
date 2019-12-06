@@ -231,14 +231,19 @@ public class PlayScreen implements Screen {
 
             Filter filter = new Filter();
             filter.categoryBits = ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
+            filter.maskBits = ComputerScienceRunner.PLAYER_FEET_BIT;
             fixture.setFilterData(filter);
         }
 
 
 
-        Bug bug = new Bug(game, world, 128,64);
+        //Bugs
+        for(MapObject object : tiledMap.getLayers().get(14).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-        bugList.add(bug);
+            Bug bug = new Bug(game, world, rect.getX(),rect.getY() + 1);
+            bugList.add(bug);
+        }
 
     }
 
