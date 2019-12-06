@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.MassData;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -72,6 +73,7 @@ public class Bug {
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         bodyDef.position.set(x / ComputerScienceRunner.PPM, y / ComputerScienceRunner.PPM);
+        bodyDef.linearDamping = 1.0f;
 
         body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
@@ -197,8 +199,10 @@ public class Bug {
 
         currentFrame = currentAnimation.getKeyFrame(stateTime, true);
 
-        x = body.getPosition().x;
-        y = body.getPosition().y;
+        if(!setToDestroy) {
+            x = body.getPosition().x;
+            y = body.getPosition().y;
+        }
 
         if(setToDestroy && !destroyed) {
             ComputerScienceRunner.playScreen.getWorld().destroyBody(body);

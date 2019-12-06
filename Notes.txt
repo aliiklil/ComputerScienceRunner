@@ -1,7 +1,3 @@
-.)Add animation when player dies
-
-.)Read enemy position from map
-
 .)Add enemies
 --)One enemy jumps up, and play can kill him only if he is not jumping
 
