@@ -108,7 +108,7 @@ public class WorldContactListener implements ContactListener {
             ComputerScienceRunner.playScreen.getPlayer().setReachedGoal(true);
         }
 
-        if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT) {
+        if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
                 ((Bug)fixA.getUserData()).setLeftSensorCollides(true);
             } else {
@@ -116,7 +116,7 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
-        if(orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT) {
+        if(orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
                 ((Bug)fixA.getUserData()).setRightSensorCollides(true);
             } else {
@@ -126,9 +126,13 @@ public class WorldContactListener implements ContactListener {
 
         if(orCategoryBits == ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.BUG_HEAD_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_HEAD_BIT) {
-                ((Bug)fixA.getUserData()).hitOnHead();
+                if(fixA.getUserData() != null) {
+                    ((Bug) fixA.getUserData()).hitOnHead();
+                }
             } else {
-                ((Bug)fixB.getUserData()).hitOnHead();
+                if(fixB.getUserData() != null) {
+                    ((Bug) fixB.getUserData()).hitOnHead();
+                }
             }
         }
 
@@ -150,7 +154,7 @@ public class WorldContactListener implements ContactListener {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(false);
         }
 
-        if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT) {
+        if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
                 ((Bug)fixA.getUserData()).setLeftSensorCollides(false);
             } else {
@@ -158,7 +162,7 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
-        if(orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT) {
+        if(orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
                 ((Bug)fixA.getUserData()).setRightSensorCollides(false);
             } else {

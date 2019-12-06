@@ -269,13 +269,14 @@ public class Player {
             for(Fixture fixture : body.getFixtureList()) {
                 fixture.setFilterData(filter);
             }
+            body.setLinearVelocity(0, 0);
             body.applyLinearImpulse(new Vector2(0f, 6f), body.getWorldCenter(), true);
         }
     }
 
     public void handleInput(float dt) {
 
-        if(!ComputerScienceRunner.playScreen.isPaused()) {
+        if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
 
             if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
                 if (grounded) {

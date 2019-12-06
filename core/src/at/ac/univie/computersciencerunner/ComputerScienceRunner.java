@@ -38,8 +38,8 @@ public class ComputerScienceRunner extends Game {
     public static final short ONEWAY_PLATFORM_BIT = 16384;
 	public static final short BUG_HEAD_BIT = 32762;
 	public static final short BUG_BODY_BIT = 32765;
-	public static final short BUG_LEFT_SENSOR_BIT = 32766;
-	public static final short BUG_RIGHT_SENSOR_BIT = 32767;
+	public static final short BUG_LEFT_SENSOR_BIT = 28000;
+	public static final short BUG_RIGHT_SENSOR_BIT = 25000;
 
 
 	public static MainMenuScreen mainMenuScreen;

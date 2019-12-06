@@ -231,7 +231,7 @@ public class PlayScreen implements Screen {
 
             Filter filter = new Filter();
             filter.categoryBits = ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
-            filter.maskBits = ComputerScienceRunner.PLAYER_FEET_BIT;
+            filter.maskBits = ComputerScienceRunner.PLAYER_FEET_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT;
             fixture.setFilterData(filter);
         }
 
@@ -241,7 +241,7 @@ public class PlayScreen implements Screen {
         for(MapObject object : tiledMap.getLayers().get(14).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            Bug bug = new Bug(game, world, rect.getX(),rect.getY() + 1);
+            Bug bug = new Bug(game, world, rect.getX(),rect.getY() + 32);
             bugList.add(bug);
         }
 
