@@ -15,6 +15,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
@@ -67,6 +69,10 @@ public class Player {
     private boolean blinking; //True when player just lost a heart because of touching a monster, he will blink
     private long blinkingStartTimestamp;
     private int blinkingDuration = 2000; //In milliseconds
+
+    private boolean isTouchingEnemy;
+
+    private boolean deathJumpStarted; //True, when the player has died and now does the death jump and falls down
 
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
@@ -227,6 +233,19 @@ public class Player {
         }
 
 
+        if(isTouchingEnemy) {
+            if (!blinking) {
+                System.out.println("aaa");
+                hearts--;
+                ComputerScienceRunner.playScreen.getHud().setHeartsCount(hearts);
+                blinking = true;
+                blinkingStartTimestamp = System.currentTimeMillis();
+                if (hearts == 0) {
+                    currentAnimation = deathAnimation;
+                }
+            }
+        }
+
         if(blinking) {
             if (System.currentTimeMillis() - blinkingStartTimestamp < blinkingDuration) {
                 if ((System.currentTimeMillis() - blinkingStartTimestamp) % 400 > 200) {
@@ -240,12 +259,17 @@ public class Player {
                 }
             } else {
                 blinking = false;
-                if (currentAnimation == standLeftAnimation) { //Player is pushed a bit away, in case he still touches with the enemy, so a new contact is happening
-                    body.applyLinearImpulse(new Vector2(-0.01f, 0f), body.getWorldCenter(), true);
-                } else if (currentAnimation == standRightAnimation) {
-                    body.applyLinearImpulse(new Vector2(0.01f, 0f), body.getWorldCenter(), true);
-                }
             }
+        }
+
+        if(currentAnimation == deathAnimation && !deathJumpStarted) {
+            deathJumpStarted = true;
+            Filter filter = new Filter();
+            filter.maskBits = 0; //Nothing
+            for(Fixture fixture : body.getFixtureList()) {
+                fixture.setFilterData(filter);
+            }
+            body.applyLinearImpulse(new Vector2(0f, 6f), body.getWorldCenter(), true);
         }
     }
 
@@ -403,7 +427,6 @@ public class Player {
 
     public void setHearts(int hearts) {
         this.hearts = hearts;
-        ComputerScienceRunner.playScreen.getHud().setHeartsCount(hearts);
     }
 
     public boolean isDead() {
@@ -432,7 +455,25 @@ public class Player {
 
     public void setBlinking(boolean blinking) {
         this.blinking = blinking;
-        blinkingStartTimestamp = System.currentTimeMillis();
     }
 
+    public Animation<TextureRegion> getCurrentAnimation() {
+        return currentAnimation;
+    }
+
+    public void setCurrentAnimation(Animation<TextureRegion> currentAnimation) {
+        this.currentAnimation = currentAnimation;
+    }
+
+    public Animation<TextureRegion> getDeathAnimation() {
+        return deathAnimation;
+    }
+
+    public boolean isTouchingEnemy() {
+        return isTouchingEnemy;
+    }
+
+    public void setTouchingEnemy(boolean touchingEnemy) {
+        isTouchingEnemy = touchingEnemy;
+    }
 }
