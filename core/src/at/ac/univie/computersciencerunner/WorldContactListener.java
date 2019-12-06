@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
@@ -43,10 +44,6 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
-
-
-
-
         if(orCategoryBits == ComputerScienceRunner.ECTS_BIT + ComputerScienceRunner.PLAYER_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.ECTS_BIT) {
                 ((ECTS)fixA.getUserData()).setToDestroy();
@@ -62,8 +59,6 @@ public class WorldContactListener implements ContactListener {
                 ((ECTSBrick)fixB.getUserData()).setToDestroy();
             }
         }
-
-
 
         if(orCategoryBits == ComputerScienceRunner.HEART_BIT + ComputerScienceRunner.PLAYER_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.HEART_BIT) {
@@ -128,6 +123,13 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.BUG_HEAD_BIT) {
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_HEAD_BIT) {
+                ((Bug)fixA.getUserData()).hitOnHead();
+            } else {
+                ((Bug)fixB.getUserData()).hitOnHead();
+            }
+        }
     }
 
     @Override

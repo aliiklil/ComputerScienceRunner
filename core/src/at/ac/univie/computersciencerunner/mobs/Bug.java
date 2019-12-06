@@ -16,9 +16,14 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
+import org.omg.CORBA.COMM_FAILURE;
+
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
 public class Bug {
+
+    private float x;
+    private float y;
 
     private int spriteWidth = 64;
     private int spriteHeight = 64;
@@ -49,6 +54,9 @@ public class Bug {
     private boolean leftSensorCollides = true;
     private boolean rightSensorCollides = true;
 
+    private boolean setToDestroy;
+    private boolean destroyed;
+
     public Bug(ComputerScienceRunner computerScienceRunner, World world, float x, float y) {
 
         this.game = computerScienceRunner;
@@ -75,7 +83,7 @@ public class Bug {
         fixtureDef.shape = circle;
         fixtureDef.friction = 0;
 
-        fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_BIT;
+        fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_BODY_BIT;
         fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT;
 
         body.createFixture(fixtureDef);
@@ -89,12 +97,12 @@ public class Bug {
 
         fixtureDef.shape = head;
         fixtureDef.friction = 0;
-        fixtureDef.isSensor = true;
+        fixtureDef.restitution = 0.8f;
 
-        fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT;
+        fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_HEAD_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.PLAYER_FEET_BIT;
 
-        body.createFixture(fixtureDef).setUserData("head");
+        body.createFixture(fixtureDef).setUserData(this);
 
 
 
@@ -105,7 +113,7 @@ public class Bug {
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_LEFT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 
@@ -118,7 +126,7 @@ public class Bug {
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 
@@ -128,7 +136,7 @@ public class Bug {
     public void createRunLeftAnimation() {
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for(int i = 0; i < 4; i++) {
-            frames.add(new TextureRegion(texture, i * 64, 0, 64, 64));
+            frames.add(new TextureRegion(texture, i * 64, 0, spriteWidth, spriteHeight));
         }
         runLeftAnimation = new Animation(0.1f, frames);
         frames.clear();
@@ -137,7 +145,7 @@ public class Bug {
     public void createRunRightAnimation() {
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for(int i = 0; i < 4; i++) {
-            frames.add(new TextureRegion(texture, i * 64, 64, 64, 64));
+            frames.add(new TextureRegion(texture, i * 64, 64,  spriteWidth, spriteHeight));
         }
         runRightAnimation = new Animation(0.1f, frames);
         frames.clear();
@@ -146,7 +154,7 @@ public class Bug {
     public void createStompedLeftAnimation() {
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for(int i = 0; i < 1; i++) {
-            frames.add(new TextureRegion(texture, i * 64, 128, 64, 64));
+            frames.add(new TextureRegion(texture, i * 64, 128,  spriteWidth, spriteHeight));
         }
         stompedLeftAnimation = new Animation(0.1f, frames);
         frames.clear();
@@ -155,7 +163,7 @@ public class Bug {
     public void createStompedRightAnimation() {
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for(int i = 0; i < 1; i++) {
-            frames.add(new TextureRegion(texture, i * 64, 192, 64, 64));
+            frames.add(new TextureRegion(texture, i * 64, 192,  spriteWidth, spriteHeight));
         }
         stompedRightAnimation = new Animation(0.1f, frames);
         frames.clear();
@@ -184,17 +192,38 @@ public class Bug {
 
         currentFrame = currentAnimation.getKeyFrame(stateTime, true);
 
+        x = body.getPosition().x;
+        y = body.getPosition().y;
+
+        if(setToDestroy && !destroyed) {
+            ComputerScienceRunner.playScreen.getWorld().destroyBody(body);
+            destroyed = true;
+            stateTime = 0;
+        }
+
     }
 
     public void draw() {
 
-        Camera camera = ComputerScienceRunner.playScreen.getCamera();
+        if(!destroyed || stateTime < 1) {
+            Camera camera = ComputerScienceRunner.playScreen.getCamera();
 
-        Vector3 worldCoordinates = new Vector3(body.getPosition().x, body.getPosition().y, 0);
-        Vector3 screenCoordinates = camera.project(worldCoordinates);
+            Vector3 worldCoordinates = new Vector3(x, y, 0);
+            Vector3 screenCoordinates = camera.project(worldCoordinates);
 
-        ComputerScienceRunner.batch.draw(currentFrame, screenCoordinates.x - 32, screenCoordinates.y - 24);
+            ComputerScienceRunner.batch.draw(currentFrame, screenCoordinates.x - 32, screenCoordinates.y - 24);
+        }
+    }
 
+    public void hitOnHead() {
+        setToDestroy = true;
+        if(currentAnimation == runLeftAnimation) {
+            currentAnimation = stompedLeftAnimation;
+        }
+
+        if(currentAnimation == runRightAnimation) {
+            currentAnimation = stompedRightAnimation;
+        }
     }
 
     public boolean isDead() {
