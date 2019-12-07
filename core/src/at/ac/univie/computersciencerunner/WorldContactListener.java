@@ -36,6 +36,7 @@ public class WorldContactListener implements ContactListener {
         if ((fixA.getUserData() == "feet" || fixB.getUserData() == "feet") && ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y <= 0) {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(true);
             ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(0);
+            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(false);
         }
 
         if(orCategoryBits == ComputerScienceRunner.BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
@@ -44,6 +45,7 @@ public class WorldContactListener implements ContactListener {
             } else {
                 ((Brick)fixB.getUserData()).setToDestroy();
             }
+            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
         }
 
         if(orCategoryBits == ComputerScienceRunner.ECTS_BIT + ComputerScienceRunner.PLAYER_BIT) {
@@ -60,6 +62,7 @@ public class WorldContactListener implements ContactListener {
             } else {
                 ((ECTSBrick)fixB.getUserData()).setToDestroy();
             }
+            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
         }
 
         if(orCategoryBits == ComputerScienceRunner.HEART_BIT + ComputerScienceRunner.PLAYER_BIT) {
@@ -76,6 +79,7 @@ public class WorldContactListener implements ContactListener {
             } else {
                 ((HeartBrick)fixB.getUserData()).setToDestroy();
             }
+            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
         }
 
         if(orCategoryBits == ComputerScienceRunner.INFO_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
@@ -103,6 +107,7 @@ public class WorldContactListener implements ContactListener {
             } else {
                 ((CoinBrick)fixB.getUserData()).setToDestroy();
             }
+            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
         }
 
         if(orCategoryBits == ComputerScienceRunner.GOAL_BIT + ComputerScienceRunner.PLAYER_BIT) {

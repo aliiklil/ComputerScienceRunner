@@ -74,6 +74,8 @@ public class Player {
 
     private boolean deathJumpStarted; //True, when the player has died and now does the death jump and falls down
 
+    private boolean brickDestroyed; //True if player just destroyed a brick. Needed so he can't destroy a brick and hold the jump button and get over the brick
+
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
@@ -116,13 +118,13 @@ public class Player {
 
 
         CircleShape circle = new CircleShape();
-        circle.setRadius(8 / ComputerScienceRunner.PPM);
+        circle.setRadius(7 / ComputerScienceRunner.PPM);
         circle.setPosition(new Vector2(0, -16 / ComputerScienceRunner.PPM));
         fixtureDef.shape = circle;
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_FEET_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT;
 
         body.createFixture(fixtureDef).setUserData("feet");
 
@@ -220,6 +222,8 @@ public class Player {
     public void update(float dt) {
         stateTime = stateTime + dt;
 
+        System.out.println(grounded);
+
         if(currentAnimation == jumpLeftAnimation || currentAnimation == jumpRightAnimation || currentAnimation == deathAnimation) {
             currentFrame = currentAnimation.getKeyFrame(stateTime, false);
         } else {
@@ -277,17 +281,16 @@ public class Player {
     public void handleInput(float dt) {
 
         if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
-
-            if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && !jumping) {
+            System.out.println("brickDestroyed " + brickDestroyed);
+            if (Gdx.input.isKeyPressed(Input.Keys.UP) && !brickDestroyed) {
                 if (grounded || System.currentTimeMillis() - timestampUngrounded < durationJumpPossible) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true); //5.5f normally
+                    body.applyLinearImpulse(new Vector2(0, 4.5f), body.getWorldCenter(), true); //5.5f normally
                     grounded = false;
                     jumping = true;
                     if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
                         currentAnimation = jumpLeftAnimation;
                     }
-
                     if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
                         currentAnimation = jumpRightAnimation;
                     }
@@ -470,5 +473,9 @@ public class Player {
 
     public void setTimestampUngrounded(long timestampUngrounded) {
         this.timestampUngrounded = timestampUngrounded;
+    }
+
+    public void setBrickDestroyed(boolean brickDestroyed) {
+        this.brickDestroyed = brickDestroyed;
     }
 }
