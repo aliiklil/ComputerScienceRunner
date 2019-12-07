@@ -1,5 +1,4 @@
-.)Add enemies
---)One enemy jumps up, and player can kill him only if he is not jumping
+.)Fix bug, where player jumps always higher at one way platforms
  
 .)Add platforms which can move
 

@@ -12,13 +12,14 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.MassData;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
-public class Bug {
+public class JumpingBug {
 
     private float x;
     private float y;
@@ -26,13 +27,11 @@ public class Bug {
     private int spriteWidth = 64;
     private int spriteHeight = 64;
 
-    private Texture texture = new Texture(Gdx.files.internal("bug.png"));
+    private Texture texture = new Texture(Gdx.files.internal("jumpingBug.png"));
 
-    private Animation<TextureRegion> runLeftAnimation;
-    private Animation<TextureRegion> runRightAnimation;
-
-    private Animation<TextureRegion> stompedLeftAnimation;
-    private Animation<TextureRegion> stompedRightAnimation;
+    private Animation<TextureRegion> standAnimation;
+    private Animation<TextureRegion> jumpAnimation;
+    private Animation<TextureRegion> stompedAnimation;
 
     private Animation<TextureRegion> currentAnimation;
 
@@ -49,23 +48,26 @@ public class Bug {
     private PolygonShape leftSensor;
     private PolygonShape rightSensor;
 
-    private boolean leftSensorCollides = true;
-    private boolean rightSensorCollides = true;
-
     private boolean setToDestroy;
     private boolean destroyed;
 
-    public Bug(ComputerScienceRunner computerScienceRunner, World world, float x, float y) {
+    private boolean jumping;
+    private long timestampLastJump;
+    private int durationBetweenJumps = 3000; //Jumps up all 5 seconds
+
+    private float startPositionX;
+
+    public JumpingBug(ComputerScienceRunner computerScienceRunner, World world, float x, float y) {
+
+        startPositionX = x;
 
         this.game = computerScienceRunner;
 
-        createRunLeftAnimation();
-        createRunRightAnimation();
+        createStandAnimation();
+        createJumpAnimation();
+        createStompedAnimation();
 
-        createStompedLeftAnimation();
-        createStompedRightAnimation();
-
-        currentAnimation = runRightAnimation;
+        currentAnimation = standAnimation;
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -76,7 +78,12 @@ public class Bug {
         FixtureDef fixtureDef = new FixtureDef();
 
 
+        MassData massData = body.getMassData();
 
+        massData.center.set(0, 0);
+        massData.mass = 1000; //Give it a lot of mass, so player cant move it
+
+        body.setMassData(massData);
 
 
 
@@ -88,7 +95,7 @@ public class Bug {
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_BODY_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT |  ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT |  ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
 
         body.createFixture(fixtureDef);
 
@@ -97,102 +104,76 @@ public class Bug {
 
 
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-20 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), new Vector2(20 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM));
+        head.set(new Vector2(-18 / ComputerScienceRunner.PPM, 30 / ComputerScienceRunner.PPM), new Vector2(18 / ComputerScienceRunner.PPM, 30 / ComputerScienceRunner.PPM));
 
         fixtureDef.shape = head;
         fixtureDef.friction = 0;
         fixtureDef.restitution = 0.8f;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_HEAD_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.PLAYER_FEET_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_FEET_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.PLAYER_HEAD_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 
 
 
         leftSensor = new PolygonShape();
-        leftSensor.setAsBox(4 / ComputerScienceRunner.PPM, 16 / ComputerScienceRunner.PPM, new Vector2(-16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
+        leftSensor.setAsBox(2 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(-14 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = leftSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_LEFT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_HEAD_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 
 
 
         rightSensor = new PolygonShape();
-        rightSensor.setAsBox(4 / ComputerScienceRunner.PPM, 16 / ComputerScienceRunner.PPM, new Vector2(16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
+        rightSensor.setAsBox(2 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(14 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = rightSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_HEAD_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 
 
     }
 
-    public void createRunLeftAnimation() {
-        Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i = 0; i < 4; i++) {
-            frames.add(new TextureRegion(texture, i * 64, 0, spriteWidth, spriteHeight));
-        }
-        runLeftAnimation = new Animation(0.1f, frames);
-        frames.clear();
-    }
-
-    public void createRunRightAnimation() {
-        Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i = 0; i < 4; i++) {
-            frames.add(new TextureRegion(texture, i * 64, 64,  spriteWidth, spriteHeight));
-        }
-        runRightAnimation = new Animation(0.1f, frames);
-        frames.clear();
-    }
-
-    public void createStompedLeftAnimation() {
+    public void createStandAnimation() {
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for(int i = 0; i < 1; i++) {
-            frames.add(new TextureRegion(texture, i * 64, 128,  spriteWidth, spriteHeight));
+            frames.add(new TextureRegion(texture, 0, 0, spriteWidth, spriteHeight));
         }
-        stompedLeftAnimation = new Animation(0.1f, frames);
+        standAnimation = new Animation(0.1f, frames);
         frames.clear();
     }
 
-    public void createStompedRightAnimation() {
+    public void createJumpAnimation() {
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for(int i = 0; i < 1; i++) {
-            frames.add(new TextureRegion(texture, i * 64, 192,  spriteWidth, spriteHeight));
+            frames.add(new TextureRegion(texture, 0, 64,  spriteWidth, spriteHeight));
         }
-        stompedRightAnimation = new Animation(0.1f, frames);
+        jumpAnimation = new Animation(0.1f, frames);
         frames.clear();
     }
 
+    public void createStompedAnimation() {
+        Array<TextureRegion> frames = new Array<TextureRegion>();
+        for(int i = 0; i < 1; i++) {
+            frames.add(new TextureRegion(texture, 0, 128,  spriteWidth, spriteHeight));
+        }
+        stompedAnimation = new Animation(0.1f, frames);
+        frames.clear();
+    }
 
 
     public void update(float dt) {
         stateTime = stateTime + dt;
-
-        if(leftSensorCollides && !rightSensorCollides) {
-            currentAnimation = runLeftAnimation;
-        }
-
-        if(!leftSensorCollides && rightSensorCollides) {
-            currentAnimation = runRightAnimation;
-        }
-
-        if(currentAnimation == runLeftAnimation) {
-            body.setLinearVelocity(-1, 0);
-        }
-
-        if(currentAnimation == runRightAnimation) {
-            body.setLinearVelocity(1, 0);
-        }
 
         currentFrame = currentAnimation.getKeyFrame(stateTime, true);
 
@@ -206,6 +187,21 @@ public class Bug {
             destroyed = true;
             stateTime = 0;
         }
+
+        if(!setToDestroy) {
+            if (!jumping && System.currentTimeMillis() - timestampLastJump > durationBetweenJumps) {
+                jumping = true;
+                body.applyLinearImpulse(new Vector2(0, 6000f), body.getWorldCenter(), true);
+                currentAnimation = jumpAnimation;
+                timestampLastJump = System.currentTimeMillis();
+            }
+
+            if (body.getLinearVelocity().y == 0) {
+                jumping = false;
+                currentAnimation = standAnimation;
+            }
+        }
+
 
     }
 
@@ -223,13 +219,7 @@ public class Bug {
 
     public void hitOnHead() {
         setToDestroy = true;
-        if(currentAnimation == runLeftAnimation) {
-            currentAnimation = stompedLeftAnimation;
-        }
-
-        if(currentAnimation == runRightAnimation) {
-            currentAnimation = stompedRightAnimation;
-        }
+        currentAnimation = stompedAnimation;
     }
 
     public boolean isDead() {
@@ -249,19 +239,7 @@ public class Bug {
         return rightSensor;
     }
 
-    public boolean isLeftSensorCollides() {
-        return leftSensorCollides;
-    }
-
-    public boolean isRightSensorCollides() {
-        return rightSensorCollides;
-    }
-
-    public void setLeftSensorCollides(boolean leftSensorCollides) {
-        this.leftSensorCollides = leftSensorCollides;
-    }
-
-    public void setRightSensorCollides(boolean rightSensorCollides) {
-        this.rightSensorCollides = rightSensorCollides;
+    public boolean isJumping() {
+        return jumping;
     }
 }

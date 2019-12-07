@@ -41,6 +41,7 @@ import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 import at.ac.univie.computersciencerunner.mobs.Bug;
+import at.ac.univie.computersciencerunner.mobs.JumpingBug;
 import at.ac.univie.computersciencerunner.mobs.Player;
 import at.ac.univie.computersciencerunner.CustomOrthogonalTiledMapRenderer;
 
@@ -80,6 +81,7 @@ public class PlayScreen implements Screen {
     private int currentSemester;
 
     private ArrayList<Bug> bugList = new ArrayList<Bug>();
+    private ArrayList<JumpingBug> jumpingBugList = new ArrayList<JumpingBug>();
 
     public PlayScreen(ComputerScienceRunner game, int semester) {
 
@@ -245,6 +247,14 @@ public class PlayScreen implements Screen {
             bugList.add(bug);
         }
 
+        //JumpingBugs
+        for(MapObject object : tiledMap.getLayers().get(15).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            JumpingBug jumpingBug = new JumpingBug(game, world, rect.getX(),rect.getY() + 32);
+            jumpingBugList.add(jumpingBug);
+        }
+
     }
 
     public void update(float dt) {
@@ -292,6 +302,10 @@ public class PlayScreen implements Screen {
             bug.update(dt);
         }
 
+        for(JumpingBug jumpingBug : jumpingBugList) {
+            jumpingBug.update(dt);
+        }
+
     }
 
     @Override
@@ -318,6 +332,9 @@ public class PlayScreen implements Screen {
         player.draw();
         for(Bug bug : bugList) {
             bug.draw();
+        }
+        for(JumpingBug jumpingBug : jumpingBugList) {
+            jumpingBug.draw();
         }
         ComputerScienceRunner.batch.end();
 

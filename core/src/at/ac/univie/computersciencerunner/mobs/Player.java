@@ -101,7 +101,7 @@ public class Player {
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(64 / ComputerScienceRunner.PPM, 32 / ComputerScienceRunner.PPM);
+        bodyDef.position.set(2400 / ComputerScienceRunner.PPM, 32 / ComputerScienceRunner.PPM);
 
         body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
@@ -278,6 +278,11 @@ public class Player {
             body.setLinearVelocity(0, 0);
             body.applyLinearImpulse(new Vector2(0f, 6f), body.getWorldCenter(), true);
         }
+
+        if(body.getLinearVelocity().y > 8f) {
+            System.out.println("TESTAADWQ");
+            body.setLinearVelocity(body.getLinearVelocity().x, 0);
+        }
     }
 
     public void handleInput(float dt) {
@@ -293,12 +298,13 @@ public class Player {
             upKeyReleased = true;
         }
 
+
         if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
 
             if (upKeyReleased && Gdx.input.isKeyPressed(Input.Keys.UP) && !brickDestroyed) {
                 if (grounded || System.currentTimeMillis() - timestampUngrounded < durationJumpPossible) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 4.5f), body.getWorldCenter(), true); //5.5f normally
+                    body.applyLinearImpulse(new Vector2(0, 4.5f), body.getWorldCenter(), true);
                     grounded = false;
                     jumping = true;
                     if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
@@ -482,5 +488,21 @@ public class Player {
 
     public void setBrickDestroyed(boolean brickDestroyed) {
         this.brickDestroyed = brickDestroyed;
+    }
+
+    public void setBlinkingStartTimestamp(long blinkingStartTimestamp) {
+        this.blinkingStartTimestamp = blinkingStartTimestamp;
+    }
+
+    public int getSpriteWidth() {
+        return spriteWidth;
+    }
+
+    public Animation<TextureRegion> getJumpLeftAnimation() {
+        return jumpLeftAnimation;
+    }
+
+    public Animation<TextureRegion> getJumpRightAnimation() {
+        return jumpRightAnimation;
     }
 }

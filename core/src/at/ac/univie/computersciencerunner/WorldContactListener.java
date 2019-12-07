@@ -17,6 +17,7 @@ import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InteractiveObject;
 import at.ac.univie.computersciencerunner.mobs.Bug;
+import at.ac.univie.computersciencerunner.mobs.JumpingBug;
 import at.ac.univie.computersciencerunner.mobs.Player;
 
 public class WorldContactListener implements ContactListener {
@@ -33,8 +34,9 @@ public class WorldContactListener implements ContactListener {
         Fixture fixB = contact.getFixtureB();
 
         int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
-
-        if ((fixA.getUserData() == "feet" || fixB.getUserData() == "feet") && ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y <= 0) {
+        System.out.println(ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y);
+        Player player =  ComputerScienceRunner.playScreen.getPlayer();
+        if ((fixA.getUserData() == "feet" || fixB.getUserData() == "feet") && player.body.getLinearVelocity().y <= 0.0f) {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(true);
             ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(0);
             ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(false);
@@ -110,35 +112,61 @@ public class WorldContactListener implements ContactListener {
         }
 
         if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
+            Object enemy = null;
+
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
-                ((Bug)fixA.getUserData()).setLeftSensorCollides(true);
+                enemy = fixA.getUserData();
             } else {
-                ((Bug)fixB.getUserData()).setLeftSensorCollides(true);
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof Bug) {
+                ((Bug) enemy).setLeftSensorCollides(true);
             }
         }
 
         if(orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
+
+            Object enemy = null;
+
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
-                ((Bug)fixA.getUserData()).setRightSensorCollides(true);
+                enemy = fixA.getUserData();
             } else {
-                ((Bug)fixB.getUserData()).setRightSensorCollides(true);
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof Bug) {
+                ((Bug) enemy).setRightSensorCollides(true);
             }
         }
 
         if(orCategoryBits == ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.BUG_HEAD_BIT) {
+            Object enemy = null;
+
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_HEAD_BIT) {
-                if(fixA.getUserData() != null) {
-                    ((Bug) fixA.getUserData()).hitOnHead();
-                }
+                enemy = fixA.getUserData();
             } else {
-                if(fixB.getUserData() != null) {
-                    ((Bug) fixB.getUserData()).hitOnHead();
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof Bug) {
+                ((Bug) enemy).hitOnHead();
+            }
+            if(enemy instanceof JumpingBug) {
+                if(!((JumpingBug) enemy).isJumping()) {
+                    ((JumpingBug) enemy).hitOnHead();
+                } else {
+                    player.setHearts(player.getHearts()-1);
+                    ComputerScienceRunner.playScreen.getHud().setHeartsCount(player.getHearts());
+                    player.setBlinking(true);
+                    player.setBlinkingStartTimestamp(System.currentTimeMillis());
+                    player.body.setLinearVelocity(0, 0);
+                    player.body.applyLinearImpulse(new Vector2(50f, 0), player.body.getWorldCenter(), true);
+                    if (player.getHearts() == 0) {
+                        player.setCurrentAnimation(player.getDeathAnimation());
+                    }
                 }
             }
         }
 
         if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_LEFT_SENSOR_BIT || orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
-            Player player = ComputerScienceRunner.playScreen.getPlayer();
             player.setTouchingEnemy(true);
         }
     }
@@ -157,18 +185,28 @@ public class WorldContactListener implements ContactListener {
         }
 
         if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
+            Object enemy = null;
+
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
-                ((Bug)fixA.getUserData()).setLeftSensorCollides(false);
+                enemy = fixA.getUserData();
             } else {
-                ((Bug)fixB.getUserData()).setLeftSensorCollides(false);
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof Bug) {
+                ((Bug) enemy).setLeftSensorCollides(false);
             }
         }
 
         if(orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
+            Object enemy = null;
+
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
-                ((Bug)fixA.getUserData()).setRightSensorCollides(false);
+                enemy = fixA.getUserData();
             } else {
-                ((Bug)fixB.getUserData()).setRightSensorCollides(false);
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof Bug) {
+                ((Bug) enemy).setRightSensorCollides(false);
             }
         }
 
