@@ -53,10 +53,10 @@ public class Player {
 
     public Body body;
 
-    private boolean doubleJumpUsed; //True if player already has double-jumped
-
     private boolean jumping; //True if player pressed jump button until he is grounded again, Not true if player falls down from somewhere
     private boolean grounded; //True, if the bottom of the player is currently touching something (ground, bricks etc.)
+    private long timestampUngrounded; //Needed, because player should still be able to jump a short duration after he is ungrounded
+    private long durationJumpPossible = 200; //Duration in millisceonds of how long player still can jump after ungrounded
 
     private int hearts; //How many hearts the player has. If he has 0 hearts, player is dead. Variable can be 0, 1, 2, 3
 
@@ -278,8 +278,8 @@ public class Player {
 
         if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
 
-            if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-                if (grounded) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && !jumping) {
+                if (grounded || System.currentTimeMillis() - timestampUngrounded < durationJumpPossible) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
                     body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true); //5.5f normally
                     grounded = false;
@@ -288,19 +288,6 @@ public class Player {
                         currentAnimation = jumpLeftAnimation;
                     }
 
-                    if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
-                        currentAnimation = jumpRightAnimation;
-                    }
-                } else if (!grounded && !doubleJumpUsed) {
-                    body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 4f), body.getWorldCenter(), true); //4f normally
-                    if (jumping) {
-                        doubleJumpUsed = true;
-                    }
-                    jumping = true;
-                    if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
-                        currentAnimation = jumpLeftAnimation;
-                    }
                     if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
                         currentAnimation = jumpRightAnimation;
                     }
@@ -361,7 +348,6 @@ public class Player {
         }
 
         if(grounded) {
-            doubleJumpUsed = false;
             jumping = false;
             if(body.getLinearVelocity().x == 0) {
                 if (currentAnimation == jumpLeftAnimation) {
@@ -476,5 +462,13 @@ public class Player {
 
     public void setTouchingEnemy(boolean touchingEnemy) {
         isTouchingEnemy = touchingEnemy;
+    }
+
+    public long getTimestampUngrounded() {
+        return timestampUngrounded;
+    }
+
+    public void setTimestampUngrounded(long timestampUngrounded) {
+        this.timestampUngrounded = timestampUngrounded;
     }
 }

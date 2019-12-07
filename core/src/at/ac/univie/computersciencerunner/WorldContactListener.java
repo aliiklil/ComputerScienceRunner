@@ -35,6 +35,7 @@ public class WorldContactListener implements ContactListener {
 
         if ((fixA.getUserData() == "feet" || fixB.getUserData() == "feet") && ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y <= 0) {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(true);
+            ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(0);
         }
 
         if(orCategoryBits == ComputerScienceRunner.BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
@@ -152,6 +153,7 @@ public class WorldContactListener implements ContactListener {
 
         if (fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(false);
+            ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(System.currentTimeMillis());
         }
 
         if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {

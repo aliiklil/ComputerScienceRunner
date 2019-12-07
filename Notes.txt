@@ -1,5 +1,5 @@
 .)Add enemies
---)One enemy jumps up, and play can kill him only if he is not jumping
+--)One enemy jumps up, and player can kill him only if he is not jumping
 
 .)Add an item (apple for example), which makes the player immune to damage (like mushroom in Super Mario)
 --)When the player is immune, his color should change to green
