@@ -231,7 +231,7 @@ public class PlayScreen implements Screen {
 
             Filter filter = new Filter();
             filter.categoryBits = ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
-            filter.maskBits = ComputerScienceRunner.PLAYER_FEET_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT;
+            filter.maskBits = ComputerScienceRunner.PLAYER_FEET_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT | ComputerScienceRunner.BUG_BODY_BIT;
             fixture.setFilterData(filter);
         }
 

@@ -27,13 +27,13 @@ public class ComputerScienceRunner extends Game {
 	public static final short GROUND_BIT = 8;
 	public static final short BRICK_BIT = 16; //For Brick, ECTSBrick, HeartBrick, InfoBrick and CoinBrick
 	public static final short COLLECTIBLE_BIT = 32; // ECTS, Coins, Hearts
-	public static final short WALL_BIT = 1024;
-    public static final short GOAL_BIT = 8192;
-    public static final short ONEWAY_PLATFORM_BIT = 16384;
-	public static final short BUG_HEAD_BIT = 32762;
-	public static final short BUG_BODY_BIT = 32765;
-	public static final short BUG_LEFT_SENSOR_BIT = 28000;
-	public static final short BUG_RIGHT_SENSOR_BIT = 25000;
+	public static final short WALL_BIT = 64;
+    public static final short GOAL_BIT = 128;
+    public static final short ONEWAY_PLATFORM_BIT = 256;
+	public static final short BUG_HEAD_BIT = 512;
+	public static final short BUG_BODY_BIT = 1024;
+	public static final short BUG_LEFT_SENSOR_BIT = 2048;
+	public static final short BUG_RIGHT_SENSOR_BIT = 4096;
 
 
 	public static MainMenuScreen mainMenuScreen;
