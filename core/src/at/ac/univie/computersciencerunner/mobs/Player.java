@@ -76,6 +76,8 @@ public class Player {
 
     private boolean brickDestroyed; //True if player just destroyed a brick. Needed so he can't destroy a brick and hold the jump button and get over the brick
 
+    private boolean upKeyReleased; //Needed because when player is reading something because he hit an infoBrick before, he shouldnt jump immediatly when cancelling the infoWidget
+
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
@@ -110,7 +112,7 @@ public class Player {
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.COLLECTIBLE_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.COLLECTIBLE_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
 
         body.createFixture(fixtureDef).setUserData("head");
 
@@ -124,7 +126,7 @@ public class Player {
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_FEET_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT;
 
         body.createFixture(fixtureDef).setUserData("feet");
 
@@ -140,7 +142,7 @@ public class Player {
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_HEAD_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.ECTS_BRICK_BIT | ComputerScienceRunner.HEART_BRICK_BIT | ComputerScienceRunner.INFO_BRICK_BIT | ComputerScienceRunner.COIN_BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT;
 
         body.createFixture(fixtureDef).setUserData("head");
 
@@ -222,7 +224,7 @@ public class Player {
     public void update(float dt) {
         stateTime = stateTime + dt;
 
-        System.out.println(grounded);
+
 
         if(currentAnimation == jumpLeftAnimation || currentAnimation == jumpRightAnimation || currentAnimation == deathAnimation) {
             currentFrame = currentAnimation.getKeyFrame(stateTime, false);
@@ -239,7 +241,7 @@ public class Player {
 
         if(isTouchingEnemy) {
             if (!blinking) {
-                System.out.println("aaa");
+
                 hearts--;
                 ComputerScienceRunner.playScreen.getHud().setHeartsCount(hearts);
                 blinking = true;
@@ -280,9 +282,20 @@ public class Player {
 
     public void handleInput(float dt) {
 
+        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+            ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
+            ComputerScienceRunner.playScreen.resume();
+            ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(true);
+            upKeyReleased = false;
+        }
+
+        if(!Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            upKeyReleased = true;
+        }
+
         if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
-            System.out.println("brickDestroyed " + brickDestroyed);
-            if (Gdx.input.isKeyPressed(Input.Keys.UP) && !brickDestroyed) {
+
+            if (upKeyReleased && Gdx.input.isKeyPressed(Input.Keys.UP) && !brickDestroyed) {
                 if (grounded || System.currentTimeMillis() - timestampUngrounded < durationJumpPossible) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
                     body.applyLinearImpulse(new Vector2(0, 4.5f), body.getWorldCenter(), true); //5.5f normally
@@ -385,14 +398,6 @@ public class Player {
                 }
             }
         }
-
-        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
-            ComputerScienceRunner.playScreen.resume();
-            ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(true);
-        }
-
-
 
     }
 

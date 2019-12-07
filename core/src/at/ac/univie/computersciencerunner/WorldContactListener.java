@@ -40,15 +40,6 @@ public class WorldContactListener implements ContactListener {
             ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(false);
         }
 
-        if(orCategoryBits == ComputerScienceRunner.BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BRICK_BIT) {
-                ((Brick)fixA.getUserData()).setToDestroy();
-            } else {
-                ((Brick)fixB.getUserData()).setToDestroy();
-            }
-            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
-        }
-
         if(orCategoryBits == ComputerScienceRunner.COLLECTIBLE_BIT + ComputerScienceRunner.PLAYER_BIT) {
             InteractiveObject interactiveObject = null;
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.COLLECTIBLE_BIT) {
@@ -56,6 +47,11 @@ public class WorldContactListener implements ContactListener {
             } else {
                 interactiveObject = ((InteractiveObject)fixB.getUserData());
             }
+
+            if(interactiveObject instanceof ECTS) {
+                ((ECTS) interactiveObject).setToDestroy();
+            }
+
 
             if(interactiveObject instanceof ECTS) {
                 ((ECTS) interactiveObject).setToDestroy();
@@ -71,43 +67,42 @@ public class WorldContactListener implements ContactListener {
 
         }
 
-        if(orCategoryBits == ComputerScienceRunner.ECTS_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.ECTS_BRICK_BIT) {
-                ((ECTSBrick)fixA.getUserData()).setToDestroy();
+
+        if(orCategoryBits == ComputerScienceRunner.BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
+            InteractiveObject interactiveObject = null;
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BRICK_BIT) {
+                interactiveObject = ((InteractiveObject)fixA.getUserData());
             } else {
-                ((ECTSBrick)fixB.getUserData()).setToDestroy();
+                interactiveObject = ((InteractiveObject)fixB.getUserData());
             }
-            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
-        }
 
-
-        if(orCategoryBits == ComputerScienceRunner.HEART_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.HEART_BRICK_BIT) {
-                ((HeartBrick)fixA.getUserData()).setToDestroy();
-            } else {
-                ((HeartBrick)fixB.getUserData()).setToDestroy();
+            if(interactiveObject instanceof Brick) {
+                ((Brick) interactiveObject).setToDestroy();
+                ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
             }
-            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
-        }
 
-        if(orCategoryBits == ComputerScienceRunner.INFO_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
+            if(interactiveObject instanceof ECTSBrick) {
+                ((ECTSBrick) interactiveObject).setToDestroy();
+                ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
+            }
+
+            if(interactiveObject instanceof HeartBrick) {
+                ((HeartBrick) interactiveObject).setToDestroy();
+                ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
+            }
+
+            if(interactiveObject instanceof InfoBrick) {
                 ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(true);
                 ComputerScienceRunner.playScreen.pause();
                 ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(false);
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.INFO_BRICK_BIT) {
-                ((InfoBrick)fixA.getUserData()).displayInfo();
-            } else {
-                ((InfoBrick)fixB.getUserData()).displayInfo();
+                ((InfoBrick)interactiveObject).displayInfo();
             }
-        }
 
-        if(orCategoryBits == ComputerScienceRunner.COIN_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.COIN_BRICK_BIT) {
-                ((CoinBrick)fixA.getUserData()).setToDestroy();
-            } else {
-                ((CoinBrick)fixB.getUserData()).setToDestroy();
+            if(interactiveObject instanceof CoinBrick) {
+                ((CoinBrick) interactiveObject).setToDestroy();
+                ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
             }
-            ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
+
         }
 
         if(orCategoryBits == ComputerScienceRunner.GOAL_BIT + ComputerScienceRunner.PLAYER_BIT) {

@@ -53,7 +53,7 @@ public abstract class InteractiveObject {
             fdef.isSensor = true;
         }
         if (this instanceof ECTSBrick) {
-            filter.categoryBits = ComputerScienceRunner.ECTS_BRICK_BIT;
+            filter.categoryBits = ComputerScienceRunner.BRICK_BIT;
         }
         if (this instanceof Heart) {
             filter.categoryBits = ComputerScienceRunner.COLLECTIBLE_BIT;
@@ -62,10 +62,10 @@ public abstract class InteractiveObject {
             fdef.isSensor = true;
         }
         if (this instanceof HeartBrick) {
-            filter.categoryBits = ComputerScienceRunner.HEART_BRICK_BIT;
+            filter.categoryBits = ComputerScienceRunner.BRICK_BIT;
         }
         if (this instanceof InfoBrick) {
-            filter.categoryBits = ComputerScienceRunner.INFO_BRICK_BIT;
+            filter.categoryBits = ComputerScienceRunner.BRICK_BIT;
         }
         if (this instanceof Coin) {
             filter.categoryBits = ComputerScienceRunner.COLLECTIBLE_BIT;
@@ -74,7 +74,7 @@ public abstract class InteractiveObject {
         }
 
         if (this instanceof CoinBrick) {
-            filter.categoryBits = ComputerScienceRunner.COIN_BRICK_BIT;
+            filter.categoryBits = ComputerScienceRunner.BRICK_BIT;
         }
 
         fixture = body.createFixture(fdef);
