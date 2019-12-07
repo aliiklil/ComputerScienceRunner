@@ -48,7 +48,7 @@ public abstract class InteractiveObject {
             filter.categoryBits = ComputerScienceRunner.BRICK_BIT;
         }
         if (this instanceof ECTS) {
-            filter.categoryBits = ComputerScienceRunner.ECTS_BIT;
+            filter.categoryBits = ComputerScienceRunner.COLLECTIBLE_BIT;
             filter.maskBits = ComputerScienceRunner.PLAYER_BIT;
             fdef.isSensor = true;
         }
@@ -56,8 +56,9 @@ public abstract class InteractiveObject {
             filter.categoryBits = ComputerScienceRunner.ECTS_BRICK_BIT;
         }
         if (this instanceof Heart) {
-            filter.categoryBits = ComputerScienceRunner.HEART_BIT;
+            filter.categoryBits = ComputerScienceRunner.COLLECTIBLE_BIT;
             filter.maskBits = ComputerScienceRunner.PLAYER_BIT;
+
             fdef.isSensor = true;
         }
         if (this instanceof HeartBrick) {
@@ -67,7 +68,7 @@ public abstract class InteractiveObject {
             filter.categoryBits = ComputerScienceRunner.INFO_BRICK_BIT;
         }
         if (this instanceof Coin) {
-            filter.categoryBits = ComputerScienceRunner.COIN_BIT;
+            filter.categoryBits = ComputerScienceRunner.COLLECTIBLE_BIT;
             filter.maskBits = ComputerScienceRunner.PLAYER_BIT;
             fdef.isSensor = true;
         }

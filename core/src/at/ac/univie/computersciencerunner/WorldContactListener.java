@@ -15,6 +15,7 @@ import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
+import at.ac.univie.computersciencerunner.mapObjects.InteractiveObject;
 import at.ac.univie.computersciencerunner.mobs.Bug;
 import at.ac.univie.computersciencerunner.mobs.Player;
 
@@ -48,12 +49,26 @@ public class WorldContactListener implements ContactListener {
             ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
         }
 
-        if(orCategoryBits == ComputerScienceRunner.ECTS_BIT + ComputerScienceRunner.PLAYER_BIT) {
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.ECTS_BIT) {
-                ((ECTS)fixA.getUserData()).setToDestroy();
+        if(orCategoryBits == ComputerScienceRunner.COLLECTIBLE_BIT + ComputerScienceRunner.PLAYER_BIT) {
+            InteractiveObject interactiveObject = null;
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.COLLECTIBLE_BIT) {
+                interactiveObject = ((InteractiveObject)fixA.getUserData());
             } else {
-                ((ECTS)fixB.getUserData()).setToDestroy();
+                interactiveObject = ((InteractiveObject)fixB.getUserData());
             }
+
+            if(interactiveObject instanceof ECTS) {
+                ((ECTS) interactiveObject).setToDestroy();
+            }
+
+            if(interactiveObject instanceof Coin) {
+                ((Coin) interactiveObject).setToDestroy();
+            }
+
+            if(interactiveObject instanceof Heart) {
+                ((Heart) interactiveObject).setToDestroy();
+            }
+
         }
 
         if(orCategoryBits == ComputerScienceRunner.ECTS_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
@@ -65,13 +80,6 @@ public class WorldContactListener implements ContactListener {
             ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(true);
         }
 
-        if(orCategoryBits == ComputerScienceRunner.HEART_BIT + ComputerScienceRunner.PLAYER_BIT) {
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.HEART_BIT) {
-                ((Heart)fixA.getUserData()).setToDestroy();
-            } else {
-                ((Heart)fixB.getUserData()).setToDestroy();
-            }
-        }
 
         if(orCategoryBits == ComputerScienceRunner.HEART_BRICK_BIT + ComputerScienceRunner.PLAYER_HEAD_BIT) {
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.HEART_BRICK_BIT) {
@@ -90,14 +98,6 @@ public class WorldContactListener implements ContactListener {
                 ((InfoBrick)fixA.getUserData()).displayInfo();
             } else {
                 ((InfoBrick)fixB.getUserData()).displayInfo();
-            }
-        }
-
-        if(orCategoryBits == ComputerScienceRunner.COIN_BIT + ComputerScienceRunner.PLAYER_BIT) {
-            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.COIN_BIT) {
-                ((Coin)fixA.getUserData()).setToDestroy();
-            } else {
-                ((Coin)fixB.getUserData()).setToDestroy();
             }
         }
 

@@ -27,6 +27,7 @@ public class Heart extends InteractiveObject {
 
             if(ComputerScienceRunner.playScreen.getPlayer().getHearts() < 3) {
                 ComputerScienceRunner.playScreen.getPlayer().setHearts(ComputerScienceRunner.playScreen.getPlayer().getHearts() + 1);
+                ComputerScienceRunner.playScreen.getHud().setHeartsCount(ComputerScienceRunner.playScreen.getPlayer().getHearts());
             }
         }
     }

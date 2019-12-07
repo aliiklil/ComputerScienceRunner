@@ -26,13 +26,11 @@ public class ComputerScienceRunner extends Game {
 	public static final short PLAYER_FEET_BIT = 4;
 	public static final short GROUND_BIT = 8;
 	public static final short BRICK_BIT = 16;
-	public static final short ECTS_BIT = 32;
+	public static final short COLLECTIBLE_BIT = 32; // ECTS, Coins, Hearts
 	public static final short ECTS_BRICK_BIT = 64;
-	public static final short HEART_BIT = 128;
 	public static final short HEART_BRICK_BIT = 256;
 	public static final short INFO_BRICK_BIT = 512;
 	public static final short WALL_BIT = 1024;
-    public static final short COIN_BIT = 2048;
     public static final short COIN_BRICK_BIT = 4096;
     public static final short GOAL_BIT = 8192;
     public static final short ONEWAY_PLATFORM_BIT = 16384;
