@@ -190,12 +190,8 @@ public class WorldContactListener implements ContactListener {
         int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
 
         if (fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
-
                 ComputerScienceRunner.playScreen.getPlayer().setGrounded(false);
-
-                if(orCategoryBits != ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT)
-                    ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(System.currentTimeMillis());
-
+                ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(System.currentTimeMillis());
         }
 
         if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {

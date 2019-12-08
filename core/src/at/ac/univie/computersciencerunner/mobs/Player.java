@@ -301,10 +301,10 @@ public class Player {
 
         if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
 
-            if (upKeyReleased && Gdx.input.isKeyPressed(Input.Keys.UP) && !brickDestroyed) {
+            if (upKeyReleased && Gdx.input.isKeyPressed(Input.Keys.UP) && !brickDestroyed && !jumping) {
                 if (grounded || System.currentTimeMillis() - timestampUngrounded < durationJumpPossible) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 4.6f), body.getWorldCenter(), true);
+                    body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true);
                     grounded = false;
                     jumping = true;
                     if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
