@@ -34,9 +34,13 @@ public class WorldContactListener implements ContactListener {
         Fixture fixB = contact.getFixtureB();
 
         int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
-        System.out.println(ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y);
+        //System.out.println(ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y);
         Player player =  ComputerScienceRunner.playScreen.getPlayer();
+
+       // System.out.println(player.body.getLinearVelocity().y);
+
         if ((fixA.getUserData() == "feet" || fixB.getUserData() == "feet") && player.body.getLinearVelocity().y <= 0.0f) {
+            System.out.println("Grounded");
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(true);
             ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(0);
             ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(false);
@@ -180,8 +184,12 @@ public class WorldContactListener implements ContactListener {
         int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
 
         if (fixA.getUserData() == "feet" || fixB.getUserData() == "feet") {
-            ComputerScienceRunner.playScreen.getPlayer().setGrounded(false);
-            ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(System.currentTimeMillis());
+
+                ComputerScienceRunner.playScreen.getPlayer().setGrounded(false);
+
+                if(orCategoryBits != ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT)
+                    ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(System.currentTimeMillis());
+
         }
 
         if(orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.GROUND_BIT || orCategoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {

@@ -304,7 +304,7 @@ public class Player {
             if (upKeyReleased && Gdx.input.isKeyPressed(Input.Keys.UP) && !brickDestroyed) {
                 if (grounded || System.currentTimeMillis() - timestampUngrounded < durationJumpPossible) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
-                    body.applyLinearImpulse(new Vector2(0, 4.5f), body.getWorldCenter(), true);
+                    body.applyLinearImpulse(new Vector2(0, 4.6f), body.getWorldCenter(), true);
                     grounded = false;
                     jumping = true;
                     if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
@@ -504,5 +504,9 @@ public class Player {
 
     public Animation<TextureRegion> getJumpRightAnimation() {
         return jumpRightAnimation;
+    }
+
+    public boolean isGrounded() {
+        return grounded;
     }
 }
