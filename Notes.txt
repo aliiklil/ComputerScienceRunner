@@ -1,10 +1,8 @@
-.)Fix bug, where player jumps always higher at one way platforms
- 
-.)Add platforms which can move
-
 .)Add spikes
 
 .)Add trampolines
+
+ .)Add platforms which can move
 
 .)Create all levels (and all questions)
 --)One level with green theme

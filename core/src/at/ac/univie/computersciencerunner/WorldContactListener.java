@@ -17,6 +17,7 @@ import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InteractiveObject;
 import at.ac.univie.computersciencerunner.mobs.Bug;
+import at.ac.univie.computersciencerunner.mobs.FlyingBug;
 import at.ac.univie.computersciencerunner.mobs.JumpingBug;
 import at.ac.univie.computersciencerunner.mobs.Player;
 
@@ -153,6 +154,11 @@ public class WorldContactListener implements ContactListener {
             if(enemy instanceof Bug) {
                 ((Bug) enemy).hitOnHead();
             }
+
+            if(enemy instanceof FlyingBug) {
+                ((FlyingBug) enemy).hitOnHead();
+            }
+
             if(enemy instanceof JumpingBug) {
                 if(!((JumpingBug) enemy).isJumping()) {
                     ((JumpingBug) enemy).hitOnHead();
