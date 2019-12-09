@@ -27,7 +27,7 @@ public class JumpingBug {
     private int spriteWidth = 64;
     private int spriteHeight = 64;
 
-    private Texture texture = new Texture(Gdx.files.internal("jumpingBug.png"));
+    private Texture texture = new Texture(Gdx.files.internal("enemies/jumpingBug.png"));
 
     private Animation<TextureRegion> standAnimation;
     private Animation<TextureRegion> jumpAnimation;
@@ -95,7 +95,7 @@ public class JumpingBug {
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_BODY_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT |  ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT |  ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT;
 
         body.createFixture(fixtureDef);
 
@@ -104,7 +104,7 @@ public class JumpingBug {
 
 
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-18 / ComputerScienceRunner.PPM, 30 / ComputerScienceRunner.PPM), new Vector2(18 / ComputerScienceRunner.PPM, 30 / ComputerScienceRunner.PPM));
+        head.set(new Vector2(-12 / ComputerScienceRunner.PPM, 30 / ComputerScienceRunner.PPM), new Vector2(12 / ComputerScienceRunner.PPM, 30 / ComputerScienceRunner.PPM));
 
         fixtureDef.shape = head;
         fixtureDef.friction = 0;
@@ -114,33 +114,6 @@ public class JumpingBug {
         fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_FEET_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.PLAYER_HEAD_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
-
-
-
-        leftSensor = new PolygonShape();
-        leftSensor.setAsBox(2 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(-14 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
-        fixtureDef.shape = leftSensor;
-        fixtureDef.friction = 0;
-        fixtureDef.isSensor = true;
-
-        fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_LEFT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_HEAD_BIT;
-
-        body.createFixture(fixtureDef).setUserData(this);
-
-
-
-        rightSensor = new PolygonShape();
-        rightSensor.setAsBox(2 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(14 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
-        fixtureDef.shape = rightSensor;
-        fixtureDef.friction = 0;
-        fixtureDef.isSensor = true;
-
-        fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_HEAD_BIT;
-
-        body.createFixture(fixtureDef).setUserData(this);
-
 
     }
 

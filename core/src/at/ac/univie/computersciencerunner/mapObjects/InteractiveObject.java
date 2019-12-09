@@ -77,6 +77,10 @@ public abstract class InteractiveObject {
             filter.categoryBits = ComputerScienceRunner.BRICK_BIT;
         }
 
+        if (this instanceof Trampoline) {
+            filter.categoryBits = ComputerScienceRunner.TRAMPOLINE_BIT;
+        }
+
         fixture = body.createFixture(fdef);
         fixture.setUserData(this);
         fixture.setFilterData(filter);

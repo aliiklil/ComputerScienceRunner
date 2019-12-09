@@ -16,7 +16,10 @@ import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InteractiveObject;
-import at.ac.univie.computersciencerunner.mobs.Bug;
+import at.ac.univie.computersciencerunner.mapObjects.Trampoline;
+import at.ac.univie.computersciencerunner.mobs.Spear;
+import at.ac.univie.computersciencerunner.mobs.SpearBug;
+import at.ac.univie.computersciencerunner.mobs.WalkingBug;
 import at.ac.univie.computersciencerunner.mobs.FlyingBug;
 import at.ac.univie.computersciencerunner.mobs.JumpingBug;
 import at.ac.univie.computersciencerunner.mobs.Player;
@@ -35,13 +38,9 @@ public class WorldContactListener implements ContactListener {
         Fixture fixB = contact.getFixtureB();
 
         int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
-        //System.out.println(ComputerScienceRunner.playScreen.getPlayer().body.getLinearVelocity().y);
         Player player =  ComputerScienceRunner.playScreen.getPlayer();
 
-       // System.out.println(player.body.getLinearVelocity().y);
-
         if ((fixA.getUserData() == "feet" || fixB.getUserData() == "feet") && player.body.getLinearVelocity().y <= 0.0f) {
-            System.out.println("Grounded");
             ComputerScienceRunner.playScreen.getPlayer().setGrounded(true);
             ComputerScienceRunner.playScreen.getPlayer().setTimestampUngrounded(0);
             ComputerScienceRunner.playScreen.getPlayer().setBrickDestroyed(false);
@@ -124,8 +123,8 @@ public class WorldContactListener implements ContactListener {
             } else {
                 enemy = fixB.getUserData();
             }
-            if(enemy instanceof Bug) {
-                ((Bug) enemy).setLeftSensorCollides(true);
+            if(enemy instanceof WalkingBug) {
+                ((WalkingBug) enemy).setLeftSensorCollides(true);
             }
         }
 
@@ -138,8 +137,8 @@ public class WorldContactListener implements ContactListener {
             } else {
                 enemy = fixB.getUserData();
             }
-            if(enemy instanceof Bug) {
-                ((Bug) enemy).setRightSensorCollides(true);
+            if(enemy instanceof WalkingBug) {
+                ((WalkingBug) enemy).setRightSensorCollides(true);
             }
         }
 
@@ -151,12 +150,20 @@ public class WorldContactListener implements ContactListener {
             } else {
                 enemy = fixB.getUserData();
             }
-            if(enemy instanceof Bug) {
-                ((Bug) enemy).hitOnHead();
+            if(enemy instanceof WalkingBug) {
+                ((WalkingBug) enemy).hitOnHead();
             }
 
             if(enemy instanceof FlyingBug) {
                 ((FlyingBug) enemy).hitOnHead();
+            }
+
+            if(enemy instanceof SpearBug) {
+                ((SpearBug) enemy).hitOnHead();
+            }
+
+            if(enemy instanceof Spear) {
+                ((Spear) enemy).hitOnHead();
             }
 
             if(enemy instanceof JumpingBug) {
@@ -176,8 +183,69 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
-        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_LEFT_SENSOR_BIT || orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_BODY_BIT) {
             player.setTouchingEnemy(true);
+
+            Object enemy = null;
+
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_BODY_BIT) {
+                enemy = fixA.getUserData();
+            } else {
+                enemy = fixB.getUserData();
+            }
+
+            if(enemy instanceof Spear) {
+                ((Spear) enemy).hitOnHead();
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
+            Object enemy = null;
+
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
+                enemy = fixA.getUserData();
+            } else {
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof SpearBug) {
+                ((SpearBug) enemy).setThrowLeft(true);
+                ((SpearBug) enemy).setStateTime(0);
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
+            Object enemy = null;
+
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
+                enemy = fixA.getUserData();
+            } else {
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof SpearBug) {
+                ((SpearBug) enemy).setThrowRight(true);
+                ((SpearBug) enemy).setStateTime(0);
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.SPIKES_BIT && !player.isBlinking()) {
+            player.setHearts(player.getHearts()-1);
+            ComputerScienceRunner.playScreen.getHud().setHeartsCount(player.getHearts());
+            player.setBlinking(true);
+            player.setBlinkingStartTimestamp(System.currentTimeMillis());
+            player.body.setLinearVelocity(0, 0);
+            player.body.applyLinearImpulse(new Vector2(0f, 2f), player.body.getWorldCenter(), true);
+            if (player.getHearts() == 0) {
+                player.setCurrentAnimation(player.getDeathAnimation());
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.TRAMPOLINE_BIT) {
+            player.setTrampolineJump(true);
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.TRAMPOLINE_BIT) {
+                ((Trampoline)fixA.getUserData()).setPressDown(true);
+            } else {
+                ((Trampoline)fixB.getUserData()).setPressDown(true);
+            }
         }
     }
 
@@ -186,6 +254,8 @@ public class WorldContactListener implements ContactListener {
 
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
+
+        Player player =  ComputerScienceRunner.playScreen.getPlayer();
 
         int orCategoryBits = fixA.getFilterData().categoryBits + fixB.getFilterData().categoryBits;
 
@@ -202,8 +272,8 @@ public class WorldContactListener implements ContactListener {
             } else {
                 enemy = fixB.getUserData();
             }
-            if(enemy instanceof Bug) {
-                ((Bug) enemy).setLeftSensorCollides(false);
+            if(enemy instanceof WalkingBug) {
+                ((WalkingBug) enemy).setLeftSensorCollides(false);
             }
         }
 
@@ -215,14 +285,52 @@ public class WorldContactListener implements ContactListener {
             } else {
                 enemy = fixB.getUserData();
             }
-            if(enemy instanceof Bug) {
-                ((Bug) enemy).setRightSensorCollides(false);
+            if(enemy instanceof WalkingBug) {
+                ((WalkingBug) enemy).setRightSensorCollides(false);
             }
         }
 
-        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_LEFT_SENSOR_BIT || orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
-            Player player = ComputerScienceRunner.playScreen.getPlayer();
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_BODY_BIT) {
             player.setTouchingEnemy(false);
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
+            Object enemy = null;
+
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_LEFT_SENSOR_BIT) {
+                enemy = fixA.getUserData();
+            } else {
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof SpearBug) {
+                ((SpearBug) enemy).setThrowLeft(false);
+                ((SpearBug) enemy).setCurrentAnimation(((SpearBug) enemy).getStandLeftAnimation());
+                ((SpearBug) enemy).setStateTime(0);
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
+            Object enemy = null;
+
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT) {
+                enemy = fixA.getUserData();
+            } else {
+                enemy = fixB.getUserData();
+            }
+            if(enemy instanceof SpearBug) {
+                ((SpearBug) enemy).setThrowRight(false);
+                ((SpearBug) enemy).setCurrentAnimation(((SpearBug) enemy).getStandRightAnimation());
+                ((SpearBug) enemy).setStateTime(0);
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.TRAMPOLINE_BIT) {
+            player.setTrampolineJump(false);
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.TRAMPOLINE_BIT) {
+                ((Trampoline)fixA.getUserData()).setPressDown(false);
+            } else {
+                ((Trampoline)fixB.getUserData()).setPressDown(false);
+            }
         }
 
     }

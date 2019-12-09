@@ -18,7 +18,7 @@ import com.badlogic.gdx.utils.Array;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
-public class Bug {
+public class WalkingBug {
 
     private float x;
     private float y;
@@ -26,7 +26,7 @@ public class Bug {
     private int spriteWidth = 64;
     private int spriteHeight = 64;
 
-    private Texture texture = new Texture(Gdx.files.internal("bug.png"));
+    private Texture texture = new Texture(Gdx.files.internal("enemies/walkingBug.png"));
 
     private Animation<TextureRegion> runLeftAnimation;
     private Animation<TextureRegion> runRightAnimation;
@@ -55,7 +55,7 @@ public class Bug {
     private boolean setToDestroy;
     private boolean destroyed;
 
-    public Bug(ComputerScienceRunner computerScienceRunner, World world, float x, float y) {
+    public WalkingBug(ComputerScienceRunner computerScienceRunner, World world, float x, float y) {
 
         this.game = computerScienceRunner;
 
@@ -81,16 +81,15 @@ public class Bug {
 
 
 
-        CircleShape circle = new CircleShape();
-        circle.setRadius(8 / ComputerScienceRunner.PPM);
-        circle.setPosition(new Vector2(0, -16 / ComputerScienceRunner.PPM));
-        fixtureDef.shape = circle;
+        PolygonShape bugBody = new PolygonShape();
+        bugBody.setAsBox(20 / ComputerScienceRunner.PPM, 8 / ComputerScienceRunner.PPM, new Vector2(0 / ComputerScienceRunner.PPM, -16 / ComputerScienceRunner.PPM), 0);
+        fixtureDef.shape = bugBody;
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_BODY_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT |  ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT;
 
-        body.createFixture(fixtureDef);
+        body.createFixture(fixtureDef).setUserData(this);
 
 
 
@@ -111,26 +110,26 @@ public class Bug {
 
 
         leftSensor = new PolygonShape();
-        leftSensor.setAsBox(4 / ComputerScienceRunner.PPM, 16 / ComputerScienceRunner.PPM, new Vector2(-16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
+        leftSensor.setAsBox(4 / ComputerScienceRunner.PPM, 4 / ComputerScienceRunner.PPM, new Vector2(-16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = leftSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_LEFT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 
 
 
         rightSensor = new PolygonShape();
-        rightSensor.setAsBox(4 / ComputerScienceRunner.PPM, 16 / ComputerScienceRunner.PPM, new Vector2(16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
+        rightSensor.setAsBox(4 / ComputerScienceRunner.PPM, 4 / ComputerScienceRunner.PPM, new Vector2(16 / ComputerScienceRunner.PPM, -24 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = rightSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.PLAYER_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT;
 
         body.createFixture(fixtureDef).setUserData(this);
 

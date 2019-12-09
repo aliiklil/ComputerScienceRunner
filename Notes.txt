@@ -1,10 +1,8 @@
-.)Add spikes
+.)Change visual design of bugs maybe
 
-.)Add trampolines
+.)Add platforms which can move
 
- .)Add platforms which can move
-
-.)Create all levels (and all questions)
+.)Create all levels
 --)One level with green theme
 --)One level with ice theme
 --)One level with computer science theme
@@ -15,6 +13,8 @@
 --)One level with dark forest theme
 --)One level with cloud theme
 --)One level with lava theme
+
+.)Create all questions
 
 .)Add sound effects
 

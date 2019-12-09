@@ -78,6 +78,8 @@ public class Player {
 
     private boolean upKeyReleased; //Needed because when player is reading something because he hit an infoBrick before, he shouldnt jump immediatly when cancelling the infoWidget
 
+    private boolean trampolineJump; //True when player jumps on a trampoline
+
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
@@ -101,7 +103,7 @@ public class Player {
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(2400 / ComputerScienceRunner.PPM, 32 / ComputerScienceRunner.PPM);
+        bodyDef.position.set(4000 / ComputerScienceRunner.PPM, 200 / ComputerScienceRunner.PPM);
 
         body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
@@ -112,7 +114,7 @@ public class Player {
         fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
-        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.COLLECTIBLE_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT;
+        fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.COLLECTIBLE_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT | ComputerScienceRunner.SPIKES_BIT | ComputerScienceRunner.TRAMPOLINE_BIT;
 
         body.createFixture(fixtureDef).setUserData("head");
 
@@ -279,9 +281,15 @@ public class Player {
             body.applyLinearImpulse(new Vector2(0f, 6f), body.getWorldCenter(), true);
         }
 
+/*
         if(body.getLinearVelocity().y > 8f) {
-            System.out.println("TESTAADWQ");
             body.setLinearVelocity(body.getLinearVelocity().x, 0);
+        }*/
+
+
+        if(trampolineJump) {
+            body.applyLinearImpulse(new Vector2(0, 10.0f), body.getWorldCenter(), true);
+            trampolineJump = false;
         }
     }
 
@@ -508,5 +516,13 @@ public class Player {
 
     public boolean isGrounded() {
         return grounded;
+    }
+
+    public boolean isTrampolineJump() {
+        return trampolineJump;
+    }
+
+    public void setTrampolineJump(boolean trampolineJump) {
+        this.trampolineJump = trampolineJump;
     }
 }

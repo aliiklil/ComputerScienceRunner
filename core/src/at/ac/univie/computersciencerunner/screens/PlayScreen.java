@@ -5,13 +5,9 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.MapObjects;
-import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -40,7 +36,10 @@ import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
-import at.ac.univie.computersciencerunner.mobs.Bug;
+import at.ac.univie.computersciencerunner.mapObjects.Trampoline;
+import at.ac.univie.computersciencerunner.mobs.Spear;
+import at.ac.univie.computersciencerunner.mobs.SpearBug;
+import at.ac.univie.computersciencerunner.mobs.WalkingBug;
 import at.ac.univie.computersciencerunner.mobs.FlyingBug;
 import at.ac.univie.computersciencerunner.mobs.JumpingBug;
 import at.ac.univie.computersciencerunner.mobs.Player;
@@ -81,9 +80,15 @@ public class PlayScreen implements Screen {
 
     private int currentSemester;
 
-    private ArrayList<Bug> bugList = new ArrayList<Bug>();
+    private ArrayList<WalkingBug> walkingBugList = new ArrayList<WalkingBug>();
     private ArrayList<JumpingBug> jumpingBugList = new ArrayList<JumpingBug>();
     private ArrayList<FlyingBug> flyingBugList = new ArrayList<FlyingBug>();
+    private ArrayList<SpearBug> spearBugList = new ArrayList<SpearBug>();
+
+    private ArrayList<Spear> spearList = new ArrayList<Spear>();
+    private ArrayList<Spear> spearRemoveList = new ArrayList<Spear>(); //To this list are all spears added that shoud be removed. Needed to counter java.util.ConcurrentModificationException
+
+    private ArrayList<Trampoline> trampolineList = new ArrayList<Trampoline>();
 
     public PlayScreen(ComputerScienceRunner game, int semester) {
 
@@ -245,8 +250,8 @@ public class PlayScreen implements Screen {
         for(MapObject object : tiledMap.getLayers().get(14).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            Bug bug = new Bug(game, world, rect.getX(),rect.getY() + 32);
-            bugList.add(bug);
+            WalkingBug walkingBug = new WalkingBug(game, world, rect.getX(),rect.getY() + 32);
+            walkingBugList.add(walkingBug);
         }
 
         //JumpingBugs
@@ -263,6 +268,39 @@ public class PlayScreen implements Screen {
 
             FlyingBug flyingBug = new FlyingBug(game, world, rect.getX(),rect.getY() + 32);
             flyingBugList.add(flyingBug);
+        }
+
+        //SpearBugs
+        for(MapObject object : tiledMap.getLayers().get(17).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            SpearBug spearBug = new SpearBug(game, world, rect.getX(),rect.getY() + 32);
+            spearBugList.add(spearBug);
+        }
+
+        //Spikes
+        for(MapObject object : tiledMap.getLayers().get(18).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            bodyDef.type = BodyDef.BodyType.StaticBody;
+            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / ComputerScienceRunner.PPM, (rect.getY() + rect.getHeight() / 2) / ComputerScienceRunner.PPM);
+
+            body = world.createBody(bodyDef);
+
+            shape.setAsBox(rect.getWidth() / 2 / ComputerScienceRunner.PPM, rect.getHeight() / 2 / ComputerScienceRunner.PPM);
+            fixtureDef.shape = shape;
+            fixtureDef.friction = 0;
+            Fixture fixture = body.createFixture(fixtureDef);
+
+            Filter filter = new Filter();
+            filter.categoryBits = ComputerScienceRunner.SPIKES_BIT;
+            fixture.setFilterData(filter);
+        }
+
+        //Trampoline
+        for(MapObject object : tiledMap.getLayers().get(19).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            trampolineList.add(new Trampoline(world, tiledMap, rect));
         }
 
     }
@@ -308,8 +346,8 @@ public class PlayScreen implements Screen {
             coinBrick.update(dt);
         }
 
-        for(Bug bug : bugList) {
-            bug.update(dt);
+        for(WalkingBug walkingBug : walkingBugList) {
+            walkingBug.update(dt);
         }
 
         for(JumpingBug jumpingBug : jumpingBugList) {
@@ -320,6 +358,19 @@ public class PlayScreen implements Screen {
             flyingBug.update(dt);
         }
 
+        for(SpearBug spearBug : spearBugList) {
+            spearBug.update(dt);
+        }
+
+        for(Spear spear : spearList) {
+            spear.update(dt);
+        }
+        spearList.removeAll(spearRemoveList);
+
+
+        for(Trampoline trampoline : trampolineList) {
+            trampoline.update(dt);
+        }
     }
 
     @Override
@@ -344,14 +395,20 @@ public class PlayScreen implements Screen {
 
         ComputerScienceRunner.batch.begin();
         player.draw();
-        for(Bug bug : bugList) {
-            bug.draw();
+        for(WalkingBug walkingBug : walkingBugList) {
+            walkingBug.draw();
         }
         for(JumpingBug jumpingBug : jumpingBugList) {
             jumpingBug.draw();
         }
         for(FlyingBug flyingBug : flyingBugList) {
             flyingBug.draw();
+        }
+        for(SpearBug spearBug : spearBugList) {
+            spearBug.draw();
+        }
+        for(Spear spear : spearList) {
+            spear.draw();
         }
 
         ComputerScienceRunner.batch.end();
@@ -450,4 +507,12 @@ public class PlayScreen implements Screen {
     public int getCurrentSemester() { return currentSemester; }
 
     public ArrayList<Coin> getCoinList() { return coinList; }
+
+    public ArrayList<Spear> getSpearList() {
+        return spearList;
+    }
+
+    public ArrayList<Spear> getSpearRemoveList() {
+        return spearRemoveList;
+    }
 }

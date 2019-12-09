@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="140">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="158">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="200" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,14 +8,13 @@
  </layer>
  <layer name="Graphics" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2V0OgjAQRtEC1Qd/4xJcgroCdf97EmObNLWTiEA7NPfhBBRaJpAvHbQ1xrQAAAAAoEjnlK4D0KYz5AOIxbkgH8BHar0gH4CMfAAy8gHIas3HpXd1bgrqwTItMR9NQDrn3ns4TwU1YxoHt90WruMcKH1P/hHnwyioCePt3XaT8ZqlM9AIho7xx8Leih6rLiXyUZtw7fDoseowZz6sE372+/F7iDXf/yXG4/0xG423wvVzIR/1miofK2Ffk6E9VWpMfDzVW9Fj1SNXf3X68XvpPX2dOK/0vXtLrR0ea8jy8f4xDvmo29FtdyPmkH4Pyk1rfUNrmPte53iec8wbzpOaV8vzjr0Aj6osxw==
+   eJzt2U0OgjAQhuGK6MJ/l+70COoJ1PvfSY1t0oydROSnQ/MungBCYQL50gEr51wFAAAAAIZMvdx1ANZMHfkAJJkL8gF8pOYL8gHoyAegIx+ArtR8nF8u3tVAPRinMeZjEtGOub3cvYeBmtGNjV8uM9dxiuS+J/+Q+XAGakJ7a79cDHjN3BmYKJqOCfvi3ooeqyw58mHN0WtyfLwdzx0BPVYZ+sxH7cXbYV2+h9Tu+79EOT7sq8X4Wrn+UMhHubrKx0xZt6RpT5UaI/eneit6rHIM1V/tf/xde0+fJ47Lfe/eUnNHwBwyfrx/tFNqPnZCJdaDg4Fa+7T1y1WLc2jfg4Zmtb6mNeSsuatr9/Ec4vOkzmvleUtPm5Ytfw==
   </data>
  </layer>
  <objectgroup name="Ground">
   <object id="3" x="0" y="608" width="1088" height="32"/>
   <object id="5" x="1280" y="608" width="1024" height="32"/>
   <object id="6" x="2336" y="608" width="352" height="32"/>
-  <object id="10" x="2912" y="608" width="544" height="32"/>
   <object id="12" x="3712" y="608" width="544" height="32"/>
   <object id="14" x="4416" y="608" width="512" height="32"/>
   <object id="16" x="4992" y="608" width="32" height="32"/>
@@ -26,6 +25,7 @@
   <object id="23" x="1792" y="352" width="96" height="32"/>
   <object id="24" x="1824" y="416" width="160" height="32"/>
   <object id="25" x="1760" y="512" width="128" height="32"/>
+  <object id="147" x="2720" y="608" width="960" height="32"/>
  </objectgroup>
  <objectgroup name="Bricks">
   <object id="26" x="576" y="480" width="32" height="32"/>
@@ -124,5 +124,18 @@
  </objectgroup>
  <objectgroup name="FlyingBug">
   <object id="139" x="2208" y="288" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="SpearBug">
+  <object id="140" x="3168" y="576" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Spikes">
+  <object id="148" x="1536" y="448" width="32" height="32"/>
+  <object id="149" x="1568" y="448" width="32" height="32"/>
+  <object id="151" x="1920" y="448" width="32" height="32"/>
+  <object id="154" x="3744" y="576" width="128" height="32"/>
+  <object id="156" x="3904" y="576" width="64" height="32"/>
+ </objectgroup>
+ <objectgroup name="Trampoline">
+  <object id="157" x="4064" y="576" width="32" height="32"/>
  </objectgroup>
 </map>
