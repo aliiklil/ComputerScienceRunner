@@ -290,6 +290,7 @@ public class PlayScreen implements Screen {
             shape.setAsBox(rect.getWidth() / 2 / ComputerScienceRunner.PPM, rect.getHeight() / 2 / ComputerScienceRunner.PPM);
             fixtureDef.shape = shape;
             fixtureDef.friction = 0;
+            fixtureDef.restitution = 1;
             Fixture fixture = body.createFixture(fixtureDef);
 
             Filter filter = new Filter();
