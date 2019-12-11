@@ -80,6 +80,9 @@ public class Player {
 
     private boolean trampolineJump; //True when player jumps on a trampoline
 
+    private boolean onMovingHorizontalPlatform;
+    private boolean onMovingVerticalPlatform;
+
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
@@ -111,7 +114,6 @@ public class Player {
         PolygonShape rectangle = new PolygonShape();
         rectangle.setAsBox(8 / ComputerScienceRunner.PPM, 20 / ComputerScienceRunner.PPM);
         fixtureDef.shape = rectangle;
-        fixtureDef.friction = 0;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_BIT;
         fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.COLLECTIBLE_BIT | ComputerScienceRunner.WALL_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT | ComputerScienceRunner.BUG_LEFT_SENSOR_BIT | ComputerScienceRunner.BUG_RIGHT_SENSOR_BIT | ComputerScienceRunner.SPIKES_BIT | ComputerScienceRunner.TRAMPOLINE_BIT | ComputerScienceRunner.SPIKES_BIT;
@@ -125,7 +127,7 @@ public class Player {
         circle.setRadius(7 / ComputerScienceRunner.PPM);
         circle.setPosition(new Vector2(0, -16 / ComputerScienceRunner.PPM));
         fixtureDef.shape = circle;
-        fixtureDef.friction = 0;
+
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_FEET_BIT;
         fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT | ComputerScienceRunner.BRICK_BIT | ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.BUG_HEAD_BIT | ComputerScienceRunner.BUG_BODY_BIT | ComputerScienceRunner.SPIKES_BIT;
@@ -140,7 +142,6 @@ public class Player {
         head.set(new Vector2(-7 / ComputerScienceRunner.PPM, 20 / ComputerScienceRunner.PPM), new Vector2(7 / ComputerScienceRunner.PPM, 20 / ComputerScienceRunner.PPM));
 
         fixtureDef.shape = head;
-        fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.PLAYER_HEAD_BIT;
@@ -290,6 +291,15 @@ public class Player {
         if(trampolineJump) {
             body.applyLinearImpulse(new Vector2(0, 10.0f), body.getWorldCenter(), true);
             trampolineJump = false;
+
+            if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
+                currentAnimation = jumpLeftAnimation;
+            }
+            if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
+                currentAnimation = jumpRightAnimation;
+            }
+
+
         }
     }
 
@@ -361,11 +371,15 @@ public class Player {
         }
 
         if ((!Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x <= 0f) || ComputerScienceRunner.playScreen.isPaused()) {
-            body.setLinearVelocity(0f, body.getLinearVelocity().y);
+            if(!onMovingHorizontalPlatform) {
+                body.setLinearVelocity(0f, body.getLinearVelocity().y);
+            }
         }
 
         if ((!Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x >= 0f) || ComputerScienceRunner.playScreen.isPaused()) {
-            body.setLinearVelocity(0f, body.getLinearVelocity().y);
+            if(!onMovingHorizontalPlatform) {
+                body.setLinearVelocity(0f, body.getLinearVelocity().y);
+            }
         }
 
         if ((!Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT)) || ComputerScienceRunner.playScreen.isPaused()) {
@@ -524,5 +538,23 @@ public class Player {
 
     public void setTrampolineJump(boolean trampolineJump) {
         this.trampolineJump = trampolineJump;
+    }
+
+
+    public boolean isOnMovingHorizontalPlatform() {
+        return onMovingHorizontalPlatform;
+    }
+
+    public void setOnMovingHorizontalPlatform(boolean onMovingHorizontalPlatform) {
+        this.onMovingHorizontalPlatform = onMovingHorizontalPlatform;
+    }
+
+
+    public boolean isOnMovingVerticalPlatform() {
+        return onMovingVerticalPlatform;
+    }
+
+    public void setOnMovingVerticalPlatform(boolean onMovingVerticalPlatform) {
+        this.onMovingVerticalPlatform = onMovingVerticalPlatform;
     }
 }

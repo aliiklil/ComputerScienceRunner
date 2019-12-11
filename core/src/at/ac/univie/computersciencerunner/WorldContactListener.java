@@ -14,9 +14,11 @@ import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
+import at.ac.univie.computersciencerunner.mapObjects.HorizontalPlatform;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 import at.ac.univie.computersciencerunner.mapObjects.InteractiveObject;
 import at.ac.univie.computersciencerunner.mapObjects.Trampoline;
+import at.ac.univie.computersciencerunner.mapObjects.VerticalPlatform;
 import at.ac.univie.computersciencerunner.mobs.Spear;
 import at.ac.univie.computersciencerunner.mobs.SpearBug;
 import at.ac.univie.computersciencerunner.mobs.WalkingBug;
@@ -247,6 +249,29 @@ public class WorldContactListener implements ContactListener {
                 ((Trampoline)fixB.getUserData()).setPressDown(true);
             }
         }
+
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
+            Object platform = null;
+
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
+                platform = fixA.getUserData();
+            } else {
+                platform = fixB.getUserData();
+            }
+
+            if(platform instanceof HorizontalPlatform) {
+                HorizontalPlatform horizontalPlatform = (HorizontalPlatform) platform;
+                horizontalPlatform.setPlayerContact(true);
+                player.setOnMovingHorizontalPlatform(true);
+            }
+
+            if(platform instanceof VerticalPlatform) {
+                VerticalPlatform verticalPlatform = (VerticalPlatform) platform;
+                verticalPlatform.setPlayerContact(true);
+                player.setOnMovingVerticalPlatform(true);
+            }
+        }
     }
 
     @Override
@@ -330,6 +355,28 @@ public class WorldContactListener implements ContactListener {
                 ((Trampoline)fixA.getUserData()).setPressDown(false);
             } else {
                 ((Trampoline)fixB.getUserData()).setPressDown(false);
+            }
+        }
+
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
+            Object platform = null;
+
+            if (fixA.getFilterData().categoryBits == ComputerScienceRunner.ONEWAY_PLATFORM_BIT) {
+                platform = fixA.getUserData();
+            } else {
+                platform = fixB.getUserData();
+            }
+
+            if(platform instanceof HorizontalPlatform) {
+                HorizontalPlatform horizontalPlatform = (HorizontalPlatform) platform;
+                horizontalPlatform.setPlayerContact(false);
+                player.setOnMovingHorizontalPlatform(false);
+            }
+
+            if(platform instanceof VerticalPlatform) {
+                VerticalPlatform verticalPlatform = (VerticalPlatform) platform;
+                verticalPlatform.setPlayerContact(false);
+                player.setOnMovingVerticalPlatform(false);
             }
         }
 

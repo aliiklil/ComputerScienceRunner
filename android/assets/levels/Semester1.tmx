@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="158">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="165">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="200" height="20">
   <data encoding="base64" compression="zlib">
@@ -137,5 +137,11 @@
  </objectgroup>
  <objectgroup name="Trampoline">
   <object id="157" x="4064" y="576" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="HorizontalPlatform">
+  <object id="160" x="4192" y="512" width="96" height="32"/>
+ </objectgroup>
+ <objectgroup name="VerticalPlatform">
+  <object id="164" x="3840" y="512" width="96" height="32"/>
  </objectgroup>
 </map>

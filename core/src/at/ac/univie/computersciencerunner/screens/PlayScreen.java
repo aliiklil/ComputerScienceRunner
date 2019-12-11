@@ -35,8 +35,10 @@ import at.ac.univie.computersciencerunner.mapObjects.ECTS;
 import at.ac.univie.computersciencerunner.mapObjects.ECTSBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Heart;
 import at.ac.univie.computersciencerunner.mapObjects.HeartBrick;
+import at.ac.univie.computersciencerunner.mapObjects.HorizontalPlatform;
 import at.ac.univie.computersciencerunner.mapObjects.InfoBrick;
 import at.ac.univie.computersciencerunner.mapObjects.Trampoline;
+import at.ac.univie.computersciencerunner.mapObjects.VerticalPlatform;
 import at.ac.univie.computersciencerunner.mobs.Spear;
 import at.ac.univie.computersciencerunner.mobs.SpearBug;
 import at.ac.univie.computersciencerunner.mobs.WalkingBug;
@@ -89,6 +91,9 @@ public class PlayScreen implements Screen {
     private ArrayList<Spear> spearRemoveList = new ArrayList<Spear>(); //To this list are all spears added that shoud be removed. Needed to counter java.util.ConcurrentModificationException
 
     private ArrayList<Trampoline> trampolineList = new ArrayList<Trampoline>();
+
+    private ArrayList<HorizontalPlatform> horizontalPlatformList = new ArrayList<HorizontalPlatform>();
+    private ArrayList<VerticalPlatform> verticalPlatformList = new ArrayList<VerticalPlatform>();
 
     public PlayScreen(ComputerScienceRunner game, int semester) {
 
@@ -304,6 +309,20 @@ public class PlayScreen implements Screen {
             trampolineList.add(new Trampoline(world, tiledMap, rect));
         }
 
+        //HorizontalPlatform
+        for(MapObject object : tiledMap.getLayers().get(20).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            horizontalPlatformList.add(new HorizontalPlatform(game, world, rect.getX(),rect.getY(), 0));
+        }
+
+        //VerticalPlatform
+        for(MapObject object : tiledMap.getLayers().get(21).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            verticalPlatformList.add(new VerticalPlatform(game, world, rect.getX(),rect.getY(), 0));
+        }
+
+
+
     }
 
     public void update(float dt) {
@@ -316,6 +335,9 @@ public class PlayScreen implements Screen {
 
         camera.update();
         customOrthogonalTiledMapRenderer.setView(camera);
+
+
+
 
         player.update(dt);
 
@@ -372,6 +394,13 @@ public class PlayScreen implements Screen {
         for(Trampoline trampoline : trampolineList) {
             trampoline.update(dt);
         }
+        for(HorizontalPlatform horizontalPlatform : horizontalPlatformList) {
+            horizontalPlatform.update(dt);
+        }
+        for(VerticalPlatform verticalPlatform : verticalPlatformList) {
+            verticalPlatform.update(dt);
+        }
+
     }
 
     @Override
@@ -395,6 +424,13 @@ public class PlayScreen implements Screen {
 
 
         ComputerScienceRunner.batch.begin();
+        for(HorizontalPlatform horizontalPlatform : horizontalPlatformList) {
+            horizontalPlatform.draw();
+        }
+
+        for(VerticalPlatform verticalPlatform : verticalPlatformList) {
+            verticalPlatform.draw();
+        }
         player.draw();
         for(WalkingBug walkingBug : walkingBugList) {
             walkingBug.draw();
@@ -411,6 +447,7 @@ public class PlayScreen implements Screen {
         for(Spear spear : spearList) {
             spear.draw();
         }
+
 
         ComputerScienceRunner.batch.end();
 

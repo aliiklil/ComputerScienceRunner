@@ -1,7 +1,3 @@
-.)Change visual design of bugs maybe
-
-.)Add platforms which can move
-
 .)Create all levels
 --)One level with green theme
 --)One level with ice theme
