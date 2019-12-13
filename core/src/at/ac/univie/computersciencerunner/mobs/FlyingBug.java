@@ -165,7 +165,7 @@ public class FlyingBug {
             currentAnimation = flyRightAnimation;
         }
 
-        if(currentAnimation == flyRightAnimation && body.getPosition().x - startingPositionX >= 160 / ComputerScienceRunner.PPM) {
+        if(currentAnimation == flyRightAnimation && body.getPosition().x - startingPositionX >= 256 / ComputerScienceRunner.PPM) {
             currentAnimation = flyLeftAnimation;
         } else if(currentAnimation == flyLeftAnimation && startingPositionX == body.getPosition().x) {
             currentAnimation = flyRightAnimation;

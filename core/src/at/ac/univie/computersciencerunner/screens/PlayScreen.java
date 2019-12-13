@@ -312,13 +312,13 @@ public class PlayScreen implements Screen {
         //HorizontalPlatform
         for(MapObject object : tiledMap.getLayers().get(20).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            horizontalPlatformList.add(new HorizontalPlatform(game, world, rect.getX(),rect.getY(), 0));
+            horizontalPlatformList.add(new HorizontalPlatform(game, world, rect.getX() + 32, rect.getY(), 0));
         }
 
         //VerticalPlatform
         for(MapObject object : tiledMap.getLayers().get(21).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            verticalPlatformList.add(new VerticalPlatform(game, world, rect.getX(),rect.getY(), 0));
+            verticalPlatformList.add(new VerticalPlatform(game, world, rect.getX() + 32, rect.getY(), 0));
         }
 
 
@@ -417,9 +417,7 @@ public class PlayScreen implements Screen {
         ComputerScienceRunner.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
-        if(infoWidget.isCurrentlyDisplayed()) {
-            infoWidget.stage.draw();
-        }
+
 
 
 
@@ -450,6 +448,12 @@ public class PlayScreen implements Screen {
 
 
         ComputerScienceRunner.batch.end();
+
+
+
+        if(infoWidget.isCurrentlyDisplayed()) {
+            infoWidget.stage.draw();
+        }
 
         if(player.isDead()) {
             game.setGameOverScreen();

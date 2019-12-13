@@ -106,7 +106,7 @@ public class Player {
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(4000 / ComputerScienceRunner.PPM, 200 / ComputerScienceRunner.PPM);
+        bodyDef.position.set(64 / ComputerScienceRunner.PPM, 200 / ComputerScienceRunner.PPM);
 
         body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
