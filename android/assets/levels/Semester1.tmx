@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="415">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="420">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1LENwlAQREHLJdEB0H9POCEhsBaJ8xqYlSZy8u4HXpdlWYGflq7dCcxL1+4E5qVrdwLz0rU7gXnp2p3AvHTtTmBeunYnMC9duxOYl67dCcxL1+4E5qVrdwLz0rU7gXnp2p3AvHTtTmBeunYnMC9duxOYl67dyTFum/vmeoIWjpeu3cmx/A/+U7rLCT1v2PvebjziDd55qz3tW17vOUvTp973G6R7AG8NSsA=
+   eJzt1MEJgEAMBMCQkuxA7b8nr4FTBDn3MY+BPJcNSVdVAwAAAAAAAAAAAAAAAAAAAADAIsdwDntAFiCDf8CdLdBTttTcX3fwpqv0HfdkTvf3fa52AeJxTFA=
   </data>
  </layer>
  <layer name="Graphics" width="260" height="20">
@@ -12,7 +12,7 @@
    <property name="Title" value="Willkommen"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2slOwzAQBmCnFA7sPXKjj9Cy3AnLHQq8/6PgSrZkjRxn7GTiSfiRPkWiVTre/jpJV8aYFQAAAAAAAAAAAMBCbBXUAAAAkGvj1K5jqbA/gDl7tJ6sZwW1aLNWUAPAlN6sd+tDQS1LwNkfbEydfVqtzy2ps3YN/9W39WP9KqgF4Ah5IGNn7Z2HgtcBSsxlHyJhHahdC/Vitc6rdUvQ13PPf+2OFwraKjGujdC4+hxGBsOU6HrfEzl5cBr535U7nito65z4fi/J4CEkM24syEo5dL23xND9AfKAL8zTkjw4ruGT4Fhax72CvkgJ+wbZINO3vn9bs7w8oPuW8NrNKBgDKrxnIzHXtTw/ju0nOcI84GbD2cBaOdf83PY0Ac77c++xlPZr2Le+T1uzvDzg6FsjdI2mDF2/YZ/n9jtn3seeH3PnpgZdeZC7b9CSi31ieSBV+xh5kPo+m0se9P3Ggq7RlKHX/EPygIM+P875rtKAkwecbKBjrvWZR6weqd8EjZEHqfl7446XCvo1ha6RT+vLOUTamBK2/47x2Tl7Dylzuv7OzYOuezGp39X48T8oaG/ffOXWypmLpXmw7TiHf1+teV17nGL61lpO1kiS7INdRl/1/dH8rD2m3LbNQWkeNB3n6DrPVP4AaDmTvg==
+   eJztmttSwyAQhtNae+G5l97ZR2g93FsP91r1/R9FmAkz6wpkgRCg/b+ZfzKWptnA7h+EdB0AAAAAAAAAAABA+8xLBwAAqIZ16QAAANWA+QFoiVUvMExMbWN+AFrmQelR6al0IJWhvWAReR4ArfKq9Kb0XjqQA0EyP1h1ZeZppa4bSu3xHTJfSt9KP6UDAU7mFh0yLj9o4b5rHqON0rbXfUT7sXJMtZeDXPOQFsZiQVQbz0q7Xi9KN0y8PZSr/nieHGkebM9V6bNWj+esyzOuxoen9GB4HOD1vmUK8YNTy2eX/fFsjGAzkOIHOTH9LvXgsWLO6XFjUcIrQ5gqX3Jch9f7jom3h+ZcKT+Q1nlNXkD9NNQPNLqGT8gxlruEc6eA9s0U3iDJhylzZs6OrvYYDtUPKLTOzB7hovvbrzV5BF2zyZHrofvHY94v7UPbfFIC9QOpNywjr2Xw/c9P70eSIzMiG/xcvsYy5Aex/ao5Bj8w+Oqb1oitndeoT6n1S/s8dI6wdMRPse0fu3KzBEPxu/wgdN6Q+l7NVM8Nmx/keico1Q9stULHoBU/oDVia+c16lPMuislxQ8kOcn3j33PqhIMxS/xA4k3cF8M3fMo6Qe53gkaww98+XvdHy9GjjsW17jRGtF/fyh99tp34X5gfvdWEFPI3COXplibk9bKUI2F+oFrLcb3Xo0Z/31CnDGSwPNVEqtGkouxfrDu/o8P/V6pvK4RU2tD+V1aQ6Tk+UbWVSJf4v5ZAh1n6L21QKwfzDq/H5TK6V8FWHFY
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -33,7 +33,7 @@
   <object id="398" x="3264" y="608" width="352" height="32"/>
   <object id="409" x="3872" y="608" width="1088" height="32"/>
   <object id="410" x="5024" y="608" width="1376" height="32"/>
-  <object id="413" x="7360" y="576" width="960" height="64"/>
+  <object id="418" x="7360" y="576" width="960" height="64"/>
  </objectgroup>
  <objectgroup name="Bricks">
   <object id="232" x="2112" y="448" width="32" height="32"/>
@@ -102,7 +102,7 @@
   <object id="345" x="1312" y="160" width="32" height="32"/>
   <object id="346" x="1312" y="224" width="32" height="32"/>
   <object id="347" x="1312" y="288" width="32" height="32"/>
-  <object id="414" x="7104" y="576" width="32" height="32"/>
+  <object id="419" x="7104" y="576" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="CoinBricks">
   <object id="218" x="896" y="256" width="32" height="32"/>
