@@ -16,8 +16,8 @@ public class ComputerScienceRunner extends Game {
 
 	public static SpriteBatch batch;
 
-	public static final int WIDTH = 1280;
-	public static final int HEIGHT = 720;
+	public static final int WIDTH = 800;
+	public static final int HEIGHT = 480;
 
 	public static final float PPM = 100; //pixels per meter
 

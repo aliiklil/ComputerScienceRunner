@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.mobs;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -23,6 +24,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
+import at.ac.univie.computersciencerunner.SmartphoneController;
 
 public class Player {
 
@@ -83,9 +85,13 @@ public class Player {
     private boolean onMovingHorizontalPlatform;
     private boolean onMovingVerticalPlatform;
 
-    public Player(ComputerScienceRunner computerScienceRunner, World world) {
+    private SmartphoneController smartphoneController;
+
+    public Player(ComputerScienceRunner computerScienceRunner, World world, SmartphoneController smartphoneController) {
 
         this.game = computerScienceRunner;
+
+        this.smartphoneController = smartphoneController;
 
         hearts = 3;
 
@@ -235,7 +241,12 @@ public class Player {
             currentFrame = currentAnimation.getKeyFrame(stateTime, true);
         }
 
-        handleInput(dt);
+
+        if(Gdx.app.getType() == Application.ApplicationType.Android) {
+            handleSmartphoneInput(dt);
+        } else if (Gdx.app.getType() == Application.ApplicationType.Desktop) {
+            handleKeyboardInput(dt);
+        }
 
         if(body.getPosition().y < -5) {
             dead = true;
@@ -282,7 +293,7 @@ public class Player {
             body.applyLinearImpulse(new Vector2(0f, 6f), body.getWorldCenter(), true);
         }
 
-/*
+        /*
         if(body.getLinearVelocity().y > 8f) {
             body.setLinearVelocity(body.getLinearVelocity().x, 0);
         }*/
@@ -303,7 +314,7 @@ public class Player {
         }
     }
 
-    public void handleInput(float dt) {
+    public void handleKeyboardInput(float dt) {
 
         if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
@@ -383,6 +394,134 @@ public class Player {
         }
 
         if ((!Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT)) || ComputerScienceRunner.playScreen.isPaused()) {
+            if (currentAnimation == runLeftAnimation) {
+                currentAnimation = standLeftAnimation;
+            }
+            if (currentAnimation == runRightAnimation) {
+                currentAnimation = standRightAnimation;
+            }
+        }
+
+        if(grounded) {
+            jumping = false;
+            if(body.getLinearVelocity().x == 0) {
+                if (currentAnimation == jumpLeftAnimation) {
+                    currentAnimation = standLeftAnimation;
+                }
+                if (currentAnimation == jumpRightAnimation) {
+                    currentAnimation = standRightAnimation;
+                }
+            } else {
+                if (currentAnimation == jumpLeftAnimation) {
+                    currentAnimation = runLeftAnimation;
+                    stateTime = 0;
+                }
+                if (currentAnimation == jumpRightAnimation) {
+                    currentAnimation = runRightAnimation;
+                    stateTime = 0;
+                }
+            }
+        } else {
+            if(jumping) {
+                if (body.getLinearVelocity().x > 0) {
+                    currentAnimation = jumpRightAnimation;
+                } else if (body.getLinearVelocity().x < 0) {
+                    currentAnimation = jumpLeftAnimation;
+                } else {
+                    if (currentAnimation == standRightAnimation) {
+                        currentAnimation = jumpRightAnimation;
+                    }
+                    if (currentAnimation == standLeftAnimation) {
+                        currentAnimation = jumpLeftAnimation;
+                    }
+                }
+            }
+        }
+
+    }
+
+    public void handleSmartphoneInput(float dt) {
+
+        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && smartphoneController.isUpJustPressed()) {
+
+            ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
+            ComputerScienceRunner.playScreen.resume();
+            ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(true);
+            upKeyReleased = false;
+        }
+
+        if(smartphoneController.isUpPressed()) {
+            upKeyReleased = true;
+        }
+
+
+        if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
+
+            if (upKeyReleased && smartphoneController.isUpPressed() && !brickDestroyed && !jumping) {
+                if (grounded || System.currentTimeMillis() - timestampUngrounded < durationJumpPossible) {
+                    body.setLinearVelocity(body.getLinearVelocity().x, 0);
+                    body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true);
+                    grounded = false;
+                    jumping = true;
+                    if (currentAnimation == runLeftAnimation || currentAnimation == standLeftAnimation) {
+                        currentAnimation = jumpLeftAnimation;
+                    }
+                    if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
+                        currentAnimation = jumpRightAnimation;
+                    }
+                }
+            }
+
+
+            if (smartphoneController.isLeftPressed() && !smartphoneController.isRightPressed() && body.getLinearVelocity().x >= -3f) { // 2f normally
+                body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
+                if (currentAnimation != runLeftAnimation) {
+                    stateTime = 0; //Starts animation from beginning again, not from where it left before
+                }
+                if (currentAnimation != jumpLeftAnimation) {
+                    currentAnimation = runLeftAnimation;
+                }
+            }
+
+            if (smartphoneController.isRightPressed() && !smartphoneController.isLeftPressed() && body.getLinearVelocity().x <= 3f) {// 2f normally
+                System.out.println("AAAAAAAAAAAA");
+                body.applyLinearImpulse(new Vector2(0.5f, 0), body.getWorldCenter(), true);
+                if (currentAnimation != runRightAnimation) {
+                    stateTime = 0;
+                }
+                if (currentAnimation != jumpRightAnimation)
+                    currentAnimation = runRightAnimation;
+            }
+
+
+            if (smartphoneController.isLeftPressed() && smartphoneController.isRightPressed()) {
+                body.setLinearVelocity(0f, body.getLinearVelocity().y);
+
+                if (currentAnimation == runRightAnimation) {
+                    currentAnimation = standRightAnimation;
+                }
+
+                if (currentAnimation == runLeftAnimation) {
+                    currentAnimation = standLeftAnimation;
+                }
+
+            }
+
+        }
+
+        if ((!smartphoneController.isLeftPressed() && body.getLinearVelocity().x <= 0f) || ComputerScienceRunner.playScreen.isPaused()) {
+            if(!onMovingHorizontalPlatform) {
+                body.setLinearVelocity(0f, body.getLinearVelocity().y);
+            }
+        }
+
+        if ((!smartphoneController.isRightPressed() && body.getLinearVelocity().x >= 0f) || ComputerScienceRunner.playScreen.isPaused()) {
+            if(!onMovingHorizontalPlatform) {
+                body.setLinearVelocity(0f, body.getLinearVelocity().y);
+            }
+        }
+
+        if ((!smartphoneController.isLeftPressed() && !smartphoneController.isRightPressed()) || ComputerScienceRunner.playScreen.isPaused()) {
             if (currentAnimation == runLeftAnimation) {
                 currentAnimation = standLeftAnimation;
             }

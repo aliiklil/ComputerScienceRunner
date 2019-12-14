@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.screens;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -25,6 +26,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.util.ArrayList;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
+import at.ac.univie.computersciencerunner.SmartphoneController;
 import at.ac.univie.computersciencerunner.WorldContactListener;
 import at.ac.univie.computersciencerunner.hud.Hud;
 import at.ac.univie.computersciencerunner.hud.InfoWidget;
@@ -95,6 +97,8 @@ public class PlayScreen implements Screen {
     private ArrayList<HorizontalPlatform> horizontalPlatformList = new ArrayList<HorizontalPlatform>();
     private ArrayList<VerticalPlatform> verticalPlatformList = new ArrayList<VerticalPlatform>();
 
+    private SmartphoneController smartphoneController;
+
     public PlayScreen(ComputerScienceRunner game, int semester) {
 
         this.currentSemester = semester;
@@ -114,7 +118,9 @@ public class PlayScreen implements Screen {
         world.setContactListener(new WorldContactListener(game));
         b2dr = new Box2DDebugRenderer();
 
-        player = new Player(game, world);
+        smartphoneController = new SmartphoneController();
+
+        player = new Player(game, world, smartphoneController);
         hud = new Hud(ComputerScienceRunner.batch, game);
         hud.setSemesterValue(semester);
         infoWidget  = new InfoWidget(ComputerScienceRunner.batch);
@@ -123,6 +129,8 @@ public class PlayScreen implements Screen {
         PolygonShape shape = new PolygonShape();
         FixtureDef fixtureDef = new FixtureDef();
         Body body;
+
+
 
         //Ground
         for(MapObject object : tiledMap.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
@@ -465,11 +473,15 @@ public class PlayScreen implements Screen {
             dispose();
         }
 
+        if(Gdx.app.getType() == Application.ApplicationType.Android)
+            smartphoneController.draw();
+
     }
 
     @Override
     public void resize(int width, int height) {
         viewPort.update(width, height);
+        smartphoneController.resize(width, height);
     }
 
     @Override
@@ -556,5 +568,13 @@ public class PlayScreen implements Screen {
 
     public ArrayList<Spear> getSpearRemoveList() {
         return spearRemoveList;
+    }
+
+    public Viewport getViewPort() {
+        return viewPort;
+    }
+
+    public SmartphoneController getSmartphoneController() {
+        return smartphoneController;
     }
 }
