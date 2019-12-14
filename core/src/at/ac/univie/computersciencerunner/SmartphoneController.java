@@ -2,13 +2,16 @@ package at.ac.univie.computersciencerunner;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -23,7 +26,8 @@ public class SmartphoneController {
     private Viewport viewPort;
     private Stage stage;
 
-    public SmartphoneController(){
+
+    public SmartphoneController(ComputerScienceRunner game){
 
         OrthographicCamera camera = new OrthographicCamera();
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, camera);
@@ -63,8 +67,6 @@ public class SmartphoneController {
                 return true;
             }
         });
-
-        Gdx.input.setInputProcessor(stage);
 
         Table table = new Table();
         table.bottom().left().padBottom(20);
@@ -122,7 +124,6 @@ public class SmartphoneController {
         table.add(rightImage).size(rightImage.getWidth(), rightImage.getHeight()).padLeft(50);
         table.add(upImage).size(upImage.getWidth(), upImage.getHeight()).padLeft(500);
 
-        table.add();
 
         stage.addActor(table);
     }

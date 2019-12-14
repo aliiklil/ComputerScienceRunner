@@ -70,7 +70,6 @@ public class SemesterCompletedScreen implements Screen {
 
         stage = new Stage(viewport, ComputerScienceRunner.batch);
 
-        Gdx.input.setInputProcessor(stage);
 
         Table table = new Table();
         table.center();

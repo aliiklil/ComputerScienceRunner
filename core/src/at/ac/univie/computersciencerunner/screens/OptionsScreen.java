@@ -49,7 +49,7 @@ public class OptionsScreen implements Screen {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 80;
+        fontParameter.size = 40;
         fontParameter.borderColor = Color.BLACK;
         fontParameter.borderWidth = 3;
 
@@ -78,11 +78,11 @@ public class OptionsScreen implements Screen {
         table.setFillParent(true);
 
         Label optionsLabel  = new Label("Optionen", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(optionsLabel).expandX().top().padTop(20).colspan(2);
+        table.add(optionsLabel).expandX().top().padTop(10).colspan(2);
         table.row();
 
 
-        deleteProgressButton = new TextButton("Delete Progress", blueSkin);
+        deleteProgressButton = new TextButton("Spielstand entfernen", blueSkin);
 
         deleteProgressButton.addListener(new InputListener() {
             @Override
@@ -94,8 +94,9 @@ public class OptionsScreen implements Screen {
             }
         });
 
-        table.add(deleteProgressButton).left().top().padLeft(20).padTop(50);
+        table.add(deleteProgressButton).left().top().padLeft(10).padTop(50);
 
+        table.row();
 
 
         backButton = new TextButton("Zur#ck", blueSkin);
@@ -110,7 +111,7 @@ public class OptionsScreen implements Screen {
         });
 
 
-        table.add(backButton).bottom().right().expandY().expandX().padBottom(20).padRight(20);
+        table.add(backButton).bottom().right().expandY().expandX().padBottom(20).padRight(10);
 
         stage.addActor(table);
 

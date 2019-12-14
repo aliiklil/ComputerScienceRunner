@@ -53,7 +53,7 @@ public class LevelSelectionScreen implements Screen {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 80;
+        fontParameter.size = 40;
         fontParameter.borderColor = Color.BLACK;
         fontParameter.borderWidth = 3;
 
@@ -94,7 +94,7 @@ public class LevelSelectionScreen implements Screen {
 
 
 
-        table.padTop(100);
+        table.padTop(50);
 
         Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
         final int highestCompletedSemester = prefs.getInteger("highestCompletedSemester", 0);
@@ -102,9 +102,9 @@ public class LevelSelectionScreen implements Screen {
         for(int i = 0; i < semesterButtons.length; i++) {
 
             if(highestCompletedSemester >= i) {
-                semesterButtons[i] = new TextButton(String.valueOf(i + 1), blueSkin);
+                semesterButtons[i] = new TextButton(String.valueOf(i + 1), blueSkin.get("small", TextButton.TextButtonStyle.class));
             } else {
-                semesterButtons[i] = new TextButton(String.valueOf(i + 1), greySkin);
+                semesterButtons[i] = new TextButton(String.valueOf(i + 1), greySkin.get("small", TextButton.TextButtonStyle.class));
             }
 
             semesterButtons[i].setDisabled(true);
@@ -132,7 +132,7 @@ public class LevelSelectionScreen implements Screen {
 
 
 
-        backButton = new TextButton("Zur#ck", blueSkin); //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
+        backButton = new TextButton("Zur#ck", blueSkin);
 
         backButton.addListener(new InputListener() {
             @Override
@@ -144,7 +144,7 @@ public class LevelSelectionScreen implements Screen {
         });
 
 
-        table.add(backButton).colspan(2);
+        table.add(backButton).colspan(2).padTop(10);
 
 
         stage.addActor(table);

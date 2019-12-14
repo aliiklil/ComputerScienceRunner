@@ -45,7 +45,7 @@ public class PauseScreen implements Screen {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 72;
+        fontParameter.size = 60;
         fontParameter.borderColor = Color.BLACK;
         fontParameter.borderWidth = 3;
 
@@ -82,7 +82,7 @@ public class PauseScreen implements Screen {
         });
 
 
-        table.add(resumeButton).padTop(150).colspan(2);;
+        table.add(resumeButton).padTop(10).colspan(2);;
 
         table.row();
 
@@ -97,7 +97,7 @@ public class PauseScreen implements Screen {
             }
         });
 
-        table.add(mainMenuButton).padTop(100).colspan(2);
+        table.add(mainMenuButton).padTop(10).colspan(2);
 
 
         stage.addActor(table);

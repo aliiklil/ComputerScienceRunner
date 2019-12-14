@@ -64,7 +64,7 @@ public class Hud implements Disposable {
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
         stage = new Stage(viewPort, spriteBatch);
 
-        //Gdx.input.setInputProcessor(stage);
+        Gdx.input.setInputProcessor(stage);
 
         Table table = new Table();
         table.top();

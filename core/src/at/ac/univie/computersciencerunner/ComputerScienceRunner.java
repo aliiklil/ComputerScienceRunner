@@ -1,6 +1,8 @@
 package at.ac.univie.computersciencerunner;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import at.ac.univie.computersciencerunner.screens.GameOverScreen;

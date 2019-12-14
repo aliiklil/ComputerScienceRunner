@@ -118,7 +118,7 @@ public class PlayScreen implements Screen {
         world.setContactListener(new WorldContactListener(game));
         b2dr = new Box2DDebugRenderer();
 
-        smartphoneController = new SmartphoneController();
+        smartphoneController = new SmartphoneController(game);
 
         player = new Player(game, world, smartphoneController);
         hud = new Hud(ComputerScienceRunner.batch, game);
@@ -473,7 +473,7 @@ public class PlayScreen implements Screen {
             dispose();
         }
 
-        if(Gdx.app.getType() == Application.ApplicationType.Android)
+        //if(Gdx.app.getType() == Application.ApplicationType.Android)
             smartphoneController.draw();
 
     }

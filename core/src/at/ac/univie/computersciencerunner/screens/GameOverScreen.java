@@ -43,7 +43,7 @@ public class GameOverScreen implements Screen {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 80;
+        fontParameter.size = 60;
         fontParameter.borderColor = Color.BLACK;
         fontParameter.borderWidth = 3;
 
@@ -81,7 +81,7 @@ public class GameOverScreen implements Screen {
         });
 
 
-        table.add(tryAgainButton).padTop(100);
+        table.add(tryAgainButton).padTop(30);
 
         table.row();
 
@@ -99,7 +99,7 @@ public class GameOverScreen implements Screen {
             }
         });
 
-        table.add(mainMenuButton).padTop(50);
+        table.add(mainMenuButton).padTop(10);
 
 
         stage.addActor(table);
