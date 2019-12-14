@@ -87,7 +87,7 @@ public class Player {
 
     private SmartphoneController smartphoneController;
 
-    public Player(ComputerScienceRunner computerScienceRunner, World world, SmartphoneController smartphoneController) {
+    public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
 
@@ -233,8 +233,6 @@ public class Player {
     public void update(float dt) {
         stateTime = stateTime + dt;
 
-
-
         if(currentAnimation == jumpLeftAnimation || currentAnimation == jumpRightAnimation || currentAnimation == deathAnimation) {
             currentFrame = currentAnimation.getKeyFrame(stateTime, false);
         } else {
@@ -242,11 +240,11 @@ public class Player {
         }
 
 
-        if(Gdx.app.getType() == Application.ApplicationType.Android) {
+        //if(Gdx.app.getType() == Application.ApplicationType.Android) {
             handleSmartphoneInput(dt);
-        } else if (Gdx.app.getType() == Application.ApplicationType.Desktop) {
-            handleKeyboardInput(dt);
-        }
+        //} else if (Gdx.app.getType() == Application.ApplicationType.Desktop) {
+            //handleKeyboardInput(dt);
+        //}
 
         if(body.getPosition().y < -5) {
             dead = true;
@@ -441,6 +439,8 @@ public class Player {
     }
 
     public void handleSmartphoneInput(float dt) {
+
+        smartphoneController = ComputerScienceRunner.playScreen.getSmartphoneController();
 
         if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && smartphoneController.isUpJustPressed()) {
 

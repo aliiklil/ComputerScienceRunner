@@ -26,12 +26,21 @@ public class SmartphoneController {
     private Viewport viewPort;
     private Stage stage;
 
+    private TextButton pauseButton;
 
-    public SmartphoneController(ComputerScienceRunner game){
+    private Skin blueSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
+
+    private final ComputerScienceRunner game;
+
+    public SmartphoneController(ComputerScienceRunner computerScienceRunner){
+
+        this.game = computerScienceRunner;
 
         OrthographicCamera camera = new OrthographicCamera();
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, camera);
         stage = new Stage(this.viewPort, ComputerScienceRunner.batch);
+
+        Gdx.input.setInputProcessor(stage);
 
         stage.addListener(new InputListener(){
 
@@ -68,8 +77,18 @@ public class SmartphoneController {
             }
         });
 
-        Table table = new Table();
-        table.bottom().left().padBottom(20);
+        pauseButton = new TextButton("Pause", blueSkin.get("small", TextButton.TextButtonStyle.class));
+
+        pauseButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                ComputerScienceRunner.playScreen.pause();
+                game.setPauseScreen();
+                return true;
+            }
+        });
+
+
 
         Image upImage = new Image(new Texture("controls/up.png"));
         upImage.setSize(50, 50);
@@ -119,13 +138,34 @@ public class SmartphoneController {
             }
         });
 
-        table.add(leftImage).size(leftImage.getWidth(), leftImage.getHeight()).fillX().padLeft(50);
-        table.add();
-        table.add(rightImage).size(rightImage.getWidth(), rightImage.getHeight()).padLeft(50);
-        table.add(upImage).size(upImage.getWidth(), upImage.getHeight()).padLeft(500);
+
+
+
+        Table table = new Table();
+
+
+        table.top().right();
+        table.setFillParent(true);
+
+        table.add(pauseButton).padTop(40).padRight(50).colspan(3).right();
+
+
+
+
+        table.row();
+
+
+
+        table.add(leftImage).size(leftImage.getWidth(), leftImage.getHeight()).expandX().padLeft(50).padTop(300);
+        table.add(rightImage).size(rightImage.getWidth(), rightImage.getHeight()).expandX().padLeft(50).padTop(300);
+        table.add(upImage).size(upImage.getWidth(), upImage.getHeight()).expandX().padLeft(400).padTop(300);
 
 
         stage.addActor(table);
+    }
+
+    public void setInputProcessorToStage() {
+        Gdx.input.setInputProcessor(stage);
     }
 
     public void draw(){

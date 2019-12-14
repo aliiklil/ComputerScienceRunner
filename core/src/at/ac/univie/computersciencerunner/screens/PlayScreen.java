@@ -120,7 +120,7 @@ public class PlayScreen implements Screen {
 
         smartphoneController = new SmartphoneController(game);
 
-        player = new Player(game, world, smartphoneController);
+        player = new Player(game, world);
         hud = new Hud(ComputerScienceRunner.batch, game);
         hud.setSemesterValue(semester);
         infoWidget  = new InfoWidget(ComputerScienceRunner.batch);
@@ -507,6 +507,9 @@ public class PlayScreen implements Screen {
         hud.setEctsCount(ectsCount);
         hud.setCoinCount(coinCount);
         hud.setHeartsCount(player.getHearts());
+
+        smartphoneController = new SmartphoneController(game);
+        smartphoneController.setInputProcessorToStage();
 
     }
 

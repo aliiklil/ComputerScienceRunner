@@ -64,7 +64,7 @@ public class Hud implements Disposable {
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
         stage = new Stage(viewPort, spriteBatch);
 
-        Gdx.input.setInputProcessor(stage);
+
 
         Table table = new Table();
         table.top();
@@ -92,16 +92,6 @@ public class Hud implements Disposable {
 
 
         pauseButton = new TextButton("Pause", blueSkin.get("small", TextButton.TextButtonStyle.class));
-
-        pauseButton.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                ComputerScienceRunner.playScreen.pause();
-                game.setPauseScreen();
-                return true;
-            }
-        });
-
 
         table.add(pauseButton).expandX().padTop(40);
 
