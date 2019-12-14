@@ -50,7 +50,7 @@ public class MainMenuScreen implements Screen {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 80;
+        fontParameter.size = 40;
         fontParameter.borderColor = Color.BLACK;
         fontParameter.borderWidth = 3;
 
@@ -100,7 +100,7 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        table.add(startButton).expandX().padTop(50);
+        table.add(startButton).expandX().padTop(10);
         table.row();
 
 
@@ -114,7 +114,7 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        table.add(optionsButton).expandX().padTop(50);
+        table.add(optionsButton).expandX().padTop(10);
         table.row();
 
 
@@ -130,7 +130,7 @@ public class MainMenuScreen implements Screen {
         });
 
 
-        table.add(endButton).expandX().padTop(50);
+        table.add(endButton).expandX().padTop(10);
 
         table.row();
 
