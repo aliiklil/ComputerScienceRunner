@@ -1,4 +1,8 @@
-.)Create all levels
+.)Create controller for smartphone
+
+.)Test game on multiple smartphones
+
+.)Create all levels and all questions
 --)One level with green theme
 --)One level with ice theme
 --)One level with computer science theme
@@ -9,8 +13,6 @@
 --)One level with dark forest theme
 --)One level with cloud theme
 --)One level with lava theme
-
-.)Create all questions
 
 .)Add sound effects
 
