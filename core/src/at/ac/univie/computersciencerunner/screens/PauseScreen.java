@@ -2,6 +2,7 @@ package at.ac.univie.computersciencerunner.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -36,6 +37,8 @@ public class PauseScreen implements Screen {
     private TextButton mainMenuButton;
 
     private final ComputerScienceRunner game;
+
+    private Music levelMusic;
 
     public PauseScreen(ComputerScienceRunner computerScienceRunner) {
 

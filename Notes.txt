@@ -1,6 +1,6 @@
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)
 
-.)Maybe add box2d lights if it looks good
+.)Check if resolution looks the same on every device
 
 .)Fix bug that player can move right and left even if he is below ground plane
 
@@ -10,10 +10,10 @@
 --)One level with computer science theme
 --)One level with town theme
 --)One level with autumn theme
+--)One level with desert theme
 --)One level with dark dungeon theme
 --)One level with mountain theme
 --)One level with dark forest theme
---)One level with cloud theme
 --)One level with lava theme
 
 .)Add sound effects
@@ -35,3 +35,10 @@ Important notes:
 
 > for ö     and     © for Ö   (You can type the symbol © only by holding alt and typing in the numbers 0169)
 
+
+
+
+
+
+Music:
+https://opengameart.org/content/platformer-game-music-pack

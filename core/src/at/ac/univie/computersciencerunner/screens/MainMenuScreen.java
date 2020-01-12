@@ -2,6 +2,7 @@ package at.ac.univie.computersciencerunner.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -40,6 +41,8 @@ public class MainMenuScreen implements Screen {
 
     private Image universityImage = new Image(new Texture(Gdx.files.internal("universityImage.png")));
 
+    private Music menuMusic;
+
     public MainMenuScreen(ComputerScienceRunner computerScienceRunner) {
 
         game = computerScienceRunner;
@@ -57,17 +60,8 @@ public class MainMenuScreen implements Screen {
         fontParameter.color = Color.WHITE;
         font = freeTypeFontGenerator.generateFont(fontParameter);
 
-
-
-
-
-
-
-
-
-
-
-
+        menuMusic = ComputerScienceRunner.assetManager.get("audio/music/menu.mp3", Music.class);
+        menuMusic.setLooping(true);
 
 
     }
@@ -138,6 +132,12 @@ public class MainMenuScreen implements Screen {
 
         stage.addActor(table);
 
+        if(ComputerScienceRunner.playScreen.getCurrentSemester() != 0) { //If music is playing from the PlayScreen stop it
+            Music levelMusic = ComputerScienceRunner.assetManager.get("audio/music/level" + ComputerScienceRunner.playScreen.getCurrentSemester() + ".mp3", Music.class);
+            levelMusic.stop();
+        }
+
+        menuMusic.play();
     }
 
     @Override

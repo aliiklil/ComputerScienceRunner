@@ -3,6 +3,8 @@ package at.ac.univie.computersciencerunner;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import at.ac.univie.computersciencerunner.screens.GameOverScreen;
@@ -48,10 +50,26 @@ public class ComputerScienceRunner extends Game {
     public static SemesterCompletedScreen semesterCompletedScreen;
 	public static PauseScreen pauseScreen;
 
+	public static AssetManager assetManager;
+
 	@Override
 	public void create () {
 
 		batch = new SpriteBatch();
+
+
+		assetManager = new AssetManager();
+		assetManager.load("audio/music/menu.mp3", Music.class);
+		assetManager.load("audio/music/level1.mp3", Music.class);
+		assetManager.load("audio/music/level2.mp3", Music.class);
+		assetManager.load("audio/music/level3.mp3", Music.class);
+		assetManager.load("audio/music/level4.mp3", Music.class);
+		assetManager.load("audio/music/level5.mp3", Music.class);
+		assetManager.load("audio/music/level6.mp3", Music.class);
+		assetManager.load("audio/music/level7.mp3", Music.class);
+
+		assetManager.finishLoading();
+
 
 		mainMenuScreen = new MainMenuScreen(this);
 		levelSelectionScreen = new LevelSelectionScreen(this);
@@ -64,6 +82,8 @@ public class ComputerScienceRunner extends Game {
 		pauseScreen = new PauseScreen(this);
 
 		setScreen(mainMenuScreen);
+
+
 	}
 
 	@Override
@@ -112,5 +132,11 @@ public class ComputerScienceRunner extends Game {
 	public void setPauseScreen() {
 		setScreen(pauseScreen);
 	}
+
+	/*
+	public AssetManager getAssetManager() {
+	    return assetManager;
+    }
+*/
 
 }

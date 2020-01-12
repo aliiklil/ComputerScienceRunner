@@ -3,6 +3,7 @@ package at.ac.univie.computersciencerunner.screens;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
@@ -99,6 +100,9 @@ public class PlayScreen implements Screen {
 
     private SmartphoneController smartphoneController;
 
+    private Music menuMusic;
+    private Music levelMusic;
+
     public PlayScreen(ComputerScienceRunner game, int semester) {
 
         this.currentSemester = semester;
@@ -119,6 +123,11 @@ public class PlayScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         smartphoneController = new SmartphoneController(game);
+
+        menuMusic = ComputerScienceRunner.assetManager.get("audio/music/menu.mp3", Music.class);
+
+        levelMusic = ComputerScienceRunner.assetManager.get("audio/music/level" + semester + ".mp3", Music.class);
+        levelMusic.setLooping(true);
 
         player = new Player(game, world);
         hud = new Hud(ComputerScienceRunner.batch, game);
@@ -485,7 +494,11 @@ public class PlayScreen implements Screen {
     }
 
     @Override
-    public void show() { }
+    public void show() {
+
+        menuMusic.stop();
+        levelMusic.play();
+    }
 
     @Override
     public void pause() {
