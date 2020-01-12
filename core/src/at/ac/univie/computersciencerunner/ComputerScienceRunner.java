@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import at.ac.univie.computersciencerunner.screens.GameOverScreen;
@@ -67,6 +68,11 @@ public class ComputerScienceRunner extends Game {
 		assetManager.load("audio/music/level5.mp3", Music.class);
 		assetManager.load("audio/music/level6.mp3", Music.class);
 		assetManager.load("audio/music/level7.mp3", Music.class);
+		assetManager.load("audio/music/level8.mp3", Music.class);
+		assetManager.load("audio/music/level9.mp3", Music.class);
+		assetManager.load("audio/music/level10.mp3", Music.class);
+
+		assetManager.load("audio/sounds/jump.mp3", Sound.class);
 
 		assetManager.finishLoading();
 

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -87,6 +88,8 @@ public class Player {
 
     private SmartphoneController smartphoneController;
 
+    private Sound jumpSound;
+
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
@@ -155,6 +158,8 @@ public class Player {
 
         body.createFixture(fixtureDef).setUserData("head");
 
+
+        jumpSound = ComputerScienceRunner.assetManager.get("audio/sounds/jump.mp3", Sound.class);
 
     }
 
@@ -340,6 +345,7 @@ public class Player {
                     if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
                         currentAnimation = jumpRightAnimation;
                     }
+                    jumpSound.play();
                 }
             }
 
@@ -469,6 +475,7 @@ public class Player {
                     if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
                         currentAnimation = jumpRightAnimation;
                     }
+                    jumpSound.play();
                 }
             }
 

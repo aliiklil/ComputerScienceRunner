@@ -4,6 +4,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
@@ -103,6 +104,7 @@ public class PlayScreen implements Screen {
     private Music menuMusic;
     private Music levelMusic;
 
+
     public PlayScreen(ComputerScienceRunner game, int semester) {
 
         this.currentSemester = semester;
@@ -124,10 +126,13 @@ public class PlayScreen implements Screen {
 
         smartphoneController = new SmartphoneController(game);
 
+
+
         menuMusic = ComputerScienceRunner.assetManager.get("audio/music/menu.mp3", Music.class);
 
         levelMusic = ComputerScienceRunner.assetManager.get("audio/music/level" + semester + ".mp3", Music.class);
         levelMusic.setLooping(true);
+
 
         player = new Player(game, world);
         hud = new Hud(ComputerScienceRunner.batch, game);

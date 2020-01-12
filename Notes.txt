@@ -17,6 +17,11 @@
 --)One level with lava theme
 
 .)Add sound effects
+--)Coin collection sound
+--)Death sound
+--)Jumping on a bug sound
+--)Trampoline sound
+--)Jump sound
 
 .)Add music
 
@@ -42,3 +47,10 @@ Important notes:
 
 Music:
 https://opengameart.org/content/platformer-game-music-pack
+https://opengameart.org/content/orchestral-adventure
+https://opengameart.org/content/magic-space
+https://opengameart.org/content/8bit-adventure
+
+
+Jump Sound:
+https://opengameart.org/content/platformer-jumping-sounds
