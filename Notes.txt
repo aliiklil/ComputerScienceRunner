@@ -1,8 +1,4 @@
-.)Fix questions screen
-
 .)Fix infoBrick
-
-.)Change hud
 
 .)Remove CustomOrthogonalTiledMapRenderer (it only makes ects and coins stop but nothing else and is therefore useless)
 
@@ -36,6 +32,10 @@
 .)Add music
 
 .)Test game on phone
+
+.)Create icon for game
+
+.)Make buttons bigger
 
 
 Important notes:
