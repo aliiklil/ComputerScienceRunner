@@ -104,6 +104,7 @@ public class WorldContactListener implements ContactListener {
                 ComputerScienceRunner.playScreen.pause();
                 ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(false);
                 ((InfoBrick)interactiveObject).displayInfo();
+                System.out.println("2135464868");
             }
 
             if(interactiveObject instanceof CoinBrick) {

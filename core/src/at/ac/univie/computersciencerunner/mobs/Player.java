@@ -480,7 +480,7 @@ public class Player {
             }
 
 
-            if (smartphoneController.isLeftPressed() && !smartphoneController.isRightPressed() && body.getLinearVelocity().x >= -3f) { // 2f normally
+            if (smartphoneController.isLeftPressed() && !smartphoneController.isRightPressed() && body.getLinearVelocity().x >= -3f) { // 3f normally
                 body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
                 if (currentAnimation != runLeftAnimation) {
                     stateTime = 0; //Starts animation from beginning again, not from where it left before
@@ -490,7 +490,7 @@ public class Player {
                 }
             }
 
-            if (smartphoneController.isRightPressed() && !smartphoneController.isLeftPressed() && body.getLinearVelocity().x <= 3f) {// 2f normally
+            if (smartphoneController.isRightPressed() && !smartphoneController.isLeftPressed() && body.getLinearVelocity().x <= 3f) {// 3f normally
                 System.out.println("AAAAAAAAAAAA");
                 body.applyLinearImpulse(new Vector2(0.5f, 0), body.getWorldCenter(), true);
                 if (currentAnimation != runRightAnimation) {

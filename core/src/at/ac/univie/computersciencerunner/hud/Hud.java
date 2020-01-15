@@ -105,10 +105,10 @@ public class Hud implements Disposable {
 
 
 
-        table.add().expandX().padTop(10);
-        table.add(ectsValue).expandX().padTop(10);
-        table.add(coinValue).expandX().padTop(10);
-        table.add(semesterValue).expandX().padTop(10);
+        table.add().expandX().padTop(-30);
+        table.add(ectsValue).expandX().padTop(-30);
+        table.add(coinValue).expandX().padTop(-30);
+        table.add(semesterValue).expandX().padTop(-30);
 
 
 

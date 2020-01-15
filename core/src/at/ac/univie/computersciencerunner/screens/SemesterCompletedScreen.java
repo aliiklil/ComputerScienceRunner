@@ -2,6 +2,7 @@ package at.ac.univie.computersciencerunner.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -56,7 +57,7 @@ public class SemesterCompletedScreen implements Screen {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 60;
+        fontParameter.size = 24;
         fontParameter.borderColor = Color.BLACK;
         fontParameter.borderWidth = 3;
 
@@ -91,10 +92,10 @@ public class SemesterCompletedScreen implements Screen {
 
 
         ectsLabel  = new Label("ECTS:", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(ectsLabel).left().padTop(50);
+        table.add(ectsLabel).left().padTop(25);
 
         ectsValue  = new Label(String.valueOf(ComputerScienceRunner.playScreen.getHud().getEctsCount()), new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(ectsValue).right().padTop(50);
+        table.add(ectsValue).right().padTop(25);
         table.row();
 
 
@@ -124,12 +125,15 @@ public class SemesterCompletedScreen implements Screen {
                 @Override
                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                     game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester() + 1);
+
+                    ComputerScienceRunner.playScreen.getLevelMusic().stop();
+
                     dispose();
                     return true;
                 }
             });
 
-            table.add(nextSemesterButton).padTop(50).colspan(2);
+            table.add(nextSemesterButton).padTop(25).colspan(2);
 
         }
 
@@ -147,11 +151,11 @@ public class SemesterCompletedScreen implements Screen {
             }
         });
 
-        table.add(mainMenuButton).padTop(50).colspan(2);
+        table.add(mainMenuButton).padTop(25).colspan(2);
 
 
         stage.addActor(table);
-
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override

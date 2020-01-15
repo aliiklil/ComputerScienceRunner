@@ -1,3 +1,13 @@
+.)Fix questions screen
+
+.)Fix infoBrick
+
+.)Change hud
+
+.)Remove CustomOrthogonalTiledMapRenderer (it only makes ects and coins stop but nothing else and is therefore useless)
+
+.)Add "skybox" (otherwise player can go up very far)
+
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)
 
 .)Check if resolution looks the same on every device

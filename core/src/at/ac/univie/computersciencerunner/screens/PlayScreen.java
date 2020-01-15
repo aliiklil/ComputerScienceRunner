@@ -598,4 +598,8 @@ public class PlayScreen implements Screen {
     public SmartphoneController getSmartphoneController() {
         return smartphoneController;
     }
+
+    public Music getLevelMusic() {
+        return levelMusic;
+    }
 }

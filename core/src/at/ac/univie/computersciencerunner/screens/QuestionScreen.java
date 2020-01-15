@@ -3,6 +3,7 @@ package at.ac.univie.computersciencerunner.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -52,7 +53,7 @@ public class QuestionScreen implements Screen {
     private int rightAnswersCount; //How many questions were answered correctly by the player
 
     private long timestampAnswerSelected; //Needed to know, after player pressed an answer, how long correct and right answer should be displayed
-    private int timeUntilNextQuestion = 0; //Time in milliseconds, after player pressed an answer, until next questions should be displayed
+    private int timeUntilNextQuestion = 2000; //Time in milliseconds, after player pressed an answer, until next questions should be displayed
 
     private boolean changeQuestion; //True when next questions should come
 
@@ -66,7 +67,7 @@ public class QuestionScreen implements Screen {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 36;
+        fontParameter.size = 24;
         fontParameter.borderColor = Color.BLACK;
         fontParameter.borderWidth = 3;
 
@@ -124,7 +125,7 @@ public class QuestionScreen implements Screen {
         questionLabel = new Label(questions[currentQuestionIndex].getQuestion(), new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         questionLabel.setWrap(true);
         questionLabel.setAlignment(Align.center);
-        table.add(questionLabel).padTop(100).colspan(2);
+        table.add(questionLabel).padTop(50).colspan(2);
         table.row();
 
 
@@ -161,7 +162,7 @@ public class QuestionScreen implements Screen {
                 }
             });
 
-            table.add(answerButton[i]).width(600).padTop(100);
+            table.add(answerButton[i]).width(400).padTop(100);
 
             if(i == 1) {
                 table.row();
@@ -208,6 +209,9 @@ public class QuestionScreen implements Screen {
             prefs.flush();
 
             game.setSemesterCompletedScreen();
+
+
+
             dispose();
         }
 

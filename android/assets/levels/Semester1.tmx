@@ -89,11 +89,36 @@
     <property name="Title" value="Willkommen"/>
    </properties>
   </object>
-  <object id="371" x="1504" y="448" width="32" height="32"/>
-  <object id="375" x="7264" y="384" width="32" height="32"/>
-  <object id="376" x="6176" y="480" width="32" height="32"/>
-  <object id="377" x="5088" y="480" width="32" height="32"/>
-  <object id="378" x="3424" y="480" width="32" height="32"/>
+  <object id="371" x="1504" y="448" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser Lehrveranstaltung lernst du wie man mit C++ umgeht und wie Programmierung funktioniert."/>
+    <property name="Title" value="Programmierung 1"/>
+   </properties>
+  </object>
+  <object id="375" x="7264" y="384" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du Themen wie Boolsche Algebra, Zahlensysteme und Rechnerarchitekturen."/>
+    <property name="Title" value="Technische Grundlagen der Informatik"/>
+   </properties>
+  </object>
+  <object id="376" x="6176" y="480" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du über rechtliche Themen, die für Informatiker interessant sind. Zum Beispiel wie Gesetze gemacht werden und worauf bei Datenschutz zu achten ist."/>
+    <property name="Title" value="Informatik und Recht"/>
+   </properties>
+  </object>
+  <object id="377" x="5088" y="480" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du über rechtliche Themen, die für Informatiker interessant sind. Zum Beispiel wie Gesetze gemacht werden und worauf bei Datenschutz zu achten ist."/>
+    <property name="Title" value="Informatik und Recht"/>
+   </properties>
+  </object>
+  <object id="378" x="3424" y="480" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier kannst du deine Mathekenntnisse aus der Schule auffrischen, falls du seit der Matura wieder etwas vergessen hast."/>
+    <property name="Title" value="Mathematische Grundlagen 1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Wall">
   <object id="78" x="0" y="0" width="0.0859375" height="608"/>
