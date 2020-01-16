@@ -385,7 +385,6 @@ public class PlayScreen implements Screen {
 
         player.update(dt);
 
-
         if(!paused) {
             for (ECTS ects : ectsList) {
                 ects.update(dt);

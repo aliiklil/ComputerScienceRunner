@@ -128,7 +128,7 @@ public class HorizontalPlatform {
 
         Player player = ComputerScienceRunner.playScreen.getPlayer();
 
-        if(player.isOnMovingHorizontalPlatform() && !(player.body.getLinearVelocity().y > 0)) {
+        if(player.isOnMovingHorizontalPlatform() && !(player.body.getLinearVelocity().y > 0) && !player.isPlayerMovedOnHorizontalPlatform()) {
 
             if ((!Gdx.input.isKeyPressed(Input.Keys.LEFT) && !Gdx.input.isKeyPressed(Input.Keys.RIGHT) && body.getLinearVelocity().x <= 1f) || ComputerScienceRunner.playScreen.isPaused()) {
                 player.body.setLinearVelocity(body.getLinearVelocity().x, player.body.getLinearVelocity().y);
@@ -137,6 +137,8 @@ public class HorizontalPlatform {
             if ((!Gdx.input.isKeyPressed(Input.Keys.RIGHT) && !Gdx.input.isKeyPressed(Input.Keys.LEFT) && body.getLinearVelocity().x >= 1f) || ComputerScienceRunner.playScreen.isPaused()) {
                 player.body.setLinearVelocity(body.getLinearVelocity().x, player.body.getLinearVelocity().y);
             }
+
+            player.setPlayerMovedOnHorizontalPlatform(true);
         }
 
 

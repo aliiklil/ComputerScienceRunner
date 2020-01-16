@@ -84,6 +84,8 @@ public class Player {
 
     private SmartphoneController smartphoneController;
 
+    private boolean playerMovedOnHorizontalPlatform; //Needed, otherwise player gets moved n times if the level has n horizontal platforms and the player is standing on one
+
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
@@ -305,6 +307,8 @@ public class Player {
             }
             ComputerScienceRunner.assetManager.get("audio/sounds/trampoline.mp3", Sound.class).play();
         }
+
+        playerMovedOnHorizontalPlatform = false;
     }
 
     public void handleKeyboardInput(float dt) {
@@ -695,5 +699,13 @@ public class Player {
 
     public void setOnMovingVerticalPlatform(boolean onMovingVerticalPlatform) {
         this.onMovingVerticalPlatform = onMovingVerticalPlatform;
+    }
+
+    public boolean isPlayerMovedOnHorizontalPlatform() {
+        return playerMovedOnHorizontalPlatform;
+    }
+
+    public void setPlayerMovedOnHorizontalPlatform(boolean playerMovedOnHorizontalPlatform) {
+        this.playerMovedOnHorizontalPlatform = playerMovedOnHorizontalPlatform;
     }
 }

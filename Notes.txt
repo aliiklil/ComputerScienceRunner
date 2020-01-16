@@ -1,4 +1,4 @@
-.)Fix that player slides off platforms
+.)Fix JumpingBug
 
 
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)
