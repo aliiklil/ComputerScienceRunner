@@ -242,7 +242,7 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
-        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.TRAMPOLINE_BIT) {
+        if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.TRAMPOLINE_BIT && !player.isGrounded()) {
             player.setTrampolineJump(true);
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.TRAMPOLINE_BIT) {
                 ((Trampoline)fixA.getUserData()).setPressDown(true);
