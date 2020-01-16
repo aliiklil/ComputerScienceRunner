@@ -6,11 +6,9 @@
 
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)
 
-.)Check if resolution looks the same on every device
-
 .)Fix bug that player can move right and left even if he is below ground plane
 
-.)Create all levels and all questions
+.)Create all levels
 --)One level with green theme
 --)One level with ice theme
 --)One level with computer science theme
@@ -27,16 +25,17 @@
 --)Death sound
 --)Jumping on a bug sound
 --)Trampoline sound
---)Jump sound
+--)Player damage sound
 
-.)Add music
+.)Add credits
 
-.)Test game on phone
+.)Create all questions
 
 .)Create icon for game
 
-.)Make buttons bigger
+.)Add backgrounds (maybe with parralax effects)
 
+.)Write documentation
 
 Important notes:
 .)If in Graphics Layer a tile is empty and one tries to access it in the code, you get NullPointerException
