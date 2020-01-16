@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.mapObjects;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
@@ -29,6 +30,7 @@ public class Heart extends InteractiveObject {
                 ComputerScienceRunner.playScreen.getPlayer().setHearts(ComputerScienceRunner.playScreen.getPlayer().getHearts() + 1);
                 ComputerScienceRunner.playScreen.getHud().setHeartsCount(ComputerScienceRunner.playScreen.getPlayer().getHearts());
             }
+            ComputerScienceRunner.assetManager.get("audio/sounds/heart.mp3", Sound.class).play();
         }
     }
 

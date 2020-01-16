@@ -1,8 +1,10 @@
-.)Add "skybox" (otherwise player can go up very far)
+.)Add sound effects
+--)Death sound
+--)Jumping on a bug sound
+--)Trampoline sound
+--)Player damage sound
 
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)
-
-.)Fix bug that player can move right and left even if he is below ground plane
 
 .)Create all levels
 --)One level with green theme
@@ -15,13 +17,6 @@
 --)One level with mountain theme
 --)One level with dark forest theme
 --)One level with lava theme
-
-.)Add sound effects
---)Coin collection sound
---)Death sound
---)Jumping on a bug sound
---)Trampoline sound
---)Player damage sound
 
 .)Add credits
 
@@ -65,3 +60,7 @@ https://opengameart.org/content/8bit-adventure
 
 Jump Sound:
 https://opengameart.org/content/platformer-jumping-sounds
+
+
+Other sounds:
+https://opengameart.org/content/8-bit-platformer-sfx

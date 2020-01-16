@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.mapObjects;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
@@ -25,6 +26,7 @@ public class ECTS extends InteractiveObject {
             TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
             layer.getCell((int) (body.getPosition().x * ComputerScienceRunner.PPM / 32), (int) (body.getPosition().y * ComputerScienceRunner.PPM / 32)).setTile(null);
             ComputerScienceRunner.playScreen.getHud().setEctsCount(ComputerScienceRunner.playScreen.getHud().getEctsCount() + 1);
+            ComputerScienceRunner.assetManager.get("audio/sounds/ects.mp3", Sound.class).play();
         }
     }
 

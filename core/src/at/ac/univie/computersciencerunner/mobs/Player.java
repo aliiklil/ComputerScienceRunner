@@ -84,8 +84,6 @@ public class Player {
 
     private SmartphoneController smartphoneController;
 
-    private Sound jumpSound;
-
     public Player(ComputerScienceRunner computerScienceRunner, World world) {
 
         this.game = computerScienceRunner;
@@ -154,8 +152,6 @@ public class Player {
 
         body.createFixture(fixtureDef).setUserData("head");
 
-
-        jumpSound = ComputerScienceRunner.assetManager.get("audio/sounds/jump.mp3", Sound.class);
 
     }
 
@@ -262,6 +258,7 @@ public class Player {
                 if (hearts == 0) {
                     currentAnimation = deathAnimation;
                 }
+                ComputerScienceRunner.assetManager.get("audio/sounds/damageTaken.mp3", Sound.class).play();
             }
         }
 
@@ -308,8 +305,7 @@ public class Player {
             if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
                 currentAnimation = jumpRightAnimation;
             }
-
-
+            ComputerScienceRunner.assetManager.get("audio/sounds/jump.mp3", Sound.class).play();
         }
     }
 
@@ -341,7 +337,7 @@ public class Player {
                     if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
                         currentAnimation = jumpRightAnimation;
                     }
-                    jumpSound.play();
+                    ComputerScienceRunner.assetManager.get("audio/sounds/jump.mp3", Sound.class).play();
                 }
             }
 
@@ -471,7 +467,7 @@ public class Player {
                     if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
                         currentAnimation = jumpRightAnimation;
                     }
-                    jumpSound.play();
+                    ComputerScienceRunner.assetManager.get("audio/sounds/jump.mp3", Sound.class).play();
                 }
             }
 

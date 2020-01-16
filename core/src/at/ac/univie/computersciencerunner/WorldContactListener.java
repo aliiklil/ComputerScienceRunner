@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
@@ -188,7 +189,6 @@ public class WorldContactListener implements ContactListener {
 
         if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.BUG_BODY_BIT) {
             player.setTouchingEnemy(true);
-
             Object enemy = null;
 
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.BUG_BODY_BIT) {
@@ -240,6 +240,7 @@ public class WorldContactListener implements ContactListener {
             if (player.getHearts() == 0) {
                 player.setCurrentAnimation(player.getDeathAnimation());
             }
+            ComputerScienceRunner.assetManager.get("audio/sounds/damageTaken.mp3", Sound.class).play();
         }
 
         if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.TRAMPOLINE_BIT && !player.isGrounded()) {
