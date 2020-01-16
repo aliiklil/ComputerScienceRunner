@@ -91,7 +91,7 @@ public class SmartphoneController {
 
 
         Image upImage = new Image(new Texture("controls/up.png"));
-        upImage.setSize(50, 50);
+        upImage.setSize(80, 80);
         upImage.addListener(new InputListener() {
 
             @Override
@@ -107,7 +107,7 @@ public class SmartphoneController {
         });
 
         Image rightImage = new Image(new Texture("controls/right.png"));
-        rightImage.setSize(50, 50);
+        rightImage.setSize(80, 80);
         rightImage.addListener(new InputListener() {
 
             @Override
@@ -123,7 +123,7 @@ public class SmartphoneController {
         });
 
         Image leftImage = new Image(new Texture("controls/left.png"));
-        leftImage.setSize(50, 50);
+        leftImage.setSize(80, 80);
         leftImage.addListener(new InputListener() {
 
             @Override
@@ -156,9 +156,9 @@ public class SmartphoneController {
 
 
 
-        table.add(leftImage).size(leftImage.getWidth(), leftImage.getHeight()).expandX().padLeft(50).padTop(300);
-        table.add(rightImage).size(rightImage.getWidth(), rightImage.getHeight()).expandX().padLeft(50).padTop(300);
-        table.add(upImage).size(upImage.getWidth(), upImage.getHeight()).expandX().padLeft(400).padTop(300);
+        table.add(leftImage).size(leftImage.getWidth(), leftImage.getHeight()).expandX().padLeft(10).padTop(290);
+        table.add(rightImage).size(rightImage.getWidth(), rightImage.getHeight()).expandX().padLeft(10).padTop(290);
+        table.add(upImage).size(upImage.getWidth(), upImage.getHeight()).expandX().padLeft(340).padTop(290);
 
 
         stage.addActor(table);
