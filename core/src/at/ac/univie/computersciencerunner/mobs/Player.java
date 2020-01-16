@@ -448,7 +448,7 @@ public class Player {
 
         smartphoneController = ComputerScienceRunner.playScreen.getSmartphoneController();
 
-        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && smartphoneController.isUpJustPressed()) {
+        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && smartphoneController.isUpJustPressed() && grounded) {
 
             ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
             ComputerScienceRunner.playScreen.resume();

@@ -1,4 +1,4 @@
-.)Fix infoBrick
+.)Make on screen buttons bigger
 
 .)Remove CustomOrthogonalTiledMapRenderer (it only makes ects and coins stop but nothing else and is therefore useless)
 
@@ -36,6 +36,10 @@
 .)Add backgrounds (maybe with parralax effects)
 
 .)Write documentation
+
+.)Upload project to PlayStore
+
+.)Upload project to GitHub
 
 Important notes:
 .)If in Graphics Layer a tile is empty and one tries to access it in the code, you get NullPointerException
