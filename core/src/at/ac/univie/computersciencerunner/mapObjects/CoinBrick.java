@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.mapObjects;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
@@ -36,6 +37,7 @@ public class CoinBrick extends InteractiveObject {
             Rectangle rect = new Rectangle((int) (body.getPosition().x * ComputerScienceRunner.PPM) - 16, (int) (body.getPosition().y * ComputerScienceRunner.PPM)  + 16, 32, 32);
             ComputerScienceRunner.playScreen.getCoinList().add(new Coin(ComputerScienceRunner.playScreen.getWorld(), ComputerScienceRunner.playScreen.getTiledMap(), rect));
 
+            ComputerScienceRunner.assetManager.get("audio/sounds/brickDestroyed.mp3", Sound.class).play();
         }
     }
 

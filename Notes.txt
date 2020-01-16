@@ -1,8 +1,5 @@
 .)Add sound effects
 --)Death sound
---)Jumping on a bug sound
---)Trampoline sound
---)Player damage sound
 
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)
 
@@ -58,9 +55,7 @@ https://opengameart.org/content/magic-space
 https://opengameart.org/content/8bit-adventure
 
 
-Jump Sound:
 https://opengameart.org/content/platformer-jumping-sounds
-
-
-Other sounds:
 https://opengameart.org/content/8-bit-platformer-sfx
+https://opengameart.org/content/platformer-sounds-terminal-interaction-door-shots-bang-and-footsteps
+https://opengameart.org/content/game-over-soundold-school

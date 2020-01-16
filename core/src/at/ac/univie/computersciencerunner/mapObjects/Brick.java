@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.mapObjects;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
@@ -24,6 +25,8 @@ public class Brick extends InteractiveObject {
             destroyed = true;
             TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
             layer.getCell((int) (body.getPosition().x * ComputerScienceRunner.PPM / 32), (int) (body.getPosition().y * ComputerScienceRunner.PPM / 32)).setTile(null);
+
+            ComputerScienceRunner.assetManager.get("audio/sounds/brickDestroyed.mp3", Sound.class).play();
         }
     }
 

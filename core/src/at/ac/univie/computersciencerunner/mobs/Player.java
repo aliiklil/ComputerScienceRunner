@@ -245,6 +245,8 @@ public class Player {
 
         if(body.getPosition().y < -5) {
             dead = true;
+            ComputerScienceRunner.assetManager.get("audio/sounds/gameOver.mp3", Sound.class).play();
+            ComputerScienceRunner.playScreen.getLevelMusic().stop();
         }
 
 
@@ -287,13 +289,9 @@ public class Player {
             }
             body.setLinearVelocity(0, 0);
             body.applyLinearImpulse(new Vector2(0f, 6f), body.getWorldCenter(), true);
+            ComputerScienceRunner.assetManager.get("audio/sounds/gameOver.mp3", Sound.class).play();
+            ComputerScienceRunner.playScreen.getLevelMusic().stop();
         }
-
-        /*
-        if(body.getLinearVelocity().y > 8f) {
-            body.setLinearVelocity(body.getLinearVelocity().x, 0);
-        }*/
-
 
         if(trampolineJump) {
             body.applyLinearImpulse(new Vector2(0, 8.0f), body.getWorldCenter(), true);
@@ -305,7 +303,7 @@ public class Player {
             if (currentAnimation == runRightAnimation || currentAnimation == standRightAnimation) {
                 currentAnimation = jumpRightAnimation;
             }
-            ComputerScienceRunner.assetManager.get("audio/sounds/jump.mp3", Sound.class).play();
+            ComputerScienceRunner.assetManager.get("audio/sounds/trampoline.mp3", Sound.class).play();
         }
     }
 

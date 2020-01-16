@@ -76,8 +76,11 @@ public class ComputerScienceRunner extends Game {
 		assetManager.load("audio/sounds/coin.mp3", Sound.class);
 		assetManager.load("audio/sounds/heart.mp3", Sound.class);
 		assetManager.load("audio/sounds/ects.mp3", Sound.class);
-        assetManager.load("audio/sounds/damageTaken.mp3", Sound.class);
-
+		assetManager.load("audio/sounds/damageTaken.mp3", Sound.class);
+		assetManager.load("audio/sounds/trampoline.mp3", Sound.class);
+        assetManager.load("audio/sounds/brickDestroyed.mp3", Sound.class);
+		assetManager.load("audio/sounds/bugKill.mp3", Sound.class);
+		assetManager.load("audio/sounds/gameOver.mp3", Sound.class);
 
 		assetManager.finishLoading();
 

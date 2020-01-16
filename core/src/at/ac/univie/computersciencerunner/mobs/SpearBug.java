@@ -1,6 +1,7 @@
 package at.ac.univie.computersciencerunner.mobs;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -220,6 +221,7 @@ public class SpearBug {
             ComputerScienceRunner.playScreen.getWorld().destroyBody(body);
             destroyed = true;
             stateTime = 0;
+            ComputerScienceRunner.assetManager.get("audio/sounds/bugKill.mp3", Sound.class).play();
         }
 
         if(throwLeft && currentAnimation != throwLeftAnimation && System.currentTimeMillis() - timestampThrowAnimationBegins > durationBetweenThrows) {

@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.mapObjects;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
@@ -39,6 +40,7 @@ public class InfoBrick extends InteractiveObject {
                     description = (String) mapProperties.get("Description");
                 }
                 ComputerScienceRunner.playScreen.getInfoWidget().setTitleAndDescription(title, description);
+                ComputerScienceRunner.assetManager.get("audio/sounds/brickDestroyed.mp3", Sound.class).play();
                 break;
             }
         }
