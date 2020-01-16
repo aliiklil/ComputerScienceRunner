@@ -1,7 +1,5 @@
 .)Make on screen buttons bigger
 
-.)Remove CustomOrthogonalTiledMapRenderer (it only makes ects and coins stop but nothing else and is therefore useless)
-
 .)Add "skybox" (otherwise player can go up very far)
 
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)
@@ -34,6 +32,8 @@
 .)Create icon for game
 
 .)Add backgrounds (maybe with parralax effects)
+
+.)Clean source code
 
 .)Write documentation
 
