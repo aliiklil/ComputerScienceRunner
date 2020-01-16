@@ -193,6 +193,7 @@ public class WalkingBug {
             body.setLinearVelocity(1, 0);
         }
 
+
         currentFrame = currentAnimation.getKeyFrame(stateTime, true);
 
         if(!setToDestroy) {

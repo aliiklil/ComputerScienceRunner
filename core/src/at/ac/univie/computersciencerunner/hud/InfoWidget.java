@@ -35,6 +35,8 @@ public class InfoWidget implements Disposable {
     private static FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
     private static BitmapFont font;
 
+    private long infoWidgetOpenedTimestamp;
+
     public InfoWidget(SpriteBatch spriteBatch) {
 
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
@@ -97,6 +99,7 @@ public class InfoWidget implements Disposable {
 
     public void setCurrentlyDisplayed(boolean currentlyDisplayed) {
         this.currentlyDisplayed = currentlyDisplayed;
+        infoWidgetOpenedTimestamp = System.currentTimeMillis();
     }
 
     public void setTitleAndDescription(String title, String description) {
@@ -104,6 +107,10 @@ public class InfoWidget implements Disposable {
         titleLabel.setText(title);
         descriptionLabel.setText(description);
 
+    }
+
+    public long getInfoWidgetOpenedTimestamp() {
+        return infoWidgetOpenedTimestamp;
     }
 
 }

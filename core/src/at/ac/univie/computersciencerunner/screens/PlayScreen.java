@@ -349,9 +349,12 @@ public class PlayScreen implements Screen {
 
     public void update(float dt) {
 
-        world.step(1/60f, 6, 5);
+        if(!paused) {
 
 
+            world.step(1 / 60f, 6, 5);
+
+        }
 
         camera.position.x = MathUtils.clamp(player.body.getPosition().x, camera.viewportWidth / 2,608 - camera.viewportWidth / 2);
 
@@ -363,64 +366,68 @@ public class PlayScreen implements Screen {
 
         player.update(dt);
 
-        for(ECTS ects : ectsList) {
-            ects.update(dt);
-        }
 
-        for(Brick brick : brickList) {
-            brick.update(dt);
-        }
+        if(!paused) {
+            for (ECTS ects : ectsList) {
+                ects.update(dt);
+            }
 
-        for(ECTSBrick ectsBrick : ectsBrickList) {
-            ectsBrick.update(dt);
-        }
+            for (Brick brick : brickList) {
+                brick.update(dt);
+            }
 
-        for(Heart heart : heartList) {
-            heart.update(dt);
-        }
+            for (ECTSBrick ectsBrick : ectsBrickList) {
+                ectsBrick.update(dt);
+            }
 
-        for(HeartBrick heartBrick : heartBrickList) {
-            heartBrick.update(dt);
-        }
+            for (Heart heart : heartList) {
+                heart.update(dt);
+            }
 
-        for(Coin coin : coinList) {
-            coin.update(dt);
-        }
+            for (HeartBrick heartBrick : heartBrickList) {
+                heartBrick.update(dt);
+            }
 
-        for(CoinBrick coinBrick : coinBrickList) {
-            coinBrick.update(dt);
-        }
+            for (Coin coin : coinList) {
+                coin.update(dt);
+            }
 
-        for(WalkingBug walkingBug : walkingBugList) {
-            walkingBug.update(dt);
-        }
+            for (CoinBrick coinBrick : coinBrickList) {
+                coinBrick.update(dt);
+            }
 
-        for(JumpingBug jumpingBug : jumpingBugList) {
-            jumpingBug.update(dt);
-        }
+            for (WalkingBug walkingBug : walkingBugList) {
+                walkingBug.update(dt);
+            }
 
-        for(FlyingBug flyingBug : flyingBugList) {
-            flyingBug.update(dt);
-        }
+            for (JumpingBug jumpingBug : jumpingBugList) {
+                jumpingBug.update(dt);
+            }
 
-        for(SpearBug spearBug : spearBugList) {
-            spearBug.update(dt);
-        }
+            for (FlyingBug flyingBug : flyingBugList) {
+                flyingBug.update(dt);
+            }
 
-        for(Spear spear : spearList) {
-            spear.update(dt);
-        }
-        spearList.removeAll(spearRemoveList);
+            for (SpearBug spearBug : spearBugList) {
+                spearBug.update(dt);
+            }
 
+            for (Spear spear : spearList) {
+                spear.update(dt);
+            }
 
-        for(Trampoline trampoline : trampolineList) {
-            trampoline.update(dt);
-        }
-        for(HorizontalPlatform horizontalPlatform : horizontalPlatformList) {
-            horizontalPlatform.update(dt);
-        }
-        for(VerticalPlatform verticalPlatform : verticalPlatformList) {
-            verticalPlatform.update(dt);
+            spearList.removeAll(spearRemoveList);
+
+            for (Trampoline trampoline : trampolineList) {
+                trampoline.update(dt);
+            }
+            for (HorizontalPlatform horizontalPlatform : horizontalPlatformList) {
+                horizontalPlatform.update(dt);
+            }
+            for (VerticalPlatform verticalPlatform : verticalPlatformList) {
+                verticalPlatform.update(dt);
+            }
+
         }
 
     }
@@ -488,7 +495,7 @@ public class PlayScreen implements Screen {
         }
 
         //if(Gdx.app.getType() == Application.ApplicationType.Android)
-            smartphoneController.draw();
+        smartphoneController.draw();
 
     }
 

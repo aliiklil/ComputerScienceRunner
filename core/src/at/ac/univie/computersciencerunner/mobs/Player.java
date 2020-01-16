@@ -448,7 +448,7 @@ public class Player {
 
         smartphoneController = ComputerScienceRunner.playScreen.getSmartphoneController();
 
-        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && smartphoneController.isUpJustPressed() && grounded) {
+        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && smartphoneController.isUpJustPressed() && System.currentTimeMillis() - ComputerScienceRunner.playScreen.getInfoWidget().getInfoWidgetOpenedTimestamp() > 100) { //Player needs to look at infoWiget at least 0.1sec before closing. Otherwise he closes it unintentionally
 
             ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
             ComputerScienceRunner.playScreen.resume();
