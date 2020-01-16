@@ -3,6 +3,7 @@ package at.ac.univie.computersciencerunner.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -127,7 +128,7 @@ public class SemesterCompletedScreen implements Screen {
                     game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester() + 1);
 
                     ComputerScienceRunner.playScreen.getLevelMusic().stop();
-
+                    ComputerScienceRunner.assetManager.get("audio/sounds/levelCompleted.mp3", Sound.class).stop();
                     dispose();
                     return true;
                 }
@@ -147,6 +148,7 @@ public class SemesterCompletedScreen implements Screen {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 game.setMainMenuScreen();
                 dispose();
+                ComputerScienceRunner.assetManager.get("audio/sounds/levelCompleted.mp3", Sound.class).stop();
                 return true;
             }
         });
@@ -156,6 +158,10 @@ public class SemesterCompletedScreen implements Screen {
 
         stage.addActor(table);
         Gdx.input.setInputProcessor(stage);
+
+        ComputerScienceRunner.assetManager.get("audio/music/questions.mp3", Music.class).stop();
+        ComputerScienceRunner.assetManager.get("audio/sounds/levelCompleted.mp3", Sound.class).play();
+
     }
 
     @Override

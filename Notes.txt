@@ -1,6 +1,3 @@
-.)Add sound effects
---)Death sound
-
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)
 
 .)Create all levels
@@ -53,9 +50,13 @@ https://opengameart.org/content/platformer-game-music-pack
 https://opengameart.org/content/orchestral-adventure
 https://opengameart.org/content/magic-space
 https://opengameart.org/content/8bit-adventure
+https://opengameart.org/content/8bit-style-music
 
 
 https://opengameart.org/content/platformer-jumping-sounds
 https://opengameart.org/content/8-bit-platformer-sfx
 https://opengameart.org/content/platformer-sounds-terminal-interaction-door-shots-bang-and-footsteps
 https://opengameart.org/content/game-over-soundold-school
+https://opengameart.org/content/level-finish-fanfares
+https://opengameart.org/content/win-sound-1
+https://opengameart.org/content/bad-sound-2

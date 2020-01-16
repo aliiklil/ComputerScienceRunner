@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -25,6 +26,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 import at.ac.univie.computersciencerunner.Question;
+import at.ac.univie.computersciencerunner.mapObjects.Coin;
 
 public class QuestionScreen implements Screen {
 
@@ -145,9 +147,11 @@ public class QuestionScreen implements Screen {
                         if (rightAnswerIndex == index) {
                             answerButton[index].setStyle(greenSkin.get("small", TextButton.TextButtonStyle.class));
                             rightAnswersCount++;
+                            ComputerScienceRunner.assetManager.get("audio/sounds/rightAnswer.mp3", Sound.class).play();
                         } else {
                             answerButton[index].setStyle(redSkin.get("small", TextButton.TextButtonStyle.class));
                             answerButton[rightAnswerIndex].setStyle(greenSkin.get("small", TextButton.TextButtonStyle.class));
+                            ComputerScienceRunner.assetManager.get("audio/sounds/wrongAnswer.mp3", Sound.class).play();
                         }
                         timestampAnswerSelected = System.currentTimeMillis();
 
@@ -172,6 +176,10 @@ public class QuestionScreen implements Screen {
 
         stage.addActor(table);
 
+        ComputerScienceRunner.playScreen.getLevelMusic().stop();
+        Music questionsMusic = ComputerScienceRunner.assetManager.get("audio/music/questions.mp3", Music.class);
+        questionsMusic.setLooping(true);
+        questionsMusic.play();
     }
 
     @Override

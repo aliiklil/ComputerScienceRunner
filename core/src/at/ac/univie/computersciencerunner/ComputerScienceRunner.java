@@ -61,6 +61,8 @@ public class ComputerScienceRunner extends Game {
 
 		assetManager = new AssetManager();
 		assetManager.load("audio/music/menu.mp3", Music.class);
+		assetManager.load("audio/music/questions.mp3", Music.class);
+
 		assetManager.load("audio/music/level1.mp3", Music.class);
 		assetManager.load("audio/music/level2.mp3", Music.class);
 		assetManager.load("audio/music/level3.mp3", Music.class);
@@ -81,6 +83,9 @@ public class ComputerScienceRunner extends Game {
         assetManager.load("audio/sounds/brickDestroyed.mp3", Sound.class);
 		assetManager.load("audio/sounds/bugKill.mp3", Sound.class);
 		assetManager.load("audio/sounds/gameOver.mp3", Sound.class);
+		assetManager.load("audio/sounds/levelCompleted.mp3", Sound.class);
+		assetManager.load("audio/sounds/rightAnswer.mp3", Sound.class);
+		assetManager.load("audio/sounds/wrongAnswer.mp3", Sound.class);
 
 		assetManager.finishLoading();
 
