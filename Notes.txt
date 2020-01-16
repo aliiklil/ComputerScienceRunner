@@ -1,5 +1,3 @@
-.)Make on screen buttons bigger
-
 .)Add "skybox" (otherwise player can go up very far)
 
 .)Test game on multiple smartphones (to make sure it looks the same and there are no bugs)

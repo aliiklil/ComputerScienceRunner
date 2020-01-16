@@ -343,6 +343,25 @@ public class PlayScreen implements Screen {
             verticalPlatformList.add(new VerticalPlatform(game, world, rect.getX() + 32, rect.getY(), 0));
         }
 
+        //Ground
+        for(MapObject object : tiledMap.getLayers().get(22).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            bodyDef.type = BodyDef.BodyType.StaticBody;
+            bodyDef.position.set((rect.getX() + rect.getWidth() / 2) / ComputerScienceRunner.PPM, (rect.getY() + rect.getHeight() / 2) / ComputerScienceRunner.PPM);
+
+            body = world.createBody(bodyDef);
+
+            shape.setAsBox(rect.getWidth() / 2 / ComputerScienceRunner.PPM, rect.getHeight() / 2 / ComputerScienceRunner.PPM);
+            fixtureDef.shape = shape;
+            fixtureDef.friction = 0;
+            Fixture fixture = body.createFixture(fixtureDef);
+
+            Filter filter = new Filter();
+            filter.categoryBits = ComputerScienceRunner.GROUND_BIT;
+            fixture.setFilterData(filter);
+        }
+
 
 
     }

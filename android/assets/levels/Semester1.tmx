@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="22" tilewidth="32" tileheight="32" infinite="0" nextobjectid="437">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="18" tilewidth="32" tileheight="32" infinite="0" nextobjectid="447">
  <tileset firstgid="1" source="tileset.tsx"/>
- <layer name="Background" width="260" height="22">
+ <layer name="Background" width="260" height="18">
   <data encoding="base64" compression="zlib">
-   eJzt1MsJgDAQBNCQkuxA7b8ncxb8gcQJvoEHHodds7WUUgEAAAAAAAAAAAAAAAAAAAAAoJOlWZs5oAuQwT3gzBToqltq77dn8GRW6TuuB9/pvn6fvaVmxM779NrLKDtO63Mnb882eT/JGeH/vkqPezDSzU/rcyd/uwcb+5JNBg==
+   eJzt1MsJgDAQBNCQkuxA7b8nPQv+IMQJvoEHHodds7WUUgEAAAAAAAAAAAAAAACgkWW37uaALkAG94ArU6C7bqm9W8/gzazSd1xPvtN9/T57S82InY/ptZdRdpzW50lazzZ5P8kZ4f++S497MNLNT+vzJH+7BxuMZkTm
   </data>
  </layer>
- <layer name="Graphics" width="260" height="22">
+ <layer name="Graphics" width="260" height="18">
   <properties>
    <property name="Description" value="Um in deinem Studium voran zu kommen versuche möglichst viel ECTS zu sammeln. In jedem Semester sind 30 ECTS zu finden."/>
    <property name="Title" value="Willkommen"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztmstOwzAQRd1SuuDNkh39hLbAnvLYQ4H//xQcKZYG48fYjh9J7pGuIuqmGdszN8aJEAAAAAAAAAAAAADjZ1k7AABAM8APAAAK+AEYE7e9gJ+Y2t4MHgUA5XiQepR6qh1IY3ResIo8D4Cx8ir1JvVeO5CJwFkf3Io667Ra1w2l9fimzJfUt9RP7UCAlaVBU8bmB2Pod8tztJXa9dpHtM+VOdVeDnKtQ8YwFyui1niWOvR6kbrRpLeHctUfz5MjzYPpvsq913bzuRB55lX5cEkPhscBvd53mkL84NTw2WV/PBsi2Ayk+EFO1LhzPXiomHN63FDU8MoQSuVLjuvo9X7QpLeH5lwtP+DWeUteQP001A86uho+IcdY7hPOLQEdmxLewMmHkjmz1I629him6gcUWmfqGeFK/B3XljyC7tnkyPXQ58dD9peOoWk9yYH6Adcb1pHXUrj+56f94eTIgsiEfq6+x+Lzg9hx7ZiDHyhc9U1rxNSu16hLqfVLxzx0jbC2xE8xPT+25WYNfPHb/CB03ZD6Xk2p+4bJD3K9E5TqB6ZaoXMwFj+gNWJq12vUpZh9V0qKH3ByUn9+7LpX1cAXP8cPON6g+2LoM4+afpDrnaAh/MCVv9f98WLguGOxzRutke7vD6nPXkcR7gfqd+8YMYWsPXKpxN4ct1Z8NRbqB7a9GNd7NWr+jwlxxoiDnq+cWDs4uRjrBxvxf37o92rldYuoWvPld0351iB7R/wcbQPHyoXunzWg48Ht2xiI9YOFcPtB7fxuSb5aa8UPUvrgg9tHznVaGa+W4skxthw/8P0GJ7fmJvgB/KAFzdEPfgFC5+BN
+   eJztmstOwzAQRd1SuuDNkh39hLbAnvLYQ4H//xQcKZaGwY+xHXucZI50FVE3zdieuTFOlGqfJXcAgiA0g/iBIAgG8QNhTNz2EsKk1PZm8CgEoR4PWo9aT9yBNEbnBavE8wRhrLxqvWm9cwcyESjrg1vFs07jum4srcc3Zb60vrV+uAMRnCwtmjIuPxhDv1ueo63Wrtc+oX2uzKn2SlBqHTKGuVgBtcaz1qHXi9YNEm6P5ao/nmdHWgbbfZV6r+3mc6HKzKvx4ZoeLB4n4HrfIcX4wanls8v+eDZEsAXI8YOSmHGnevBQMZf0uKHg8MoYauVLievgej8g4fbYnOPyA2qdt+QF0E9j/aCjq+ETcEzlPuPcGsCxqeENlHyomTNLdHS1pzBVP4DAOjPPCFfq77i25BFwz6ZErsc+Px6yv3AMbetJCtAPqN6wTryWwfc/P+wPJUcWQDbwuXiPJeQHqePaMQc/MPjqG9aIrR3XqE+59QvHPHaNsHbED7E9P3blJgeh+F1+ELtuyH2vptZ9w+YHpd4JyvUDW63AORiLH8AasbXjGvUpZd8VkuMHlJzEz4999yoOQvFT/IDiDdgXY595cPpBqXeChvADX/5e98eLgeNOxTVvsEa6vz+0PnsdVbwfmN+9I8QUs/YopRp7c9RaCdVYrB+49mJ879WY+T9mxJkiCjhfKbF2UHIx1Q826v/8wO9x5XWLmFoL5TenQmuQvSd+iraRY+UD+ycHcDyofRsDqX6wUH4/4M7vlhSqtVb8IKcPIah9pFynlfFqKZ4SY0vxg9BvUHJrbhI/ED9oQXP0g18yp+BN
   </data>
  </layer>
  <objectgroup name="Ground">
-  <object id="340" x="2592" y="416" width="32" height="32"/>
-  <object id="344" x="896" y="384" width="32" height="32"/>
-  <object id="348" x="2464" y="544" width="32" height="32"/>
-  <object id="349" x="2496" y="544" width="32" height="32"/>
-  <object id="351" x="2496" y="512" width="32" height="32"/>
-  <object id="364" x="5408" y="480" width="96" height="32"/>
-  <object id="394" x="7104" y="608" width="32" height="32"/>
-  <object id="421" x="7360" y="576" width="960" height="128"/>
-  <object id="422" x="7200" y="512" width="160" height="192"/>
-  <object id="424" x="6656" y="320" width="128" height="384"/>
-  <object id="426" x="6784" y="384" width="128" height="320"/>
-  <object id="427" x="6912" y="320" width="128" height="384"/>
-  <object id="428" x="5024" y="608" width="1376" height="96"/>
-  <object id="430" x="3872" y="608" width="1088" height="96"/>
-  <object id="431" x="3264" y="608" width="352" height="96"/>
-  <object id="432" x="2528" y="608" width="256" height="96"/>
-  <object id="433" x="1440" y="576" width="1088" height="128"/>
-  <object id="436" x="0" y="608" width="1216" height="96"/>
+  <object id="340" x="2592" y="288" width="32" height="32"/>
+  <object id="344" x="896" y="256" width="32" height="32"/>
+  <object id="348" x="2464" y="416" width="32" height="32"/>
+  <object id="349" x="2496" y="416" width="32" height="32"/>
+  <object id="351" x="2496" y="384" width="32" height="32"/>
+  <object id="364" x="5408" y="352" width="96" height="32"/>
+  <object id="394" x="7104" y="480" width="32" height="32"/>
+  <object id="421" x="7360" y="448" width="960" height="128"/>
+  <object id="422" x="7200" y="384" width="160" height="192"/>
+  <object id="424" x="6656" y="192" width="128" height="384"/>
+  <object id="426" x="6784" y="256" width="128" height="320"/>
+  <object id="427" x="6912" y="192" width="128" height="384"/>
+  <object id="428" x="5024" y="480" width="1376" height="96"/>
+  <object id="430" x="3872" y="480" width="1088" height="96"/>
+  <object id="431" x="3264" y="480" width="352" height="96"/>
+  <object id="432" x="2528" y="480" width="256" height="96"/>
+  <object id="433" x="1440" y="448" width="1088" height="128"/>
+  <object id="436" x="0" y="480" width="1216" height="96"/>
  </objectgroup>
  <objectgroup name="Bricks">
-  <object id="232" x="2112" y="448" width="32" height="32"/>
-  <object id="233" x="2048" y="448" width="32" height="32"/>
+  <object id="232" x="2112" y="320" width="32" height="32"/>
+  <object id="233" x="2048" y="320" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="ECTS">
-  <object id="259" x="1600" y="288" width="32" height="32"/>
-  <object id="260" x="1632" y="288" width="32" height="32"/>
-  <object id="261" x="1664" y="288" width="32" height="32"/>
-  <object id="288" x="4576" y="544" width="32" height="32"/>
-  <object id="289" x="4608" y="544" width="32" height="32"/>
-  <object id="290" x="4640" y="544" width="32" height="32"/>
-  <object id="304" x="5792" y="480" width="32" height="32"/>
-  <object id="305" x="5792" y="512" width="32" height="32"/>
-  <object id="306" x="5792" y="544" width="32" height="32"/>
-  <object id="317" x="3904" y="288" width="32" height="32"/>
-  <object id="318" x="3904" y="320" width="32" height="32"/>
-  <object id="324" x="2560" y="288" width="32" height="32"/>
-  <object id="325" x="2592" y="288" width="32" height="32"/>
-  <object id="326" x="2624" y="288" width="32" height="32"/>
-  <object id="400" x="6848" y="192" width="32" height="32"/>
-  <object id="401" x="6816" y="192" width="32" height="32"/>
-  <object id="406" x="3392" y="352" width="32" height="32"/>
-  <object id="407" x="3424" y="352" width="32" height="32"/>
-  <object id="408" x="3456" y="352" width="32" height="32"/>
+  <object id="259" x="1600" y="160" width="32" height="32"/>
+  <object id="260" x="1632" y="160" width="32" height="32"/>
+  <object id="261" x="1664" y="160" width="32" height="32"/>
+  <object id="288" x="4576" y="416" width="32" height="32"/>
+  <object id="289" x="4608" y="416" width="32" height="32"/>
+  <object id="290" x="4640" y="416" width="32" height="32"/>
+  <object id="304" x="5792" y="352" width="32" height="32"/>
+  <object id="305" x="5792" y="384" width="32" height="32"/>
+  <object id="306" x="5792" y="416" width="32" height="32"/>
+  <object id="317" x="3904" y="160" width="32" height="32"/>
+  <object id="318" x="3904" y="192" width="32" height="32"/>
+  <object id="324" x="2560" y="160" width="32" height="32"/>
+  <object id="325" x="2592" y="160" width="32" height="32"/>
+  <object id="326" x="2624" y="160" width="32" height="32"/>
+  <object id="400" x="6848" y="64" width="32" height="32"/>
+  <object id="401" x="6816" y="64" width="32" height="32"/>
+  <object id="406" x="3392" y="224" width="32" height="32"/>
+  <object id="407" x="3424" y="224" width="32" height="32"/>
+  <object id="408" x="3456" y="224" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="ECTSBricks">
-  <object id="210" x="288" y="480" width="32" height="32"/>
-  <object id="211" x="320" y="480" width="32" height="32"/>
-  <object id="219" x="928" y="384" width="32" height="32"/>
-  <object id="220" x="864" y="384" width="32" height="32"/>
-  <object id="223" x="2080" y="448" width="32" height="32"/>
-  <object id="282" x="5472" y="352" width="32" height="32"/>
-  <object id="283" x="5440" y="352" width="32" height="32"/>
-  <object id="284" x="5408" y="352" width="32" height="32"/>
-  <object id="285" x="4800" y="480" width="32" height="32"/>
-  <object id="286" x="4832" y="480" width="32" height="32"/>
-  <object id="287" x="4864" y="480" width="32" height="32"/>
+  <object id="210" x="288" y="352" width="32" height="32"/>
+  <object id="211" x="320" y="352" width="32" height="32"/>
+  <object id="219" x="928" y="256" width="32" height="32"/>
+  <object id="220" x="864" y="256" width="32" height="32"/>
+  <object id="223" x="2080" y="320" width="32" height="32"/>
+  <object id="282" x="5472" y="224" width="32" height="32"/>
+  <object id="283" x="5440" y="224" width="32" height="32"/>
+  <object id="284" x="5408" y="224" width="32" height="32"/>
+  <object id="285" x="4800" y="352" width="32" height="32"/>
+  <object id="286" x="4832" y="352" width="32" height="32"/>
+  <object id="287" x="4864" y="352" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Hearts">
-  <object id="361" x="4288" y="480" width="32" height="32"/>
-  <object id="362" x="2048" y="512" width="32" height="32"/>
+  <object id="361" x="4288" y="352" width="32" height="32"/>
+  <object id="362" x="2048" y="384" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="HeartBricks"/>
  <objectgroup name="InfoBricks">
@@ -83,37 +83,37 @@
    <property name="Description" value="Bei Informationskacheln findest du nützliche Informationen zum Spiel und zum Studienplan. Versuch möglichst viele ECTS zu sammeln um in deinem Studium voranzukommen."/>
    <property name="Title" value="Willkommen"/>
   </properties>
-  <object id="206" x="160" y="480" width="32" height="32">
+  <object id="206" x="160" y="352" width="32" height="32">
    <properties>
     <property name="Description" value="Bei solchen Infokacheln findest du immer nützliche Informationen zum Studienplan. Am Ende des Semesters bzw. Levels, musst du 3 Fragen beantworten. Versuche außerdem möglichst viele ECTS zu sammeln um im Studium voranzukommen."/>
     <property name="Title" value="Willkommen"/>
    </properties>
   </object>
-  <object id="371" x="1504" y="448" width="32" height="32">
+  <object id="371" x="1504" y="320" width="32" height="32">
    <properties>
     <property name="Description" value="In dieser Lehrveranstaltung lernst du wie man mit C++ umgeht und wie Programmierung funktioniert."/>
     <property name="Title" value="Programmierung 1"/>
    </properties>
   </object>
-  <object id="375" x="7264" y="384" width="32" height="32">
+  <object id="375" x="7264" y="256" width="32" height="32">
    <properties>
     <property name="Description" value="Hier lernst du Themen wie Boolsche Algebra, Zahlensysteme und Rechnerarchitekturen."/>
     <property name="Title" value="Technische Grundlagen der Informatik"/>
    </properties>
   </object>
-  <object id="376" x="6176" y="480" width="32" height="32">
+  <object id="376" x="6176" y="352" width="32" height="32">
    <properties>
     <property name="Description" value="Hier lernst du über rechtliche Themen, die für Informatiker interessant sind. Zum Beispiel wie Gesetze gemacht werden und worauf bei Datenschutz zu achten ist."/>
     <property name="Title" value="Informatik und Recht"/>
    </properties>
   </object>
-  <object id="377" x="5088" y="480" width="32" height="32">
+  <object id="377" x="5088" y="352" width="32" height="32">
    <properties>
     <property name="Description" value="Hier lernst du über rechtliche Themen, die für Informatiker interessant sind. Zum Beispiel wie Gesetze gemacht werden und worauf bei Datenschutz zu achten ist."/>
     <property name="Title" value="Informatik und Recht"/>
    </properties>
   </object>
-  <object id="378" x="3424" y="480" width="32" height="32">
+  <object id="378" x="3424" y="352" width="32" height="32">
    <properties>
     <property name="Description" value="Hier kannst du deine Mathekenntnisse aus der Schule auffrischen, falls du seit der Matura wieder etwas vergessen hast."/>
     <property name="Title" value="Mathematische Grundlagen 1"/>
@@ -121,21 +121,22 @@
   </object>
  </objectgroup>
  <objectgroup name="Wall">
-  <object id="78" x="0" y="0" width="0.0859375" height="608"/>
+  <object id="440" x="0" y="0" height="480"/>
+  <object id="442" x="8320" y="0" height="448"/>
  </objectgroup>
  <objectgroup name="Coins">
-  <object id="346" x="1312" y="224" width="32" height="32"/>
-  <object id="347" x="1312" y="288" width="32" height="32"/>
-  <object id="419" x="7104" y="576" width="32" height="32"/>
+  <object id="346" x="1312" y="96" width="32" height="32"/>
+  <object id="347" x="1312" y="160" width="32" height="32"/>
+  <object id="419" x="7104" y="448" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="CoinBricks">
-  <object id="218" x="896" y="256" width="32" height="32"/>
-  <object id="222" x="2016" y="448" width="32" height="32"/>
-  <object id="341" x="2624" y="416" width="32" height="32"/>
-  <object id="342" x="2560" y="416" width="32" height="32"/>
+  <object id="218" x="896" y="128" width="32" height="32"/>
+  <object id="222" x="2016" y="320" width="32" height="32"/>
+  <object id="341" x="2624" y="288" width="32" height="32"/>
+  <object id="342" x="2560" y="288" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Goal">
-  <object id="380" x="7488" y="352" width="32" height="224">
+  <object id="380" x="7488" y="224" width="32" height="224">
    <properties>
     <property name="Question0" value="Welche Programmiersprache lernt man in PROG?"/>
     <property name="Question0Answer0" value="Java"/>
@@ -159,39 +160,42 @@
   </object>
  </objectgroup>
  <objectgroup name="OnewayPlatform">
-  <object id="189" x="1568" y="480" width="160"/>
-  <object id="190" x="1600" y="384" width="96"/>
-  <object id="310" x="3872" y="416" width="96"/>
-  <object id="311" x="3968" y="448" width="96"/>
-  <object id="312" x="4064" y="480" width="96"/>
-  <object id="313" x="4160" y="512" width="96"/>
-  <object id="314" x="4256" y="544" width="96"/>
-  <object id="357" x="704" y="512" width="384"/>
+  <object id="189" x="1568" y="352" width="160"/>
+  <object id="190" x="1600" y="256" width="96"/>
+  <object id="310" x="3872" y="288" width="96"/>
+  <object id="311" x="3968" y="320" width="96"/>
+  <object id="312" x="4064" y="352" width="96"/>
+  <object id="313" x="4160" y="384" width="96"/>
+  <object id="314" x="4256" y="416" width="96"/>
+  <object id="357" x="704" y="384" width="384"/>
  </objectgroup>
  <objectgroup name="Bug">
-  <object id="214" x="928" y="480" width="32" height="32"/>
-  <object id="379" x="5280" y="576" width="32" height="32"/>
+  <object id="214" x="928" y="352" width="32" height="32"/>
+  <object id="379" x="5280" y="448" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="JumpingBug">
-  <object id="268" x="4112.18" y="447.818" width="32" height="32"/>
+  <object id="268" x="4112.18" y="319.818" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="FlyingBug">
-  <object id="404" x="1728" y="384" width="32" height="32"/>
+  <object id="404" x="1728" y="256" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="SpearBug"/>
  <objectgroup name="Spikes">
-  <object id="240" x="2592" y="448" width="32" height="32"/>
-  <object id="389" x="6784" y="352" width="128" height="32"/>
+  <object id="240" x="2592" y="320" width="32" height="32"/>
+  <object id="389" x="6784" y="224" width="128" height="32"/>
  </objectgroup>
  <objectgroup name="Trampoline">
-  <object id="270" x="1152" y="576" width="32" height="32"/>
-  <object id="395" x="6368" y="576" width="32" height="32"/>
+  <object id="270" x="1152" y="448" width="32" height="32"/>
+  <object id="395" x="6368" y="448" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="HorizontalPlatform">
-  <object id="235" x="2816" y="576" width="96" height="32"/>
+  <object id="235" x="2816" y="448" width="96" height="32"/>
  </objectgroup>
  <objectgroup name="VerticalPlatform">
-  <object id="246" x="3680" y="576" width="96" height="32"/>
-  <object id="337" x="1280" y="544" width="96" height="32"/>
+  <object id="246" x="3680" y="448" width="96" height="32"/>
+  <object id="337" x="1280" y="416" width="96" height="32"/>
+ </objectgroup>
+ <objectgroup name="Skybox">
+  <object id="446" x="0" y="0" width="8320"/>
  </objectgroup>
 </map>
