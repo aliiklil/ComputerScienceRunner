@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -148,12 +149,14 @@ public class Spear {
     public void draw() {
 
         if(!destroyed || stateTime < 0.1) {
+            Sprite sprite = new Sprite(currentFrame);
+
             Camera camera = ComputerScienceRunner.playScreen.getCamera();
+            System.out.println(camera.position.x);
 
-            Vector3 worldCoordinates = new Vector3(x, y, 0);
-            Vector3 screenCoordinates = camera.project(worldCoordinates);
+            sprite.setPosition(body.getPosition().x * ComputerScienceRunner.PPM - 32 - camera.position.x * ComputerScienceRunner.PPM + ComputerScienceRunner.WIDTH/2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
 
-            ComputerScienceRunner.batch.draw(currentFrame, screenCoordinates.x - 32, screenCoordinates.y - 24);
+            sprite.draw(ComputerScienceRunner.batch);
         }
     }
 
