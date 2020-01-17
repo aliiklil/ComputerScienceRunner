@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="18">
   <data encoding="base64" compression="zlib">
-   eJztmktOxDAMhosE7HjMks1InAI4AXACYAmcADgBcIWBEwyck3QRKWPiJLbzautPskaa0bSO4/yO0w6DoiiKoijKLuvWDswMjacyZXrL31VrB4T0Fs+5USs/zhHLwVJyZO3YUlny2OfECrEc7Av+e5DJh1ZMvd5j5KoVip/cNZnKHmKtKb2etJ7xSM3TR2NPHnsu5FdrfPXr1GPvxj6MfdZzbRak6MGx4PqSvQuHC2OXxq48v22MfRn7rupRGCz+qXrwYuzVY29y1yaBndOQlZpvWM97qO8jkhoc04MxL48E16/JOB/Xxm6M3YLfYN70ognS/RlXD6beJ1q2xn4i9su8tt17TW2vJanBvesB9C+Ux7YHuzf24HyP1ZAeNKGVHsyFknpgYzunWErPKaR6UOv8IGXfWHs/WYPWehDqzzhAfcTOR2zdrqUHtc+tJXE9zOyLi1QPap0fpOSFJF/GfDgHny2Ac91aD7D+zEdKnsK4YuOzY6TqAWWdldgfpPZplLjWpFS/kLuulNYDLrnHCaHqAfccBTuvvxv+92cSSusBZZ217Be4cQ2decBnMD7OItcf9eCE6FMKVP2D+0Y7XnsOX1MPKM+ySus8VQ9gnNyxS3quUr1Ybj2grDOoB7H45Og7pWddrs8l5lNqGHBeYmsM5oWdo9J6IM2B3PUTEtMD+N5bSA8kMSy198qlB5x1BvUgdi/fWKnvQWD3gNfG3mFyfS4xn1LjahScp1Z6kJIDlDHmPruM6cEG3HOpepC6znz35uoB590Ijp+Yz63Xvs+4OQbHj+mB1ceWekC5d+6zipgebIfwmlc92MXtn6V6wHn2oXqQNn5MD2JxlOas6oHMpqYH7v576nrQY7/wB8ZLkKY=
+   eJztmktOxDAMhosE7ADNks1I3IAdcALgBMASOAFwAuAKAycYOCfpIlLGxEls59XWn2SNNKNpHcf5HacdBkVRFEVRlF3WrR2YGRpPZcr0lr+r1g4I6S2ec6NWfpwhloOl5MjasaWy5LHPiRViOdgX/Pcgkw+tmHq9x8hVKxQ/uWsylT3EWlN6PWk945Gap4/Gnjz2XMiv1vjq17nH3o19GPus59osSNGDY8H1JXsXDhfGLo1deX7bGPsy9l3VozBY/FP14MXYq8fe5K5NAjunISs137Ce91DfRyQ1OKYHY14eCa5fk3E+ro3dGLsFv8G86UUTpPszrh5MvU+0bI39ROyXeW2795raXktSg3vXA+hfKI9tD3Zv7MH5HqshPWhCKz2YCyX1wMZ2TrGUnlNI9aDW+UHKvrH2frIGrfUg1J9xgPqInY/Yul1LD2qfW0viepjZFxepHtQ6P0jJC0m+jPlwBj5bAOe6tR5g/ZmPlDyFccXGZ8dI1QPKOiuxP0jt0yhxrUmpfiF3XSmtB1xyjxNC1QPuOQp2Xn83/O/PJJTWA8o6a9kvcOMaOvOAz2B8nEauP+rBCdGnFKj6B/eNdrz2HL6mHlCeZZXWeaoewDi5Y5f0XKV6sdx6QFlnUA9i8cnRd0rPulyfS8yn1DDgvMTWGMwLO0el9UCaA7nrJySmB/C9t5AeSGJYau+VSw846wzqQexevrFS34PA7gGvjb3D5PpcYj6lxtUoOE+t9CAlByhjzH12GdODDbjnUvUgdZ357s3VA867ERw/MZ9br32fcXMMjh/TA6uPLfWAcu/cZxUxPdgO4TWverCL2z9L9YDz7EP1IG38mB7E4ijNWdUDmU1ND9z999T1oMd+4Q8kI5HG
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -120,7 +120,28 @@
  </objectgroup>
  <objectgroup name="CoinBricks"/>
  <objectgroup name="Goal">
-  <object id="213" x="7840" y="0" width="32" height="416"/>
+  <object id="213" x="7840" y="0" width="32" height="416">
+   <properties>
+    <property name="Question0" value="Welche Programmiersprache lernt man in PROG?"/>
+    <property name="Question0Answer0" value="Java"/>
+    <property name="Question0Answer1" value="C++"/>
+    <property name="Question0Answer2" value="Javascript"/>
+    <property name="Question0Answer3" value="Python"/>
+    <property name="Question0RightAnswer" value="1"/>
+    <property name="Question1" value="Um was geht es in Netzwerktechnologien?"/>
+    <property name="Question1Answer0" value="Spamerkennung"/>
+    <property name="Question1Answer1" value="Spinnennetze"/>
+    <property name="Question1Answer2" value="Techno"/>
+    <property name="Question1Answer3" value="Grundaufbau Netzwerke"/>
+    <property name="Question1RightAnswer" value="3"/>
+    <property name="Question2" value="Was lernt man in MG1?"/>
+    <property name="Question2Answer0" value="Maturamathe"/>
+    <property name="Question2Answer1" value="Schuhebinden"/>
+    <property name="Question2Answer2" value="Programmieren"/>
+    <property name="Question2Answer3" value="Computerspiele"/>
+    <property name="Question2RightAnswer" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="OnewayPlatform">
   <object id="41" x="1120" y="224" width="96"/>
