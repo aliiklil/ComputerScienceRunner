@@ -178,7 +178,7 @@ public class WorldContactListener implements ContactListener {
                     player.setBlinking(true);
                     player.setBlinkingStartTimestamp(System.currentTimeMillis());
                     player.body.setLinearVelocity(0, 0);
-                    player.body.applyLinearImpulse(new Vector2(50f, 0), player.body.getWorldCenter(), true);
+                    player.body.applyLinearImpulse(new Vector2(5f, 0), player.body.getWorldCenter(), true);
                     if (player.getHearts() == 0) {
                         player.setCurrentAnimation(player.getDeathAnimation());
                     }

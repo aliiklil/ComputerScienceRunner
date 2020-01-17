@@ -1,5 +1,3 @@
-.)Fix JumpingBug
-
 .)Create all levels
 --)One level with green theme
 --)One level with ice theme
@@ -17,8 +15,6 @@
 .)Create all questions
 
 .)Create icon for game
-
-.)Add backgrounds (maybe with parralax effects)
 
 .)Clean source code
 
