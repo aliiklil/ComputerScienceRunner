@@ -579,7 +579,6 @@ public class Player {
         Sprite sprite = new Sprite(currentFrame);
 
         Camera camera = ComputerScienceRunner.playScreen.getCamera();
-        System.out.println(camera.position.x);
 
         sprite.setPosition(body.getPosition().x * ComputerScienceRunner.PPM - 32 - camera.position.x * ComputerScienceRunner.PPM + ComputerScienceRunner.WIDTH/2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
 

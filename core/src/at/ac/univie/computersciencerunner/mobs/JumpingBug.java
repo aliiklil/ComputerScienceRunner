@@ -55,7 +55,7 @@ public class JumpingBug {
 
     private boolean jumping;
     private long timestampLastJump;
-    private int durationBetweenJumps = 3000; //Jumps up all 5 seconds
+    private int durationBetweenJumps = 3000; //Jumps up all 3 seconds
 
     private float startPositionX;
 
@@ -83,7 +83,7 @@ public class JumpingBug {
         MassData massData = body.getMassData();
 
         massData.center.set(0, 0);
-        massData.mass = 1000; //Give it a lot of mass, so player cant move it
+        massData.mass = 10; //Give it a bit of mass, so player cant move it
 
         body.setMassData(massData);
 
@@ -94,7 +94,7 @@ public class JumpingBug {
         circle.setRadius(8 / ComputerScienceRunner.PPM);
         circle.setPosition(new Vector2(0, -16 / ComputerScienceRunner.PPM));
         fixtureDef.shape = circle;
-        fixtureDef.friction = 0;
+        fixtureDef.friction = 1;
 
         fixtureDef.filter.categoryBits = ComputerScienceRunner.BUG_BODY_BIT;
         fixtureDef.filter.maskBits = ComputerScienceRunner.GROUND_BIT |  ComputerScienceRunner.GOAL_BIT | ComputerScienceRunner.ONEWAY_PLATFORM_BIT | ComputerScienceRunner.PLAYER_BIT;
@@ -152,6 +152,8 @@ public class JumpingBug {
 
         currentFrame = currentAnimation.getKeyFrame(stateTime, true);
 
+        body.setTransform(startPositionX / ComputerScienceRunner.PPM, body.getPosition().y, 0f);
+
         if(!setToDestroy) {
             x = body.getPosition().x;
             y = body.getPosition().y;
@@ -167,7 +169,7 @@ public class JumpingBug {
         if(!setToDestroy) {
             if (!jumping && System.currentTimeMillis() - timestampLastJump > durationBetweenJumps) {
                 jumping = true;
-                body.applyLinearImpulse(new Vector2(0, 6000f), body.getWorldCenter(), true);
+                body.applyLinearImpulse(new Vector2(0, 60f), body.getWorldCenter(), true);
                 currentAnimation = jumpAnimation;
                 timestampLastJump = System.currentTimeMillis();
             }
@@ -187,7 +189,6 @@ public class JumpingBug {
             Sprite sprite = new Sprite(currentFrame);
 
             Camera camera = ComputerScienceRunner.playScreen.getCamera();
-            System.out.println(camera.position.x);
 
             sprite.setPosition(body.getPosition().x * ComputerScienceRunner.PPM - 32 - camera.position.x * ComputerScienceRunner.PPM + ComputerScienceRunner.WIDTH/2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
 
