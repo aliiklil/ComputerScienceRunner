@@ -199,7 +199,7 @@ public class FlyingBug {
 
     public void draw() {
 
-        if(!destroyed || stateTime < 1) {
+        if(!destroyed || stateTime < 0.3) {
             Sprite sprite = new Sprite(currentFrame);
 
             Camera camera = ComputerScienceRunner.playScreen.getCamera();
