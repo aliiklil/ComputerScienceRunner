@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="18" tilewidth="32" tileheight="32" infinite="0" nextobjectid="197">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="18" tilewidth="32" tileheight="32" infinite="0" nextobjectid="212">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="18">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="18">
   <data encoding="base64" compression="zlib">
-   eJztmktOAzEMhgcJ2PHokk0lTgGcADgBsAROAJwAuELhBIVzkllESk2ciWM7mYc/yarUqjOO4/xOPNN1hmEYhmEYu6xbOwBYtXaAydjiaRgUxpa/pgdGilr5cY6YBEvJkXVgS2XJY58TK8Qk2Gf890DIh1ZMvd5jSNUKI450Taayh1hrtNeT1bMyKHn66OwJ2LOGUyMgVr9OI/bu7MPZZz3XZkGOHhwzrs/Zu5Rw4ezS2VXkt42zL2ffVT1Kg8Wfogcvzl6BvTH9mgp+TlOmNd+wno+hvvdwavCQHvR5ecS4fk36+bh2duPsFvwG82YsmiCxPyvRg6mfEz1bZz8D9lt4bb/vmtpeS7MGt9YDuF5SeezPYPfOHoLvsRoyBk1opQdzQVMPfFznFEtun4KrB7X6Bzn7xtr7yVq01IPU+YwD1EmsR1JLD2r3rTlxPRT2JYSrB7X6Bzl5wcmXPh/OwWcLYnPdUg+w81kMSp7C+GJjpOoBZZ1p7A9yz2mUuNZE67wgXVe09aAUrfoZQtGD0j4K1q+/6/6fzyTQ0gPKOmt5XiiNa6rnAZ/BxDgbuH6vBydEn3Kg6h/cL/rx+j58TT2gPMuqofMUPYBxCsfOOXNpn7+k9ICyzqAeDMVHYtzcXlfos9R8ShoGnJehNQbzwc+Rth5wc0Crfoak9AC+95bSA04MtfdbXD0oWWdQD4buFRs39T0I7B7w2tg7TKHPUvMpaaUaBeeplR7k5EDuGLX6lik92ID7LlUPctdZ7J6lelDybkSJn5jPrdd+zEpzDI4f0wOvjy31IPfeWn2KlB5su/SaNz3YJTw/c/Wg5NmH6UHe+DE9GIojN39ND2TjWUotPQj331PXgzGeF/4AKep5BA==
+   eJztmktOxDAMhosE7HjMks1InAI4AXACYAmcADgBcIWBEwyck3QRKWPiJLbzautPskaa0bSO4/yO0w6DoiiKoijKLuvWDswMjacyZXrL31VrB4T0Fs+5USs/zhHLwVJyZO3YUlny2OfECrEc7Av+e5DJh1ZMvd5j5KoVip/cNZnKHmKtKb2etJ7xSM3TR2NPHnsu5FdrfPXr1GPvxj6MfdZzbRak6MGx4PqSvQuHC2OXxq48v22MfRn7rupRGCz+qXrwYuzVY29y1yaBndOQlZpvWM97qO8jkhoc04MxL48E16/JOB/Xxm6M3YLfYN70ognS/RlXD6beJ1q2xn4i9su8tt17TW2vJanBvesB9C+Ux7YHuzf24HyP1ZAeNKGVHsyFknpgYzunWErPKaR6UOv8IGXfWHs/WYPWehDqzzhAfcTOR2zdrqUHtc+tJXE9zOyLi1QPap0fpOSFJF/GfDgHny2Ac91aD7D+zEdKnsK4YuOzY6TqAWWdldgfpPZplLjWpFS/kLuulNYDLrnHCaHqAfccBTuvvxv+92cSSusBZZ217Be4cQ2decBnMD7OItcf9eCE6FMKVP2D+0Y7XnsOX1MPKM+ySus8VQ9gnNyxS3quUr1Ybj2grDOoB7H45Og7pWddrs8l5lNqGHBeYmsM5oWdo9J6IM2B3PUTEtMD+N5bSA8kMSy198qlB5x1BvUgdi/fWKnvQWD3gNfG3mFyfS4xn1LjahScp1Z6kJIDlDHmPruM6cEG3HOpepC6znz35uoB590Ijp+Yz63Xvs+4OQbHj+mB1ceWekC5d+6zipgebIfwmlc92MXtn6V6wHn2oXqQNn5MD2JxlOas6oHMpqYH7v576nrQY7/wB8ZLkKY=
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -16,16 +16,12 @@
   <object id="9" x="576" y="416" width="160" height="160"/>
   <object id="12" x="832" y="320" width="512" height="256"/>
   <object id="13" x="1536" y="448" width="288" height="128"/>
-  <object id="16" x="1824" y="480" width="352" height="96"/>
   <object id="48" x="768" y="512" width="32" height="32"/>
   <object id="49" x="896" y="288" width="32" height="32"/>
   <object id="50" x="864" y="288" width="32" height="32"/>
   <object id="51" x="864" y="256" width="32" height="32"/>
-  <object id="62" x="2848" y="192" width="192" height="384"/>
   <object id="63" x="3072" y="480" width="64" height="96"/>
   <object id="65" x="3200" y="384" width="160" height="192"/>
-  <object id="87" x="3424" y="416" width="608" height="160"/>
-  <object id="96" x="4672" y="320" width="192" height="256"/>
   <object id="101" x="5600" y="256" width="96" height="320"/>
   <object id="104" x="5184" y="448" width="224" height="128"/>
   <object id="106" x="4864" y="224" width="320" height="352"/>
@@ -40,6 +36,10 @@
   <object id="183" x="6848" y="448" width="96" height="32"/>
   <object id="186" x="7136" y="416" width="1184" height="160"/>
   <object id="196" x="7296" y="288" width="64" height="32"/>
+  <object id="201" x="3424" y="416" width="704" height="160"/>
+  <object id="204" x="1824" y="480" width="384" height="96"/>
+  <object id="206" x="2816" y="192" width="224" height="384"/>
+  <object id="209" x="4608" y="320" width="256" height="256"/>
  </objectgroup>
  <objectgroup name="Bricks"/>
  <objectgroup name="ECTS">
@@ -53,9 +53,9 @@
   <object id="68" x="2304" y="288" width="32" height="32"/>
   <object id="76" x="3104" y="448" width="32" height="32"/>
   <object id="77" x="3072" y="448" width="32" height="32"/>
-  <object id="93" x="4544" y="320" width="32" height="32"/>
-  <object id="94" x="4544" y="352" width="32" height="32"/>
-  <object id="95" x="4544" y="384" width="32" height="32"/>
+  <object id="93" x="4480" y="320" width="32" height="32"/>
+  <object id="94" x="4480" y="352" width="32" height="32"/>
+  <object id="95" x="4480" y="384" width="32" height="32"/>
   <object id="127" x="6496" y="128" width="32" height="32"/>
   <object id="128" x="6464" y="128" width="32" height="32"/>
   <object id="129" x="6432" y="128" width="32" height="32"/>
@@ -66,6 +66,9 @@
   <object id="160" x="7552" y="160" width="32" height="32"/>
   <object id="161" x="7552" y="192" width="32" height="32"/>
   <object id="163" x="7552" y="224" width="32" height="32"/>
+  <object id="197" x="1152" y="96" width="32" height="32"/>
+  <object id="199" x="5504" y="96" width="32" height="32"/>
+  <object id="211" x="7552" y="256" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="ECTSBricks">
   <object id="179" x="7072" y="256" width="32" height="32"/>
@@ -84,6 +87,7 @@
   <object id="86" x="3264" y="256" width="32" height="32"/>
   <object id="100" x="4736" y="192" width="32" height="32"/>
   <object id="165" x="7552" y="128" width="32" height="32"/>
+  <object id="210" x="6272" y="352" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Wall">
   <object id="17" x="0" y="0" height="480"/>
@@ -116,7 +120,28 @@
  </objectgroup>
  <objectgroup name="CoinBricks"/>
  <objectgroup name="Goal">
-  <object id="171" x="7840" y="192" width="32" height="224"/>
+  <object id="171" x="7840" y="192" width="32" height="224">
+   <properties>
+    <property name="Question0" value="Welche Programmiersprache lernt man in PROG?"/>
+    <property name="Question0Answer0" value="Java"/>
+    <property name="Question0Answer1" value="C++"/>
+    <property name="Question0Answer2" value="Javascript"/>
+    <property name="Question0Answer3" value="Python"/>
+    <property name="Question0RightAnswer" value="1"/>
+    <property name="Question1" value="Um was geht es in Netzwerktechnologien?"/>
+    <property name="Question1Answer0" value="Spamerkennung"/>
+    <property name="Question1Answer1" value="Spinnennetze"/>
+    <property name="Question1Answer2" value="Techno"/>
+    <property name="Question1Answer3" value="Grundaufbau Netzwerke"/>
+    <property name="Question1RightAnswer" value="3"/>
+    <property name="Question2" value="Was lernt man in MG1?"/>
+    <property name="Question2Answer0" value="Maturamathe"/>
+    <property name="Question2Answer1" value="Schuhebinden"/>
+    <property name="Question2Answer2" value="Programmieren"/>
+    <property name="Question2Answer3" value="Computerspiele"/>
+    <property name="Question2RightAnswer" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="OnewayPlatform">
   <object id="41" x="1120" y="224" width="96"/>
@@ -124,7 +149,7 @@
   <object id="43" x="1056" y="288" width="224"/>
  </objectgroup>
  <objectgroup name="Bug">
-  <object id="195" x="1152" y="288" width="32" height="32"/>
+  <object id="195" x="1152" y="256" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="JumpingBug">
   <object id="52" x="1952" y="448" width="32" height="32"/>
@@ -144,14 +169,14 @@
   <object id="157" x="7552" y="384" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="HorizontalPlatform">
-  <object id="89" x="4064" y="416" width="96" height="32"/>
   <object id="124" x="5760" y="256" width="96" height="32"/>
+  <object id="208" x="4192" y="416" width="96" height="32"/>
  </objectgroup>
  <objectgroup name="VerticalPlatform">
-  <object id="83" x="2272" y="544" width="96" height="32"/>
-  <object id="84" x="2464" y="480" width="96" height="32"/>
-  <object id="85" x="2656" y="384" width="96" height="32"/>
-  <object id="151" x="4512" y="416" width="96" height="32"/>
+  <object id="83" x="2272" y="480" width="96" height="32"/>
+  <object id="84" x="2464" y="448" width="96" height="32"/>
+  <object id="85" x="2656" y="416" width="96" height="32"/>
+  <object id="151" x="4448" y="416" width="96" height="32"/>
  </objectgroup>
  <objectgroup name="Skybox">
   <object id="21" x="0" y="0" width="8320"/>

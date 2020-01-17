@@ -101,10 +101,6 @@ public class PlayScreen implements Screen {
 
     private SmartphoneController smartphoneController;
 
-    private Music menuMusic;
-    private Music levelMusic;
-
-
     public PlayScreen(ComputerScienceRunner game, int semester) {
 
         this.currentSemester = semester;
@@ -128,10 +124,7 @@ public class PlayScreen implements Screen {
 
 
 
-        menuMusic = ComputerScienceRunner.assetManager.get("audio/music/menu.mp3", Music.class);
 
-        levelMusic = ComputerScienceRunner.assetManager.get("audio/music/level" + semester + ".mp3", Music.class);
-        levelMusic.setLooping(true);
 
 
         player = new Player(game, world);
@@ -526,7 +519,10 @@ public class PlayScreen implements Screen {
     @Override
     public void show() {
 
-        menuMusic.stop();
+        ComputerScienceRunner.assetManager.get("audio/music/menu.mp3", Music.class).stop();
+
+        Music levelMusic = ComputerScienceRunner.assetManager.get("audio/music/level" + currentSemester + ".mp3", Music.class);
+        levelMusic.setLooping(true);
         levelMusic.play();
     }
 
@@ -625,6 +621,6 @@ public class PlayScreen implements Screen {
     }
 
     public Music getLevelMusic() {
-        return levelMusic;
+        return ComputerScienceRunner.assetManager.get("audio/music/level" + currentSemester + ".mp3", Music.class);
     }
 }

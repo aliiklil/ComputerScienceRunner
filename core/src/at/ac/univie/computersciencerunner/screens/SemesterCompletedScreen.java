@@ -127,7 +127,8 @@ public class SemesterCompletedScreen implements Screen {
                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                     game.setPlayScreen(ComputerScienceRunner.playScreen.getCurrentSemester() + 1);
 
-                    ComputerScienceRunner.playScreen.getLevelMusic().stop();
+                    ComputerScienceRunner.assetManager.get("audio/music/level" + ComputerScienceRunner.playScreen.getCurrentSemester() + ".mp3", Music.class).play();
+
                     ComputerScienceRunner.assetManager.get("audio/sounds/levelCompleted.mp3", Sound.class).stop();
                     dispose();
                     return true;
