@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="18" tilewidth="32" tileheight="32" infinite="0" nextobjectid="214">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="18" tilewidth="32" tileheight="32" infinite="0" nextobjectid="227">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="18">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="18">
   <data encoding="base64" compression="zlib">
-   eJztmktOxDAMhosE7ADNks1I3IAdcALgBMASOAFwAuAKAycYOCfpIlLGxEls59XWn2SNNKNpHcf5HacdBkVRFEVRlF3WrR2YGRpPZcr0lr+r1g4I6S2ec6NWfpwhloOl5MjasaWy5LHPiRViOdgX/Pcgkw+tmHq9x8hVKxQ/uWsylT3EWlN6PWk945Gap4/Gnjz2XMiv1vjq17nH3o19GPus59osSNGDY8H1JXsXDhfGLo1deX7bGPsy9l3VozBY/FP14MXYq8fe5K5NAjunISs137Ce91DfRyQ1OKYHY14eCa5fk3E+ro3dGLsFv8G86UUTpPszrh5MvU+0bI39ROyXeW2795raXktSg3vXA+hfKI9tD3Zv7MH5HqshPWhCKz2YCyX1wMZ2TrGUnlNI9aDW+UHKvrH2frIGrfUg1J9xgPqInY/Yul1LD2qfW0viepjZFxepHtQ6P0jJC0m+jPlwBj5bAOe6tR5g/ZmPlDyFccXGZ8dI1QPKOiuxP0jt0yhxrUmpfiF3XSmtB1xyjxNC1QPuOQp2Xn83/O/PJJTWA8o6a9kvcOMaOvOAz2B8nEauP+rBCdGnFKj6B/eNdrz2HL6mHlCeZZXWeaoewDi5Y5f0XKV6sdx6QFlnUA9i8cnRd0rPulyfS8yn1DDgvMTWGMwLO0el9UCaA7nrJySmB/C9t5AeSGJYau+VSw846wzqQexevrFS34PA7gGvjb3D5PpcYj6lxtUoOE+t9CAlByhjzH12GdODDbjnUvUgdZ357s3VA867ERw/MZ9br32fcXMMjh/TA6uPLfWAcu/cZxUxPdgO4TWverCL2z9L9YDz7EP1IG38mB7E4ijNWdUDmU1ND9z999T1oMd+4Q8kI5HG
+   eJztWktOAzEMHURhB6hLNpV6A3bACYATAEvgBMAJoFconKBwTjKLSKmJ87HznfGTnipRkXEc5/nTGQaBQCAQCASCfaxqGzAxiD8FPaO1+F3WNoCJ1vw5NZSKjzXCFJhLjKwMzhVz3vuUsESYAgvG/x4lsqEWes/3GFLlCoEdqXNyLA4Q1kbu+yT5jIbQOH1SfLbwJZNdtWHLXxcWfih+Km4C1z20cI4I0YNTxvqc2oWCS8UrxWvLd1vFL8Xvoha5gfk/VA9eFd8sfOeb1gX0mbqY67xhPm8hv4/g5GCfHoxxecJYvyTG87hRvFW8A9/BuGlFE7j1GVUPeu8TNXaKPx7+EtfWtVdvtRYnB7euB9A+VxzrHuxB8dH4O5ZDWtCEWnpAwVhDL5DPWsipB9q3U6q1uHMKrh6Umh+E1I2l68kSqN0vuPozCqA+YvMRnbdL6UHpuTXHr8eJbTHB1YNS84OQuODEyxgPa/BZA/Csa+sB1p/ZEBKn0K/Y/vQeY/Ug5p7lqA9C+7QYv5ZErn4hdV7JrQdUpN4nRKweUOco2Lz+fvjfn3GQWw9i7lnNfoHqV9fMA/4GY8O5Z/1RD84ibQpBrP7BulHvV8/hS+pBzG9ZuXU+Vg+gn8y9c3quXL1Yaj2IuWdQD3z+SdF3cmddps05zpNLDPBcfHcMxoU+o9x6wI2B1PkTwqcH8L03lx5wfJir9kqlB5R7BvXA9yzbXmPfg8CeAdfG3mEybc5xnlxSNQqeUy09CImBmD2mnl369GALnjlXPQi9Z7ZnU/WA8m4ExU7M5tp330ZqjMH9Y3qg9bGmHsQ8O/WswqcHu8F950UP9mH2z1w9oPz2IXoQtn9MD3x+5Mas6AGPvemBWX/3rgct9gt/GK2R7Q==
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -41,7 +41,17 @@
   <object id="206" x="2816" y="192" width="224" height="384"/>
   <object id="209" x="4608" y="320" width="256" height="256"/>
  </objectgroup>
- <objectgroup name="Bricks"/>
+ <objectgroup name="Bricks">
+  <object id="214" x="3872" y="288" width="32" height="32"/>
+  <object id="215" x="3808" y="288" width="32" height="32"/>
+  <object id="216" x="3744" y="288" width="32" height="32"/>
+  <object id="217" x="3680" y="288" width="32" height="32"/>
+  <object id="221" x="5568" y="192" width="32" height="32"/>
+  <object id="223" x="5440" y="192" width="32" height="32"/>
+  <object id="224" x="5472" y="192" width="32" height="32"/>
+  <object id="225" x="5504" y="192" width="32" height="32"/>
+  <object id="226" x="5536" y="192" width="32" height="32"/>
+ </objectgroup>
  <objectgroup name="ECTS">
   <object id="24" x="512" y="288" width="32" height="32"/>
   <object id="25" x="768" y="160" width="32" height="32"/>
@@ -81,7 +91,9 @@
   <object id="99" x="2688" y="352" width="32" height="32"/>
   <object id="184" x="7072" y="320" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="HeartBricks"/>
+ <objectgroup name="HeartBricks">
+  <object id="218" x="3776" y="288" width="32" height="32"/>
+ </objectgroup>
  <objectgroup name="InfoBricks">
   <object id="29" x="640" y="288" width="32" height="32"/>
   <object id="86" x="3264" y="256" width="32" height="32"/>
@@ -118,7 +130,10 @@
   <object id="176" x="7808" y="352" width="32" height="32"/>
   <object id="177" x="7808" y="384" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="CoinBricks"/>
+ <objectgroup name="CoinBricks">
+  <object id="219" x="3840" y="288" width="32" height="32"/>
+  <object id="220" x="3712" y="288" width="32" height="32"/>
+ </objectgroup>
  <objectgroup name="Goal">
   <object id="213" x="7840" y="0" width="32" height="416">
    <properties>
