@@ -69,7 +69,7 @@ public class QuestionScreen implements Screen {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 24;
+        fontParameter.size = 30;
         fontParameter.borderColor = Color.BLACK;
         fontParameter.borderWidth = 3;
 
