@@ -6,9 +6,9 @@
 .)Create all levels
 --)One level with green theme
 --)One level with ice theme
+--)One level with autumn theme
 --)One level with computer science theme
 --)One level with town theme
---)One level with autumn theme
 --)One level with desert theme
 --)One level with dark dungeon theme
 --)One level with mountain theme
