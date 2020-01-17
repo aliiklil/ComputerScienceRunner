@@ -23,6 +23,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
@@ -107,8 +108,9 @@ public class PlayScreen implements Screen {
 
         this.game = game;
 
-        camera = new OrthographicCamera();
+        camera = new OrthographicCamera( );
         viewPort = new FitViewport(ComputerScienceRunner.WIDTH / ComputerScienceRunner.PPM, ComputerScienceRunner.HEIGHT / ComputerScienceRunner.PPM, camera);
+        viewPort.apply();
 
         tmxMapLoader = new TmxMapLoader();
         tiledMap = tmxMapLoader.load("levels/Semester" + semester + ".tmx");
@@ -447,7 +449,7 @@ public class PlayScreen implements Screen {
     public void render(float delta) {
         update(delta);
 
-        Gdx.gl.glClearColor(21.0f/255, 120.0f/255, 153.0f/255, 1);
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         customOrthogonalTiledMapRenderer.render();

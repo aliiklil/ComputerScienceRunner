@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -19,6 +20,8 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
+
+import java.util.zip.CheckedInputStream;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 import at.ac.univie.computersciencerunner.SmartphoneController;
@@ -473,7 +476,6 @@ public class Player {
                 }
             }
 
-            System.out.println(body.getPosition().y);
 
             if (smartphoneController.isLeftPressed() && !smartphoneController.isRightPressed() && body.getLinearVelocity().x >= -3f) {
                 body.applyLinearImpulse(new Vector2(-0.5f, 0), body.getWorldCenter(), true);
@@ -574,12 +576,14 @@ public class Player {
 
     public void draw() {
 
+        Sprite sprite = new Sprite(currentFrame);
+
         Camera camera = ComputerScienceRunner.playScreen.getCamera();
+        System.out.println(camera.position.x);
 
-        Vector3 worldCoordinates = new Vector3(body.getPosition().x, body.getPosition().y, 0);
-        Vector3 screenCoordinates = camera.project(worldCoordinates);
+        sprite.setPosition(body.getPosition().x * ComputerScienceRunner.PPM - 32 - camera.position.x * ComputerScienceRunner.PPM + ComputerScienceRunner.WIDTH/2, body.getPosition().y * ComputerScienceRunner.PPM - 24);
 
-        ComputerScienceRunner.batch.draw(currentFrame, screenCoordinates.x - 32, screenCoordinates.y - 24);
+        sprite.draw(ComputerScienceRunner.batch);
 
     }
 
