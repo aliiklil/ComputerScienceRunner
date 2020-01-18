@@ -243,12 +243,20 @@ public class WorldContactListener implements ContactListener {
         }
 
         if(orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.TRAMPOLINE_BIT && !player.isGrounded()) {
-            player.setTrampolineJump(true);
+
+            Trampoline trampoline = null;
+
             if (fixA.getFilterData().categoryBits == ComputerScienceRunner.TRAMPOLINE_BIT) {
-                ((Trampoline)fixA.getUserData()).setPressDown(true);
+                trampoline = (Trampoline) fixA.getUserData();
             } else {
-                ((Trampoline)fixB.getUserData()).setPressDown(true);
+                trampoline = (Trampoline) fixB.getUserData();
             }
+
+            if(player.body.getPosition().y > trampoline.getBody().getPosition().y) {
+                player.setTrampolineJump(true);
+                trampoline.setPressDown(true);
+            }
+
         }
 
 

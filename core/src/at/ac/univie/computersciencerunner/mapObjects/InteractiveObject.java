@@ -92,4 +92,8 @@ public abstract class InteractiveObject {
         fixture.setFilterData(filter);
     }
 
+    public Body getBody() {
+        return body;
+    }
+
 }
