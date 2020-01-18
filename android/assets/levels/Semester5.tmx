@@ -171,7 +171,7 @@
   <object id="317" x="7200" y="352" width="32" height="32"/>
   <object id="318" x="6976" y="288" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spikes">
+ <objectgroup name="Spikes(+Lava)">
   <object id="228" x="2112" y="352" width="96" height="32"/>
   <object id="230" x="1888" y="128" width="96" height="32"/>
   <object id="231" x="1632" y="352" width="96" height="32"/>

@@ -153,7 +153,7 @@
  <objectgroup name="SpearBug">
   <object id="328" x="5792" y="448" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spikes">
+ <objectgroup name="Spikes(+Lava)">
   <object id="280" x="1184" y="544" width="1760" height="32"/>
   <object id="343" x="6016" y="288" width="32" height="32"/>
  </objectgroup>

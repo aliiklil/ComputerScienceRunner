@@ -229,7 +229,7 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
-        if((orCategoryBits == ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.SPIKES_BIT || orCategoryBits == ComputerScienceRunner.PLAYER_HEAD_BIT + ComputerScienceRunner.SPIKES_BIT)  && !player.isBlinking()) {
+        if((orCategoryBits == ComputerScienceRunner.PLAYER_FEET_BIT + ComputerScienceRunner.SPIKES_BIT || orCategoryBits == ComputerScienceRunner.PLAYER_HEAD_BIT + ComputerScienceRunner.SPIKES_BIT || orCategoryBits == ComputerScienceRunner.PLAYER_BIT + ComputerScienceRunner.SPIKES_BIT)  && !player.isBlinking()) {
             player.setHearts(player.getHearts()-1);
             ComputerScienceRunner.playScreen.getHud().setHeartsCount(player.getHearts());
             player.setBlinking(true);
