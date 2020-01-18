@@ -1,3 +1,5 @@
+.)Fix bug that player takes damage sometimes when he jumps on an enemy
+
 .)Create all levels
 --)One level with green theme
 --)One level with ice theme
