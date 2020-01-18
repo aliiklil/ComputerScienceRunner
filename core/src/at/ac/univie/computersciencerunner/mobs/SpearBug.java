@@ -126,7 +126,7 @@ public class SpearBug {
 
 
         leftSensor = new PolygonShape();
-        leftSensor.setAsBox(-200 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(-200 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
+        leftSensor.setAsBox(-150 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(-200 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = leftSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
@@ -139,7 +139,7 @@ public class SpearBug {
 
 
         rightSensor = new PolygonShape();
-        rightSensor.setAsBox(200 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(200 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
+        rightSensor.setAsBox(150 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(200 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = rightSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
