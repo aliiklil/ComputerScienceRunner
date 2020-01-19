@@ -30,7 +30,7 @@
  <objectgroup name="JumpingBug"/>
  <objectgroup name="FlyingBug"/>
  <objectgroup name="SpearBug"/>
- <objectgroup name="Spikes"/>
+ <objectgroup name="Spikes(+Lava)"/>
  <objectgroup name="Trampoline"/>
  <objectgroup name="HorizontalPlatform"/>
  <objectgroup name="VerticalPlatform"/>
