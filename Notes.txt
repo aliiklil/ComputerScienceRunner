@@ -1,20 +1,3 @@
-.)Make skybox bigger (player shouldnt bang head)
-
-
-.)Fix bug that player takes damage sometimes when he jumps on an enemy
-
-.)Create all levels
---)One level with green theme
---)One level with ice theme
---)One level with autumn theme
---)One level with computer science theme
---)One level with town theme
---)One level with desert theme
---)One level with dark dungeon theme
---)One level with code theme (bright green and black)
---)One level with dark forest theme (at night)
---)One level with lava theme
-
 .)Add credits
 
 .)Create all questions
@@ -23,9 +6,9 @@
 
 .)Clean source code
 
-.)Write documentation
+.)Create exe
 
-.)Upload project to PlayStore
+.)Write documentation
 
 .)Upload project to GitHub
 
