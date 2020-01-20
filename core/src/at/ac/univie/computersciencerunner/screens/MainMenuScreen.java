@@ -83,8 +83,8 @@ public class MainMenuScreen implements Screen {
         buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
 
-        startButton = new TextButton("START", buttonSkin);
-        System.out.println("A");
+        startButton = new TextButton("START", buttonSkin.get("small", TextButton.TextButtonStyle.class));
+
         startButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -98,7 +98,7 @@ public class MainMenuScreen implements Screen {
         table.row();
 
 
-        optionsButton = new TextButton("OPTIONEN", buttonSkin);
+        optionsButton = new TextButton("OPTIONEN", buttonSkin.get("small", TextButton.TextButtonStyle.class));
         optionsButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -111,9 +111,22 @@ public class MainMenuScreen implements Screen {
         table.add(optionsButton).expandX().padTop(10);
         table.row();
 
+        optionsButton = new TextButton("CREDITS", buttonSkin.get("small", TextButton.TextButtonStyle.class));
+        optionsButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setCreditsScreen();
+                dispose();
+                return true;
+            }
+        });
+
+        table.add(optionsButton).expandX().padTop(10);
+        table.row();
 
 
-        endButton = new TextButton("ENDE", buttonSkin);
+
+        endButton = new TextButton("ENDE", buttonSkin.get("small", TextButton.TextButtonStyle.class));
         endButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {

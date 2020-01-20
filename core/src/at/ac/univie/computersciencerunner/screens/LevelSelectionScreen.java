@@ -125,7 +125,7 @@ public class LevelSelectionScreen implements Screen {
 
 
 
-        backButton = new TextButton("Zur#ck", blueSkin);
+        backButton = new TextButton("Zur#ck", blueSkin.get("small", TextButton.TextButtonStyle.class));
 
         backButton.addListener(new InputListener() {
             @Override

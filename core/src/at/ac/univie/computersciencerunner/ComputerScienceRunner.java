@@ -8,6 +8,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import at.ac.univie.computersciencerunner.screens.CreditsScreen;
 import at.ac.univie.computersciencerunner.screens.GameOverScreen;
 import at.ac.univie.computersciencerunner.screens.LevelSelectionScreen;
 import at.ac.univie.computersciencerunner.screens.MainMenuScreen;
@@ -45,6 +46,7 @@ public class ComputerScienceRunner extends Game {
 	public static MainMenuScreen mainMenuScreen;
 	public static LevelSelectionScreen levelSelectionScreen;
 	public static OptionsScreen optionsScreen;
+	public static CreditsScreen creditsScreen;
 	public static PlayScreen playScreen;
 	public static GameOverScreen gameOverScreen;
     public static QuestionScreen questionScreen;
@@ -93,6 +95,7 @@ public class ComputerScienceRunner extends Game {
 		mainMenuScreen = new MainMenuScreen(this);
 		levelSelectionScreen = new LevelSelectionScreen(this);
 		optionsScreen = new OptionsScreen(this);
+		creditsScreen = new CreditsScreen(this);
 		playScreen = new PlayScreen(this, 1);
 		gameOverScreen = new GameOverScreen(this);
 
@@ -151,6 +154,8 @@ public class ComputerScienceRunner extends Game {
 	public void setPauseScreen() {
 		setScreen(pauseScreen);
 	}
+
+	public void setCreditsScreen() { setScreen(creditsScreen); }
 
 	/*
 	public AssetManager getAssetManager() {

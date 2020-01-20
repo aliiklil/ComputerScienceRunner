@@ -120,7 +120,7 @@ public class SemesterCompletedScreen implements Screen {
 
 
         if(ComputerScienceRunner.playScreen.getCurrentSemester() < 10) {
-            nextSemesterButton = new TextButton("N@chstes Semester", blueSkin);
+            nextSemesterButton = new TextButton("N@chstes Semester", blueSkin.get("small", TextButton.TextButtonStyle.class));
 
             nextSemesterButton.addListener(new InputListener() {
                 @Override
@@ -142,7 +142,7 @@ public class SemesterCompletedScreen implements Screen {
         table.row();
 
 
-        mainMenuButton = new TextButton("Hauptmen#", blueSkin);  //U is normal small u, and u is for ü. I changed it in the .png of the skin because ü wasnt supported
+        mainMenuButton = new TextButton("Hauptmen#", blueSkin.get("small", TextButton.TextButtonStyle.class));
 
         mainMenuButton.addListener(new InputListener() {
             @Override

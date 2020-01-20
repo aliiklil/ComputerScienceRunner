@@ -213,8 +213,13 @@ public class QuestionScreen implements Screen {
 
             //Save that the player has completed this semester/level (so player can also select the next semester/level in the LevelSelectionScreen)
             Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
-            prefs.putInteger("highestCompletedSemester", ComputerScienceRunner.playScreen.getCurrentSemester());
-            prefs.flush();
+            
+            final int highestCompletedSemester = prefs.getInteger("highestCompletedSemester", 0);
+
+            if (ComputerScienceRunner.playScreen.getCurrentSemester() > highestCompletedSemester) {
+                prefs.putInteger("highestCompletedSemester", ComputerScienceRunner.playScreen.getCurrentSemester());
+                prefs.flush();
+            }
 
             game.setSemesterCompletedScreen();
 
