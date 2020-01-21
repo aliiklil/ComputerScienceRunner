@@ -1,6 +1,4 @@
-.)Fix bug that game deletes progress (If all levels are completed and player does level 1, then only 1 and 2 is available)
-
-.)Add credits
+.)Remove smartphone controls
 
 .)Create all questions
 
@@ -31,18 +29,24 @@ Important notes:
 
 
 
+(Attribution needs Author, Link to material, Link to License)
+
+
 Music:
 https://opengameart.org/content/platformer-game-music-pack
 https://opengameart.org/content/orchestral-adventure
-https://opengameart.org/content/magic-space
 https://opengameart.org/content/8bit-adventure
 https://opengameart.org/content/8bit-style-music
 
+https://opengameart.org/content/magic-space (public domain)
 
+
+Sounds:
 https://opengameart.org/content/platformer-jumping-sounds
 https://opengameart.org/content/8-bit-platformer-sfx
-https://opengameart.org/content/platformer-sounds-terminal-interaction-door-shots-bang-and-footsteps
-https://opengameart.org/content/game-over-soundold-school
 https://opengameart.org/content/level-finish-fanfares
 https://opengameart.org/content/win-sound-1
 https://opengameart.org/content/bad-sound-2
+
+https://opengameart.org/content/platformer-sounds-terminal-interaction-door-shots-bang-and-footsteps (public domain)
+https://opengameart.org/content/game-over-soundold-school (public domain)
