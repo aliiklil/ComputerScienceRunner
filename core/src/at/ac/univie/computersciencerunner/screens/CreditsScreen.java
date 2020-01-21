@@ -74,6 +74,7 @@ public class CreditsScreen implements Screen {
 
         Table table = new Table();
         table.top();
+        table.padTop(20);
         table.padLeft(70);
         table.setFillParent(true);
 
@@ -92,7 +93,7 @@ public class CreditsScreen implements Screen {
         table.row();
 
         Label label1  = new Label("CodeManu", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-
+        label1.setColor(new Color(0f, 120f/255, 200f/255, 1f));
         label1.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -102,6 +103,7 @@ public class CreditsScreen implements Screen {
         table.add(label1).expandX().top().padTop(10).colspan(2);
 
         Label label2  = new Label("CC-BY 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label2.setColor(new Color(0f, 120f/255, 200f/255, 1f));
         label2.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -116,7 +118,7 @@ public class CreditsScreen implements Screen {
 
 
         Label label3  = new Label("CodeManu", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-
+        label3.setColor(new Color(0f, 120f/255, 200f/255, 1f));
         label3.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -126,6 +128,7 @@ public class CreditsScreen implements Screen {
         table.add(label3).expandX().top().padTop(10).colspan(2);
 
         Label label4  = new Label("CC-BY 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label4.setColor(new Color(0f, 120f/255, 200f/255, 1f));
         label4.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -142,7 +145,7 @@ public class CreditsScreen implements Screen {
 
 
         Label label5  = new Label("CodeManu", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-
+        label5.setColor(new Color(0f, 120f/255, 200f/255, 1f));
         label5.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -152,6 +155,7 @@ public class CreditsScreen implements Screen {
         table.add(label5).expandX().top().padTop(10).colspan(2);
 
         Label label6  = new Label("CC-BY 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label6.setColor(new Color(0f, 120f/255, 200f/255, 1f));
         label6.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -172,7 +176,7 @@ public class CreditsScreen implements Screen {
 
 
         Label label7  = new Label("Tom Peter", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-
+        label7.setColor(new Color(0f, 120f/255, 200f/255, 1f));
         label7.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -182,6 +186,7 @@ public class CreditsScreen implements Screen {
         table.add(label7).expandX().top().padTop(10).colspan(2);
 
         Label label8  = new Label("CC-BY-SA 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label8.setColor(new Color(0f, 120f/255, 200f/255, 1f));
         label8.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -208,7 +213,7 @@ public class CreditsScreen implements Screen {
 
 
         Label label9  = new Label("dklon", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-
+        label9.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label9.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -218,6 +223,7 @@ public class CreditsScreen implements Screen {
         table.add(label9).expandX().top().padTop(10).colspan(2);
 
         Label label10  = new Label("CC-BY 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label10.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label10.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -233,7 +239,7 @@ public class CreditsScreen implements Screen {
 
 
         Label label11  = new Label("bart", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-
+        label11.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label11.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -243,6 +249,7 @@ public class CreditsScreen implements Screen {
         table.add(label11).expandX().top().padTop(10).colspan(2);
 
         Label label12  = new Label("CC-BY 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label12.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label12.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -258,7 +265,7 @@ public class CreditsScreen implements Screen {
 
 
         Label label13  = new Label("jobromedia", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-
+        label13.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label13.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -268,6 +275,7 @@ public class CreditsScreen implements Screen {
         table.add(label13).expandX().top().padTop(10).colspan(2);
 
         Label label14  = new Label("CC-BY-SA 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label14.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label14.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -281,6 +289,7 @@ public class CreditsScreen implements Screen {
 
 
         Label label15  = new Label("remaxim", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label15.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label15.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -290,6 +299,7 @@ public class CreditsScreen implements Screen {
         table.add(label15).expandX().top().padTop(10).colspan(2);
 
         Label label16  = new Label("CC-BY-SA 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label16.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label16.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -299,6 +309,7 @@ public class CreditsScreen implements Screen {
         table.add(label16).expandX().top().padTop(10).colspan(2);
 
         Label label17  = new Label("GPL 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label17.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label17.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -308,6 +319,7 @@ public class CreditsScreen implements Screen {
         table.add(label17).expandX().top().padTop(10).colspan(2);
 
         Label label18  = new Label("GPL 2.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label18.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label18.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -325,7 +337,7 @@ public class CreditsScreen implements Screen {
 
 
         Label label19  = new Label("remaxim", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-
+        label19.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label19.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -335,6 +347,7 @@ public class CreditsScreen implements Screen {
         table.add(label19).expandX().top().padTop(10).colspan(2);
 
         Label label20 = new Label("CC-BY-SA 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label20.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label20.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -344,6 +357,7 @@ public class CreditsScreen implements Screen {
         table.add(label20).expandX().top().padTop(10).colspan(2);
 
         Label label21  = new Label("GPL 3.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label21.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label21.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -353,6 +367,7 @@ public class CreditsScreen implements Screen {
         table.add(label21).expandX().top().padTop(10).colspan(2);
 
         Label label22  = new Label("GPL 2.0", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        label22.setColor(new Color(0f, 120f/255, 200f/255, 1f));;
         label22.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
