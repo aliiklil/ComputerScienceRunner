@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="231">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="232">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztmstNBDEMhgexcAO0Ry4jbQfcgAqACoAjUAFQAdDCQgULdZI5RAomzsNO4nn4k36txIpMHs7vODtdpyiKoiiKoiiKoiiKEqaX7sDM0PlUpszY4nct3QEmY5vPudEqPjaISrCUGOkdLZUlj31OrBGVYMX434NCfZBi6vkeo1SuUPyUzsm57CGSpvZ+0nxGIzVOH4wePXqq1C9pfPnrzKM3o3ejj8R29z1aIil+cMxon3N2oXBudGF06flua/Rp9NW0R2Gw+U/1g2ejF49e+V2bBHZNQ6q13jCfjyG/D3BycMwPhrg8YrTfkmE9royujW7AdzBuxuIJ3PMZ1Q8odWIfkBQ7o++Ifoht27PX1M5anBw8dj+A/QvFsa3B7ozunb9jOWQMniDlBxSGM/QK+ZSiph/YuZ3TWYt7T8H1g1a5I+Xc2Po82QLpeiFUn1GA/ojdj9i83coPWt9bc+b1sHBfXLh+0Or+ICUuOPEyxMMGfEoA11raD7D6zEdKnMJ5xcZnx5jrBzn7rMb5ILVOy5nXltSqF0rnldp+QKX0OCG5fkC9R8Hu62+7//UZh9p+kLPPJOsF6ryG7jzgbzA+TiPtD35wktmnFHL9D54b7XjtPXxLP8j5Lau2z+f6AZwnd+ycmqtWLVbaD3L2GfSD2PyUqDu5d11un2usJ1cYcF1iewzGhV2j2n7AjYHS+RMS8wP43lvIDzhzWOvsVcoPKPsM+kHsWb6x5r4HgT0Dto29w+T2ucZ6ckX1KLhOUn6QEgM5Yyx9dxnzgy145lL9IHWf+Z5N9QPKuxGUfmJ9lt77PlFjDI4f8wPrj5J+kPPs0ncVMT/YdeE9r37wF7d+5voB5bcP9YO08WN+EJtHbsyqH/A0NT9wz99T94Mx1gu/8q6Svw==
+   eJztmktOAzEMhgdR2AHqks1IvQE74ATACYAlcALgBMAVCiconJPMIlIwcRLbeczDn/SrUqvOOInzO8lM1ymKoiiKoiiKoiiKooTpWwcwM7Q/lSkztvxdtw5AyNj6c27Uyo8NohwsJUd6R0tlyW2fE2tEOVgJ/nuQKYZWTL3eY+SqFYqf3DWZyh6i1pSeT1rPeKTm6YPRo0dPheJqja9+nXn0ZvRu9JF43X2PlkiKHxwLri9Zu3A4N7owuvT8tjX6NPqqGlEYrP9T/eDZ6MWjV3lok8COaUilxhvW8zHU9wFJDY75wZCXR4Lr12QYjyuja6Mb8BvMm7F4gnR9xvUDzj6xD6gVO6PviH6Y17Zrr6mttSQ1eOx+AOML5bHdg90Z3TvfYzVkDJ7Qyg84DGvoFfLZipJ+YPt2Tmst6TmF1A9q1Y6UdWPt9WQNWu8XQvszDtAfsfMRW7dr+UHtc2tJvx5mjsVF6ge1zg9S8kKSL0M+bMAnhVzPceBYt/YDbH/mIyVPYb9i7bNtpPoBZZ6VWB+k5gGlX2tSar+Qu66U9gMuudsJofoB9xwFO6+/7f7vzySU9gPKPGu5X+D2a+jMAz6D8XEauf7gByfEmFKg+h9cN9r22nP4mn5AeZZV2uepfgD7yW27ZM9Vai+W2w8o8wz6Qax/cuw7pWddbswlxlMqDDgusTkG88KOUWk/kOZA7voJifkBfO8t5AeSPiy19srlB5x5Bv0gdi9fW6nvQWD3gNfG3mFyYy4xnlJxPQqOUys/SMkBShtzn13G/GAL7rlUP0idZ757c/2A824EJ04s5tZz3ydujsH2Y35g/bGlH1DunfusIuYHuy4859UP/uLun6V+wHn2oX6Q1n7MD2L9KM1Z9QOZpuYH7vp76n4wxv3CL3vFksQ=
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -95,11 +95,42 @@
   <object id="218" x="3776" y="352" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="InfoBricks">
-  <object id="29" x="640" y="352" width="32" height="32"/>
-  <object id="86" x="3264" y="320" width="32" height="32"/>
-  <object id="100" x="4736" y="256" width="32" height="32"/>
-  <object id="165" x="7552" y="192" width="32" height="32"/>
-  <object id="210" x="6272" y="416" width="32" height="32"/>
+  <object id="29" x="640" y="352" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du die wichtigsten Modellierungsmethoden für Datenbanksysteme, Informationssysteme und deren Anwendungen kennen. Konkret lernst du z.B. UML, ER und BPMN Modellierung."/>
+    <property name="Title" value="Modellierung"/>
+   </properties>
+  </object>
+  <object id="86" x="3264" y="320" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernt man die grundlegenden Datenstrukturen und Algorithmen, deren Eigenschaften und deren Eignung für konkrete Aufgabenstellungen. Außerdem lernt man das Laufzeit- und Speicherplatzverhalten von Algorithmen mittels Ordnungsnotation abzuschätzen."/>
+    <property name="Title" value="Algorithmen und Datenstrukturen"/>
+   </properties>
+  </object>
+  <object id="100" x="4736" y="256" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernen Studierende die wesentlichen Grundlagen für das Verständnis heutiger Betriebssysteme kennen, insbesondere hinsichtlich Prozessmanagement, Speichermanagement und Sicherheitsaspekte. Die erworbenen Kenntnisse werden dann auf praktische Fallbeispiele (exemplarisch für Linux und/oder Windows in der jeweiligen Version) angewendet."/>
+    <property name="Title" value="Betriebssysteme"/>
+   </properties>
+  </object>
+  <object id="165" x="7552" y="192" width="32" height="32">
+   <properties>
+    <property name="Description" value="Im Zuge der LV kannst du selbstständig Programmsysteme für komplexere Aufgabenstellungen in unterschiedlichen Sprachen implementieren. Außerdem beherrschst du dann die grundlegenden Techniken um derartige Programmsysteme zu testen und zu debuggen."/>
+    <property name="Title" value="Programmierung 2"/>
+   </properties>
+  </object>
+  <object id="210" x="6272" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du die Grundlagen der ein- und mehrdimensionalen Analysis und wie man diese Kenntnisse auf einfache Fragestellungen in Wirtschaft, Technik und Naturwissenschaften anwendet."/>
+    <property name="Title" value="Mathematische Grundlagen der Informatik 2"/>
+   </properties>
+  </object>
+  <object id="231" x="2112" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="Diese LV soll Studierende anregen, sich mit aktuellen und zukünftigen gesellschaftspolitischen Themen auseinanderzusetzen und deren Einfluss auf die Informatik einzuschätzen bzw. zu beurteilen."/>
+    <property name="Title" value="Informatik und Gesellschaft"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Wall">
   <object id="228" x="0" y="0" height="640"/>
@@ -135,7 +166,28 @@
   <object id="220" x="3712" y="352" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Goal">
-  <object id="230" x="7840" y="0" width="32" height="480"/>
+  <object id="230" x="7840" y="0" width="32" height="480">
+   <properties>
+    <property name="Question0" value="Was lernst du in Modellierung?"/>
+    <property name="Question0Answer0" value="3D Modellierung bei Spielen"/>
+    <property name="Question0Answer1" value="Modellflugzeuge"/>
+    <property name="Question0Answer2" value="Wie man Git verwendet"/>
+    <property name="Question0Answer3" value="UML, ER, BPMN usw."/>
+    <property name="Question0RightAnswer" value="3"/>
+    <property name="Question1" value="Welches Thema steht in Mathematische Grundlagen der Informatik 2 im Fokus?"/>
+    <property name="Question1Answer0" value="Ein- und mehrdimensionalen Analysis"/>
+    <property name="Question1Answer1" value="Java-Programmierung"/>
+    <property name="Question1Answer2" value="Statistik"/>
+    <property name="Question1Answer3" value="Simulation und Optimierung"/>
+    <property name="Question1RightAnswer" value="0"/>
+    <property name="Question2" value="Welches Thema gehört nicht zu Algorithmen und Datenstrukturen?"/>
+    <property name="Question2Answer0" value="Laufzeitverhalten"/>
+    <property name="Question2Answer1" value="Speicherplatzverhalten"/>
+    <property name="Question2Answer2" value="Ordnungsnotation"/>
+    <property name="Question2Answer3" value="Netzwerktechnik"/>
+    <property name="Question2RightAnswer" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="OnewayPlatform">
   <object id="41" x="1120" y="288" width="96"/>
