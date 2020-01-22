@@ -82,14 +82,16 @@ public class SmartphoneController {
         pauseButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                ComputerScienceRunner.playScreen.pause();
-                game.setPauseScreen();
+                if(!ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed()) { //Player shouldn't be able to pause while reading information from an infoBrick
+                    ComputerScienceRunner.playScreen.pause();
+                    game.setPauseScreen();
+                }
                 return true;
             }
         });
 
 
-
+/*
         Image upImage = new Image(new Texture("controls/up.png"));
         upImage.setSize(80, 80);
         upImage.addListener(new InputListener() {
@@ -137,7 +139,7 @@ public class SmartphoneController {
                 leftPressed = false;
             }
         });
-
+*/
 
 
 
@@ -155,11 +157,11 @@ public class SmartphoneController {
         table.row();
 
 
-
+/*
         table.add(leftImage).size(leftImage.getWidth(), leftImage.getHeight()).expandX().padLeft(10).padTop(290);
         table.add(rightImage).size(rightImage.getWidth(), rightImage.getHeight()).expandX().padLeft(10).padTop(290);
         table.add(upImage).size(upImage.getWidth(), upImage.getHeight()).expandX().padLeft(340).padTop(290);
-
+*/
 
         stage.addActor(table);
     }

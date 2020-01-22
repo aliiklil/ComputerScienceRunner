@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="458">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="469">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
@@ -12,7 +12,7 @@
    <property name="Title" value="Willkommen"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztmstOwzAQRVNRWAALumRV+gktjz3lsYcC//8pOFIijUaJPX5P6nukKxah8XjsuZk8ug4AAAAAAAAAAAAAAFCSzSDgZhvwm13yKAAox5PRs9FL7UAUsq4dAACFeTf6MPqsHciZIOkPNl2dPq3WuL5oj++c+TH6NfqrHQgAA0v2gy2TJvZGh0GPAcdbRuuaLgHah7SWvzWRNl6NjoPejO6Y+HEbtnW9iY5UH/16rro86zr6cGkPhse1Da/3A5OPH1xajl1HR9oWY95dOaek6ENzelwqanllC/B6PzL5+IENTX6g9fpH/TTED/oaviB/Q3mI+G0JaG5KeIPm+/3UtOAHvG/Reu82Qp/Z5NjrWt4f2/pJG9QPpN5wFTjWiOSeXzqfFZEE32enoXntacEPJLhqhNeoTbH1S3Pum3fJvp96fyzdmxqY8wPfvkGLL7qY8oNcsafwA8n1TLsfuL6x4DVqU4xvTo0Vez4Of3/sc63SgMQPJN7A11zrtxdT8eT6JiiFH0j2723SqNPDa+TL6HvQqQv3g3vB2D69Ry4t6dmcrx/MPYuxfVczrv8pffhJoLFLY5XsxVA/2M2cY+49RSlpxFVrPl6TS64eJNYv9sL/k4zD/bMGNE7p3JZAqB+sZs4xd56W5ao1LX4QMwcX0jlKxtGSL03x5MhtyvuF2nPXJPgB/ECDWvSDf0oA4KI=
+   eJztmstOwzAQRVNRWAALumRV+gktjz3lsYcC//8pOFIijUaJPX5P6nukKxah9vgxN5PEXQcAAAAAAAAAAAAAACjJZhBwsw34zS55FACU48no2eildiAKWdcOAIDCvBt9GH3WDuRMkNQHm65OnVarX1+0x3fO/Bj9Gv3VDgSAgSX7wZZJE3ujw6DHgOsto3VNlwCtQ1qbvzWRNl6NjoPejO6Y+HUbtnW9iY5UH/16rro86zr6cGkPhse1Dc/3A5OPH1xarl1HR9oW47y75pySog7N6XGpqOWVLcDz/cjk4wc2NPmB1vsf9dMQP+hz+IL8DeUh4rcloHNTwhs0P++npgU/4HWL1me3EfrOJsde9/l+3O9/W90XQ2i71A+k3nAV2NeI9JlfMqYVkQTfd6cx69WCH0hw5QjPUZti85fOue+8S/b91Pdj6d7UwJwf+NYNSzlXM+UHuWJP4QeS+5l2P3CdseA5alOMb071Fdseh38/9rlXaUDiBxJv4Guu9ezFVDy5zgSl8APJ/r1NGnV6eI58GX0POnXhfnAv6Nun9silJb2b8/WDuXcxtnM14/qf0oefBBq7NFbJXgz1g91MG3PfKUpJI65c8/GaXHLVILF+sRf+n6Qf7p81oHFKx7YEQv1gNdPGXDsty5VrWvwgZgwupGOU9KNlvjTFk2NuUz4v1B67JsEP4Aca1KIf/AMalODG
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -85,38 +85,44 @@
   </properties>
   <object id="206" x="160" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="Bei solchen Infokacheln findest du immer nützliche Informationen zum Studienplan. Am Ende des Semesters bzw. Levels, musst du 3 Fragen beantworten. Versuche außerdem möglichst viele ECTS zu sammeln um im Studium voranzukommen."/>
-    <property name="Title" value="Willkommen"/>
+    <property name="Description" value="Hier kannst du spielerisch den Studienplan für den Bachelor und Master in Informatik durchspielen. Bei solchen Infokacheln findest du immer nützliche Informationen. Pass gut auf, denn am Ende jedes Semesters bzw. Levels, musst du 3 Fragen beantworten. Viel Spaß beim Spielen!"/>
+    <property name="Title" value="Herzlich Willkommen zu ComputerScienceRunner"/>
    </properties>
   </object>
   <object id="371" x="1504" y="384" width="32" height="32">
    <properties>
-    <property name="Description" value="In dieser Lehrveranstaltung lernst du wie man mit C++ umgeht und wie Programmierung funktioniert."/>
-    <property name="Title" value="Programmierung 1"/>
+    <property name="Description" value="Wie du vielleicht schon weißt, gibt es im Bachelor Informatik fünf Ausprägungsfächer. Unzwar gibt es Informatik Allgemein, Medieninformatik, Data Science, Medizininformatik und Scientific Computing. Aber keine Sorge, deine Entscheidung für ein Ausprägungsfach sollte idealerweise erst vor dem 4. Semester feststehen. Für mehr Informationen besuch die Webseite der Fakultät für Informatik."/>
+    <property name="Title" value="Ausprägungsfächer"/>
    </properties>
   </object>
-  <object id="375" x="7264" y="320" width="32" height="32">
+  <object id="460" x="2720" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier lernst du Themen wie Boolsche Algebra, Zahlensysteme und Rechnerarchitekturen."/>
+    <property name="Description" value="Bei dieser Lehrveranstaltung wird dir ein Überblick über jene Rechtsgebiete vermittelt, mit denen du im Berufsleben konfrontiert werden könntest. Studierende sollen im Zuge dieser LV in die Lage versetzt werden, rechtliche Probleme zu erkennen und gesetzeskonform zu handeln."/>
+    <property name="Title" value="Informatik und Recht"/>
+   </properties>
+  </object>
+  <object id="464" x="3424" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du die Grundlagen formaler Logik, die verschiedenen Arten von formalen Grammatiken und Automaten, die Zusammenhänge zwischen Grammatiken und Automaten (Chomsky-Hierarchie), und die Grundlagen der Berechenbarkeits- und Komplexitätstheorie."/>
+    <property name="Title" value="Theoretische Informatik"/>
+   </properties>
+  </object>
+  <object id="465" x="5120" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du die historische Entwicklung und die fundamentalen Konzepte sowie die technischen Grundlagen heutiger Rechner kennen. Im Rahmen dieser LV lernst du den grundsätzlichen Aufbau und die Funktionsweise von Digitalrechnern kennen."/>
     <property name="Title" value="Technische Grundlagen der Informatik"/>
    </properties>
   </object>
-  <object id="376" x="6176" y="416" width="32" height="32">
+  <object id="466" x="6176" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier lernst du über rechtliche Themen, die für Informatiker interessant sind. Zum Beispiel wie Gesetze gemacht werden und worauf bei Datenschutz zu achten ist."/>
-    <property name="Title" value="Informatik und Recht"/>
+    <property name="Description" value="Zu Informatik gehört natürlich auch Mathematik dazu. In dieser LV werden Themen aus den Bereichen Mengenlehre, Arithmetik und Algebra, lineare Algebra und analytische Geometrie sowie diskrete Mathematik behandelt. Die Themen sollten dir von der Matura noch bekannt vorkommen."/>
+    <property name="Title" value="Mathematische Grundlagen der Informatik 1"/>
    </properties>
   </object>
-  <object id="377" x="5088" y="416" width="32" height="32">
+  <object id="467" x="7264" y="320" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier lernst du über rechtliche Themen, die für Informatiker interessant sind. Zum Beispiel wie Gesetze gemacht werden und worauf bei Datenschutz zu achten ist."/>
-    <property name="Title" value="Informatik und Recht"/>
-   </properties>
-  </object>
-  <object id="378" x="3424" y="416" width="32" height="32">
-   <properties>
-    <property name="Description" value="Hier kannst du deine Mathekenntnisse aus der Schule auffrischen, falls du seit der Matura wieder etwas vergessen hast."/>
-    <property name="Title" value="Mathematische Grundlagen 1"/>
+    <property name="Description" value="Hier wirst du, wie der Name schon sagt, in das Themenfeld der Programmierung eingeführt. Dabei lernst du etwa die wichtigsten Grundbegriffe der imperativen und objektorientierten Programmierung. Konkret lernst du die Programmierung mit C++."/>
+    <property name="Title" value="Programmierung 1"/>
    </properties>
   </object>
  </objectgroup>
@@ -158,9 +164,7 @@
  <objectgroup name="FlyingBug">
   <object id="404" x="1728" y="320" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="SpearBug">
-  <object id="453" x="1824" y="480" width="32" height="32"/>
- </objectgroup>
+ <objectgroup name="SpearBug"/>
  <objectgroup name="Spikes(+Lava)">
   <object id="240" x="2592" y="384" width="32" height="32"/>
   <object id="389" x="6784" y="288" width="128" height="32"/>

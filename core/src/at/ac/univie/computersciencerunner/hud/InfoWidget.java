@@ -72,7 +72,7 @@ public class InfoWidget implements Disposable {
 
 
         titleLabel = new Label("Title", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(titleLabel).padTop(-130);
+        table.add(titleLabel).padTop(-150);
 
         table.row();
 

@@ -122,7 +122,7 @@ public class PlayScreen implements Screen {
         world.setContactListener(new WorldContactListener(game));
         b2dr = new Box2DDebugRenderer();
 
-        //smartphoneController = new SmartphoneController(game);
+        smartphoneController = new SmartphoneController(game);
 
 
 
@@ -493,9 +493,7 @@ public class PlayScreen implements Screen {
 
 
 
-        if(infoWidget.isCurrentlyDisplayed()) {
-            infoWidget.stage.draw();
-        }
+
 
         if(player.isDead()) {
             game.setGameOverScreen();
@@ -508,14 +506,18 @@ public class PlayScreen implements Screen {
         }
 
         //if(Gdx.app.getType() == Application.ApplicationType.Android)
-        //smartphoneController.draw();
+        smartphoneController.draw();
+
+        if(infoWidget.isCurrentlyDisplayed()) {
+            infoWidget.stage.draw();
+        }
 
     }
 
     @Override
     public void resize(int width, int height) {
         viewPort.update(width, height);
-        //smartphoneController.resize(width, height);
+        smartphoneController.resize(width, height);
     }
 
     @Override
@@ -549,8 +551,8 @@ public class PlayScreen implements Screen {
         hud.setCoinCount(coinCount);
         hud.setHeartsCount(player.getHearts());
 
-        //smartphoneController = new SmartphoneController(game);
-        //smartphoneController.setInputProcessorToStage();
+        smartphoneController = new SmartphoneController(game);
+        smartphoneController.setInputProcessorToStage();
 
     }
 

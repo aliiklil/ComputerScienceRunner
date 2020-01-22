@@ -318,6 +318,7 @@ public class Player {
 
         if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
+            ComputerScienceRunner.playScreen.getInfoWidget().setTitleAndDescription("Error Title", "Error Description"); //To see ingame if a bug happened
             ComputerScienceRunner.playScreen.resume();
             ComputerScienceRunner.playScreen.getCustomOrthogonalTiledMapRenderer().setAnimate(true);
             upKeyReleased = false;
