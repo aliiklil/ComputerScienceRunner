@@ -78,7 +78,7 @@
   <object id="362" x="2048" y="448" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="HeartBricks"/>
- <objectgroup name="InfoBricks">
+ <objectgroup name="InfoBricks" opacity="0.88">
   <properties>
    <property name="Description" value="Bei Informationskacheln findest du nützliche Informationen zum Spiel und zum Studienplan. Versuch möglichst viele ECTS zu sammeln um in deinem Studium voranzukommen."/>
    <property name="Title" value="Willkommen"/>
@@ -121,7 +121,7 @@
   </object>
   <object id="467" x="7264" y="320" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier wirst du, wie der Name schon sagt, in das Themenfeld der Programmierung eingeführt. Dabei lernst du etwa die wichtigsten Grundbegriffe der imperativen und objektorientierten Programmierung. Konkret lernst du die Programmierung mit C++."/>
+    <property name="Description" value="Hier wirst du, wie der Name schon sagt, in das Themenfeld der Programmierung eingeführt. Dabei lernst du etwa die wichtigsten Grundbegriffe der imperativen und objektorientierten Programmierung. Im Zuge dessen wird die Programmiersprache C++ gelehrt."/>
     <property name="Title" value="Programmierung 1"/>
    </properties>
   </object>
@@ -142,7 +142,28 @@
   <object id="342" x="2560" y="352" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Goal">
-  <object id="457" x="7488" y="0" width="32" height="512"/>
+  <object id="457" x="7488" y="0" width="32" height="512">
+   <properties>
+    <property name="Question0" value="Welches Ausprägungsfach gibt es nicht?"/>
+    <property name="Question0Answer0" value="Medizininformatik"/>
+    <property name="Question0Answer1" value="Scientific Computing"/>
+    <property name="Question0Answer2" value="Medieninformatik"/>
+    <property name="Question0Answer3" value="Hardwareentwicklung"/>
+    <property name="Question0RightAnswer" value="3"/>
+    <property name="Question1" value="Welche Sprache lernt man in Programmierung 1?"/>
+    <property name="Question1Answer0" value="Java"/>
+    <property name="Question1Answer1" value="C++"/>
+    <property name="Question1Answer2" value="Javascript"/>
+    <property name="Question1Answer3" value="Python"/>
+    <property name="Question1RightAnswer" value="1"/>
+    <property name="Question2" value="Was lernt man in Technische Grundlagen der Informatik?"/>
+    <property name="Question2Answer0" value="Funktionsweise von Digitalrechnern"/>
+    <property name="Question2Answer1" value="Webentwicklung"/>
+    <property name="Question2Answer2" value="Machine Learning"/>
+    <property name="Question2Answer3" value="3D-Grafik"/>
+    <property name="Question2RightAnswer" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="OnewayPlatform">
   <object id="189" x="1568" y="416" width="160"/>

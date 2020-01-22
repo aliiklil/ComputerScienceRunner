@@ -34,7 +34,9 @@ public class InfoBrick extends InteractiveObject {
             String title = "";
             String description = "";
 
-            if (((int)ComputerScienceRunner.playScreen.getPlayer().body.getPosition().x) == ((int)(( float) mapProperties.get("x") / ComputerScienceRunner.PPM))) {
+            if (((int)ComputerScienceRunner.playScreen.getPlayer().body.getPosition().x) == ((int)(( float) mapProperties.get("x") / ComputerScienceRunner.PPM)) //Check if this infoBrick is at same x as player
+            || ((int)ComputerScienceRunner.playScreen.getPlayer().body.getPosition().x) + 1 == ((int)(( float) mapProperties.get("x") / ComputerScienceRunner.PPM)) //Or if it is 1 tile left or right of the player (sometimes needed if player is not directly under infoBrick)
+            || ((int)ComputerScienceRunner.playScreen.getPlayer().body.getPosition().x) - 1 == ((int)(( float) mapProperties.get("x") / ComputerScienceRunner.PPM))) {
                 if (mapProperties.containsKey("Title") && mapProperties.containsKey("Description")) {
                     title = (String) mapProperties.get("Title");
                     description = (String) mapProperties.get("Description");

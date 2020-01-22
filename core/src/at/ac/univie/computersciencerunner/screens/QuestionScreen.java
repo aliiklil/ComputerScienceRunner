@@ -127,7 +127,7 @@ public class QuestionScreen implements Screen {
         questionLabel = new Label(questions[currentQuestionIndex].getQuestion(), new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         questionLabel.setWrap(true);
         questionLabel.setAlignment(Align.center);
-        table.add(questionLabel).padTop(50).colspan(2);
+        table.add(questionLabel).width(700f).padTop(30).colspan(2);
         table.row();
 
 
@@ -166,7 +166,7 @@ public class QuestionScreen implements Screen {
                 }
             });
 
-            table.add(answerButton[i]).width(400).padTop(100);
+            table.add(answerButton[i]).width(400).padTop(50);
 
             if(i == 1) {
                 table.row();
