@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="357">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="359">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztm01OwzAUhFO1bIAFXbJAgrsBJwBOAOyBExROAL0gRjRS9GQ7fvbEL27mk0aqSuv6Zzz+aek6QgghhBBCCCGEEEIIWSZXByHLI4S0yfYgZHmEaLhRqiWWvj4yD/K4EJqSuXn0mPNgAypnbmOWijYPVgPNBYu+X3X1+uJk4vK1yLaPaYmgcmWMGutRa1jMl2uhJYPYC4TWpbOCMo+ZN6d3oQ/TGrVH6C7W9zz63pbECeXBadVapIH0xq3TndO98n07p0+hL1CdlsC6+9/DbQ6PY8+HXmvFt9OP0966IgHWA+VinQdyvY2ttb03EDw4PTo9Kd93DHmQm4VzAn0ujt3f1NwTWp/zQ2e+Wnkg55ecW1rvpp5hn51enF47Xe4j88BqXuZmYYxW7q1C8z6WB1OuAXPLZuv9wVgeILzry3efUjIf6Y0p5qXEl3W5WTh1vWqQ873ulHlQwwMaLPJg6IWxPBh6NxffePqUMsap3kjx+7BtlwmfreFvXFNzMFWle+SS+ljc2Y7VN6dO0hcIfyMJ5cE5+HOQ3tSOQ+08yGlr3yb5+5pcbRXtTlXpmlhSH4s7mrH6IsZd42302QK9XmhUw5d9+2Sf1s6DHN/3ZaA8xTwoR5sHiP6OtRN9tkD7w0qhPtsF/t5SHqA8tfQ8QPx/ydzyQJ4tfGfS2LlT9gfzoNxzreTBClSWtn9i1MoD1O90rfMAtZ8PnUEs8+AXSnEoJw==
+   eJztm0FOwzAQRVO1bIAFXbJAgrsBJwBOAOyBExROAL0gRjRSNLIdj/3jcZr/pC+hQp2xPf72uKXrCCGEEEIIIYQQQgghZJlcHYRsT8sJ8PmEkHy2ByHbI0TDjVJzArnXzhH6QR4XQlPSWo4esx9sQO20NmepaP1gNVArWIz9qqs3Fq3VZ7LvY1oiKF8Zo8Z+NDcs1su10JJBnAVC+9JZQZvHzJvTu9CHaUTzI3QX63sdfW9L4oT84LRqFGkgc+PW6c7pXvm+ndOn0BcopiWw7v7PcJvDz7HXQ39rxbfTj9PeOpAA64FysfYDud/G9to+NxA8OD06PSnfdwx+kOuFLYGui2P3NzXPhNZ1fqjmq+UHcn3JtaXN3dQa9tnpxem10/k+0g+s1mWuF8aYy71VaN3H/GDKPaA1b7Y+H4z5ASJ3ff7uU4rnI3NjinUp8XldrhdOHVcNcj7XndIPauSABgs/GObCmB8MczcX33z6lDLHqbmRku/Dvl0mPFvD37ym+mCqSs/IJfFY3NmOxZsTk8yLlPyu+blNyA/Owc9B5qZ2Hmr7QU5f+z7J79fkaqvod6pK98SSeCzuaMbiRcy7JrfRtQV6v9CoRl72/ZNjWtsPcvK+bwOVU/SDcrR+gBjvWD/RtQU6P6wUGrNd4Pdz8gNUTi3dDxD/X9KaH8jawleTxupOOR70g/Kcm4sfrEBtaccnRi0/QH1P19oPUOf5UA1i6Qe/yfAoMQ==
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -81,10 +81,42 @@
  <objectgroup name="Hearts"/>
  <objectgroup name="HeartBricks"/>
  <objectgroup name="InfoBricks">
-  <object id="203" x="832" y="416" width="32" height="32"/>
-  <object id="235" x="3872" y="288" width="32" height="32"/>
-  <object id="282" x="5664" y="256" width="32" height="32"/>
-  <object id="320" x="7488" y="384" width="32" height="32"/>
+  <object id="203" x="832" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du wie man kleine, Informatik-nahe Projekte in Teams abwickelt, Planungstools anwendet, und wie man die durchlaufenen Prozesse sowohl von einer methodischen als auch zwischenmenschlichen Perspektive reflektiert."/>
+    <property name="Title" value="Projektmanagement"/>
+   </properties>
+  </object>
+  <object id="235" x="3872" y="288" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du die grundlegenden Komponenten und Funktionsweisen von Datenbanksystemen, die theoretischen Grundlagen und praktischen Werkzeuge relationaler Datenbanken. In dieser LV werden die Studierenden auch mit der Datenbanksprache SQL vertraut gemacht."/>
+    <property name="Title" value="Datenbanksysteme"/>
+   </properties>
+  </object>
+  <object id="282" x="5664" y="256" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser LV lernst du die Grundlagen der Gleitpunktarithmetik und deren Auswirkungen auf numerische Berechnungen am Computer kennen. Im Speziellen werden Themen wie lineare Gleichungssysteme, Interpolation, Extrapolation, Approximation, Regression, Integration, Differenzengleichungen und nichtlineare Gleichungen behandelt."/>
+    <property name="Title" value="Einführung in Numerical Computing"/>
+   </properties>
+  </object>
+  <object id="320" x="7488" y="384" width="32" height="32">
+   <properties>
+    <property name="Description" value="Nach Abschluss dieser LV kennst du die unterschiedlichen Paradigmen und Konzepte von Programmiersprachen und kannst informierte Entscheidungen beim Einsatz geeigneter Programmiermethoden treffen."/>
+    <property name="Title" value="Programmiersprachen und -konzepte"/>
+   </properties>
+  </object>
+  <object id="357" x="2720" y="160" width="32" height="32">
+   <properties>
+    <property name="Description" value="Nach dieser LV sind Studierende befähigt, den Einsatz von Intelligenten Systemen für ein gegebenes Problem abzuwägen, die Grundlagen für entsprechende Repräsentationen zu kennen und auszuwählen und diese in einfachen Beispielen anwenden zu können."/>
+    <property name="Title" value="Grundlagen der Intelligenten Systeme"/>
+   </properties>
+  </object>
+  <object id="358" x="6624" y="480" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser LV lernt man statistische Basistechniken, Grundlagen der Wahrscheinlichkeitstheorie und der Inferenzstatistik. Nach der LV sollen Studierende moderne Softwarewerkzeuge für Analytik und Visualisierung zur Beantwortung datenanalytischer Fragestellungen erfolgreich anwenden können."/>
+    <property name="Title" value="Einführende Statistik"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Wall">
   <object id="354" x="0" y="0" height="640"/>
@@ -124,7 +156,28 @@
   <object id="258" x="4384" y="352" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Goal">
-  <object id="356" x="7680" y="0" width="32" height="512"/>
+  <object id="356" x="7680" y="0" width="32" height="512">
+   <properties>
+    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
+    <property name="Question0Answer0" value="Projektion von Vektoren"/>
+    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
+    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
+    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
+    <property name="Question0RightAnswer" value="1"/>
+    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
+    <property name="Question1Answer0" value="SQL"/>
+    <property name="Question1Answer1" value="Relationale Datenbanken"/>
+    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
+    <property name="Question1Answer3" value="Machine Learning"/>
+    <property name="Question1RightAnswer" value="3"/>
+    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
+    <property name="Question2Answer0" value="Statistische Basistechniken"/>
+    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
+    <property name="Question2Answer2" value="Inferenzstatistik"/>
+    <property name="Question2Answer3" value="Buchhaltung"/>
+    <property name="Question2RightAnswer" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="OnewayPlatform">
   <object id="279" x="192" y="384" width="160"/>
