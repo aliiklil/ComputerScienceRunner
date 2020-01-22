@@ -243,9 +243,9 @@ public class Player {
 
 
         //if(Gdx.app.getType() == Application.ApplicationType.Android) {
-            handleSmartphoneInput(dt);
+            ///handleSmartphoneInput(dt);
         //} else if (Gdx.app.getType() == Application.ApplicationType.Desktop) {
-            //handleKeyboardInput(dt);
+            handleKeyboardInput(dt);
         //}
 
         if(body.getPosition().y < -5) {

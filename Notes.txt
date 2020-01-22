@@ -1,5 +1,3 @@
-.)Remove smartphone controls
-
 .)Create all questions
 
 .)Create icon for game
