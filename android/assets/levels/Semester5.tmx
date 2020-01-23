@@ -109,13 +109,13 @@
   </object>
   <object id="339" x="7552" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="In dieser LV lernst du Methoden und Werkzeuge, wie z.B. Entwurfsmethoden, Entwurfsmuster, Programmierstile, und nichtfunktionale Anforderungen kennen. Ebenfalls lernst du wie du diese Konzepte innerhalb eines Softwareprojekts anwendest."/>
+    <property name="Description" value="In dieser LV lernst du Methoden und Werkzeuge, wie z.B. Entwurfsmethoden, Entwurfsmuster, Programmierstile und nichtfunktionale Anforderungen kennen. Ebenfalls lernst du wie du diese Konzepte innerhalb eines Softwareprojekts anwendest."/>
     <property name="Title" value="Software Engineering 2"/>
    </properties>
   </object>
   <object id="375" x="5280" y="384" width="32" height="32">
    <properties>
-    <property name="Description" value="In dieser LV lernst du die grundlegenden Konzepte von verteilten Systemen, Programmier- und Engineering-Konzepte in diesem Bereich und aktuelle Paradigmen und Technologien für verteilte Systeme. Ebenfalls lernt man wie man diese Konzepte in einem Projekt umsetzen kann."/>
+    <property name="Description" value="In dieser LV lernst du die grundlegenden Konzepte von verteilten Systemen, Programmier- und Engineering-Konzepten und aktuelle Paradigmen und Technologien für verteilte Systeme. Ebenfalls lernt man wie man diese Konzepte in einem Projekt umsetzen kann."/>
     <property name="Title" value="Distributed Systems Engineering (Frei Wählbar)"/>
    </properties>
   </object>
@@ -154,23 +154,23 @@
  <objectgroup name="Goal">
   <object id="374" x="7872" y="0" width="32" height="512">
    <properties>
-    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
-    <property name="Question0Answer0" value="Projektion von Vektoren"/>
-    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
-    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
-    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
+    <property name="Question0" value="Welches Thema wird in der LV Netzwerktechnologien behandelt?"/>
+    <property name="Question0Answer0" value="WLAN-Kabel"/>
+    <property name="Question0Answer1" value="Netzwerkprotokolle"/>
+    <property name="Question0Answer2" value="Wie man das Internet hackt"/>
+    <property name="Question0Answer3" value="Fischernetze"/>
     <property name="Question0RightAnswer" value="1"/>
-    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
-    <property name="Question1Answer0" value="SQL"/>
-    <property name="Question1Answer1" value="Relationale Datenbanken"/>
-    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
-    <property name="Question1Answer3" value="Machine Learning"/>
-    <property name="Question1RightAnswer" value="3"/>
-    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
-    <property name="Question2Answer0" value="Statistische Basistechniken"/>
-    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
-    <property name="Question2Answer2" value="Inferenzstatistik"/>
-    <property name="Question2Answer3" value="Buchhaltung"/>
+    <property name="Question1" value="Worum geht es in Distributed Systems Engineering?"/>
+    <property name="Question1Answer0" value="Verteilte Systeme"/>
+    <property name="Question1Answer1" value="Kaputte Hardware reparieren"/>
+    <property name="Question1Answer2" value="Prozessorarchitektur"/>
+    <property name="Question1Answer3" value="Maschinenbau"/>
+    <property name="Question1RightAnswer" value="0"/>
+    <property name="Question2" value="Was wirst du nicht lernen in Software Engineering 2?"/>
+    <property name="Question2Answer0" value="Programmierstile"/>
+    <property name="Question2Answer1" value="Nichtfunktionale Anforderungen"/>
+    <property name="Question2Answer2" value="Entwurfsmethoden bei Software"/>
+    <property name="Question2Answer3" value="Wasserkuehlung bei PCs"/>
     <property name="Question2RightAnswer" value="3"/>
    </properties>
   </object>
