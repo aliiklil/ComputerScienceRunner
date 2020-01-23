@@ -118,7 +118,7 @@
   <object id="292" x="2624" y="384" width="32" height="32">
    <properties>
     <property name="Description" value="Hier lernen Studierende die theoretischen und praktischen ingenieurwissenschaftlichen Ansätze des Datenmanagements, der Webtechnologien und der grundlegenden Sicherheitsmechanismen kennen, um qualitativ hochwertige webbasierte Informationssysteme zu realisieren."/>
-    <property name="Title" value="Information Management &amp; Systems Engineering (Frei Wählbar)"/>
+    <property name="Title" value="Information Management and Systems Engineering (Frei Wählbar)"/>
    </properties>
   </object>
   <object id="364" x="5824" y="416" width="32" height="32">
@@ -142,7 +142,7 @@
   <object id="479" x="1792" y="416" width="32" height="32">
    <properties>
     <property name="Description" value="In dieser LV lernst du fortgeschrittene Konzepte paralleler Rechnerarchitekturen sowie paralleler Programmiermodelle und Sprachen. Weiters lernst du wie man diese Konzepte in praktischen Übungen anwendet und eigenständig effiziente parallele Applikationen auf aktuellen Parallelrechnern entwickelt."/>
-    <property name="Title" value="Parallel Architectures and Programming Models (Frei Wählbar)"/>
+    <property name="Title" value="Parallel Architectures and Programming Models"/>
    </properties>
   </object>
  </objectgroup>
@@ -218,24 +218,24 @@
  <objectgroup name="Goal">
   <object id="478" x="7872" y="0" width="32" height="480">
    <properties>
-    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
-    <property name="Question0Answer0" value="Projektion von Vektoren"/>
-    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
-    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
-    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
-    <property name="Question0RightAnswer" value="1"/>
-    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
-    <property name="Question1Answer0" value="SQL"/>
-    <property name="Question1Answer1" value="Relationale Datenbanken"/>
-    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
-    <property name="Question1Answer3" value="Machine Learning"/>
-    <property name="Question1RightAnswer" value="3"/>
-    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
-    <property name="Question2Answer0" value="Statistische Basistechniken"/>
-    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
-    <property name="Question2Answer2" value="Inferenzstatistik"/>
-    <property name="Question2Answer3" value="Buchhaltung"/>
-    <property name="Question2RightAnswer" value="3"/>
+    <property name="Question0" value="Welches Ausprägungsfach gibt es nicht im Master?"/>
+    <property name="Question0Answer0" value="Informatik Allgemein"/>
+    <property name="Question0Answer1" value="Data Science"/>
+    <property name="Question0Answer2" value="Informatik Speziell"/>
+    <property name="Question0Answer3" value="Scientific Computing"/>
+    <property name="Question0RightAnswer" value="2"/>
+    <property name="Question1" value="Worum geht es nicht in Information Management and Systems Engineering?"/>
+    <property name="Question1Answer0" value="Webtechnologien"/>
+    <property name="Question1Answer1" value="Spieleprogrammierung"/>
+    <property name="Question1Answer2" value="Datenmanagement"/>
+    <property name="Question1Answer3" value="Sicherheitsmechanismen"/>
+    <property name="Question1RightAnswer" value="1"/>
+    <property name="Question2" value="Welche Sprache kommt bei Business Process Management großteils zum Einsatz?"/>
+    <property name="Question2Answer0" value="BPMN"/>
+    <property name="Question2Answer1" value="R"/>
+    <property name="Question2Answer2" value="C--"/>
+    <property name="Question2Answer3" value="Jawa"/>
+    <property name="Question2RightAnswer" value="0"/>
    </properties>
   </object>
  </objectgroup>

@@ -135,7 +135,7 @@
   </object>
   <object id="308" x="4320" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="In dieser LV lernen Studierende aktuelle Methoden zur Erfassung, Management und Analyse von sehr großen Datenmengen. In die Vorlesung integrierte praktische  Projekte versetzen Studierende in die Lage, selbständig Data Science Lösungen  für Fragestellungen aus realen Anwendungen zu entwickeln."/>
+    <property name="Description" value="In dieser LV lernen Studierende aktuelle Methoden zur Erfassung, Management und Analyse von sehr großen Datenmengen. In die Vorlesung integrierte praktische Projekte versetzen Studierende in die Lage, selbständig Data Science Lösungen für Fragestellungen aus realen Anwendungen zu entwickeln."/>
     <property name="Title" value="Scientific Data Management (Frei Wählbar)"/>
    </properties>
   </object>
@@ -147,7 +147,7 @@
   </object>
   <object id="377" x="7808" y="384" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier kannst du ein Thema auswählen und mit Hilfe eines Betreuers implementieren. Dabei erwirbst du die Fähigkeit zur Lösung von Anwendungsproblemen der Informatik unter Verwendung von moderner IT Infrastruktur."/>
+    <property name="Description" value="Hier kannst du ein Thema auswählen und mit Hilfe eines Betreuers implementieren. Dabei erwirbst du die Fähigkeit zur Lösung von Anwendungsproblemen der Informatik."/>
     <property name="Title" value="Praktikum Informatik 1"/>
    </properties>
   </object>
@@ -183,24 +183,24 @@
  <objectgroup name="Goal">
   <object id="421" x="7904" y="256" width="32" height="288">
    <properties>
-    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
-    <property name="Question0Answer0" value="Projektion von Vektoren"/>
-    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
-    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
-    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
-    <property name="Question0RightAnswer" value="1"/>
-    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
-    <property name="Question1Answer0" value="SQL"/>
-    <property name="Question1Answer1" value="Relationale Datenbanken"/>
-    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
-    <property name="Question1Answer3" value="Machine Learning"/>
-    <property name="Question1RightAnswer" value="3"/>
-    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
-    <property name="Question2Answer0" value="Statistische Basistechniken"/>
-    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
-    <property name="Question2Answer2" value="Inferenzstatistik"/>
-    <property name="Question2Answer3" value="Buchhaltung"/>
-    <property name="Question2RightAnswer" value="3"/>
+    <property name="Question0" value="Was lernst du nicht in Advanced Software Engineering?"/>
+    <property name="Question0Answer0" value="Domain-Driven Design"/>
+    <property name="Question0Answer1" value="Softwarearchitektur"/>
+    <property name="Question0Answer2" value="Domain-Specific Languages"/>
+    <property name="Question0Answer3" value="Game Boy Advance Programmierung"/>
+    <property name="Question0RightAnswer" value="3"/>
+    <property name="Question1" value="Welche Grafik API kommt zum Einsatz in Foundations of Computer Graphics?"/>
+    <property name="Question1Answer0" value="WebGL (bzw. OpenGL)"/>
+    <property name="Question1Answer1" value="DirectX 6"/>
+    <property name="Question1Answer2" value="Vulkan"/>
+    <property name="Question1Answer3" value="RenderMan"/>
+    <property name="Question1RightAnswer" value="0"/>
+    <property name="Question2" value="Welches Thema ist in Scientific Data Management im Fokus?"/>
+    <property name="Question2Answer0" value="Software Testing"/>
+    <property name="Question2Answer1" value="Einfuehrung in lineare Algebra"/>
+    <property name="Question2Answer2" value="Data Science mit grossen Datenmengen"/>
+    <property name="Question2Answer3" value="Metadaten"/>
+    <property name="Question2RightAnswer" value="2"/>
    </properties>
   </object>
  </objectgroup>

@@ -129,7 +129,7 @@
   </object>
   <object id="378" x="7712" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="Für die Masterarbeit bieten viele der Forschungsgruppen der Fakultät für Informatik bereits vordefinierte Themen an. Das Thema einer Masterarbeit sowie die Betreuung müssen offiziell bekannt gegeben und vom StudienServiceCenter genehmigt werden, bevor mit der Bearbeitung begonnen wird."/>
+    <property name="Description" value="Für die Masterarbeit bieten viele der Forschungsgruppen der Fakultät für Informatik bereits vordefinierte Themen an. Das Thema einer Masterarbeit sowie die Betreuung müssen offiziell bekannt gegeben und vom StudienServiceCenter genehmigt werden."/>
     <property name="Title" value="Masterarbeit"/>
    </properties>
   </object>
@@ -182,24 +182,24 @@
  <objectgroup name="Goal">
   <object id="379" x="7872" y="64" width="32" height="480">
    <properties>
-    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
-    <property name="Question0Answer0" value="Projektion von Vektoren"/>
-    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
-    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
-    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
-    <property name="Question0RightAnswer" value="1"/>
-    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
-    <property name="Question1Answer0" value="SQL"/>
-    <property name="Question1Answer1" value="Relationale Datenbanken"/>
-    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
-    <property name="Question1Answer3" value="Machine Learning"/>
+    <property name="Question0" value="Was wird in der LV Masterseminar gemacht?"/>
+    <property name="Question0Answer0" value="Schreiben eines Survey-Paper/Expose"/>
+    <property name="Question0Answer1" value="Diese LV gibt es gar nicht"/>
+    <property name="Question0Answer2" value="C++ wird wiederholt"/>
+    <property name="Question0Answer3" value="Die LV ist nicht verpflichtend"/>
+    <property name="Question0RightAnswer" value="0"/>
+    <property name="Question1" value="Was trifft nicht zu bezüglich der Masterarbeit?"/>
+    <property name="Question1Answer0" value="Thema muss genehmigt werden"/>
+    <property name="Question1Answer1" value="Man braucht einen Betreuer"/>
+    <property name="Question1Answer2" value="Es gibt auch vordefinierte Themen"/>
+    <property name="Question1Answer3" value="Thema muss nicht genehmigt werden"/>
     <property name="Question1RightAnswer" value="3"/>
-    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
-    <property name="Question2Answer0" value="Statistische Basistechniken"/>
-    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
-    <property name="Question2Answer2" value="Inferenzstatistik"/>
-    <property name="Question2Answer3" value="Buchhaltung"/>
-    <property name="Question2RightAnswer" value="3"/>
+    <property name="Question2" value="Hat dir dieses Spiel gefallen?"/>
+    <property name="Question2Answer0" value="Ja"/>
+    <property name="Question2Answer1" value="Nein"/>
+    <property name="Question2Answer2" value="Nein"/>
+    <property name="Question2Answer3" value="Nein"/>
+    <property name="Question2RightAnswer" value="0"/>
    </properties>
   </object>
  </objectgroup>

@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztmktOwzAQhl3xWACLdsmunKBX4QCAcgBAHCG3gJ4AuBNwAl4SsONlCyKM5ceMPY6ddD7pVxCOHWca/51xKgTDMAzDMAzDlGMS2cYwzPhgP6ibRekJMCsF+0HdsB8wfTJmP9gvdN3ZryjHohpvLEw0+ZiJPDFcGMfS7AEEYe5pG7ofNKUnYGEbef6aJuaPuSYfEwH3DgzrxjFEbl8379OmVOYEY5TkjGAM6s9wB3l+zPcPewc9qc8A1bqcJvZfpTzTjFXr+H9JsH6wCvhy79ry8txsBtpT/QRSX+Vmo4drHEgdenSEHO9c6sLQUmuPvaea/EDFDBsXyv4dvtwbm5fn4EbqNqA7omuVrtFLX5+KY6kTj06R411KXRm6BvZtPG01+YGKGTYulP2Hwr3Ug9Sz46j0WGx2/QHJHWrJ51L9wMzTUvzAt2/Rx/4BFPYDGO9SHwF9FptdP0D3P2rI5xR95gcvUq9Sb46+rWfcLeQ8IMTWLmPzgxx1KaRW0GuGJsMchkADOMcWS0idtSns+yo+f0rxA9teQS3C0CDPr8EPsLFfWsZoEufgI1QrdMcn8VMzULzTGiKQ+1axVHHS4wapszC/n+iA+MHUIVsuUIswYJ/FGvwAG3tbzZZzDUJqBaUv8VMztEb/0PuCsdBqf7vyZxVLFSezzlL7Eq61ORV/7/xd7TYgfuD6nUbNftDFVldMnbLriFloPdv6YforfPeQ4gfd3FrAHGKgyBtt+QwFMd+ZLjDPmI3Qu73Qez+11mNj7YpvSr1Qsx9Q5NPd52W+GwytZ1c/aH8RMX8KmTHQn1fzXnxtFM8FdA8aSug3hylrM/Y9fWjthdal8rXYWLviO1Y/oMinu9iYMQitZ1c/aH8RMX8KqRh078Zm4v+zcRpoo567mosvF6ZWytqM3YdnP2A/gPQXEfOn8gP9O9Rc87426rmbc8mtIfpBSs2+an7wDXATdnA=
+   eJztmktOwzAQhl3xWACLdsmunIALAcoBoOIIuQVwAuBOwAl4ScCOl60S1Vh+zNjj2Ennk34V4dh1pvHfGbtCMAzDMAzDMEw5JpFtDMOMD/aDujksPQFmrWA/qBv2A6ZP2A/omf2Jciyq8cbCRJOPmcgTw0PjtTQHAEGYe9qG7gdN6QlY2EVev6GJWTHX5GMi4N6BYdN4DZHb1837tCmVOcEYJTknGIP6M9xDXh/z/cPeQU/qM0C1LqeJ/dcpzzRj1Tr+XxKsH6wDvty7trw8N9uB9lQ/gdRXudnq4T2OpI49OkGOdyF1aehKa4+9p5r8QMUMGxfK/h2+3Bubl+fgTuo+oAei9ypdo5d+fypOpc48WiDHu5a6MXQL7Nt42mryAxUzbFwo+w+FR6knqVfHq9Jzsdn1ByR3qCWfS/UDM09L8QPfvkUf+wdQ2A9gfEp9BfRdbHb9AN3/qCGfU/SZH7xJvUt9OPq2nnF3kPOAEFu7jM0PctSlkFpBrxmaDHMYAg3gGlssIXXWtrDvq/j8KcUPbHsFtQhDg7y+Bj/Axv7KMkaTOAcfoVqhe30Ry5qB4kxriEDuW8VSxUmPG6TOwvx+ogPiB1OHbLlALcKAfRZr8ANs7G01W841CKkVlH7EsmZojf6h84Kx0Gp/u/JnFUsVJ7POUvsSrrU5Faszf1e7DYgfuH6nUbMfdLHVFVOn7DtiFlrPtn6Y/grfPaT4QTe3FjCHGCjyRls+Q0HMd6YLzDNmI3S2Fzr3U2s9Ntau+KbUCzX7AUU+3X1e5tlgaD27+kH7i4j5U8iMgf68mvfia6N4LqB70FBCvzlMWZux5/ShtRdal8rXYmPtiu9Y/YAin+5iY8YgtJ5d/aD9RcT8KaRi0J2NzcT/Z2MRaKOeu5qLLxemVsrajN2HZz9gP4D0FxHzp/ID/TvUXPO+Nuq5m3PJrSH6QUrNvm5+8AtrxXYg
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -115,11 +115,16 @@
   </object>
   <object id="321" x="5792" y="288" width="32" height="32">
    <properties>
-    <property name="Description" value="In dieser LV lernst du wie man Programme analysiert und Transformationen anwenden, um unterschiedliche Optimierungsziele zu erreichen und Programme effizient zu parallelisieren. Außerdem lernst du Laufzeittechniken kennen, um die Effizienz von Programmen zu steigern."/>
+    <property name="Description" value="In dieser LV lernst du wie man Programme analysiert und Transformationen anwendet, um unterschiedliche Optimierungsziele zu erreichen und Programme effizient zu parallelisieren. Außerdem lernst du Laufzeittechniken kennen, um die Effizienz von Programmen zu steigern."/>
     <property name="Title" value="Program Optimisations and Runtime Systems (Frei Wählbar)"/>
    </properties>
   </object>
-  <object id="331" x="7488" y="288" width="32" height="32"/>
+  <object id="331" x="7488" y="288" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser LV werden alle bisher vermittelten Kenntnisse zusammengeführt um ein Softwareprojekt zu einem von dir ausgewählten Thema zu implementieren und eine Bachelorarbeit zu schreiben."/>
+    <property name="Title" value="Softwarepraktikum mit Bachelorarbeit"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Wall">
   <object id="369" x="0" y="0" height="640"/>
@@ -149,24 +154,24 @@
  <objectgroup name="Goal">
   <object id="371" x="7936" y="0" width="32" height="416">
    <properties>
-    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
-    <property name="Question0Answer0" value="Projektion von Vektoren"/>
-    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
-    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
-    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
-    <property name="Question0RightAnswer" value="1"/>
-    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
-    <property name="Question1Answer0" value="SQL"/>
-    <property name="Question1Answer1" value="Relationale Datenbanken"/>
-    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
-    <property name="Question1Answer3" value="Machine Learning"/>
+    <property name="Question0" value="Worum geht es in der LV Informationssicherheit?"/>
+    <property name="Question0Answer0" value="Schutz von IT-Systemen"/>
+    <property name="Question0Answer1" value="Wie man die Haustuer richtig abschliesst"/>
+    <property name="Question0Answer2" value="Boolsche Algebra"/>
+    <property name="Question0Answer3" value="Binärsystem"/>
+    <property name="Question0RightAnswer" value="0"/>
+    <property name="Question1" value="Was lernst du nicht in Multimedia and Semantic Technologies?"/>
+    <property name="Question1Answer0" value="Grundlagen Human-based Computing"/>
+    <property name="Question1Answer1" value="Grundlagen Social Networks"/>
+    <property name="Question1Answer2" value="Realisierung von multimedialen Inhalten"/>
+    <property name="Question1Answer3" value="Rechnerarchitekturen"/>
     <property name="Question1RightAnswer" value="3"/>
-    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
-    <property name="Question2Answer0" value="Statistische Basistechniken"/>
+    <property name="Question2" value="Was wird in Program Optimisations and Runtime Systems behandelt?"/>
+    <property name="Question2Answer0" value="Risikomanagement"/>
     <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
-    <property name="Question2Answer2" value="Inferenzstatistik"/>
-    <property name="Question2Answer3" value="Buchhaltung"/>
-    <property name="Question2RightAnswer" value="3"/>
+    <property name="Question2Answer2" value="Optimierung von Programmen"/>
+    <property name="Question2Answer3" value="Accounting"/>
+    <property name="Question2RightAnswer" value="2"/>
    </properties>
   </object>
  </objectgroup>

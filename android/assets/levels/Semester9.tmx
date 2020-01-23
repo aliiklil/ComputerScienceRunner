@@ -107,19 +107,19 @@
  <objectgroup name="InfoBricks">
   <object id="199" x="192" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier erlernst du die Fähigkeit zur Recherche, Analyse, Aufbereitung relevanter wissenschaftlicher Fragestellungen im Bereich Informatik sowie zur wissenschaftlichen Arbeitsweise, wie sie im Zuge der Masterarbeit benötigt wird."/>
+    <property name="Description" value="Hier erlernst du die Fähigkeit zur Recherche, Analyse und Aufbereitung relevanter wissenschaftlicher Fragestellungen im Bereich Informatik sowie zur wissenschaftlichen Arbeitsweise, wie sie im Zuge der Masterarbeit benötigt wird."/>
     <property name="Title" value="Wissenschaftliches Arbeiten"/>
    </properties>
   </object>
   <object id="235" x="1888" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="In dieser LV lernen Studierende wie Physik in Computerspielen implementiert werden kann, aber auch wie man Kollisionerkennung, Artificial Intelligence und z.B. Wegfindung für Computerspiele programmieren kann."/>
+    <property name="Description" value="In dieser LV lernen Studierende wie Physik in Computerspielen implementiert werden kann, aber auch wie man Kollisionserkennung, Artificial Intelligence und z.B. Wegfindung für Computerspiele programmieren kann."/>
     <property name="Title" value="Gaming Technologies (Frei Wählbar)"/>
    </properties>
   </object>
   <object id="281" x="5440" y="384" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier kannst du dein Wissen bezüglich Echtzeit-Grafik erweitern. Dabei wird die Vulkan Engine im Detail erklärt. Ebenfalls wird die notwendige Mathematik, die für Computerspiele benötigt wird, gelehrt. Außerdem werden Themen wie Schatten, Transparenz, Normal Maps, Ambient Occlusion gelehrt."/>
+    <property name="Description" value="Hier kannst du dein Wissen bezüglich Echtzeit-Grafik erweitern. Dabei wird die Vulkan API im Detail erklärt. Ebenfalls wird die notwendige Mathematik, die für Computerspiele benötigt wird, gelehrt. Außerdem werden Themen wie Schatten, Transparenz, Normal Maps und Ambient Occlusion gelehrt."/>
     <property name="Title" value="Real-Time Computer Graphics (Frei Wählbar)"/>
    </properties>
   </object>
@@ -174,23 +174,23 @@
  <objectgroup name="Goal">
   <object id="345" x="7936" y="192" width="32" height="416">
    <properties>
-    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
-    <property name="Question0Answer0" value="Projektion von Vektoren"/>
-    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
-    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
-    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
-    <property name="Question0RightAnswer" value="1"/>
-    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
-    <property name="Question1Answer0" value="SQL"/>
-    <property name="Question1Answer1" value="Relationale Datenbanken"/>
-    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
-    <property name="Question1Answer3" value="Machine Learning"/>
-    <property name="Question1RightAnswer" value="3"/>
-    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
-    <property name="Question2Answer0" value="Statistische Basistechniken"/>
-    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
-    <property name="Question2Answer2" value="Inferenzstatistik"/>
-    <property name="Question2Answer3" value="Buchhaltung"/>
+    <property name="Question0" value="Worum geht es in der LV Wissenschaftliches Arbeiten?"/>
+    <property name="Question0Answer0" value="Vorbereitung fuer Masterarbeit"/>
+    <property name="Question0Answer1" value="Wie man unauffaellig schummelt"/>
+    <property name="Question0Answer2" value="Um Programmierkenntnisse aufzufrischen"/>
+    <property name="Question0Answer3" value="Wie man unwissenschaftlich schreibt"/>
+    <property name="Question0RightAnswer" value="0"/>
+    <property name="Question1" value="Was lernst du nicht in Gaming Technologies?"/>
+    <property name="Question1Answer0" value="Physik Implementierung in Spielen"/>
+    <property name="Question1Answer1" value="Wie ich ein Pro-Gamer werde"/>
+    <property name="Question1Answer2" value="Kollisionserkennung"/>
+    <property name="Question1Answer3" value="Wegfindung in Spielen"/>
+    <property name="Question1RightAnswer" value="1"/>
+    <property name="Question2" value="Welche Themen kommen in Real-Time Computer Graphics nicht vor?"/>
+    <property name="Question2Answer0" value="Schatten"/>
+    <property name="Question2Answer1" value="Ambient Occlusion"/>
+    <property name="Question2Answer2" value="Mathematik bei Computerspielen"/>
+    <property name="Question2Answer3" value="Cloud Gaming Implementierung"/>
     <property name="Question2RightAnswer" value="3"/>
    </properties>
   </object>

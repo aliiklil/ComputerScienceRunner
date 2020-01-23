@@ -2,6 +2,8 @@
 
 .)Maybe add button in options which enables player to choose all levels from the start
 
+.)Maybe make sure that (δόφί&) works in the menues ingame
+
 .)Create icon for game
 
 .)Clean source code
