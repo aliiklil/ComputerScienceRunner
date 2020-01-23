@@ -91,31 +91,31 @@
   </object>
   <object id="248" x="3136" y="384" width="32" height="32">
    <properties>
-    <property name="Description" value="Ab dem 4. Semester, kann sich der Studienplan teilweise für jeden Studierenden, je nach Wahl des Ausprägungsfachs und der Lehrveranstaltungen stark unterscheiden. Hier werden einige LVs vorgestellt, die man besuchen könnte. Dein persönlicher Studienplan kann natürlich anders aussehen. Wenn ein Modul nicht verpflichtend ist, sondern frei wählbar ist, steht (Frei Wählbar) dabei."/>
+    <property name="Description" value="Ab dem 4. Semester kann sich der Studienplan teilweise für jeden Studierenden, je nach Wahl des Ausprägungsfachs und der Lehrveranstaltungen, stark unterscheiden. Hier werden einige LVs vorgestellt, die man besuchen könnte. Dein persönlicher Studienplan kann natürlich anders aussehen. Wenn ein Modul nicht verpflichtend ist, sondern frei wählbar ist, steht (Frei Wählbar) dabei."/>
     <property name="Title" value="Studienplan"/>
    </properties>
   </object>
   <object id="331" x="4896" y="192" width="32" height="32">
    <properties>
-    <property name="Description" value="In dieser LV werden grundlegende Parallelisierungsstrategien behandelt und wie man parallele Programme bezüglich ihrer Leistung analysiert. Nach dieser LV, kannst du diese Kenntnisse in praktischen Übungen zur Programmierung von Parallelrechnern anwenden."/>
+    <property name="Description" value="In dieser LV werden grundlegende Parallelisierungsstrategien behandelt und wie man parallele Programme bezüglich ihrer Leistung analysiert. Nach dieser LV kannst du diese Kenntnisse in praktischen Übungen zur Programmierung von Parallelrechnern anwenden."/>
     <property name="Title" value="Parallel Computing (Frei Wählbar)"/>
    </properties>
   </object>
   <object id="344" x="6624" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="In dieser LV lernen Studierende grundlegenden Methoden zur mathematischen Modellierung, zu Optimierungsverfahren und zugehörigen Analysen. Dabei werden z.B. Themen wie Differentialgleichungen, Lineare und Nichtlineare Optimierungsverfahren, Metaheuristiken, Zufallszahlen, Markov-Ketten behandelt."/>
+    <property name="Description" value="In dieser LV lernen Studierende grundlegenden Methoden zur mathematischen Modellierung, zu Optimierungsverfahren und zugehörigen Analysen. Dabei werden z.B. Themen wie Differentialgleichungen, Lineare und Nichtlineare Optimierungsverfahren, Metaheuristiken, Zufallszahlen und Markov-Ketten behandelt."/>
     <property name="Title" value="Einführung in Mathematische Modellierung"/>
    </properties>
   </object>
   <object id="357" x="7552" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier werden Methoden und Werkzeuge für Anforderungsanalyse, Evolution, Verifikation, Validierung von Software gelehrt und wie man diese im Rahmen von Softwareprojekten anwendet."/>
+    <property name="Description" value="Hier werden Methoden und Werkzeuge für die Anforderungsanalyse, Evolution, Verifikation und Validierung von Software gelehrt und wie man diese im Rahmen von Softwareprojekten anwendet."/>
     <property name="Title" value="Software Engineering 1"/>
    </properties>
   </object>
   <object id="380" x="5824" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier lernst du z.B. wie die Konzepte von Fourier- und Waveletttransformationen funktionieren und wie man diese auf Signale anwenden kann. Das erworbene Wissen wird in Programmierübungen auf Themen wie Image Enhancement &amp; Restoration, Topographic Reconstruction, Morphological Operations, sowie 3D Rendering angewendet."/>
+    <property name="Description" value="Hier lernst du z.B. wie die Konzepte von Fourier- und Waveletttransformationen funktionieren und wie man diese auf Signale anwenden kann. Das erworbene Wissen wird in Programmierübungen auf Themen wie Image Enhancement, Image Restoration, Topographic Reconstruction, Morphological Operations, sowie 3D Rendering angewendet."/>
     <property name="Title" value="Signal and Image Processing (Frei Wählbar)"/>
    </properties>
   </object>
@@ -142,24 +142,24 @@
  <objectgroup name="Goal">
   <object id="379" x="7840" y="0" width="32" height="544">
    <properties>
-    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
-    <property name="Question0Answer0" value="Projektion von Vektoren"/>
-    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
-    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
-    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
+    <property name="Question0" value="Welches Thema wird in Mensch-Computer-Interaktion behandelt?"/>
+    <property name="Question0Answer0" value="Roboterprogrammierung"/>
+    <property name="Question0Answer1" value="Usability bei Bedienoberflaechen"/>
+    <property name="Question0Answer2" value="Deep Learning"/>
+    <property name="Question0Answer3" value="Clustering"/>
     <property name="Question0RightAnswer" value="1"/>
-    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
-    <property name="Question1Answer0" value="SQL"/>
-    <property name="Question1Answer1" value="Relationale Datenbanken"/>
-    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
-    <property name="Question1Answer3" value="Machine Learning"/>
+    <property name="Question1" value="Worum geht es in Parallel Computing?"/>
+    <property name="Question1Answer0" value="PC Zusammenbau"/>
+    <property name="Question1Answer1" value="NoSQL Datenbanken"/>
+    <property name="Question1Answer2" value="Kopfrechnen"/>
+    <property name="Question1Answer3" value="Parallele Programme, Parallelisierung"/>
     <property name="Question1RightAnswer" value="3"/>
-    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
-    <property name="Question2Answer0" value="Statistische Basistechniken"/>
-    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
-    <property name="Question2Answer2" value="Inferenzstatistik"/>
-    <property name="Question2Answer3" value="Buchhaltung"/>
-    <property name="Question2RightAnswer" value="3"/>
+    <property name="Question2" value="Was wirst du nicht lernen in Einführung in Mathematische Modellierung?"/>
+    <property name="Question2Answer0" value="Optimierungsverfahren"/>
+    <property name="Question2Answer1" value="Modellierung"/>
+    <property name="Question2Answer2" value="3D Modellierung fuer Computerspiele"/>
+    <property name="Question2Answer3" value="Differentialgleichungen"/>
+    <property name="Question2RightAnswer" value="2"/>
    </properties>
   </object>
  </objectgroup>
