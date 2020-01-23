@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="380">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="381">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztmU1OwzAQhSMVsoBuukTqJjfgCBweOEHhBByEWriqFRz/ztiT8fukUaVEcV/G9vPYmSYAAAAAAAAAAAAAAAAAAAAA/nNyYrbhXuPkkbn9HJbeAoAYlmnc8fATiVHQ1P8tvFwauf2nJT+hObp1b6R5vUdGnL+lnG2skeTnpi+Nntn+om/TmHsLiPB+jQ8bn521gD8ebPQmNMdHrrNDHAL3pOXKp+NyjS8b323lkGPG73NvEaAa1BptePNc4/YDt/5oUYc8MbZdcjZ8mtqdXWtB0hl8iNvY1lRXc/uB236LOoTTD0pATa2X29jee13tUuoHqR5O6Qex/zTrrzQ/AHqBH6Th2yO02jPAD+68dH5eOz4/2HvOOPzAVxPEagSq7zA1fpDiY7n+tqwih5qxVbtH4drjuO/EkW9uYpr3dJbgO8+S4gcUmPc7Vjyfojv3fXLPDzR//13ngSPf3MQ0U+uq8cyYT5X6AZUm6SFhfKb0B8XaTbX+17RTmmuNfrD1DapmTMZ0lfoBlSbpIdEPXhVHbX/1gMsPtnyV0w98e3T4wT1+AXsr2ws=
+   eJztmU1OwzAQhSMVsoBuukTqJjfgCBweOEHhBByEWriqFRz/ztiT8fukp0iJ4kzG9svYmSYAAAAAAAAAAAAAAAAAAAAA/nNyNFu55zh5ZG4/h6V3AEAMyzTuePiJaBQ09X8LL5dGbv9pyU9ojm5dG2le75ER528pZ6s1kvzc9KWJZ7ZH9G0ac+8AIrxf9WH12TkW8MeDVW9Cc3zkOjvEIXBNWq58cVyu+rL6bhsOOWb8PvcOAlSDWqMNb55z3H7g1h8t6pAnxrZL9oZPU7u9ay1I2oMPcRvbmupqbj9w229Rh3D6QQmoqfVyG9vS6+ocfy31g9RnUPpB7Jnm+yvND4Be9uIHOXDUB741Qqs1A/zgzkvn+7Xj84O954zDD3w1QaxGoPoPU+MHKT6W62/LSjnUjK3aNQrXGsd9J458cxOLeU97Cb79LCl+QIF5v2PF/Slx575P7v6B5v+/6zxw5JubWMzUcdV4ZsynSv2AKibpkjA+U/qD4ttN9f2vaac01xr9YOsfVM2YjMVV6gdUMUmXRD94Vaza/uoBlx9s+SqnH/jW6PCDu34B+yPbEA==
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -83,11 +83,42 @@
  </objectgroup>
  <objectgroup name="HeartBricks"/>
  <objectgroup name="InfoBricks">
-  <object id="198" x="256" y="384" width="32" height="32"/>
-  <object id="248" x="3136" y="384" width="32" height="32"/>
-  <object id="331" x="4896" y="192" width="32" height="32"/>
-  <object id="344" x="6624" y="416" width="32" height="32"/>
-  <object id="357" x="7552" y="416" width="32" height="32"/>
+  <object id="198" x="256" y="384" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser LV lernst du interaktive Bedienoberflächen so zu entwerfen und zu entwickeln, dass sie von ihren Benutzern als möglichst gebrauchstauglich bzw. usable erachtet werden."/>
+    <property name="Title" value="Mensch-Computer-Interaktion"/>
+   </properties>
+  </object>
+  <object id="248" x="3136" y="384" width="32" height="32">
+   <properties>
+    <property name="Description" value="Ab dem 4. Semester, kann sich der Studienplan teilweise für jeden Studierenden, je nach Wahl des Ausprägungsfachs und der Lehrveranstaltungen stark unterscheiden. Hier werden einige LVs vorgestellt, die man besuchen könnte. Dein persönlicher Studienplan kann natürlich anders aussehen. Wenn ein Modul nicht verpflichtend ist, sondern frei wählbar ist, steht (Frei Wählbar) dabei."/>
+    <property name="Title" value="Studienplan"/>
+   </properties>
+  </object>
+  <object id="331" x="4896" y="192" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser LV werden grundlegende Parallelisierungsstrategien behandelt und wie man parallele Programme bezüglich ihrer Leistung analysiert. Nach dieser LV, kannst du diese Kenntnisse in praktischen Übungen zur Programmierung von Parallelrechnern anwenden."/>
+    <property name="Title" value="Parallel Computing (Frei Wählbar)"/>
+   </properties>
+  </object>
+  <object id="344" x="6624" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser LV lernen Studierende grundlegenden Methoden zur mathematischen Modellierung, zu Optimierungsverfahren und zugehörigen Analysen. Dabei werden z.B. Themen wie Differentialgleichungen, Lineare und Nichtlineare Optimierungsverfahren, Metaheuristiken, Zufallszahlen, Markov-Ketten behandelt."/>
+    <property name="Title" value="Einführung in Mathematische Modellierung"/>
+   </properties>
+  </object>
+  <object id="357" x="7552" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier werden Methoden und Werkzeuge für Anforderungsanalyse, Evolution, Verifikation, Validierung von Software gelehrt und wie man diese im Rahmen von Softwareprojekten anwendet."/>
+    <property name="Title" value="Software Engineering 1"/>
+   </properties>
+  </object>
+  <object id="380" x="5824" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du z.B. wie die Konzepte von Fourier- und Waveletttransformationen funktionieren und wie man diese auf Signale anwenden kann. Das erworbene Wissen wird in Programmierübungen auf Themen wie Image Enhancement &amp; Restoration, Topographic Reconstruction, Morphological Operations, sowie 3D Rendering angewendet."/>
+    <property name="Title" value="Signal and Image Processing (Frei Wählbar)"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Wall">
   <object id="377" x="0" y="0" height="640"/>
@@ -109,7 +140,28 @@
  </objectgroup>
  <objectgroup name="CoinBricks"/>
  <objectgroup name="Goal">
-  <object id="379" x="7840" y="0" width="32" height="544"/>
+  <object id="379" x="7840" y="0" width="32" height="544">
+   <properties>
+    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
+    <property name="Question0Answer0" value="Projektion von Vektoren"/>
+    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
+    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
+    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
+    <property name="Question0RightAnswer" value="1"/>
+    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
+    <property name="Question1Answer0" value="SQL"/>
+    <property name="Question1Answer1" value="Relationale Datenbanken"/>
+    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
+    <property name="Question1Answer3" value="Machine Learning"/>
+    <property name="Question1RightAnswer" value="3"/>
+    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
+    <property name="Question2Answer0" value="Statistische Basistechniken"/>
+    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
+    <property name="Question2Answer2" value="Inferenzstatistik"/>
+    <property name="Question2Answer3" value="Buchhaltung"/>
+    <property name="Question2RightAnswer" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="OnewayPlatform">
   <object id="294" x="4480" y="384" width="96"/>

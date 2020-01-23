@@ -44,7 +44,7 @@ public class InfoWidget implements Disposable {
 
         freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("basicFont.ttf"));
         fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 24;
+        fontParameter.size = 20;
 
         fontParameter.color = Color.WHITE;
         font = freeTypeFontGenerator.generateFont(fontParameter);
@@ -72,7 +72,7 @@ public class InfoWidget implements Disposable {
 
 
         titleLabel = new Label("Title", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(titleLabel).padTop(-150);
+        table.add(titleLabel).padTop(-250);
 
         table.row();
 
@@ -83,7 +83,7 @@ public class InfoWidget implements Disposable {
 
 
 
-        table.add(descriptionLabel).width(550f).padTop(-50);
+        table.add(descriptionLabel).width(550f).padTop(-100);
         stage.addActor(table);
 
     }

@@ -1,5 +1,7 @@
 .)Create all questions
 
+.)Maybe add button in options which enables player to choose all levels from the start
+
 .)Create icon for game
 
 .)Clean source code

@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztml9O3DAQxr0q3YfCw+4jb9sTcBUO0KIcAFCPkFsAJ2h7p5YTlIIEvPGntmi0xrLHM/Y4drLzkz4F4dhxZuNvZ5xVShAEQRAEQRDqsUhsEwRhfogftM1R7QkIO4X4QduIHwhjMmc/OK503fV/cY7FNd5cWFiCWKsyMTxyjrX5jBCGDdA2dT/oak/Awz7x/A+WhC0bSxALhfcOCnvOMUZpX3fv06dcNgxj1OQbwxjcn+EB8fyU7x/xDn5ynwGudbnK7L9LeaYbqz7w/5pQ/WAXgHLv1vLy0iwj7bl+gqmvSvNxhGt80foK6IQ43oXWpaMrqx26J2jfoiU/MDGjxoWz/wCUe1Pz8hL80vod0TXTtWrX6LWvz8Wp1hmgc+J437V+OPqJ7NsBbS35gYkZNS6c/afCH60brbvA0ehvtdmNByZ3aCWfy/UDN0/L8QNo32KM/QMs4gc4nrSeI3qpNrtxwO5/tJDPGcbMD+61HrQeA317YNxPxHlgSK3H5uYHJepSTK1g1wxdgTlMgQ5xji+WmDprqfz7KpA/5fiBb6+gFVHoiOe34AfU2F95xugy5wARqxWG4616qxk43mmVpoRvYu7bxNLEyY4bps6i/H5iAOMHq4B8uUArokB9FlvwA2rsfTVbyTWIqRWMXtVbzdA7/WPvC+ZCb/0dyp9NLE2c3DrL7EuE1uZKbd/5h9p9YPwg9DuNlv1giK2tlDrlMBCz2Hr29aP0N0D3kOMHw9x6xBxS4MgbffkMBynfmSEoz5iP2Lu92Hs/s9ZTYx2Kb0690LIfcOTTw+flvhuMredQP2x/lTB/DrkxsJ9X916gNo7nArsHjSX2m8OctZn6nj629mLr0vhaaqxD8Z2rH3Dk00Ns3BjE1nOoH7a/Spg/h0wMhndja/X+2TiPtHHP3cwFyoW5lbM2U/fhxQ/EDzD9VcL8ufzA/g511zzUxj13dy6lNUU/yKnZd80P/gGo0nbF
+   eJztmktOwzAQhl3xWACLdsmunKBX4QCAcgBAHCG3gJ4AuBNwAl4SsONlCyKM5ceMPY6ddD7pVxCOHWca/51xKgTDMAzDMAzDlGMS2cYwzPhgP6ibRekJMCsF+0HdsB8wfTJmP9gvdN3ZryjHohpvLEw0+ZiJPDFcGMfS7AEEYe5pG7ofNKUnYGEbef6aJuaPuSYfEwH3DgzrxjFEbl8379OmVOYEY5TkjGAM6s9wB3l+zPcPewc9qc8A1bqcJvZfpTzTjFXr+H9JsH6wCvhy79ry8txsBtpT/QRSX+Vmo4drHEgdenSEHO9c6sLQUmuPvaea/EDFDBsXyv4dvtwbm5fn4EbqNqA7omuVrtFLX5+KY6kTj06R411KXRm6BvZtPG01+YGKGTYulP2Hwr3Ug9Sz46j0WGx2/QHJHWrJ51L9wMzTUvzAt2/Rx/4BFPYDGO9SHwF9FptdP0D3P2rI5xR95gcvUq9Sb46+rWfcLeQ8IMTWLmPzgxx1KaRW0GuGJsMchkADOMcWS0idtSns+yo+f0rxA9teQS3C0CDPr8EPsLFfWsZoEufgI1QrdMcn8VMzULzTGiKQ+1axVHHS4wapszC/n+iA+MHUIVsuUIswYJ/FGvwAG3tbzZZzDUJqBaUv8VMztEb/0PuCsdBqf7vyZxVLFSezzlL7Eq61ORV/7/xd7TYgfuD6nUbNftDFVldMnbLriFloPdv6YforfPeQ4gfd3FrAHGKgyBtt+QwFMd+ZLjDPmI3Qu73Qez+11mNj7YpvSr1Qsx9Q5NPd52W+GwytZ1c/aH8RMX8KmTHQn1fzXnxtFM8FdA8aSug3hylrM/Y9fWjthdal8rXYWLviO1Y/oMinu9iYMQitZ1c/aH8RMX8KqRh078Zm4v+zcRpoo567mosvF6ZWytqM3YdnP2A/gPQXEfOn8gP9O9Rc87426rmbc8mtIfpBSs2+an7wDXATdnA=
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -46,6 +46,10 @@
   <object id="364" x="6880" y="480" width="192" height="32"/>
  </objectgroup>
  <objectgroup name="Bricks">
+  <properties>
+   <property name="Description" value="In dieser LV werden alle bisher vermittelten Kenntnisse zusammengeführt um ein Softwareprojekt zu einem von dir ausgewählten Thema zu implementieren und eine Bachelorarbeit zu schreiben."/>
+   <property name="Title" value="Softwarepraktikum mit Bachelorarbeit"/>
+  </properties>
   <object id="221" x="416" y="256" width="32" height="32"/>
   <object id="222" x="64" y="224" width="32" height="32"/>
   <object id="223" x="32" y="224" width="32" height="32"/>
@@ -97,10 +101,24 @@
   <object id="216" x="1824" y="320" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="InfoBricks">
-  <object id="199" x="288" y="416" width="32" height="32"/>
-  <object id="296" x="4768" y="448" width="32" height="32"/>
-  <object id="299" x="2400" y="416" width="32" height="32"/>
-  <object id="321" x="5792" y="288" width="32" height="32"/>
+  <object id="199" x="288" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser LV lernen Studierende mehr über die zentralen Ansätze zum  Schutz von IT-Systemen auf konzeptueller wie auch strategischer Basis,  einschließlich des damit verbundenen Technologieeinsatzes."/>
+    <property name="Title" value="Informationssicherheit"/>
+   </properties>
+  </object>
+  <object id="299" x="2400" y="416" width="32" height="32">
+   <properties>
+    <property name="Description" value="Hier lernst du die Konzepte und Techniken für die Realisierung von multimedialen Inhalten im Web, für die semantische Anreicherung von multimedialen Inhalten, sowie die Grundlagen von Human-based Computing und Social Networks."/>
+    <property name="Title" value="Multimedia and Semantic Technologies (Frei Wählbar)"/>
+   </properties>
+  </object>
+  <object id="321" x="5792" y="288" width="32" height="32">
+   <properties>
+    <property name="Description" value="In dieser LV lernst du wie man Programme analysiert und Transformationen anwenden, um unterschiedliche Optimierungsziele zu erreichen und Programme effizient zu parallelisieren. Außerdem lernst du Laufzeittechniken kennen, um die Effizienz von Programmen zu steigern."/>
+    <property name="Title" value="Program Optimisations and Runtime Systems (Frei Wählbar)"/>
+   </properties>
+  </object>
   <object id="331" x="7488" y="288" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Wall">
@@ -129,7 +147,28 @@
   <object id="324" x="5504" y="384" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Goal">
-  <object id="371" x="7936" y="0" width="32" height="416"/>
+  <object id="371" x="7936" y="0" width="32" height="416">
+   <properties>
+    <property name="Question0" value="Worum geht es in der LV Projektmanagement?"/>
+    <property name="Question0Answer0" value="Projektion von Vektoren"/>
+    <property name="Question0Answer1" value="Wie man ein Projekt durchfuehrt"/>
+    <property name="Question0Answer2" value="Programmierung mit JavaScript"/>
+    <property name="Question0Answer3" value="Compiler-Entwicklung"/>
+    <property name="Question0RightAnswer" value="1"/>
+    <property name="Question1" value="Worum geht es nicht in Datenbanksysteme?"/>
+    <property name="Question1Answer0" value="SQL"/>
+    <property name="Question1Answer1" value="Relationale Datenbanken"/>
+    <property name="Question1Answer2" value="Funktionsweise von Datenbanksysteme"/>
+    <property name="Question1Answer3" value="Machine Learning"/>
+    <property name="Question1RightAnswer" value="3"/>
+    <property name="Question2" value="Was wirst du nicht lernen in Einführende Statistik?"/>
+    <property name="Question2Answer0" value="Statistische Basistechniken"/>
+    <property name="Question2Answer1" value="Wahrscheinlichkeitstheorie"/>
+    <property name="Question2Answer2" value="Inferenzstatistik"/>
+    <property name="Question2Answer3" value="Buchhaltung"/>
+    <property name="Question2RightAnswer" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="OnewayPlatform">
   <object id="211" x="1792" y="448" width="416"/>
