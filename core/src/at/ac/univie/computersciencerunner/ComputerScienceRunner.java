@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import at.ac.univie.computersciencerunner.screens.CreditsScreen;
 import at.ac.univie.computersciencerunner.screens.GameOverScreen;
+import at.ac.univie.computersciencerunner.screens.GenderSelectionScreen;
 import at.ac.univie.computersciencerunner.screens.LevelSelectionScreen;
 import at.ac.univie.computersciencerunner.screens.MainMenuScreen;
 import at.ac.univie.computersciencerunner.screens.OptionsScreen;
@@ -52,6 +53,7 @@ public class ComputerScienceRunner extends Game {
     public static QuestionScreen questionScreen;
     public static SemesterCompletedScreen semesterCompletedScreen;
 	public static PauseScreen pauseScreen;
+	public static GenderSelectionScreen genderSelectionScreen;
 
 	public static AssetManager assetManager;
 
@@ -102,6 +104,8 @@ public class ComputerScienceRunner extends Game {
         questionScreen = new QuestionScreen(this);
         semesterCompletedScreen = new SemesterCompletedScreen(this);
 		pauseScreen = new PauseScreen(this);
+
+		genderSelectionScreen = new GenderSelectionScreen(this);
 
 		setScreen(mainMenuScreen);
 
@@ -156,6 +160,8 @@ public class ComputerScienceRunner extends Game {
 	}
 
 	public void setCreditsScreen() { setScreen(creditsScreen); }
+
+	public void setGenderSelectionScreen() { setScreen(genderSelectionScreen); }
 
 	/*
 	public AssetManager getAssetManager() {

@@ -2,6 +2,7 @@ package at.ac.univie.computersciencerunner.mobs;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
@@ -31,7 +32,7 @@ public class Player {
     private int spriteWidth = 64;
     private int spriteHeight = 64;
 
-    private Texture texture = new Texture(Gdx.files.internal("player.png"));
+    private Texture texture;
 
     private Animation<TextureRegion> standLeftAnimation;
     private Animation<TextureRegion> standRightAnimation;
@@ -94,6 +95,17 @@ public class Player {
         this.game = computerScienceRunner;
 
         this.smartphoneController = smartphoneController;
+
+        Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+        final int selectedGender = prefs.getInteger("selectedGender", 0); //0 no gender selected, 1 male, 2 female
+
+        texture = new Texture(Gdx.files.internal("male_player.png")); //Need to initialize, otherwise it would crash if no gender is set yet
+
+        if(selectedGender == 1) {
+            texture = new Texture(Gdx.files.internal("male_player.png"));
+        } else if(selectedGender == 2) {
+            texture = new Texture(Gdx.files.internal("female_player.png"));
+        }
 
         hearts = 3;
 
@@ -294,7 +306,6 @@ public class Player {
             }
             body.setLinearVelocity(0, 0);
             body.applyLinearImpulse(new Vector2(0f, 6f), body.getWorldCenter(), true);
-            ComputerScienceRunner.assetManager.get("audio/sounds/gameOver.mp3", Sound.class).play();
             ComputerScienceRunner.playScreen.getLevelMusic().stop();
         }
 

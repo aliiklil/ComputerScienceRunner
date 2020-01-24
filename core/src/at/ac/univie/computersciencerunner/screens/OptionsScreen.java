@@ -38,6 +38,7 @@ public class OptionsScreen implements Screen {
     private final ComputerScienceRunner game;
 
     private TextButton deleteProgressButton;
+    private TextButton selectGenderButton;
 
     public OptionsScreen(ComputerScienceRunner computerScienceRunner) {
 
@@ -89,12 +90,29 @@ public class OptionsScreen implements Screen {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
                 prefs.putInteger("highestCompletedSemester", 0);
+                prefs.putInteger("selectedGender", 0);
                 prefs.flush();
                 return true;
             }
         });
 
         table.add(deleteProgressButton).left().top().padLeft(10).padTop(50);
+
+        table.row();
+
+        selectGenderButton = new TextButton("Charakter wechseln",  blueSkin.get("small", TextButton.TextButtonStyle.class));
+
+        selectGenderButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setGenderSelectionScreen();
+                ComputerScienceRunner.genderSelectionScreen.setCallingScreen(ComputerScienceRunner.optionsScreen);
+                dispose();
+                return true;
+            }
+        });
+
+        table.add(selectGenderButton).left().top().padLeft(10).padTop(50);
 
         table.row();
 

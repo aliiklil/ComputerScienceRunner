@@ -3,7 +3,6 @@ package at.ac.univie.computersciencerunner.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -23,7 +22,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 
-public class MainMenuScreen implements Screen {
+public class GenderSelectionScreen implements Screen {
 
     private Viewport viewport;
     private Stage stage;
@@ -32,21 +31,27 @@ public class MainMenuScreen implements Screen {
     private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
     private BitmapFont font;
 
-    private Skin buttonSkin;
+    private Skin levelSelectButtonSkin = new Skin(Gdx.files.internal("skins/level/glassy-ui.json"));
+    private Skin blueSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
-    private TextButton startButton;
-    private TextButton optionsButton;
-    private TextButton endButton;
+    private Skin greySkin = new Skin(Gdx.files.internal("skins/greybutton/glassy-ui.json"));
 
-    final ComputerScienceRunner game;
+    private TextButton semesterButtons[] = new TextButton[10];
 
-    private Image universityImage = new Image(new Texture(Gdx.files.internal("universityImage.png")));
+    private TextButton backButton;
+    private TextButton maleButton;
+    private TextButton femaleButton;
 
-    private Music menuMusic;
+    private Image malePlayerImage = new Image(new Texture(Gdx.files.internal("male_player_selection_image.png")));
+    private Image femalePlayerImage = new Image(new Texture(Gdx.files.internal("female_player_selection_image.png")));
 
-    public MainMenuScreen(ComputerScienceRunner computerScienceRunner) {
+    private final ComputerScienceRunner game;
 
-        game = computerScienceRunner;
+    private Screen callingScreen; //Screen which was before this screen. Needed to know for back button
+
+    public GenderSelectionScreen(ComputerScienceRunner computerScienceRunner) {
+
+        this.game = computerScienceRunner;
 
         viewport = new FitViewport(ComputerScienceRunner.WIDTH, ComputerScienceRunner.HEIGHT, new OrthographicCamera());
 
@@ -61,41 +66,36 @@ public class MainMenuScreen implements Screen {
         fontParameter.color = Color.WHITE;
         font = freeTypeFontGenerator.generateFont(fontParameter);
 
-        menuMusic = ComputerScienceRunner.assetManager.get("audio/music/menu.mp3", Music.class);
-        menuMusic.setLooping(true);
-
-
     }
 
     @Override
     public void show() {
+
         stage = new Stage(viewport, ComputerScienceRunner.batch);
 
         Gdx.input.setInputProcessor(stage);
 
         Table table = new Table();
-        table.center();
+        table.top();
         table.setFillParent(true);
 
-        Label computerScienceRunnerLabel  = new Label("COMPUTER SCIENCE RUNNER", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(computerScienceRunnerLabel).expandX();
+        Label optionsLabel  = new Label("Wähle Charakter", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
+        table.add(optionsLabel).expandX().top().padTop(10).colspan(2);
         table.row();
 
-        buttonSkin = new Skin(Gdx.files.internal("skins/button/glassy-ui.json"));
 
+        maleButton = new TextButton("Mann", blueSkin.get("small", TextButton.TextButtonStyle.class));
 
-        startButton = new TextButton("START", buttonSkin.get("small", TextButton.TextButtonStyle.class));
-
-        startButton.addListener(new InputListener() {
+        maleButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 
                 Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
-                final int selectedGender = prefs.getInteger("selectedGender", 0); //0 no gender selected, 1 male, 2 female
+                prefs.putInteger("selectedGender", 1); //1 is for male player
+                prefs.flush();
 
-                if(selectedGender == 0) {
-                    game.setGenderSelectionScreen();
-                    ComputerScienceRunner.genderSelectionScreen.setCallingScreen(ComputerScienceRunner.mainMenuScreen);
+                if(callingScreen == ComputerScienceRunner.optionsScreen) {
+                    game.setOptionsScreen();
                 } else {
                     game.setLevelSelectionScreen();
                 }
@@ -105,63 +105,60 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        table.add(startButton).expandX().padTop(10);
-        table.row();
+        femaleButton = new TextButton("Frau", blueSkin.get("small", TextButton.TextButtonStyle.class));
 
-
-        optionsButton = new TextButton("OPTIONEN", buttonSkin.get("small", TextButton.TextButtonStyle.class));
-        optionsButton.addListener(new InputListener() {
+        femaleButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setOptionsScreen();
+
+                Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+                prefs.putInteger("selectedGender", 2); //2 is for female player
+                prefs.flush();
+
+                if(callingScreen == ComputerScienceRunner.optionsScreen) {
+                    game.setOptionsScreen();
+                } else {
+                    game.setLevelSelectionScreen();
+                }
+
                 dispose();
                 return true;
             }
         });
 
-        table.add(optionsButton).expandX().padTop(10);
+        table.add(maleButton).left().top().padLeft(300).padTop(50).padRight(0);
+        table.add(femaleButton).right().top().padRight(300).padTop(50);
+
         table.row();
 
-        optionsButton = new TextButton("CREDITS", buttonSkin.get("small", TextButton.TextButtonStyle.class));
-        optionsButton.addListener(new InputListener() {
+        table.add(malePlayerImage).left().top().padLeft(330).padTop(10).padRight(0);
+        table.add(femalePlayerImage).right().top().padRight(330).padTop(10);
+
+
+        table.row();
+
+        backButton = new TextButton("Zur#ck", blueSkin.get("small", TextButton.TextButtonStyle.class));
+
+        backButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setCreditsScreen();
+
+                if(callingScreen == ComputerScienceRunner.optionsScreen) {
+                    game.setOptionsScreen();
+                } else {
+                    game.setMainMenuScreen();
+                }
+
                 dispose();
                 return true;
             }
         });
 
-        table.add(optionsButton).expandX().padTop(10);
-        table.row();
 
-
-
-        endButton = new TextButton("ENDE", buttonSkin.get("small", TextButton.TextButtonStyle.class));
-        endButton.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                dispose();
-                System.exit(0);
-                return true;
-            }
-        });
-
-
-        table.add(endButton).expandX().padTop(10);
-
-        table.row();
-
-        table.add(universityImage).right();
+        table.add(backButton).colspan(2).bottom().right().expandY().expandX().padBottom(20).padRight(50);
 
         stage.addActor(table);
 
-        if(ComputerScienceRunner.playScreen.getCurrentSemester() != 0) { //If music is playing from the PlayScreen stop it
-            Music levelMusic = ComputerScienceRunner.assetManager.get("audio/music/level" + ComputerScienceRunner.playScreen.getCurrentSemester() + ".mp3", Music.class);
-            levelMusic.stop();
-        }
-
-        menuMusic.play();
     }
 
     @Override
@@ -169,8 +166,6 @@ public class MainMenuScreen implements Screen {
 
         Gdx.gl.glClearColor(21.0f/255, 80.0f/255, 80.0f/255, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-
 
         stage.draw();
 
@@ -199,5 +194,13 @@ public class MainMenuScreen implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
+    }
+
+    public Screen getCallingScreen() {
+        return  callingScreen;
+    }
+
+    public void setCallingScreen(Screen callingScreen) {
+        this.callingScreen = callingScreen;
     }
 }
