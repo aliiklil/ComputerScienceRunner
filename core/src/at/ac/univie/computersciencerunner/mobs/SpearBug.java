@@ -59,7 +59,7 @@ public class SpearBug {
     private boolean destroyed;
 
     private long timestampThrowAnimationBegins;
-    private long durationBetweenThrows = 2000;
+    private long durationBetweenThrows = 2500; //2,5 sec between throws
 
     private boolean throwLeft; //True if player should throw spear to the left (because player is there)
     private boolean throwRight; //True if player should throw spear to the right (because player is there)
@@ -126,7 +126,7 @@ public class SpearBug {
 
 
         leftSensor = new PolygonShape();
-        leftSensor.setAsBox(-150 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(-200 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
+        leftSensor.setAsBox(-110 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(-130 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = leftSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;
@@ -139,7 +139,7 @@ public class SpearBug {
 
 
         rightSensor = new PolygonShape();
-        rightSensor.setAsBox(150 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(200 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
+        rightSensor.setAsBox(110 / ComputerScienceRunner.PPM, 10 / ComputerScienceRunner.PPM, new Vector2(130 / ComputerScienceRunner.PPM, 0 / ComputerScienceRunner.PPM), 0);
         fixtureDef.shape = rightSensor;
         fixtureDef.friction = 0;
         fixtureDef.isSensor = true;

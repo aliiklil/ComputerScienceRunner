@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="469">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="475">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
@@ -12,7 +12,7 @@
    <property name="Title" value="Willkommen"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztmstOwzAQRVNRWAALumRV+gktjz3lsYcC//8pOFIiWaPYHtvjeFLfI111kcYeP+bGTtx1AAAAAAAAAAAAAAAAoJNtwj078SgAmI8no2ejl9qBKGRdOwAAhNkMcvFu9GH0OU84Zw9nfbDpwuNSglr1xqI9vnPmx+jX6K92IAAMLNkPtkSa2BsdBj0mXG8ZrWO6BOx1SGv9t7akjVej46A3ozsiet2Hb1xvsiPVRz+eq67MuI4+PLcHw+Pahub7gSjGDy49166zI22Lsd9DfW4jsQ4t6XFS1PLKFqD5fiSK8QMfmvxA6/PP9tMUP+hz+ML6TeUh4945sPtmDm/QvN+XpgU/oOsWrXu3EfudTYm5HvP9uJ//vnVfDqnl2n7A9YarxLpGuHt+TptWljjEvjvNGa8W/IBDKEdojvqUm792n8f2O2feT30/5s5NDbj8IHbdsJRzNVN+UCp2CT/gPM+0+0HojAXNUZ9yfHOqrtzyKPT7ccyzSgMcP+B4Ax1zrWcvpuIpdSZIwg848/dWNGp5aI58GX0POnXpfnDPqDtm7VFKS3o3F+sHrncxvnM14/if5MMXwY6dGytnLqb6wc5Rhus7xVzSSCjXYrymlEJrkFy/2DP/x6mH+mcN7Di5bVsCqX6wcpThKqdlhXJNix/ktCEEt42cerT0l6Z4SvSt5H6hdts1CX4AP9CgFv3gHwhl4MY=
+   eJztmstOwzAQRVNRWAALumRV+gktjz3lsYcC//8pOFIiWaPYHtvjeFLfI12xCLXHY8+Nk7jrAAAAAAAAAAAAAAAAQCfbhN/sxKMAYD6ejJ6NXmoHopB17QAAEGYzyMW70YfR5zzhnD2c/cGmC89LCWr1G4v2+M6ZH6Nfo7/agQAwsGQ/2BJpYm90GPSYcL1ltM7pErD3Ia3lb21JG69Gx0FvRndE9LoP37zeZEeqj34+V12ZeR19eG4Phse1Da33A1GMH1x6rl1nR9oWY95DObeR2IeW9DgpanllC9B6PxLF+IEPTX6g9f5n+2mKH/Q1fGH9TeUh47dzYOdmDm/Q/LwvTQt+QPctWp/dRux3NiXWesz34379+/Z9OaS2a/sB1xuuEvsa4T7zc8a0ssQh9t1pzny14AccQjVCa9Sn3Pq1cx6bd866n/p+zF2bGnD5Qey+YSnnaqb8oFTsEn7AuZ9p94PQGQtaoz7l+OZUX7ntUej345h7lQY4fsDxBjrnWs9eTMVT6kyQhB9w1u+taNTy0Br5MvoedOrS/eCe0XfM3qOUlvRuLtYPXO9ifOdqxvk/yYcvgh07N1bOWkz1g52jDdd3irmkkVCtxXhNKYX2ILl+sWf+H6cf6p81sOPkjm0JpPrBytGGq52WFao1LX6QM4YQ3DFy+tGSL03xlMit5PNC7bFr0rn4AT2rFqMYP5Bqq3S+NMVTIrccP+DMT00/+Adq4eMm
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -189,6 +189,11 @@
  <objectgroup name="Spikes(+Lava)">
   <object id="240" x="2592" y="384" width="32" height="32"/>
   <object id="389" x="6784" y="288" width="128" height="32"/>
+  <object id="470" x="4960" y="608" width="64" height="32"/>
+  <object id="471" x="6400" y="608" width="256" height="32"/>
+  <object id="472" x="7040" y="608" width="160" height="32"/>
+  <object id="473" x="3616" y="608" width="256" height="32"/>
+  <object id="474" x="2784" y="608" width="480" height="32"/>
  </objectgroup>
  <objectgroup name="Trampoline">
   <object id="270" x="1152" y="512" width="32" height="32"/>

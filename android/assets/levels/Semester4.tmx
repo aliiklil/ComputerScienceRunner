@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="381">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="398">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztmU1OwzAQhSMVsoBuukTqJjfgCBweOEHhBByEWriqFRz/ztiT8fukp0iJ4kzG9svYmSYAAAAAAAAAAAAAAAAAAAAA/nNyNFu55zh5ZG4/h6V3AEAMyzTuePiJaBQ09X8LL5dGbv9pyU9ojm5dG2le75ER528pZ6s1kvzc9KWJZ7ZH9G0ac+8AIrxf9WH12TkW8MeDVW9Cc3zkOjvEIXBNWq58cVyu+rL6bhsOOWb8PvcOAlSDWqMNb55z3H7g1h8t6pAnxrZL9oZPU7u9ay1I2oMPcRvbmupqbj9w229Rh3D6QQmoqfVyG9vS6+ocfy31g9RnUPpB7Jnm+yvND4Be9uIHOXDUB741Qqs1A/zgzkvn+7Xj84O954zDD3w1QaxGoPoPU+MHKT6W62/LSjnUjK3aNQrXGsd9J458cxOLeU97Cb79LCl+QIF5v2PF/Slx575P7v6B5v+/6zxw5JubWMzUcdV4ZsynSv2AKibpkjA+U/qD4ttN9f2vaac01xr9YOsfVM2YjMVV6gdUMUmXRD94Vaza/uoBlx9s+SqnH/jW6PCDu34B+yPbEA==
+   eJztmVFOxSAQRTFqP9QP36eJP92BS3Dx6grUFbgQH5FGwqPAAANTuCe5adKm7RSGy0CVAgAAAAAAAAAAAAAAAAAAAOCSk6XFyD7HyS3z8ymsvQMAYljVvPnwE9EsjNT/LbxcGtT+G6V9QmN079pM4/qIzDh+c3k2cpHk57ovdTyLOaJv01h6BxDh7ax3o4/OsYA/box6ExrjM9fZIa4D16S1lS+Oz7O+jL7bhlMdnb/3vYMAxaDWaMOr5xy3H9j1R4s65I7x2Tl7wyfVbu96FCTtwYfYcnukuprbD+znt6hDOP0gB9TU47LltvS6muKvuX6Q+o6afhB7p55/pfkBGJej+AEFjvrAt0ZotWaAH/zz1Pn+0fH5wdHbjMMPfDVBrEao9R+mxA9SfIzqb6sjCiW5VbpG4Vrj2N/E0d7cxGI+0l6Cbz9Lih/UQH/fQ8H9KXFTv4e6fzDy/1+3HTjam5tYzLXjKvHMmE+l+MGjR7Viki4J+ZnizzXm7lrzf8lzctt6RD/Y+wdVkpNuXPaY3t6pnPNu/l15VCsm6ZLoBy8Dq7S/fHOXlp27oevU+9zxkjLuUmX7KuV9lPy0v0+zrdH3xvrsfvALdk3eKA==
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -35,6 +35,12 @@
   <object id="367" x="3488" y="256" width="32" height="32"/>
   <object id="368" x="3680" y="256" width="32" height="32"/>
   <object id="369" x="3264" y="256" width="32" height="32"/>
+  <object id="381" x="6304" y="576" width="160" height="64"/>
+  <object id="384" x="6080" y="608" width="96" height="32"/>
+  <object id="385" x="5888" y="608" width="96" height="32"/>
+  <object id="390" x="3904" y="608" width="64" height="32"/>
+  <object id="391" x="3648" y="608" width="96" height="32"/>
+  <object id="392" x="4096" y="608" width="96" height="32"/>
  </objectgroup>
  <objectgroup name="Bricks">
   <object id="375" x="4640" y="320" width="32" height="32"/>
@@ -187,6 +193,15 @@
  <objectgroup name="Spikes(+Lava)">
   <object id="280" x="1184" y="608" width="1760" height="32"/>
   <object id="343" x="6016" y="352" width="32" height="32"/>
+  <object id="382" x="6304" y="544" width="160" height="32"/>
+  <object id="386" x="5888" y="576" width="96" height="32"/>
+  <object id="387" x="6080" y="576" width="96" height="32"/>
+  <object id="388" x="4672" y="608" width="416" height="32"/>
+  <object id="389" x="5184" y="608" width="96" height="32"/>
+  <object id="393" x="4192" y="608" width="192" height="32"/>
+  <object id="394" x="3968" y="608" width="128" height="32"/>
+  <object id="395" x="3744" y="608" width="160" height="32"/>
+  <object id="397" x="3456" y="608" width="192" height="32"/>
  </objectgroup>
  <objectgroup name="Trampoline">
   <object id="219" x="1664" y="480" width="32" height="32"/>
