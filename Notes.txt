@@ -1,8 +1,9 @@
-.)Maybe add button in options which enables player to choose all levels from the start
-
 .)Maybe make sure that (δόφί&) works in the menues ingame
 
+.)Test game (Mechanics and texts and questions etc.)
+
 .)Write documentation
+--)Add questions
 --)Explain game in general (how many levels, collectables, questions etc.)
 --)Explain classes
 --)Write all info texts

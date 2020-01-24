@@ -39,6 +39,7 @@ public class OptionsScreen implements Screen {
 
     private TextButton deleteProgressButton;
     private TextButton selectGenderButton;
+    private TextButton unlockAllLevelsButton;
 
     public OptionsScreen(ComputerScienceRunner computerScienceRunner) {
 
@@ -115,6 +116,27 @@ public class OptionsScreen implements Screen {
         table.add(selectGenderButton).left().top().padLeft(10).padTop(50);
 
         table.row();
+
+
+
+
+        unlockAllLevelsButton = new TextButton("Alle Level freischalten",  blueSkin.get("small", TextButton.TextButtonStyle.class));
+
+        unlockAllLevelsButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+                prefs.putInteger("highestCompletedSemester",10);
+                prefs.flush();
+                return true;
+            }
+        });
+
+        table.add(unlockAllLevelsButton).left().top().padLeft(10).padTop(50);
+
+        table.row();
+
+
 
 
         backButton = new TextButton("Zur#ck", blueSkin.get("small", TextButton.TextButtonStyle.class));
