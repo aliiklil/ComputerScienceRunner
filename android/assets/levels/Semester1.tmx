@@ -79,10 +79,6 @@
  </objectgroup>
  <objectgroup name="HeartBricks"/>
  <objectgroup name="InfoBricks" opacity="0.88">
-  <properties>
-   <property name="Description" value="Bei Informationskacheln findest du nützliche Informationen zum Spiel und zum Studienplan. Versuch möglichst viele ECTS zu sammeln um in deinem Studium voranzukommen."/>
-   <property name="Title" value="Willkommen"/>
-  </properties>
   <object id="206" x="160" y="416" width="32" height="32">
    <properties>
     <property name="Description" value="Hier kannst du spielerisch den Studienplan für den Bachelor und Master in Informatik durchspielen. Bei solchen Infokacheln findest du immer nützliche Informationen. Pass gut auf, denn am Ende jedes Semesters bzw. Levels musst du 3 Fragen beantworten. Viel Spaß beim Spielen!"/>
