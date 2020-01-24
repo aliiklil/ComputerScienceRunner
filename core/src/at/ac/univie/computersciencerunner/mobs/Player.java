@@ -327,7 +327,7 @@ public class Player {
 
     public void handleKeyboardInput(float dt) {
 
-        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))) {
             ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
             ComputerScienceRunner.playScreen.getInfoWidget().setTitleAndDescription("Error Title", "Error Description"); //To see ingame if a bug happened
             ComputerScienceRunner.playScreen.resume();
@@ -338,7 +338,6 @@ public class Player {
         if(!Gdx.input.isKeyPressed(Input.Keys.UP)) {
             upKeyReleased = true;
         }
-
 
         if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
 
@@ -453,6 +452,7 @@ public class Player {
 
     }
 
+    /*
     public void handleSmartphoneInput(float dt) {
 
         smartphoneController = ComputerScienceRunner.playScreen.getSmartphoneController();
@@ -585,6 +585,7 @@ public class Player {
         }
 
     }
+     */
 
     public void draw() {
 

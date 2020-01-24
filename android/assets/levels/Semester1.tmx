@@ -12,7 +12,7 @@
    <property name="Title" value="Willkommen"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztmstOwzAQRVNRWAALumRV+gktjz3lsYcC//8pOFIijUaJPX5P6nukKxah9vgxN5PEXQcAAAAAAAAAAAAAACjJZhBwsw34zS55FACU48no2eildiAKWdcOAIDCvBt9GH3WDuRMkNQHm65OnVarX1+0x3fO/Bj9Gv3VDgSAgSX7wZZJE3ujw6DHgOsto3VNlwCtQ1qbvzWRNl6NjoPejO6Y+HUbtnW9iY5UH/16rro86zr6cGkPhse1Dc/3A5OPH1xarl1HR9oW47y75pySog7N6XGpqOWVLcDz/cjk4wc2NPmB1vsf9dMQP+hz+IL8DeUh4rcloHNTwhs0P++npgU/4HWL1me3EfrOJsde9/l+3O9/W90XQ2i71A+k3nAV2NeI9JlfMqYVkQTfd6cx69WCH0hw5QjPUZti85fOue+8S/b91Pdj6d7UwJwf+NYNSzlXM+UHuWJP4QeS+5l2P3CdseA5alOMb071Fdseh38/9rlXaUDiBxJv4Guu9ezFVDy5zgSl8APJ/r1NGnV6eI58GX0POnXhfnAv6Nun9silJb2b8/WDuXcxtnM14/qf0oefBBq7NFbJXgz1g91MG3PfKUpJI65c8/GaXHLVILF+sRf+n6Qf7p81oHFKx7YEQv1gNdPGXDsty5VrWvwgZgwupGOU9KNlvjTFk2NuUz4v1B67JsEP4Aca1KIf/AMalODG
+   eJztmstOwzAQRVNRWAALumRV+gktjz3lsYcC//8pOFIiWaPYHtvjeFLfI111kcYeP+bGTtx1AAAAAAAAAAAAAAAAoJNtwj078SgAmI8no2ejl9qBKGRdOwAAhNkMcvFu9GH0OU84Zw9nfbDpwuNSglr1xqI9vnPmx+jX6K92IAAMLNkPtkSa2BsdBj0mXG8ZrWO6BOx1SGv9t7akjVej46A3ozsiet2Hb1xvsiPVRz+eq67MuI4+PLcHw+Pahub7gSjGDy49166zI22Lsd9DfW4jsQ4t6XFS1PLKFqD5fiSK8QMfmvxA6/PP9tMUP+hz+ML6TeUh4945sPtmDm/QvN+XpgU/oOsWrXu3EfudTYm5HvP9uJ//vnVfDqnl2n7A9YarxLpGuHt+TptWljjEvjvNGa8W/IBDKEdojvqUm792n8f2O2feT30/5s5NDbj8IHbdsJRzNVN+UCp2CT/gPM+0+0HojAXNUZ9yfHOqrtzyKPT7ccyzSgMcP+B4Ax1zrWcvpuIpdSZIwg848/dWNGp5aI58GX0POnXpfnDPqDtm7VFKS3o3F+sHrncxvnM14/if5MMXwY6dGytnLqb6wc5Rhus7xVzSSCjXYrymlEJrkFy/2DP/x6mH+mcN7Di5bVsCqX6wcpThKqdlhXJNix/ktCEEt42cerT0l6Z4SvSt5H6hdts1CX4AP9CgFv3gHwhl4MY=
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -54,8 +54,8 @@
   <object id="324" x="2560" y="224" width="32" height="32"/>
   <object id="325" x="2592" y="224" width="32" height="32"/>
   <object id="326" x="2624" y="224" width="32" height="32"/>
-  <object id="400" x="6848" y="128" width="32" height="32"/>
-  <object id="401" x="6816" y="128" width="32" height="32"/>
+  <object id="400" x="6720" y="192" width="32" height="32"/>
+  <object id="401" x="6688" y="192" width="32" height="32"/>
   <object id="406" x="3392" y="288" width="32" height="32"/>
   <object id="407" x="3424" y="288" width="32" height="32"/>
   <object id="408" x="3456" y="288" width="32" height="32"/>
@@ -85,7 +85,7 @@
   </properties>
   <object id="206" x="160" y="416" width="32" height="32">
    <properties>
-    <property name="Description" value="Hier kannst du spielerisch den Studienplan für den Bachelor und Master in Informatik durchspielen. Bei solchen Infokacheln findest du immer nützliche Informationen. Pass gut auf, denn am Ende jedes Semesters bzw. Levels, musst du 3 Fragen beantworten. Viel Spaß beim Spielen!"/>
+    <property name="Description" value="Hier kannst du spielerisch den Studienplan für den Bachelor und Master in Informatik durchspielen. Bei solchen Infokacheln findest du immer nützliche Informationen. Pass gut auf, denn am Ende jedes Semesters bzw. Levels musst du 3 Fragen beantworten. Viel Spaß beim Spielen!"/>
     <property name="Title" value="Herzlich Willkommen zu ComputerScienceRunner"/>
    </properties>
   </object>

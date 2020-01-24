@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="359">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="360">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztm0FOwzAQRVO1bIAFXbJAgrsBJwBOAOyBExROAL0gRjRSNLIdj/3jcZr/pC+hQp2xPf72uKXrCCGEEEIIIYQQQgghZJlcHYRsT8sJ8PmEkHy2ByHbI0TDjVJzArnXzhH6QR4XQlPSWo4esx9sQO20NmepaP1gNVArWIz9qqs3Fq3VZ7LvY1oiKF8Zo8Z+NDcs1su10JJBnAVC+9JZQZvHzJvTu9CHaUTzI3QX63sdfW9L4oT84LRqFGkgc+PW6c7pXvm+ndOn0BcopiWw7v7PcJvDz7HXQ39rxbfTj9PeOpAA64FysfYDud/G9to+NxA8OD06PSnfdwx+kOuFLYGui2P3NzXPhNZ1fqjmq+UHcn3JtaXN3dQa9tnpxem10/k+0g+s1mWuF8aYy71VaN3H/GDKPaA1b7Y+H4z5ASJ3ff7uU4rnI3NjinUp8XldrhdOHVcNcj7XndIPauSABgs/GObCmB8MczcX33z6lDLHqbmRku/Dvl0mPFvD37ym+mCqSs/IJfFY3NmOxZsTk8yLlPyu+blNyA/Owc9B5qZ2Hmr7QU5f+z7J79fkaqvod6pK98SSeCzuaMbiRcy7JrfRtQV6v9CoRl72/ZNjWtsPcvK+bwOVU/SDcrR+gBjvWD/RtQU6P6wUGrNd4Pdz8gNUTi3dDxD/X9KaH8jawleTxupOOR70g/Kcm4sfrEBtaccnRi0/QH1P19oPUOf5UA1i6Qe/yfAoMQ==
+   eJztm0FOwzAQRVO1sAAWdMkCCe4GnAA4AbAHTlA4AXBBjGikaGQ7HvvHEzf/SV9CpXXH9vjb47ZdRwghhBBCCCGEEEIIIcvkci9ke1qOgO9PCMlnuxeyPUI0XCvVEsi9tkXoB3mcC03J3HL0kP1gA2pnbnOWitYPVgPNBYuxX3X1xmJu9Zns+5iWCMpXxqixH7WGxXq5EloyiLNAaF86LWjzkHl1ehN6N42oPUJ3sb7H0fe2JE7ID06qRpEGMjdunG6d7pSv2zl9CH2CYmqd44TnrLv/M9xm/3fs8dBzrfhy+nb6sQ4kwHqgXKz9QO63sb22zw0E904PTo/K1x2CH+R64ZxA18Wx+5uaZ0LrOj9U89XyA7m+5NrS5m5qDfvk9Oz00ul8H+kHVusy1wtjtHJvFVr3MT+Ycg+Ymzdbnw/G/ACRuz5/9ynF85G5McW6lPi8LtcLp46rBjmf607pBzVyQIOFHwxzYcwPhrmbi28+fUqZ49TcSMn3Yd8uEt5bw9+8pvpgqkrPyCXxWNzZjsWbE5PMi5T8rvm5TcgPzsDvg8xN7TzU9oOcvvZ9kt+vydVW0e9Ule6JJfFY3NGMxYuYd01uo2sL9H6hUY287Psnx7S2H+Tkfd8GKqfoB+Vo/QAx3rF+omsLdH5YKTRmu8D/W/IDVE4t3Q8Qvy+Zmx/I2sJXk8bqTjke9IPynGvFD1agtrTjE6OWH6C+p2vtB6jzfKgGsfSDX5oHKDc=
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -78,7 +78,9 @@
   <object id="261" x="832" y="288" width="32" height="32"/>
   <object id="277" x="256" y="256" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Hearts"/>
+ <objectgroup name="Hearts">
+  <object id="359" x="3872" y="352" width="32" height="32"/>
+ </objectgroup>
  <objectgroup name="HeartBricks"/>
  <objectgroup name="InfoBricks">
   <object id="203" x="832" y="416" width="32" height="32">
@@ -194,8 +196,6 @@
   <object id="283" x="6592" y="352" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="SpearBug">
-  <object id="209" x="3488" y="448" width="32" height="32"/>
-  <object id="213" x="3424" y="448" width="32" height="32"/>
   <object id="214" x="3552" y="448" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes(+Lava)">

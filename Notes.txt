@@ -1,6 +1,10 @@
-.)Maybe make sure that (δόφί&) works in the menues ingame
-
 .)Test game (Mechanics and texts and questions etc.)
+
+.)Maybe make it so spikes dont damage from the sides
+
+.)Make range of spearBugs smaller
+
+.)Remove debug lines of box2d
 
 .)Write documentation
 --)Add questions

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="574">
+<map version="1.0" tiledversion="2017.12.07" orientation="orthogonal" renderorder="right-down" width="260" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="575">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer name="Background" width="260" height="20">
   <data encoding="base64" compression="zlib">
@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztmk1OwzAQhY1UugAWzZJdOEkPwhE4JbAAlsACuA2xVEuR5Rk/j//yM0/6lKaNHXtm/OIgrowxV4qiKIqiKDsFUe8xKorSBkS9x6goShsQ9R6joihtQNR7jIqi1KOFes9xS1AaE+k9bvQ3pRyjB5Inq2HieDmWkD+OEKX7WwpUjKX9lVLrGrQaDF1T899cm1ZjXDPzeKWK6o+7TpWn2jE8XkjV2IgcUd7C0Xt99vADqfzYjZFrVfkaK/f/PPFa+R69NBqsVrk2pWm5XudC+x8ajGUNOkfOl6BS719zfU58V+h367oVtkv1g1J1qH6QpkPkvKWodV8jJz394AywVN0I28Xmde2dI3V4Jo5zqR+sV5LYS/cOS9kfHExbD87da0n9oIYO3jGkPfuBfSd+MeXfi0+J5yWE1q00Xz394MHjGPguV0j8Ytf4z2yrJfkBoj37ga3xL4PX+cAwlx+T2HkJ1c7D1v2glrbqBy3+ttlSbm/gQPYIfpuUtmuX+gG/r/PH45D6AVVrHFQdcn35bfbqB25v4EBq3W+T0pbT28Q7wAfYn/R/Bazuie9DfuDvjU7Mb1IhsUHjwgmpY+4ayg/uhOOhao3D5ucxANeXtHZRP4j5Ws1nKbqupLXF+UEoDyg/E78Af2AcUJ8O5YrKT8gP/Pv4n915Tk0gsUHjUkuSZ3kMqR88BSjpB+55gfpBbB4195zouorVFrVuOT8I5QGlxNgkhOZD5cf5Qan7oDWxBj+QrN0YLf3A5ihlj2qv5/wgNfcla1rynI3VFrVul+AHOfdB5sPtOaXzzKkJ1A9q1VQJv5PwD3eM3dA=
+   eJztmk1OwzAQhYNUugAWzZJdOEkPwhE4JbAAlsACuA2xVEuR5Rk/T8Z2fuZJn1I3sWN7xi9O1auu664MwzAMwzB2CqLWfTQMow6IWvfRMIw6IGrdR8Mw6oCodR8NwyhHDbUe45agNGTSut/oOUOPIQCJk1M/crwcNRT2I4Z2e0uBmmPpuLRUOwed+o7Oqek5X6fmWlkr0/nKFdUed51pnkrP4fFCroZKzBHlLRyt12cLP5AqnLshca1pvobC7T+PvBa+RysNHZarXB1taq7XqdD2+wp9WYPOifISpPX+NdXnyHeBdreuW2G9XD/QykPzgzwdEuWaotZ9iZi09IMzwFJ1I6yXGtd1UEby8EwcpzI/WK8kcy/dOyxlf3Do2npwrqR+UEKH4BjTnv3AvRO/dPrvxafMsobQdS6NV0s/eAg4Rr6bK413rPCZ7bQkP0C0Zz9wOf7V4XneM0wVzkmqrKHScdi6H5TSVv2gxm+bNeX3Bh5kjxDWyam7dpkf8Pu6sD8eqR9QucZB5SHXVlhnr37g9wYeJNfDOjl1Ob2NvAN8gO1J/yvgdE98H/ODcG90Ys5JhcwNOi+ckDzmrqH84E7YHyrXOFx8HiNwbUlzF/WDlK+VfJai60qaW5wfxOKA8jPyC/AHzgPq07FYUfGJ+UF4n/CzL8/JCWRu0HkpJcmzPIXUD54iaPqBf16gfpAaR8k9J7quUrlFrVvOD2JxQNHom4TYeKj4eD/Qug+aE2vwA8naTVHTD1yMcvao7nrOD3Jjr5nTkudsKreodbsEP5hzH2Q83J5TOs45OYH6Qamc0vA7Cf9ei90O
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -97,8 +97,6 @@
   <object id="391" x="6976" y="224" width="32" height="32"/>
   <object id="392" x="7008" y="224" width="32" height="32"/>
   <object id="393" x="7168" y="416" width="32" height="32"/>
-  <object id="394" x="7360" y="384" width="32" height="32"/>
-  <object id="395" x="7456" y="416" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="ECTSBricks">
   <object id="222" x="384" y="384" width="32" height="32"/>
@@ -258,8 +256,8 @@
   <object id="537" x="3168" y="576" width="192" height="64"/>
   <object id="540" x="1984" y="288" width="32" height="32"/>
   <object id="559" x="4608" y="288" width="32" height="32"/>
-  <object id="562" x="4800" y="224" width="448" height="32"/>
   <object id="567" x="6144" y="608" width="192" height="32"/>
+  <object id="574" x="4960" y="224" width="288" height="32"/>
  </objectgroup>
  <objectgroup name="Trampoline">
   <object id="209" x="1216" y="576" width="32" height="32"/>

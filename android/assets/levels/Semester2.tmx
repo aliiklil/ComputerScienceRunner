@@ -8,7 +8,7 @@
  </layer>
  <layer name="Graphics" width="260" height="20">
   <data encoding="base64" compression="zlib">
-   eJztmktOAzEMhgdR2AHqks1IvQE74ATACYAlcALgBMAVCiconJPMIlIwcRLbeczDn/SrUqvOOInzO8lM1ymKoiiKoiiKoiiKooTpWwcwM7Q/lSkztvxdtw5AyNj6c27Uyo8NohwsJUd6R0tlyW2fE2tEOVgJ/nuQKYZWTL3eY+SqFYqf3DWZyh6i1pSeT1rPeKTm6YPRo0dPheJqja9+nXn0ZvRu9JF43X2PlkiKHxwLri9Zu3A4N7owuvT8tjX6NPqqGlEYrP9T/eDZ6MWjV3lok8COaUilxhvW8zHU9wFJDY75wZCXR4Lr12QYjyuja6Mb8BvMm7F4gnR9xvUDzj6xD6gVO6PviH6Y17Zrr6mttSQ1eOx+AOML5bHdg90Z3TvfYzVkDJ7Qyg84DGvoFfLZipJ+YPt2Tmst6TmF1A9q1Y6UdWPt9WQNWu8XQvszDtAfsfMRW7dr+UHtc2tJvx5mjsVF6ge1zg9S8kKSL0M+bMAnhVzPceBYt/YDbH/mIyVPYb9i7bNtpPoBZZ6VWB+k5gGlX2tSar+Qu66U9gMuudsJofoB9xwFO6+/7f7vzySU9gPKPGu5X+D2a+jMAz6D8XEauf7gByfEmFKg+h9cN9r22nP4mn5AeZZV2uepfgD7yW27ZM9Vai+W2w8o8wz6Qax/cuw7pWddbswlxlMqDDgusTkG88KOUWk/kOZA7voJifkBfO8t5AeSPiy19srlB5x5Bv0gdi9fW6nvQWD3gNfG3mFyYy4xnlJxPQqOUys/SMkBShtzn13G/GAL7rlUP0idZ757c/2A824EJ04s5tZz3ydujsH2Y35g/bGlH1DunfusIuYHuy4859UP/uLun6V+wHn2oX6Q1n7MD2L9KM1Z9QOZpuYH7vp76n4wxv3CL3vFksQ=
+   eJztmktOAzEMhgdR2AHqks1IvQE74ATACYAlcALgBMAVCiconJPMIlIwcRLbeczDn/SrUqvOOInzO8lM1ymKoiiKoiiKoiiKooTpWwcwM7Q/lSkztvxdtw5AyNj6c27Uyo8NohwsJUd6R0tlyW2fE2tEOVgJ/nuQKYZWTL3eY+SqFYqf3DWZyh6i1pSeT1rPeKTm6YPRo0dPheJqja9+nXn0ZvRu9EG8/r4ouumT4gfHgutL1i4czo0ujC49v22NPo2+qkYUBuv/VD94Nnrx6FUe2iSwYxpSqfGG9XwM9X1AUoNjfjDk5ZHg+jUZxuPK6NroBvwG82YsniBdn3H9gLNP7ANqxc7oO6If5rXt2mtqay1JDR67H8D4Qnls92B3RvfO91gNGYMntPIDDsNaeoV8tqKkH9i+ndNaS3pOIfWDWrUjZd1Yez1Zg9b7hdD+jAP0R+x8xNbtWn5Q+9xa0q+HmWNxkfpBrfODlLyQ5MuQDxvwSSHXcxw41q39ANuf+UjJU9ivWPtsG6l+QJlnJdYHqXlA6dealNov5K4rpf2AS+52Qqh+wD1Hwc7rb7v/+zMJpf2AMs9a7he4/Ro684DPYHycRq4/+MEJMaYUqP4H1422vfYcvqYfUJ5llfZ5qh/AfnLbLtlzldqL5fYDyjyDfhDrnxz7TulZlxtzifGUCgOOS2yOwbywY1TaD6Q5kLt+QmJ+AN97C/mBpA9Lrb1y+QFnnkE/iN3L11bqexDYPeC1sXeY3JhLjKdUXI+C49TKD1JygNLG3GeXMT/Ygnsu1Q9S55nv3lw/4LwbwYkTi7n13PeJm2Ow/ZgfWH9s6QeUe+c+q4j5wa4Lz3n1g7+4+2epH3CefagfpLUf84NYP0pzVv1Apqn5gbv+nrofjHG/8AtS55K4
   </data>
  </layer>
  <objectgroup name="Ground">
@@ -46,11 +46,7 @@
   <object id="215" x="3808" y="352" width="32" height="32"/>
   <object id="216" x="3744" y="352" width="32" height="32"/>
   <object id="217" x="3680" y="352" width="32" height="32"/>
-  <object id="221" x="5568" y="256" width="32" height="32"/>
-  <object id="223" x="5440" y="256" width="32" height="32"/>
-  <object id="224" x="5472" y="256" width="32" height="32"/>
   <object id="225" x="5504" y="256" width="32" height="32"/>
-  <object id="226" x="5536" y="256" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="ECTS">
   <object id="24" x="512" y="352" width="32" height="32"/>
@@ -175,7 +171,7 @@
     <property name="Question0Answer3" value="UML, ER, BPMN usw."/>
     <property name="Question0RightAnswer" value="3"/>
     <property name="Question1" value="Welches Thema steht in Mathematische Grundlagen der Informatik 2 im Fokus?"/>
-    <property name="Question1Answer0" value="Ein- und mehrdimensionalen Analysis"/>
+    <property name="Question1Answer0" value="Ein- und mehrdimensionale Analysis"/>
     <property name="Question1Answer1" value="Java-Programmierung"/>
     <property name="Question1Answer2" value="Statistik"/>
     <property name="Question1Answer3" value="Simulation und Optimierung"/>
@@ -203,9 +199,7 @@
  <objectgroup name="FlyingBug">
   <object id="153" x="6784" y="448" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="SpearBug">
-  <object id="97" x="3808" y="448" width="32" height="32"/>
- </objectgroup>
+ <objectgroup name="SpearBug"/>
  <objectgroup name="Spikes(+Lava)">
   <object id="109" x="4896" y="256" width="160" height="32"/>
   <object id="189" x="7264" y="448" width="128" height="32"/>

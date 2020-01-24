@@ -72,18 +72,15 @@ public class InfoWidget implements Disposable {
 
 
         titleLabel = new Label("Title", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
-        table.add(titleLabel).padTop(-250);
+        table.add(titleLabel).padTop(-210);
 
         table.row();
 
 
         descriptionLabel = new Label("Description", new Label.LabelStyle(font, Color.WHITE));
         descriptionLabel.setWrap(true);
+        table.add(descriptionLabel).width(550f).padTop(-75);
 
-
-
-
-        table.add(descriptionLabel).width(550f).padTop(-100);
         stage.addActor(table);
 
     }
