@@ -454,7 +454,7 @@ public class PlayScreen implements Screen {
 
         customOrthogonalTiledMapRenderer.render();
 
-        b2dr.render(world, camera.combined);
+        //b2dr.render(world, camera.combined); //Remove the comment to display the lines of box2d for debugging
 
         ComputerScienceRunner.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
