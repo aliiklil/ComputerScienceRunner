@@ -1,5 +1,3 @@
-.)Remove debug lines of box2d
-
 .)Write documentation
 --)Add questions
 --)Explain game in general (how many levels, collectables, questions etc.)

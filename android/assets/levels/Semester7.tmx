@@ -235,7 +235,7 @@
     <property name="Question2Answer0" value="BPMN"/>
     <property name="Question2Answer1" value="R"/>
     <property name="Question2Answer2" value="C--"/>
-    <property name="Question2Answer3" value="Jawa"/>
+    <property name="Question2Answer3" value="Java"/>
     <property name="Question2RightAnswer" value="0"/>
    </properties>
   </object>
