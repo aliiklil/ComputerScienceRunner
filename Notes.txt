@@ -1,23 +1,24 @@
-.)Create all questions
-
 .)Maybe add button in options which enables player to choose all levels from the start
 
 .)Maybe make sure that (δόφί&) works in the menues ingame
 
-.)Create icon for game
-
-.)Clean source code
+.)Write documentation
+--)Explain game in general (how many levels, collectables, questions etc.)
+--)Explain classes
+--)Write all info texts
+--)Write all questions
+--)Explain Tiled (especially all the different layers)
 
 .)Create exe
 
-.)Write documentation
+.)Create icon for game
 
 .)Upload project to GitHub
 
 Important notes:
 .)If in Graphics Layer a tile is empty and one tries to access it in the code, you get NullPointerException
 
-.)For the buttonSkins (only if default size not small size), one can use  
+.)For the buttonSkins, one can use  
 
 
 # for ό     and     % for ά
