@@ -10,7 +10,6 @@ It has 10 levels in total, each level representing one semester. There are alway
 
 ## Download Link
 [ComputerScienceRunner.exe](http://www.iklil.at/computersciencerunner/ComputerScienceRunner.exe)
-
 [ComputerScienceRunner.jar](http://www.iklil.at/computersciencerunner/ComputerScienceRunner.jar)
 
 ## Controls
