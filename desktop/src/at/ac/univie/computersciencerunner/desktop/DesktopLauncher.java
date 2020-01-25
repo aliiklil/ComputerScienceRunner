@@ -1,5 +1,7 @@
 package at.ac.univie.computersciencerunner.desktop;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import at.ac.univie.computersciencerunner.ComputerScienceRunner;
@@ -7,8 +9,10 @@ import at.ac.univie.computersciencerunner.ComputerScienceRunner;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.width = 2340;
-		config.height = 1080;
+
+		config.width = 1280;
+		config.height = 720;
+		config.fullscreen = false;
 		new LwjglApplication(new ComputerScienceRunner(), config);
 	}
 }

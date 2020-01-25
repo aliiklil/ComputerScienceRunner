@@ -3,6 +3,7 @@ package at.ac.univie.computersciencerunner;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -59,6 +60,19 @@ public class ComputerScienceRunner extends Game {
 
 	@Override
 	public void create () {
+
+
+		Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+		final boolean fullscreen = prefs.getBoolean("fullscreen", false);
+
+		if(fullscreen) {
+			Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+		} else {
+			Gdx.graphics.setWindowedMode(1280, 720);
+		}
+
+
+
 
 		batch = new SpriteBatch();
 

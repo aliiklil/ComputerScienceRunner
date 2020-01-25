@@ -327,7 +327,7 @@ public class Player {
 
     public void handleKeyboardInput(float dt) {
 
-        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))) {
+        if(ComputerScienceRunner.playScreen.getInfoWidget().isCurrentlyDisplayed() && (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE))) {
             ComputerScienceRunner.playScreen.getInfoWidget().setCurrentlyDisplayed(false);
             ComputerScienceRunner.playScreen.getInfoWidget().setTitleAndDescription("Error Title", "Error Description"); //To see ingame if a bug happened
             ComputerScienceRunner.playScreen.resume();
@@ -341,7 +341,7 @@ public class Player {
 
         if(!ComputerScienceRunner.playScreen.isPaused() && currentAnimation != deathAnimation) {
 
-            if (upKeyReleased && Gdx.input.isKeyPressed(Input.Keys.UP) && !brickDestroyed && !jumping) {
+            if (upKeyReleased && (Gdx.input.isKeyPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) && !brickDestroyed && !jumping) {
                 if (grounded || System.currentTimeMillis() - timestampUngrounded < durationJumpPossible) {
                     body.setLinearVelocity(body.getLinearVelocity().x, 0);
                     body.applyLinearImpulse(new Vector2(0, 5.5f), body.getWorldCenter(), true);

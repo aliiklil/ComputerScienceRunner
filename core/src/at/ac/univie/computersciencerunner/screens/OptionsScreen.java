@@ -1,6 +1,7 @@
 package at.ac.univie.computersciencerunner.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -40,6 +41,7 @@ public class OptionsScreen implements Screen {
     private TextButton deleteProgressButton;
     private TextButton selectGenderButton;
     private TextButton unlockAllLevelsButton;
+    private TextButton toggleFullscreenButton; //For changing betweend windowed and fullscreen
 
     public OptionsScreen(ComputerScienceRunner computerScienceRunner) {
 
@@ -97,7 +99,7 @@ public class OptionsScreen implements Screen {
             }
         });
 
-        table.add(deleteProgressButton).left().top().padLeft(10).padTop(50);
+        table.add(deleteProgressButton).left().top().padLeft(10).padTop(10);
 
         table.row();
 
@@ -113,7 +115,7 @@ public class OptionsScreen implements Screen {
             }
         });
 
-        table.add(selectGenderButton).left().top().padLeft(10).padTop(50);
+        table.add(selectGenderButton).left().top().padLeft(10).padTop(10);
 
         table.row();
 
@@ -132,7 +134,65 @@ public class OptionsScreen implements Screen {
             }
         });
 
-        table.add(unlockAllLevelsButton).left().top().padLeft(10).padTop(50);
+        table.add(unlockAllLevelsButton).left().top().padLeft(10).padTop(10);
+
+        table.row();
+
+
+
+
+        Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+        final boolean fullscreen = prefs.getBoolean("fullscreen", false);
+
+        String fullscreenButtonText = "";
+
+        if(fullscreen) {
+            fullscreenButtonText = "Fenstermodus";
+        } else {
+            fullscreenButtonText = "Vollbildmodus";
+        }
+
+        toggleFullscreenButton = new TextButton(fullscreenButtonText,  blueSkin.get("small", TextButton.TextButtonStyle.class));
+
+        toggleFullscreenButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+
+                if(fullscreen) {
+
+                    Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+                    prefs.putBoolean("fullscreen", false);
+                    prefs.flush();
+
+                    toggleFullscreenButton.setText("Vollbildmodus");
+
+                    Gdx.graphics.setWindowedMode(1280, 720);
+
+                    dispose();
+                    game.setOptionsScreen();
+                    return true;
+
+                } else {
+
+                    Preferences prefs = Gdx.app.getPreferences("ComputerScienceRunnerPrefs");
+                    prefs.putBoolean("fullscreen", true);
+                    prefs.flush();
+
+                    toggleFullscreenButton.setText("Fenstermodus");
+
+
+                    Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+
+
+                    dispose();
+                    game.setOptionsScreen();
+                    return true;
+
+                }
+            }
+        });
+
+        table.add(toggleFullscreenButton).left().top().padLeft(10).padTop(10);
 
         table.row();
 
