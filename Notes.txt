@@ -1,3 +1,6 @@
+gradlew desktop:dist
+
+
 .)Create exe
 
 .)Create icon for game
@@ -6,7 +9,7 @@
 
 Important notes:
 .)If in Graphics Layer a tile is empty and one tries to access it in the code, you get NullPointerException
-
+ 
 .)For the buttonSkins, one can use  
 
 

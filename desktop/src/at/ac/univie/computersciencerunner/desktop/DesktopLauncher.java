@@ -1,5 +1,6 @@
 package at.ac.univie.computersciencerunner.desktop;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -13,6 +14,9 @@ public class DesktopLauncher {
 		config.width = 1280;
 		config.height = 720;
 		config.fullscreen = false;
+
+		config.addIcon("icon.png", Files.FileType.Internal);
+
 		new LwjglApplication(new ComputerScienceRunner(), config);
 	}
 }
