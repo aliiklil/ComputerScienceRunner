@@ -1,3 +1,5 @@
+.)Make game fullscreen or change resolution
+
 .)Create exe
 
 .)Create icon for game
