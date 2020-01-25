@@ -78,8 +78,6 @@ public class CreditsScreen implements Screen {
         table.padLeft(70);
         table.setFillParent(true);
 
-
-
         Label developerLabel  = new Label("Entwickler: Ali Iklil", new Label.LabelStyle(font, new Color(150f/255, 220f/255, 255f/255, 1)));
         table.add(developerLabel).expandX().top().padTop(10).colspan(2).padLeft(80);
         table.row();
