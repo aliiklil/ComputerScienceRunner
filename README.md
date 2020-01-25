@@ -8,8 +8,9 @@ ComputerScienceRunner is a Jump 'n' Run game, that I have made for a university 
 The goal of the game is to learn more about the curriculum of the Bachelor and Master in Computer Science.
 It has 10 levels in total, each level representing one semester. There are always three questions at the end of each level.
 
-## How to play it
-Just download ComputerScienceRunner.jar or ComputerScienceRunner.exe and run it.
+## Download Link
+[ComputerScienceRunner.exe](http://www.iklil.at/computersciencerunner/ComputerScienceRunner.exe)
+[ComputerScienceRunner.jar](http://www.iklil.at/computersciencerunner/ComputerScienceRunner.jar)
 
 ## Controls
 - Moving: Arrow Left, Arrow Right
