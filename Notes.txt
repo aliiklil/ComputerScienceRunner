@@ -1,9 +1,3 @@
-.)Write documentation
---)Explain game in general (how many levels, collectables, questions etc.)
---)Explain game from technical perspective
---)Explain classes
---)Explain Tiled (especially all the different layers)
-
 .)Create exe
 
 .)Create icon for game
