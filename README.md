@@ -1,7 +1,7 @@
 # ComputerScienceRunner
 Jump 'n' Run Game for a university project
 
-[![ComputerScienceRunner YouTube Video](https://img.youtube.com/vi/l2mXcwDY7Qc/0.jpg)](https://www.youtube.com/watch?v=IOJtB0WhDps)
+[![ComputerScienceRunner YouTube Video](https://img.youtube.com/vi/IOJtB0WhDps/0.jpg)](https://www.youtube.com/watch?v=IOJtB0WhDps)
 
 ## Description
 ComputerScienceRunner is a Jump 'n' Run game, that I have made for a university project.
